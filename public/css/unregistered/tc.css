@@ -1,0 +1,49 @@
+
+.faq {
+    background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0px;
+}
+
+.for_manage_height {
+    height: 10vh;
+}
+
+.question_and_answers-faq {
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 80vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.question_and_answers-faq ol {
+    width: 85%;
+    text-align: justify;
+    margin: auto;
+    max-height: 65vh;
+}
+.question_and_answers-faq h1 {
+    margin: auto;
+}
+
+.question_and_answers-faq h2 {
+    margin: auto;
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+}
+
+.question_and_answers-faq p {
+    line-height: 1.5rem;
+    margin-top: 0;
+}
+
+.copywright {
+    font-weight: bold;
+    display: block;
+    margin: auto;
+}

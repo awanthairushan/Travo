@@ -1,0 +1,173 @@
+body{
+    font-family: sans-serif;
+    margin:0px;
+}
+
+.uppersection{
+    background-image: url("../../images/background_Images/travelerbg.jpg");
+    height: 100vh;
+    /* opacity: 90%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.trip{
+    /* used to center .tripmenu */
+    width: 50vw;
+    height: 3rem;;
+    /* align .tripmenu div tags to the center */
+    margin: auto;
+    vertical-align: middle;
+}
+
+.tripmenu{
+    /* helps to center .tripmenu */
+    width: 31%;
+    height: 3rem;
+    float: left;
+    padding-top: 0.3rem;
+    margin:0 2px 0 2px ;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    background: #369093;
+    border: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.trip :first-child{
+    border-radius: 1rem 0 0 1rem;
+}
+
+.trip :last-child{
+    border-radius: 0 1rem 1rem 0;
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.container{
+    width: 80vw;
+    height: 63vh;
+    /* align .tripmenu div tags to the center */
+    margin: 0.5rem auto;
+    background: rgba(196, 196, 196, 0.5);
+    align-content: center;
+
+    border-radius: 2rem;
+}
+
+.main{
+  margin: 1rem auto;
+  width: 70%;
+
+}
+
+.main td{
+    padding: 10px 10px 10px 20px;
+    font-size: 1.2rem;
+}
+
+.main th{
+    padding: 10px 10px 10px 20px;
+    font-size: 1.2rem;
+}
+
+.main_details{
+    margin: 0 auto;
+    padding-top: 0.25rem ;
+    width: 50%;
+  }
+  
+.main_details td{
+      padding: 5px;
+}
+.main_details td:first-child{
+    width: 40%;
+}
+.trow{
+    padding: 1rem;
+}
+
+.days tr{
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid ;
+}
+
+.days{
+  margin: 1rem auto;
+  width: 80%;
+  border-radius: 1.5rem;
+}
+.days tr th:first-child {
+    padding-left: 2rem;
+    width: 10%;
+}
+.days tr td:first-child {
+    padding-left: 2rem;
+    width: 10%;
+}
+.days tr td:nth-child(2) {
+    width: 10%;
+}
+.days tr td:nth-child(3) {
+    width:17%;
+}
+.days tr td:nth-child(4) {
+    width:18%;
+}
+.row{
+    text-align: left;
+}
+.buttons {
+  text-align: center;
+}
+
+.map{
+    display: block;
+}
+
+.button{
+    width: 12rem;
+    height: 2.5rem;
+    background: #369093;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+.details iframe {
+  margin:auto;
+  border-radius: 3rem;
+}
+
+.payForm{
+    display: none;
+}
+
+.modal2{
+    display: block;
+}
+
+.modal1,.modal3{
+    display: none;
+}
+
+/* @media screen and (max-width:760px){
+
+    .trip{
+        width:100%;
+    }
+
+    .tripmenu{
+        font-size: 20px;
+        margin: 0.5px;
+        width:32.5%;
+    }
+} */

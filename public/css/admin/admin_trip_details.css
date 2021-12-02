@@ -1,0 +1,116 @@
+body{
+    font-family: sans-serif;
+    margin:0px;
+    height: 100vh;
+    background-color: black;
+}
+
+.trip{
+    /* used to center .tripmenu */
+    width: 50%;
+    height: 3rem;;
+    /* align .tripmenu div tags to the center */
+    margin: auto;
+    vertical-align: middle;
+}
+
+.tripmenu{
+    /* helps to center .tripmenu */
+    width: 33%;
+    height: 3rem;
+    float: left;
+    padding-top: 0.75rem;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    background: rgba(103, 176, 186, 0.7);
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+.container_details{
+    display: block;
+    width: 80%;
+    height: 60vh;
+    /* align .tripmenu div tags to the center */
+    margin: 0.5rem auto;
+    background: rgba(196, 196, 196, 0.5);
+    align-content: center;
+}
+.container_budget{
+    display: block;
+    width: 80%;
+    height: 60vh;
+    /* align .tripmenu div tags to the center */
+    margin: 0.5rem auto;
+    background: rgba(196, 196, 196, 0.5);
+    align-content: center;
+}
+.container_route{
+    display: block;
+    width: 80%;
+    height: 60vh;
+    /* align .tripmenu div tags to the center */
+    margin: 0.5rem auto;
+    background: rgba(196, 196, 196, 0.5);
+    align-content: center;
+}
+
+.main{
+  margin: 1rem auto;
+  width: 80%;
+
+}
+
+.main td{
+    padding: 5px;
+}
+
+
+
+.trow{
+    padding: 1rem;
+}
+
+.days tr{
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid ;
+}
+
+.days{
+  margin: 1rem auto;
+  width: 80%;
+}
+
+.row{
+    text-align: left;
+}
+.buttons {
+  text-align: center;
+}
+
+.map{
+    display: block;
+}
+
+.details iframe {
+  margin:auto;
+  border-radius: 3rem;
+}
+
+/* @media screen and (max-width:760px){
+
+    .trip{
+        width:100%;
+    }
+
+    .tripmenu{
+        font-size: 20px;
+        margin: 0.5px;
+        width:32.5%;
+    }
+} */

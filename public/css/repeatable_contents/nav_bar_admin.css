@@ -1,0 +1,34 @@
+.navigations_name {
+    font-weight: normal;
+  }
+.navigations_bold_style {
+    font-weight: bolder;
+}
+.nav_bar-table {
+    width: 100%;
+    height: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+table td {
+    width: 10%;
+}
+
+table td a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav_bar-logo {
+    height: auto;
+    width: 3rem;
+}
+
+.nav_bar-active {
+    font-weight: bold;
+}
+
+.nav_bar-table td:hover {
+    background-color: rgb(71, 138, 149);
+}

@@ -1,0 +1,76 @@
+
+.feedback {
+  background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+  background-size: cover;
+  height: 100vh;
+  margin: 0px;
+}
+.box-feedback {
+  background-color: rgba(255,255,255,0.4);
+  height: 75vh;
+  width: 80vw;
+  margin: auto;
+  padding-top: 1rem;
+}
+@media screen and (max-width: 850px){
+  .box-feedback {
+      margin-top: 3rem;
+  }
+}
+.feedback_table-feedback {
+  background-color: rgba(255,255,255,0.0);
+  width: 90%;
+  margin: auto;
+}
+.feedback_thead-feedback {
+  display: flex;
+  flex-direction: column;
+}
+.feedback_thead-feedback tr td {
+  background-color: rgba(255,255,255,0.8);
+  height: 2rem;
+  padding: 0px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-weight: bold;
+}
+.feedback_tbody-feedback {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 65vh;
+
+}
+
+.feedback_tbody-feedback tr td{
+  background-color: rgba(255,255,255,0.8);
+  height: 2rem;
+  padding: 0px;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+.date-feedback {
+  width: 11vw;
+}
+.feedback-feedback {
+  width: 81vw;
+}
+.answer-faq {
+  background-color: #89C2B8;
+  height: 5rem;
+  padding: 0px;
+  padding-left: 2rem;
+  border-bottom: solid;
+  border-width: thin;
+  border-spacing: none;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 500px){
+  .date-feedback {
+    display: none;
+  }
+  .feedback_thead-feedback tr td {
+    text-align: center;
+  }
+}

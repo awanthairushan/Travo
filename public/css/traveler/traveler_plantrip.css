@@ -1,0 +1,310 @@
+body {
+    font-family: sans-serif;
+    margin: 0px;
+}
+
+.uppersection {
+    background-image: url("../../images/background_Images/travelerbg.jpg");
+    /* opacity: 90%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* title of the page */
+.pageheading{
+    font-size: 1.5rem;
+    margin:0 0 0.25rem 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+  }
+
+.plan-head{
+    display: block;
+}
+
+.hotel-head{
+    display: none;
+}
+
+.content {
+    display: block;
+}
+
+.details {
+    align-content: center;
+    background: rgba(196, 196, 196, 0.6);
+    border-radius: 2rem;
+    margin: 0 auto;
+    width: 80%;
+    height: 80vh;
+}
+
+.location_div {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0;
+    height: 12vh;
+}
+
+.location_div label {
+
+    float: left;
+    margin: 0;
+    margin-left: 5rem;
+    width: 20%;
+}
+
+.location_div input,select,.displaydiv {
+    float: right;
+    margin: 0;
+    margin-right: 0.25rem;
+    width: 60%;
+}
+
+.clear{
+    clear: both;
+    height: 1.2rem;
+}
+
+.tableday {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.tdata {
+    padding: 0.6rem;
+    text-align: center;
+}
+
+#destinations {
+    float: left;
+    width: 33.33%;
+    margin-bottom: 1rem;
+}
+
+.selecthotelpopupbtn {
+    width: 15rem;
+    height: 4rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    background: #369093;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.sights {
+    width: 15rem;
+    height: 20vh;
+    padding: 0.5rem;
+    margin-bottom: auto;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+
+input[type=email],
+input[type="text"],select {
+    background: none;
+    border: 2px solid #000000;
+    margin: 0px;
+    border-radius: 0.5rem;
+    width: 65%;
+}
+
+.displaydiv{
+    border: none;
+    background: none;
+    margin: 0px;
+    padding-bottom: 0.8rem;
+    width: 65%;
+}
+
+.choice{
+    background: #369093;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0.1rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    width: 7vh;
+}
+
+.choice b{
+    /* color: black; */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.addmail {
+    color: #000000;
+}
+
+.nextbtn {
+
+    width: 12rem;
+    height: 2.5rem;
+    margin: 1rem auto;
+    background-color: #369093;
+    opacity: 1;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.other_email {
+    text-align: center;
+}
+
+/* styles of popup */
+
+.hotel_names_popup {
+    padding-top: 2rem;
+    display: none;
+    height: 50vh;
+    background: rgba(196, 196, 196, 0.6);
+    width: 80%;
+    margin: 15vh auto auto auto;
+    border-radius: 2rem;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.prev {
+    border-top: 4.5rem solid transparent;
+    border-right: 3.2rem solid #555;
+    border-bottom: 4.5rem solid transparent;
+    width: 5%;
+    float: right;
+    align-content: center;
+    cursor: pointer;
+}
+
+.hotels {
+    width: 80%;
+}
+
+.next {
+    width: 0;
+    height: 0;
+    border-top: 4.5rem solid transparent;
+    border-left: 3.2rem solid #555;
+    border-bottom: 4.5rem solid transparent;
+    width: 5%;
+    float: left;
+    align-content: center;
+    cursor: pointer;
+}
+
+.cols1,.cols2 div{
+    float: left;
+    width: 50%;
+    align-content: center;
+    padding: 0;
+}
+.cols1 button {
+    font-size: 1rem;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+.cols2 button {
+    font-size: 1rem;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+.hotels1 {
+    display: block;
+    
+}
+
+.hotels2,
+.hotels3,
+.hotels4 {
+    display: none;
+}
+
+#selecthotelbtn {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20rem;
+    ;
+    height: 7rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#cancelbtn {
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.5rem auto;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    background-color: rgba(239, 49, 49);
+    opacity: 0.6;
+}
+
+@media screen and (max-width:650px) {
+    .slide {
+        float: left;
+        width: 100%;
+        align-content: center;
+    }
+    .cols1,
+    .cols2 {
+        width: 100%
+    }
+    .next {
+        float: left;
+        width: 5%;
+    }
+    #selecthotelbtn {
+        height: 100px;
+    }
+    /* #cancelbtn {} */
+}
+
+
+/* @media screen and (max-width:1075px){
+    #destinations{
+        float: none;
+        width: 90%;
+    }
+
+    body{
+        background-repeat: repeat-y;
+    }
+} */

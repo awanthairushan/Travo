@@ -1,0 +1,241 @@
+
+.log_in {
+  background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+  background-size: cover;
+  height: 100vh;
+  margin: 0px;
+}
+.box-log_in{
+  display: block;
+  background-color: rgba(255,255,255,0.4);
+  height: 80vh;
+  width: 35vw;
+  margin: 1rem auto auto auto;
+}
+.img-log_in {
+  width: auto;
+  height: 4.5rem;
+  margin: 0.75rem 0.4rem 0.75rem 1.1rem;
+}
+.border-img-log_in {
+  margin: auto;
+  width: 6rem;
+  height: 6rem;
+  border: solid;
+  border-radius: 50%;
+  border-width: medium;
+  background-color: rgba(255,255,255,0.6);
+}
+.description-log_in{
+  width: 65%;
+  margin: auto;
+  text-align: left;
+}
+.username-div-log_in {
+  width: 100%;
+  border: solid;
+  height: 2.5rem;
+  border-width: thin;
+  margin: 1.5rem auto 1.5rem auto;
+  vertical-align: middle;
+}
+.img-username-div-log_in {
+  width: auto;
+  height: 80%;
+  padding-left: 0.35rem;
+  padding-top: 0.35rem;
+}
+.text-log_in {
+  width: 85%;
+  border: solid;
+  height: 2.5rem;
+  border-width:0px;
+  margin: 0px;
+  padding: 0px;
+  float: right;
+  background-color: rgba(0,0,0,0);
+  font-size: 1rem;
+}
+input:focus {
+  outline: none;
+}
+.error-log_in {
+  margin-left: 0;
+  font-size: 0.8rem;
+  background-color: #F2DEDE;
+  color: #A94442;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  width: 100%;
+}
+.description-log_in input[type=submit] {
+  width: 100%;
+  margin: auto auto 1rem auto;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border-width: 0px;
+  background-color: rgba(103,176,186,0.7);
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.description-log_in h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  margin-top: 0px;
+}
+.description-log_in input[type=submit]:hover {
+  opacity: 0.8;
+}
+.description-log_in h3 a {
+  color: #000000;
+  text-decoration: none;
+}
+.description-log_in h3 button {
+  color: #000000;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ....................modal Box................................ */
+.forgotPw_modal {
+  display:none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+}
+.forgotPw_modal_box{
+  display: block;
+  height: 30vh;
+  width: 30%;
+  background-color: rgba(255,255,255, 1);
+  margin: 5rem auto;
+  padding: 1rem;
+}
+.forgotPw_modal_box h3,p {
+    margin-left: 1rem;
+}
+.username_div_fogot_pw {
+  width: 90%;
+  border: solid;
+  height: 2.5rem;
+  border-width: thin;
+  margin: 1rem;
+}
+.otp_send_btn {
+  margin-left: 1rem;
+  width: 30%;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border-width: 0px;
+  background-color: rgba(2, 222, 28 , 0.8);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 1px 2px #888888;
+}
+.otp_modal_box{
+  display: none;
+  height: 30vh;
+  width: 30%;
+  background-color: rgba(255,255,255, 1);
+  margin: 5rem auto;
+  padding: 1rem;
+}
+.text_otp {
+  width: 100%;
+  border: solid;
+  height: 2.5rem;
+  border-width:0px;
+  margin: 0 0 0 1rem;
+  padding: auto;
+  background-color: rgba(0,0,0,0);
+  font-size: 1rem;
+}
+.otp_verify_btn {
+  margin-left: 1rem;
+  width: 30%;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border-width: 0px;
+  background-color: rgba(2, 222, 28 , 0.8);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 1px 2px #888888;
+}
+@media screen and (max-width: 1200px){
+  .box-log_in{
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 1000px){
+  .box-log_in{
+    width: 45vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 850px){
+  .box-log_in{
+    width: 50vw;
+    margin-top: 4rem;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 750px){
+  .box-log_in{
+    width: 55vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 650px){
+  .box-log_in{
+    width: 60vw;
+    margin-top: 4rem;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px){
+  .box-log_in{
+    width: 65vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 450px){
+  .box-log_in{
+    width: 70vw;
+  }
+  .text-log_in {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 400px){
+  .box-log_in{
+    width: 80vw;
+  }
+  .text-log_in {
+    width: 70%;
+  }
+}

@@ -1,0 +1,224 @@
+
+.sign_up-traveler {
+    background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0px;
+}
+
+.box-sign_up-traveler {
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 70vh;
+    width: 90%;
+    margin: auto;
+}
+
+.form-sign_up-traveler {
+    width: 80%;
+    margin: 0.8% auto auto auto;
+    height: 70vh;
+}
+
+.form-sign_up-traveler label {
+    margin: 0 0 0 0;
+    max-width: 30%;
+    font-size: 1.2rem;
+    display: block;
+    float: left;
+}
+
+.text-form-sign_up-traveler {
+    border-radius: 0.2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 70%;
+    height: 1.3rem;
+    margin: 0 0 0 0;
+    float: right;
+}
+
+.text-small-form-sign_up-traveler {
+    border-radius: 0.2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 34%;
+    height: 1.3rem;
+    margin: 0px 0px 0 1.25%;
+    float: right;
+}
+.tc_div_form_signup_traveler {
+    width: 70%;
+    float: right;
+    padding: 0;
+}
+.tc-checkbox-form-sign_up-traveler {
+    background: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin: 0;
+    float: left;
+}
+
+#tc-label-form-sign_up-traveler {
+    width: 70%;
+    max-width: 70%;
+    font-size: 1rem;
+    display: block;
+    margin: 0 1rem ;
+}
+
+.buttons-sign_up-traveler {
+    width: 40%;
+    margin: auto;
+    padding: 0px;
+}
+
+.refreshbtn {
+    width: 30%;
+    margin: auto;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-width: 0px;
+    background-color: rgba(141, 230, 159, 0.8);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+}
+
+.submitbtn {
+    width: 30%;
+    margin: auto;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-width: 0px;
+    background-color: rgba(103, 176, 186, 0.8);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    float: right;
+    box-shadow: 1px 2px #888888;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/*Validation*/
+
+.form-control {
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.form-control lable {
+    display: inline-block;
+}
+
+.form-control input {
+    display: block;
+}
+
+.form-control.success input {
+    border: 2px solid rgb(26, 167, 26);
+}
+
+.form-control.error input {
+    border: 2px solid rgb(228, 29, 22);
+}
+
+.form-control small {
+    position: absolute;
+    margin-top: -20px;
+    visibility: hidden;
+    color: rgba(255, 0, 0, 0.781);
+}
+
+.error-msg {
+    color: rgba(238, 156, 156, 0.788);
+    font-size: 12px;
+}
+
+.error-msg-box {
+    border: 1px solid red;
+}
+
+
+/*Tooltip in password*/
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    background-color: black;
+    color: white;
+    font-size: small;
+    text-align: left;
+    padding: 5px 3px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ....................modal Box................................ */
+.username_exist_modal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+    cursor: pointer;
+  }
+  .username_exist_confirm_box{
+    height: 25vh;
+    width: 45%;
+    background-color: rgba(255,255,255, 1);
+    margin: auto;
+    z-index: 1;
+    position: fixed;
+    border-radius: 0.5rem;
+    left: 30%;
+    top: 30vh;
+    cursor: default;
+  }
+  .username_exist_confirm_box h3,p {
+      margin-left: 1rem;
+  }
+  .username_exist_okay_btn {
+    width: 30%;
+    margin: auto 1rem auto 1rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border-width: 0px;
+    background-color: rgba(2, 222, 28 , 0.8);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    float: right;
+  }

@@ -1,0 +1,230 @@
+body{
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    margin: 0px;
+}
+.uppersection {
+  background-image: url("../../images/background_Images/travelerbg.jpg");
+  /* opacity: 90%; */
+  background-size: cover;
+  height: 100vh;
+}
+.image_gallery_hotel {
+  height: 20.5vh;
+  background-color: rgba(0,0,0,0.5);
+  width: 80%;
+  margin: 0.5rem auto auto auto;
+  padding: 0;
+}
+.image_gallery_hotel table {
+  padding: 0;
+}
+.image_gallery_hotel table td {
+  width: 20%;
+  padding: 0;
+}
+.images_image_gallery_hotel {
+  height: 18vh;
+  width: 95%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  padding: 0;
+}
+.images_image_gallery_hotel:hover {
+  transform: scale(1.03);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+form{
+    margin: auto;
+}
+
+.rooms{
+    font-size: 0.8rem;
+    font-weight:lighter;
+    width: 80%;
+    height: 30vh;
+    margin: 0.5rem auto auto auto;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 40px;
+    padding-top: 0.5rem;
+    text-align: centers;
+}
+
+.slide{
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+}
+
+.rname{
+    /* font-size: 25px; */
+    font-size: 1rem;
+}
+
+.r1,.r2,.r3,.r4{
+    display: block;
+}
+
+
+
+.roomtype{
+    /* to center .roomtype */
+    display: inline-block;
+    width: 90%;
+    height: 20vh;
+    padding-top: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #ffffff;
+    margin:4px;
+
+    /* align texts and button center */
+    text-align: center;
+}
+
+.roomtype dl{
+  margin: 0;
+
+}
+.left{
+  font-size: 1rem;
+  color: rgb(185, 8, 8);
+  font-weight: bold;
+}
+.price {
+    font-size: 1rem;
+}
+
+b{
+    color: red;
+}
+
+.confirm{
+    width: 100%;
+    text-align: center;
+}
+
+.confirmbtn{
+  width: 12rem;
+  height: 2.5rem;
+  margin: 0.5rem auto 0 auto;
+  background: #369093;
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  border: none;
+  display: block;
+  cursor: pointer;
+  letter-spacing: 2px;    
+}
+
+/* css for changing no of rooms part */
+.value-button {
+    display: inline-block;
+    margin: 0px;
+    width: 3rem;
+    height: 1.5rem;
+    padding-top: 0.4rem;
+    text-align: center;
+    vertical-align: middle;
+    background: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .value-button:hover {
+    cursor: pointer;
+  }
+
+  form #decrease {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  form #increase {
+    font-size: 1.2rem;
+      vertical-align: middle;
+      text-align: center;
+  }
+
+  form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  input#Snumber,#Dnumber,#Fnumber,#Mnumber {
+    text-align: center;
+    border: none;
+    border: 0.15rem solid #000;
+    background: none;
+    margin: 0;
+    width: 2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+.hoteldetails {
+  width: 80%;
+  margin: auto;
+  height: 28vh;
+}
+.hoteldetails tr th{
+      color: #ffffff;
+      text-align: left;
+  }
+.hoteldetails iframe {
+  margin: 0;
+  border-radius: 1rem;
+  border:0;
+}
+  .hoteldetails td{
+    border-radius: 1rem;
+    width: 50%;
+    background: rgba(196, 196, 196, 0.6);
+    font-size: 1rem;
+  }
+    .hoteldetails td p {
+      text-align:justify;
+      width: 90%;
+      margin: auto;
+    }
+
+  .hoteldetailsth,td{
+      height: auto;
+      text-align: center;
+  }
+
+/* @media screen and (max-width:800px){
+    .tripdetail{
+        height: 200px;
+    }
+
+    .slide{
+        float: left;
+        width: 100%;
+        align-content: center;
+    }
+
+
+    .next{
+        float:left;
+        width: 5%;
+    }
+
+    #selecthotelbtn{
+        font-size: 20px;
+        height: 100px;
+    }
+} */

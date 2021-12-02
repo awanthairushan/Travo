@@ -1,0 +1,192 @@
+body{
+     margin: 0px;
+     font-family: Arial, Helvetica, sans-serif;
+     overflow-x: hidden;
+}
+.sign_up-traveler{
+    height: 100vh;
+    background-image: url("../../images/background_Images/Hotelbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  .dateselect{
+    width:451px;
+    height: 70px;
+  }
+/*Form part to input date*/
+input[type="date"]{
+    width: 400px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    border: rgba(255, 255, 255, 0.4);
+    border-radius: 7px;
+    text-align: center;
+    font-size: 1rem;
+}
+form{
+    margin: auto;
+}
+table.b {
+  width: 80%;
+  margin: auto;
+}
+td.b{
+    width: 10%;
+}
+.bg{
+  height: 75%;
+    background : rgba(196, 196, 196, 0.5);
+    border-radius: 50px;
+    width: 80%;
+    align-content: center;
+}
+
+form{
+    margin: auto;
+}
+
+.rooms{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 40px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.slide{
+    display: inline-block;
+    width: 23%;
+    /*to center  .roomtype*/
+    text-align: center;
+    top: 100px;
+}
+.text1 {
+    font-weight: bold;
+
+}
+
+.r1,.r2,r3,r4{
+    display: block;
+}
+
+.r5,.r6,.r7,.r8,.r9{
+    display: none;
+}
+
+.roomtype{
+    /* to center .roomtype */
+    display: inline-block;
+
+    width: 90%;
+    height: 15rem;
+    padding-top: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #ffffff;
+    margin:4px;
+
+    /* align texts and button center */
+    text-align: center;
+}
+
+b{
+    color: rgb(182, 3, 3);
+}
+.b td {
+  text-align: center;
+}
+.confirm{
+    width: 100%;
+    text-align: center;
+}
+
+#confirmbtn{
+    width: 14rem;
+    height: 3rem;
+    background: rgba(93, 196, 189, 1.0);
+    border-radius: 15px;
+    color: #ffffff;
+    border: none;
+    margin: auto;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+/* css for changing no of rooms part */
+.value-button {
+    display: inline-block;
+    border: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 11px 0;
+    background: #eee;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .value-button:hover {
+    cursor: pointer;
+  }
+
+  form #decrease {
+    margin-right: -4px;
+    border-radius: 8px 0 0 8px;
+  }
+
+  form #increase {
+    margin-left: -4px;
+    border-radius: 0 8px 8px 0;
+  }
+
+  form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  input[type=number] {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0px;
+    width: 40px;
+    height: 40px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+@media screen and (max-width:800px){
+    .tripdetail{
+        height: 200px;
+    }
+
+    .slide{
+        float: left;
+        width: 100%;
+        align-content: center;
+    }
+
+
+    .next{
+        float:left;
+        width: 5%;
+    }
+
+    #selecthotelbtn{
+        height: 100px;
+    }
+}

@@ -1,0 +1,224 @@
+.main {
+    margin: 3% auto 1% auto;
+    width: 85%;
+}
+
+.heading-one {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+/* Filter option */
+
+.search_div {
+    margin-bottom: 1rem;
+}
+.filter-labels {
+    margin-right: 1rem;
+}
+.filter-input {
+    width: 20%;
+    height: 2rem;
+    cursor: pointer;
+    color: #333333;
+    background-color: #eeeeee;
+    width: 20%;
+    border: 0;
+    padding: 0 0 0 1rem;
+}
+
+/* Search option */
+
+.search-input {
+    cursor: auto;
+    margin-left: 10px;
+    width: 20%;
+    height: 2rem;
+    padding: 0 0 0 1rem;
+    background-color: #eeeeee;
+    color: #333333;
+    border: 0;
+}
+.search-input:hover,.search-input:focus,select:hover,select:focus {
+    transform: scale(1.03);
+}
+/*Registered Hotels table*/
+
+.content_table {    
+    max-height: 10.5rem;
+    overflow-y: auto;
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    table-layout: fixed;
+}
+.content_table thead {
+    display: table;
+    width: 100%;
+}
+.content_table tbody{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 60vh;
+    table-layout: fixed;
+}
+.content_table {
+    padding: 0%;
+}
+.content_table th {
+    background-color: #323534;
+    height: 3rem;
+    text-align: center;
+    border-bottom: 2px solid #000000;
+    padding: 0;
+    width: 14.66vw;
+}
+.content_table td {
+    height: 3.5rem;
+    text-align: center;
+    padding: 0;
+    width: 14.66vw;
+}
+.content_table tbody tr {
+    background-color: #323534;
+    border-bottom: 2px solid #000000;
+}
+.content_table tbody tr:hover {
+    background-color: rgb(71, 138, 149);
+}
+
+tbody a {
+    text-decoration: none;
+    color: black;
+}
+
+/* buttons*/
+
+#morebtn {
+    background-color: rgb(41, 180, 161);
+    border-radius: 8px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+    border-width: 0.01ch;
+    border-color: rgb(41, 180, 161);
+}
+
+#removebtn {
+    background-color: rgb(204, 78, 109);
+    border-radius: 8px;
+    width: 70px;
+    height: 25px;
+    cursor: pointer;
+    border-width: 0.01ch;
+    border-color: rgb(204, 78, 109);
+}
+
+.action {
+    padding: 10px;
+    border: 2px solid #323534;
+    border-radius: 5px;
+    transition: ease-in-out 200ms;
+}
+
+.action:hover {
+    background-color: #323534;
+    color: white;
+}
+/* ....................modal Box for traveler remove................................ */
+.remove_modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0,0,0,0.3);
+  }
+  .remove_modal_box{
+    height: 25vh;
+    width: 45%;
+    background-color: rgba(255,255,255, 1);
+    margin: auto;
+    z-index: 1;
+    position: fixed;
+    border-radius: 0.5rem;
+    left: 30%;
+    top: 30vh;
+  }
+  .remove_modal_box h3,p {
+      margin-left: 1rem;
+      color: #000000;
+      padding: 0;
+  }
+  .remove_confirm_btn {
+    width: 20%;
+    margin: 0.5rem 1rem auto 1rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border-width: 0px;
+    background-color: rgba(222, 17, 2,0.8);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    float: right;
+  }
+  .remove_cancel_btn {
+    width: 20%;
+    margin: 0.5rem auto auto auto;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border-width: 0px;
+    background-color: rgba(2, 222, 28 , 0.8);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    float: right;
+  }
+  /* ........................end of model of travelers remove........... */
+
+/*.heading-one {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.heading-two {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-primary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-svg-primary {
+    width: 3rem;
+    min-width: 3rem;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.header-secondary {
+    display: flex;
+    align-items: center;
+}
+
+.header-svg-secondary {
+    width: 2.5rem;
+    min-width: 2.5rem;
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 0;
+}*/

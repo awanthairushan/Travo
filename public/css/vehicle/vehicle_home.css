@@ -1,0 +1,57 @@
+.home-watermark_and_started-section {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../images/background_images/vehiclebg.jpg");
+    background-size: cover;
+    margin: 0px;
+}
+
+.home-watermark_and_started-div {
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 20vh;
+}
+
+.watermark {
+    font-size: 10rem;
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin: auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.get_started-btn {
+    margin: auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1597E5;
+    opacity: 0.8;
+    height: 3rem;
+    width: 15rem;
+    border-radius: 0.6rem;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 750px){
+    .watermark{
+      font-size: 6rem;
+    }
+    .get_started-btn{ 
+      height: 2rem;
+      width: 10rem;
+      font-size: 1rem;
+    }
+  }
+  @media screen and (max-width: 600px){
+    .watermark{
+      font-size: 5rem;
+    }
+  }
+  @media screen and (max-width: 450px){
+    .watermark{
+      font-size: 4rem;
+    }
+  }

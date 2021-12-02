@@ -1,0 +1,93 @@
+
+
+.forgot_pw {
+    background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0px;
+}
+
+.box_forgot_pw {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 40vh;
+    width: 35%;
+    margin: 1rem auto auto auto;
+}
+
+.box_forgot_pw_step3 {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 45vh;
+    width: 35%;
+    margin: 1rem auto auto auto;
+}
+
+.description_forgot_pw {
+    width: 65%;
+    margin: 1rem auto;
+    text-align: left;
+}
+
+.username_div_fogot_pw {
+    width: 100%;
+    border: solid;
+    height: 2.5rem;
+    border-width: thin;
+    margin: 1.5rem auto 1.5rem auto;
+}
+
+.img-username_div_fogot_pw {
+    width: 1.8rem;
+    height: auto;
+    padding: 0.35rem;
+}
+
+.text-log_in {
+    width: 85%;
+    border: solid;
+    height: 2.5rem;
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.error-log_in {
+    margin-left: 0;
+    font-size: 0.8rem;
+    background-color: #F2DEDE;
+    color: #A94442;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    width: 100%;
+}
+
+.description_forgot_pw input[type=submit] {
+    width: 100%;
+    margin: auto auto 1rem auto;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-width: 0px;
+    background-color: rgba(103, 176, 186, 0.7);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.description_forgot_pw h3 {
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.description_forgot_pw input[type=submit]:hover {
+    opacity: 0.8;
+}

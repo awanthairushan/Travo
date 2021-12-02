@@ -1,0 +1,161 @@
+
+.sign_up {
+  background-image: url("../../../public/images/background_images/unregisteredbg.jpg");
+  background-size: cover;
+  height: 100vh;
+  margin: 0px;
+}
+.box-sign_up{
+  background-color: rgba(255,255,255,0.4);
+  height: 80vh;
+  width: 35%;
+  margin: auto;
+}
+.img-sign_up {
+  width: auto;
+  height: 5rem;
+  margin: 0.5rem;
+}
+.border-img-sign_up {
+  margin: auto;
+  width: 6rem;
+  height: 6rem;
+  border: solid;
+  border-radius: 50%;
+  border-width: medium;
+  background-color: rgba(255,255,255,0.6);
+}
+.description-sign_up {
+  width: 65%;
+  margin: auto;
+  text-align: left;
+}
+.description-sign_up button {
+  width: 100%;
+  margin: 0.5rem auto 0.8rem auto;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border-width: 0px;
+  background-color: rgba(103,176,186,0.7);
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.description-sign_up h3 {
+  font-weight: normal;
+  margin-top: 0px;
+  margin-top: 1rem;
+}
+.description-sign_up h3 a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+@media screen and (max-width: 1200px){
+  .box-sign_up{
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 1000px){
+  .box-sign_up{
+    width: 45vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+  .description-sign_up h2 {
+    font-size: 1.3rem;
+  }
+  .description-sign_up h3 {
+    font-size: 1.1rem;
+  }
+  .description-sign_up button {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 850px){
+  .box-sign_up{
+    width: 50vw;
+    margin-top: 4rem;
+  }
+  .description-sign_up h2 {
+    font-size: 1.2rem;
+  }
+  .description-sign_up h3 {
+    font-size: 1rem;
+  }
+  .description-sign_up button {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 750px){
+  .box-sign_up {
+    width: 55vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 650px){
+  .box-sign_up {
+    width: 60vw;
+    margin-top: 4rem;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 550px){
+  .box-sign_up{
+    width: 65vw;
+  }
+  .text-log_in {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 450px){
+  .box-sign_up{
+    width: 70vw;
+  }
+  .text-log_in {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 400px){
+  .box-sign_up {
+    width: 80vw;
+  }
+  .text-log_in {
+    width: 70%;
+  }
+}
+@media screen and (max-height: 660px){
+  .description-sign_up h2 {
+    font-size: 1.1rem;
+  }
+  .description-sign_up h3 {
+    font-size: 0.9rem;
+  }
+  .description-sign_up button {
+    font-size: 0.8rem;
+  }
+  .description-sign_up button {
+    margin: auto auto 0.8rem auto;
+  }
+  .description-sign_up h3 {
+    margin-top: 0;
+  }
+  .border-img-sign_up {
+    width: 4rem;
+    height: 4rem;
+  }
+  .img-sign_up {
+    height: 3rem;
+    margin: 0.5rem;
+  }
+  .box-sign_up{
+    height: 75vh;
+  }
+}

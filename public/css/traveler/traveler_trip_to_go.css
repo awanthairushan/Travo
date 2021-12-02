@@ -1,0 +1,274 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+
+}
+.uppersection {
+  background-image: url("../../images/background_Images/travelerbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.upperclass{
+    opacity: 90%;
+    height: 100vh;
+}
+
+
+
+.prev,.next,.topic{
+    float: left;
+}
+
+/* div for trip category */
+.topic{
+    margin-top: 0.5rem;
+    width: 30%;
+    font-size: 1.5rem;
+}
+
+.prev{
+    width: 0;
+    height: 0;
+    border-top: 1.5rem solid transparent;
+    border-right: 1rem solid #555;
+    border-bottom: 1.5rem solid transparent;
+    width: 25%;
+    align-content: center;
+    cursor: pointer;
+}
+
+.trips{
+    width: 100%;
+}
+
+.row1{
+    margin: 1rem auto auto 16%;
+    width: 80%;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+}
+
+.next{
+	width: 0;
+	height: 0;
+	border-top: 1.5rem solid transparent;
+	border-left: 1rem solid #555;
+	border-bottom: 1.5rem solid transparent;
+    width: 25%;
+    align-content: center;
+    cursor: pointer;
+}
+
+.slide{
+    /* to center .cols2 */
+    text-align: center;
+    align-content: center;
+}
+
+.cols2{
+    /* to center .cols2 */
+    display: inline-block;
+    font-size: 1.2rem;
+    width: 80%;
+    height: 70vh;
+    margin: 1rem auto auto auto;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 2rem;;
+    padding-top: 1rem;
+    /* to center .tripdetails */
+    text-align: center;
+}
+
+.trip1{
+    display: block;
+}
+
+.trip2,.trip3{
+    display: none;
+}
+
+.tripdetail{
+    position: relative;
+    /* to center .tripdetail */
+    display: inline-block;
+
+    width: 40%;
+    height: 30vh;
+    padding-top: 1rem;
+    border-radius: 1.7rem;
+    color: #ffffff;
+    border: none;
+    margin:0.25rem;
+
+    /* align texts and button center */
+    text-align: center;
+}
+.tripdetail dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.delete_img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 1rem;
+    right: 1rem;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+#selecttrip{
+  margin-top: 0.5rem;
+  padding: 0;
+    width: 14rem;
+    height: 3rem;
+    color: #ffffff;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 3rem;
+    background-color: transparent;
+    font-size: 1.55rem;
+    cursor: pointer;
+}
+
+.trip1 .t1{
+    background-image: url('../../images/Sample_images/for_trips/10.jpg');
+    background-size: cover;
+}
+
+.trip1 .t2{
+    background-image: url('../../images/Sample_images/for_trips/9.jpg');
+    background-size: cover;
+}
+
+.trip1 .t3{
+    background-image: url('../../images/Sample_images/for_trips/12.jpg');
+    background-size: cover;
+}
+
+.trip1 .t4{
+    background-image: url('../../images/Sample_images/for_trips/1.jpg');
+    background-size: cover;
+}
+
+.trip2 .t1{
+    background-image: url('../../images/Sample_images/for_trips/2.jpg');
+    background-size: cover;
+}
+
+.trip2 .t2{
+    background-image: url('../../images/Sample_images/for_trips/3.jpg');
+    background-size: cover;
+}
+
+.trip2 .t3{
+    background-image: url('../../images/Sample_images/for_trips/4.jpg');
+    background-size: cover;
+}
+
+.trip2 .t4{
+    background-image: url('../../images/Sample_images/for_trips/7.jpg');
+    background-size: cover;
+}
+
+.trip3 .t1{
+    background-image: url('../../images/Sample_images/for_trips/8.jpg');
+    background-size: cover;
+}
+
+.trip3 .t2{
+    background-image: url('../../images/Sample_images/for_trips/11.jpg');
+    background-size: cover;
+}
+
+.trip3 .t3{
+    background-image: url('../../images/Sample_images/for_trips/6.jpg');
+    background-size: cover;
+}
+
+.trip3 .t4{
+    background-image: url('../../images/Sample_images/for_trips/5.jpg');
+    background-size: cover;
+}
+
+/* @media screen and (max-width:800px){
+    .tripdetail{
+        height: 200px;
+    }
+
+    .slide{
+        float: left;
+        width: 100%;
+        align-content: center;
+    }
+
+
+    .next{
+        float:left;
+        width: 5%;
+    }
+
+    #selecthotelbtn{
+        font-size: 20px;
+        height: 100px;
+    }
+} */
+/* ....................modal Box................................ */
+.delete_trip_modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(0,0,0,0.3);
+}
+.deleteTrip_confirm_box{
+  height: 25vh;
+  width: 45%;
+  background-color: rgba(255,255,255, 1);
+  margin: auto;
+  z-index: 1;
+  position: fixed;
+  border-radius: 0.5rem;
+  left: 30%;
+  top: 30vh;
+}
+.deleteTrip_confirm_box h3,p {
+    margin-left: 1rem;
+}
+.deleteTrip_confirm_btn {
+  width: 30%;
+  margin: auto 1rem auto 1rem;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border-width: 0px;
+  background-color: rgba(222, 17, 2,0.8);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 1px 2px #888888;
+  float: right;
+}
+.deleteTrip_cancel_btn {
+  width: 20%;
+  margin: auto;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border-width: 0px;
+  background-color: rgba(2, 222, 28 , 0.8);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 1px 2px #888888;
+  float: right;
+}

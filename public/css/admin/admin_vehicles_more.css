@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+.vehicle_and_owner_details{
+    width: 80%;
+    margin: auto;
+}
+.vehicledetails{
+    background: rgba(255, 255, 255, 0.5);
+    height: 23rem;
+    width: 60%;
+    border-collapse: collapse;
+    float: left;
+    margin-bottom: 2rem;
+}
+
+.vehicleType{
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    text-align: center;
+    margin: 0;
+    height: 2rem;
+}
+.vehicledetails td {
+    padding: 0;
+}
+.vehicledetails td:first-child {
+    width: 10%;
+    padding: 1rem;
+    text-align: left;
+ }
+.vimg{
+    height: 21rem;
+    width: auto;
+    margin: 0;
+    float: right;
+}
+.driver_details {
+    float: right;
+    width: 39%;
+    background: rgba(255, 255, 255, 0.5);
+    height: 23rem;
+    margin-bottom: 2rem;
+}
+.driver_details td {
+    padding: 1rem;
+    text-align: left;
+    line-height: 1.5rem;
+}
+
+/* input[type="checkbox"]{
+    width: 10px;
+    background-color: transparent;
+} */
+
+/* @media screen and (max-width:650px){
+
+} */

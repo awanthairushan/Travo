@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.sign_up-traveler {
+    background-image: url("../../images/background_images/vehiclebg.jpg");
+    background-size: cover;
+    height: 100vh;
+    margin: 0px;
+}
+
+.box-sign_up-traveler {
+    background-color: rgba(255, 255, 255, 0.4);
+    height: 55vh;
+    width: 90%;
+    margin: 2rem auto 0.5rem auto;
+}
+
+.form-sign_up-traveler {
+    width: 80%;
+    margin: 2rem auto auto auto;
+    height: 70vh;
+}
+
+.form-sign_up-traveler label {
+    max-width: 30%;
+    font-size: 1rem;
+    display: block;
+    float: left;
+    margin-bottom: 1rem;
+}
+
+.text-form-sign_up-traveler {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 70%;
+    height: 1.1rem;
+    margin: 0px;
+    margin-bottom: 1rem;
+    float: right;
+}
+
+.text-small-form-sign_up-traveler {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 34%;
+    height: 1.3rem;
+    margin: 0px 0px 0px 1.25%;
+    float: right;
+}
+
+.tc-checkbox-form-sign_up-traveler {
+    background: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin: auto auto auto 25%;
+    float: left;
+}
+
+#tc-label-form-sign_up-traveler {
+    width: 70%;
+    max-width: 70%;
+    font-size: 1rem;
+    float: right;
+    display: block;
+    margin: auto auto auto auto;
+}
+
+.drop-down-form-sign_up-traveler {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 34.8%;
+    height: 1.55rem;
+    margin: 0px 0px 0px 1.25%;
+    float: right;
+}
+
+.ac-checkbox-form-sign_up-traveler {
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    height: 1.3rem;
+    width: 1.3rem;
+    margin: auto auto auto 26.4%;
+}
+
+.buttons-sign_up-traveler {
+    width: 40%;
+    margin: auto;
+    padding: 0px;
+}
+
+.refreshbtn {
+    width: 30%;
+    margin: auto;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-width: 0px;
+    background-color: rgba(141, 230, 159, 0.8);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+}
+
+.submitbtn {
+    width: 30%;
+    margin: auto;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-width: 0px;
+    background-color: rgba(103, 176, 186, 0.8);
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    float: right;
+    box-shadow: 1px 2px #888888;
+}
+
+.select-form-sign_up-traveler {
+    background-color: rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    width: 70.6%;
+    height: 1.55rem;
+    margin: 0px 0px 0px 1.25%;
+    float: right;
+}

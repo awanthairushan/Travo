@@ -1,0 +1,182 @@
+/*__________________about_us________________*/
+
+.about_us-section {
+  height: 100vh;
+  font-family: 'Mali', cursive;
+}
+.h1-about_us {
+  font-size: 2rem;
+  text-align: center;
+}
+.div-about_us {
+  display: block;
+  height: 28vh;
+  margin-bottom: 2rem;
+}
+.h3-about_us {
+  margin: auto auto 1rem 8%;
+  float: left;
+}
+.p-about_us {
+  display: block;
+  text-align: justify;
+  width: 60%;
+  margin: auto auto auto 8%;
+  float: left;
+}
+.logo-about_us {
+  width: 14.5%;
+  height: auto;
+  float: right;
+  margin: 1rem 8% auto auto;
+}
+
+.hr-about_us {
+border-width: 0.3rem 0rem 0rem 0rem;
+border-color: #000000;
+margin: 0px;
+width: 100vw;
+}
+/*.............image gallery <- about us...............*/
+
+.gallary-about_us {
+  height: 42vh;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+.slide-about_us img{
+  height: 40vh;
+  width: auto;
+  margin: 0.3rem 5px;
+  border-radius: 1vh;
+}
+.gallary-about_us::-webkit-scrollbar {
+	display: none;
+}
+.prev_btn-about_us {
+  float: left;
+  background-color: rgba(255,255,255,0.5);
+  box-shadow: 0 1px 3px #888;
+  height: 15vh;
+  width: 2.5rem;
+  margin: 12.5vh 0rem 12.5vh 0.5rem;
+  cursor: pointer;
+  text-align: center;
+}
+.left_arrow-about_us {
+  height: 90%;
+  width: 90%;
+  margin: 10% auto;
+}
+.next_btn-about_us {
+  float: right;
+  background-color: rgba(255,255,255,0.5);
+  box-shadow: 0 1px 3px #888;
+  height: 15vh;
+  width: 2.5rem;
+  margin: 12.5vh 0.5rem 12.5vh 0rem;
+  cursor: pointer;
+  text-align: center;
+}
+.right_arrow-about_us {
+  height: 90%;
+  width: 90%;
+  margin: 10% auto;
+}
+.slide-about_us img:hover {
+  transform: scale(1.03);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+/*.............END image gallery <- about us...............*/
+@media screen and (max-width: 1200px){
+  .gallary-about_us {
+    height: 35vh;
+    width: 88%;
+  }
+  .slide-about_us img{
+    height: 33vh;
+  }
+  .prev_btn-about_us{
+   margin: 7.5vh 0rem 7.5vh 0.5rem;
+  }
+  .next_btn-about_us  {
+    margin: 7.5vh 0.5rem 7.5vh 0rem;
+  }
+  .div-about_us {
+    margin-bottom: 3rem;
+  }
+  .logo-about_us {
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 900px){
+  .gallary-about_us {
+    height: 30vh;
+    width: 85%;
+  }
+  .slide-about_us img{
+    height: 28vh;
+  }
+  .prev_btn-about_us{
+    margin: 7.5vh 0rem 7.5vh 0.5rem;
+   }
+   .next_btn-about_us  {
+     margin: 7.5vh 0.5rem 7.5vh 0rem;
+   }
+  .div-about_us {
+    margin-bottom: 5rem;
+  }
+  .logo-about_us {
+    margin-top: 3rem;
+    width: 18%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 650px){
+  .gallary-about_us,.prev_btn-about_us,.next_btn-about_us,.hr-about_us {
+    display:none;
+  }
+  .div-about_us {
+    margin:auto;
+    width: 80vw;
+    height: 100vh;
+    text-align: center;
+  }
+  .p-about_us {
+    width: 100%;
+    float: none;
+    margin: auto;
+  }
+  .logo-about_us {
+    margin: 2rem auto 1rem auto;
+    width: 25vw;
+    height: auto;
+    float: none;
+  }
+  .h3-about_us {
+    float: none;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 420px){
+  .logo-about_us {
+    margin: 0.5rem auto 0.5rem auto;
+    width: 25vw;
+    height: auto;
+    float: none;
+  }
+}
+@media screen and (max-width: 350px){
+  .logo-about_us {
+    display: none;
+  }
+  .h3-about_us {
+    margin-bottom: 1rem;
+  }
+}
+/*__________________END about_us________________*/
