@@ -233,6 +233,6 @@
       <?php include '../repeatable_contents/footer.php';?>
       <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
-    <script src="../../script/unregistered/sign_up_hotel.js"></script>
+    <script src="../../../public/script/unregistered/sign_up_hotel.js"></script>
   </body>
 </html>

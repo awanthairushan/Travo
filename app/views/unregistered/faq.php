@@ -34,7 +34,7 @@
         ?>
       </table>
     </div>
-    <script type="text/javascript" src="../../script/traveler/traveler_faq.js"></script>
+    <script type="text/javascript" src="../../../public/script/traveler/traveler_faq.js"></script>
     </section>
     <section id="contact_us-section">
       <?php include '../repeatable_contents/footer.php';?>

@@ -171,6 +171,6 @@
       <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
     <!--JS file for validation-->
-    <script src="../../script/unregistered/sign_up-vehicle.js"></script>
+    <script src="../../../public/script/unregistered/sign_up-vehicle.js"></script>
   </body>
 </html>
