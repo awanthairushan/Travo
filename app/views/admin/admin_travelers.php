@@ -1,24 +1,24 @@
 <?php
-  session_start();
+ /* session_start();
   if(isset($_SESSION['username'])) {
     include '../../db/db_connection.php';
     $temp = $_SESSION['username'];
     $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
     $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+    if (mysqli_num_rows($resultForSession) === 1) {*/
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <?php
-    $result = require '../../db/admin/admin_traveler.php';
+   // $result = require '../../db/admin/admin_traveler.php';
 ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRAVELERS</title>
-    <link rel="icon" href="../../images/icons/favicon.ico">
-    <link rel="stylesheet" href="../../css/admin/admin_travelers.css">    
-    <link rel="stylesheet" href="../../css/admin/admin_repeating_css.css">
+    <link rel="icon" href="../../../public/images/icons/favicon.ico">
+    <link rel="stylesheet" href="../../../public/css/admin/admin_travelers.css">    
+    <link rel="stylesheet" href="../../../public/css/admin/admin_repeating_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -28,9 +28,9 @@
 <body>
 <section class="admin-travelers">
     <!--Start Navigation bar-->
-    <?php include '../../repeatable_contents/nav_bar_admin.php';?>
-      <style> <?php include '../../repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="../../repeatable_contents/nav_bar_admin.js"></script>
+    <?php include '../repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
 
     <!-- .....................modal box for traveler remove...................... -->
@@ -83,7 +83,7 @@
         <tbody class="scroll">
 
         <?php
-            while ($rows = mysqli_fetch_array($result)){
+          /*  while ($rows = mysqli_fetch_array($result)){
 
             echo "<tr>
                 <td>".$rows['row_no']."</td>
@@ -100,7 +100,7 @@
                 </form>
                 </td>
             </tr>";
-        }
+        }*/
             ?>
         </tbody>
     </table>
@@ -109,18 +109,18 @@
 
 </section>
 <!--JS file for search & filter-->
-    <script src="../../script/admin/admin_filter_travelers.js"></script>
+    <script src="../../../public/script/admin/admin_filter_travelers.js"></script>
 <!-- JS file for delete_modal -->
-<script type="text/javascript" src="../../script/admin/admin_traveler_remove.js"></script>
+<script type="text/javascript" src="../../../public/script/admin/admin_traveler_remove.js"></script>
 </body>
 </html>
 <?php
-  } else{
+  /*} else{
     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
     exit();
   }
 }else{
   header("location: ../../index.html");
   exit();
-}
+}*/
  ?>
