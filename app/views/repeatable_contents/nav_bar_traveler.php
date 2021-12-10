@@ -5,7 +5,7 @@
     <br>
       <nav class = "nav_bar">
         <div class="nav_bar_logo">
-            <img class="nav_bar_logo_img" src="../../images/Logo/travo.png" alt="LOGO">
+            <img class="nav_bar_logo_img" src="../../../public/images//Logo/travo.png" alt="LOGO">
         </div>
         <div class="hamburger">
             <div class="line1"></div>
@@ -24,7 +24,7 @@
         <li class="navigations_name"><a href="../../pages/traveler/traveler_vehicle.php">VEHICLES </a></li>
         <li class = "dropdown_li">
             <div class="dropdown">
-                <img class="nav_bar-img" src="../../images/icons/user.png">
+                <img class="nav_bar-img" src="../../../public/images//icons/user.png">
                 <div class="dropdown-content">
                     <div class="drop-title">',$_SESSION['name'],'</div>
                     <div class="drop-box"><a class="drop-nav" href=../../pages/traveler/traveler_update.php>UPDATE</a></div>

@@ -5,24 +5,33 @@
     height: 100vh;
     margin: 0px;
 }
-
+.heading{
+    font-size: 1.5rem;
+    margin:0 0 0.25rem 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+}
 .box-sign_up-traveler {
     background-color: rgba(255, 255, 255, 0.4);
-    height: 70vh;
-    width: 90%;
-    margin: auto;
+    height: 65vh;
+    width: 90vw;
+    margin: auto auto 1rem auto;
+    align-items: center;
+    display: flex;
 }
 
 .form-sign_up-traveler {
-    width: 80%;
-    margin: 0.8% auto auto auto;
-    height: 70vh;
+    width: 80vw;
+    margin: auto;
+    height: auto;
 }
 
 .form-sign_up-traveler label {
-    margin: 0 0 0 0;
-    max-width: 30%;
-    font-size: 1.2rem;
+    margin: 0;
+    max-width: 30vw;
+    font-size: 1.1rem;
     display: block;
     float: left;
 }
@@ -33,9 +42,9 @@
     border-style: solid;
     border-width: thin;
     border-color: #000000;
-    width: 70%;
+    width: 55vw;
     height: 1.3rem;
-    margin: 0 0 0 0;
+    margin: 0 0 1rem 0;
     float: right;
 }
 
@@ -45,9 +54,9 @@
     border-style: solid;
     border-width: thin;
     border-color: #000000;
-    width: 34%;
+    width: 27vw;
     height: 1.3rem;
-    margin: 0px 0px 0 1.25%;
+    margin: 0 0 0 0.5vw;
     float: right;
 }
 .tc_div_form_signup_traveler {
@@ -122,7 +131,7 @@ input::-webkit-inner-spin-button {
 
 .form-control {
     position: relative;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-control lable {
@@ -191,34 +200,57 @@ input::-webkit-inner-spin-button {
     position: fixed;
     background-color: rgba(0,0,0,0.3);
     cursor: pointer;
+}
+.username_exist_confirm_box{
+height: 25vh;
+width: 45%;
+background-color: rgba(255,255,255, 1);
+margin: auto;
+z-index: 1;
+position: fixed;
+border-radius: 0.5rem;
+left: 30%;
+top: 30vh;
+cursor: default;
+}
+.username_exist_confirm_box h3,p {
+    margin-left: 1rem;
+}
+.username_exist_okay_btn {
+width: 30%;
+margin: auto 1rem auto 1rem;
+height: 2rem;
+border-radius: 0.2rem;
+border-width: 0px;
+background-color: rgba(2, 222, 28 , 0.8);
+font-weight: bold;
+font-size: 1rem;
+letter-spacing: 1px;
+color: #ffffff;
+cursor: pointer;
+box-shadow: 1px 2px #888888;
+float: right;
+}
+@media screen and (max-width: 850px){
+    .heading {
+        margin-top: 4rem;
+    }
   }
-  .username_exist_confirm_box{
-    height: 25vh;
-    width: 45%;
-    background-color: rgba(255,255,255, 1);
-    margin: auto;
-    z-index: 1;
-    position: fixed;
-    border-radius: 0.5rem;
-    left: 30%;
-    top: 30vh;
-    cursor: default;
-  }
-  .username_exist_confirm_box h3,p {
-      margin-left: 1rem;
-  }
-  .username_exist_okay_btn {
-    width: 30%;
-    margin: auto 1rem auto 1rem;
-    height: 2rem;
-    border-radius: 0.2rem;
-    border-width: 0px;
-    background-color: rgba(2, 222, 28 , 0.8);
-    font-weight: bold;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow: 1px 2px #888888;
-    float: right;
-  }
+@media screen and (max-width: 680px){
+    .text-form-sign_up-traveler {
+        width: 50vw;
+    }
+    .text-small-form-sign_up-traveler {
+        width: 24.5vw;
+    }
+}
+@media screen and (max-width: 550px){
+    .text-form-sign_up-traveler {
+        width: 50vw;
+    }
+    .text-small-form-sign_up-traveler {
+        width: 50vw;
+        float: right;
+        margin-bottom: 1rem;
+    }
+}

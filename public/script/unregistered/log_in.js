@@ -31,5 +31,5 @@ window.onclick = function(e) {
     otp_modal_box.style.display = "block"
   });
   otp_verifyBtn.addEventListener("click", function(e){
-     window.location.href="../../pages/traveler/traveler_update.php";
+     window.location.href="../../../app/views/traveler/traveler_update.php";
    });
