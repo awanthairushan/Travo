@@ -1,26 +1,26 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT owner_id FROM vehicle_owners WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+//   session_start();
+//   if(isset($_SESSION['username'])) {
+//     include '../../db/db_connection.php';
+//     $temp = $_SESSION['username'];
+//     $sqlForSession = "SELECT owner_id FROM vehicle_owners WHERE email = '$temp'";
+//     $resultForSession = mysqli_query($con, $sqlForSession);
+//     if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <html>
     <head>
       <title>VIEW</title>
-      <link rel="icon" href="../../images/icons/favicon.ico">
-        <style> <?php include '../../css/vehicle/vehicle_view_vehicle.css'; ?> </style>
-        <style> <?php include '../../css/vehicle/vehicle_repeating_css.css'; ?> </style>
+      <link rel="icon" href="../../../public/images/icons/favicon.ico">
+        <style> <?php include '../../../public/css/vehicle/vehicle_view_vehicle.css'; ?> </style>
+        <style> <?php include '../../../public/css/vehicle/vehicle_repeating_css.css'; ?> </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php include '../../repeatable_contents/font.php'; ?>
+        <?php include '../repeatable_contents/font.php'; ?>
     </head>
     <body>
         <section class="uppersection">
-            <?php include '../../repeatable_contents/nav_bar_vehicle.php';?>
-            <style> <?php include '../../repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
-            <script type="text/javascript" src="../../repeatable_contents/nav_bar_vehicle.js"></script>
+            <?php include '../repeatable_contents/nav_bar_vehicle.php';?>
+            <style> <?php include '../../../public/css/repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
+            <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_vehicle.js"></script>
             <br>
             <!-- <div class="content">
             <div class="vehicledetails_div">
@@ -31,7 +31,7 @@
                   <tr class="detail">
                       <td class="trow">Type<br/>A/C<br/>Seating capacity<br/>Driver<br/>Price per day</td>
                       <td class="trow">Car<br/><input type="checkbox"><br/>5<br/>with<input type="checkbox"> without<input type="checkbox"><br/>LKR.</td>
-                      <td class="trow"><img class="vimg" src="../../images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                      <td class="trow"><img class="vimg" src="../../../public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                       <td class="trow">Name<br/>E-mail<br/>Contact<br/>Location<br/>Driver charges</td>
                       <td class="trow">Mr.Kamal Ranasinghe<br/>kamal@gmail.com<br/>0710000000/0332200000<br/>Gampaha<br/>LKR.1000.00</td>
                   </tr>
@@ -49,7 +49,7 @@
                     </tr>
                     <tr class="tr_with_img">
                         <td>Car</td>
-                        <td rowspan = "6"><img class="vimg" src="../../images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        <td rowspan = "6"><img class="vimg" src="../../../public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                     </tr>
                     <tr>
                     <td>With A/C</td>
@@ -73,7 +73,7 @@
                         <th colspan="2" class="vehicleType">Toyota Prius 4th Generation</th>
                     </tr>
                     <tr class="tr_with_img">
-                        <td colspan = "2"><img class="vimg" src="../../images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        <td colspan = "2"><img class="vimg" src="../../../public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                     </tr>
                     <tr>
                     <td>Car</td>
@@ -120,18 +120,18 @@
         </section>
 
     <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include '../repeatable_contents/footer.php';?>
+      <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
     </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+// }
  ?>

@@ -1,24 +1,26 @@
 <?php
-  session_start();
+  /*session_start();
   if(isset($_SESSION['username'])) {
     include '../../db/db_connection.php';
     $temp = $_SESSION['username'];
     $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
     $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+    if (mysqli_num_rows($resultForSession) === 1) {*/
  ?>
 <html>
     <head>
-      <style> <?php include '../../css/admin/admin_trip_details.css'; ?> </style>
+      <style> <?php include '../../../public/css/admin/admin_trip_details.css'; ?> </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TRIPS</title>
-        <link rel="icon" href="../../images/icons/favicon.ico">
+        <link rel="icon" href="../../../public/images/icons/favicon.ico">
     </head>
     <body>
         <section class="uppersection">
-            <?php include '../../repeatable_contents/nav_bar_admin.php';?>
-            <style> <?php include '../../repeatable_contents/nav_bar_admin.css'; ?>  </style>
-            <script type="text/javascript" src="../../repeatable_contents/nav_bar_admin.js"></script>
+    <!--Start Navigation bar-->
+    <?php include '../repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
+    <!--End Navigation bar-->
             <br>
             <div class="content">
                 <div class="trip">
@@ -138,12 +140,12 @@
     </body>
 </html>
 <?php
-  } else{
+  /*} else{
     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
     exit();
   }
 }else{
   header("location: ../../index.html");
   exit();
-}
+}*/
  ?>
