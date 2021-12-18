@@ -10,17 +10,17 @@
 
 <html>
     <head>
-        <style> <?php include '../../../public/css/admin/admin_vehicles_more.css'; ?> </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>VEHICLES</title>
-        <link rel="icon" href="../../../public/images/icons/favicon.ico">
+        <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+        <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_vehicles_more.css">
     </head>
     <body>
         <section class="uppersection">
     <!--Start Navigation bar-->
-    <?php include '../repeatable_contents/nav_bar_admin.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
+    <?php include_once  APPROOT.'/views/repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
             <br>
             <div class="vehicle_and_owner_details">
@@ -31,7 +31,7 @@
                     </tr>
                     <tr class="detail">
                         <td>Car</td>
-                        <td rowspan = "6"><img class="vimg" src="../../../public/images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        <td rowspan = "6"><img class="vimg" src="http://localhost/TRAVO/public/images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                     </tr>
                     <tr>
                     <td>With A/C</td>

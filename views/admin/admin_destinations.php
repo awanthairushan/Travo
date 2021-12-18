@@ -17,9 +17,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DESTINATIONS</title>
-    <link rel="icon" href="../../../public/images/icons/favicon.ico">
-    <link rel="stylesheet" href="../../../public/css/admin/admin_destinations.css">
-    <link rel="stylesheet" href="../../../public/css/admin/admin_repeating_css.css">
+    <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+    <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_destinations.css">
+    <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_repeating_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -28,9 +28,9 @@
 <body>
 <section class="admin-destinations">
     <!--Start Navigation bar-->
-    <?php include '../repeatable_contents/nav_bar_admin.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
+    <?php include_once  APPROOT.'/views/repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
 
 <div class="main">
@@ -109,7 +109,7 @@
                   <option value="3">Leisure</option>
               </select>
               <input type="text" id="flocation" name="flocation">
-              <img src="../../../public/images/icons/placeholder.png" id="location">
+              <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
             <div class="site_details_div">
@@ -123,7 +123,7 @@
                   <option value="3">Leisure</option>
               </select>
               <input type="text" id="flocation" name="flocation">
-              <img src="../../../public/images/icons/placeholder.png" id="location">
+              <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
             <div class="site_details_div">
@@ -137,7 +137,7 @@
                   <option value="3">Leisure</option>
               </select>
               <input type="text" id="flocation" name="flocation">
-              <img src="../../../public/images/icons/placeholder.png" id="location">
+              <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
             <div class="site_details_div">
@@ -151,7 +151,7 @@
                   <option value="3">Leisure</option>
               </select>
               <input type="text" id="flocation" name="flocation">
-              <img src="../../../public/images/icons/placeholder.png" id="location">
+              <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
 
@@ -192,7 +192,7 @@
   <input type="text" id="flocation" name="flocation">
   <img src="../../images/icons/placeholder.png" id="location">
 </div> -->
-<script type="text/javascript" src="../../../public/script/admin/admin_destinations.js"></script>
+<script type="text/javascript" src="http://localhost/TRAVO/public/script/admin/admin_destinations.js"></script>
 <!--JS to get new row when click on "Add new place" -->
 
 

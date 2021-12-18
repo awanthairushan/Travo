@@ -10,29 +10,29 @@ if(isset($_SESSION['username'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <style> <?php include '../../../public/css/admin/admin_hotels_more.css'; ?> </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOTELS</title>
-        <link rel="icon" href="../../../public/images/icons/favicon.ico">
-        <script src="../../../public/script/traveler/traveler_hotel_booking.js"></script>
+        <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_hotels_more.css">
+        <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+        <script src="http://localhost/TRAVO/public/script/traveler/traveler_hotel_booking.js"></script>
     </head>
     <body>
         <section class="uppersection">
     <!--Start Navigation bar-->
-    <?php include '../repeatable_contents/nav_bar_admin.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
+    <?php include_once  APPROOT.'/views/repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
             
         <!-- .................image gallery.................. -->
             <div class="image_gallery_hotel">
                 <table>
                   <tr>
-                    <td> <img src="../../../public/images/sample_images/for_hotels/1.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"> </td>
-                    <td> <img src="../../../public/images/sample_images/for_hotels/2.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../../public/images/sample_images/for_hotels/3.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../../public/images/sample_images/for_hotels/4.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../../public/images/sample_images/for_hotels/5.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td> <img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/1.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"> </td>
+                    <td> <img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/2.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/3.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/4.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/5.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
                   </tr>
                 </table>
             </div>
