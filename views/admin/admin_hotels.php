@@ -16,9 +16,9 @@ if(isset($_SESSION['username'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOTELS</title>
-    <link rel="icon" href="../../../public/images/icons/favicon.ico">
-    <link rel="stylesheet" href="../../../public/css/admin/admin_hotels.css">
-    <link rel="stylesheet" href="../../../public/css/admin/admin_repeating_css.css">
+    <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+    <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_hotels.css">
+    <link rel="stylesheet" href="http://localhost/TRAVO/public/css/admin/admin_repeating_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -28,9 +28,9 @@ if(isset($_SESSION['username'])) {
 <body>
 <section class="admin-hotels">
     <!--Start Navigation bar-->
-    <?php include '../repeatable_contents/nav_bar_admin.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_admin.js"></script>
+    <?php include_once  APPROOT.'/views/repeatable_contents/nav_bar_admin.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
 
 <!-- .....................modal box for traveler remove...................... -->
@@ -132,7 +132,7 @@ if(isset($_SESSION['username'])) {
                 <td>1</td>
                 <td>Anantara Resort</td>
                 <td>Galle Rd, Kalutara</td>
-                <td><input type="button" id="morebtn" value="MORE" class='hotel_morebtn' onclick="window.location.href='admin_hotels_more.php'";></td>
+                <td><input type="button" id="morebtn" value="MORE" class='hotel_morebtn' onclick="window.location.href='hotelsMore'";></td>
                 <td><input type="button" id="remove_hotel_btn" class="remove_hotel_btn" value="REMOVE"></td>
                 </tr>
                 <tr>
@@ -184,8 +184,8 @@ if(isset($_SESSION['username'])) {
 }*/
  ?>
  <!--JS file for search & filter-->
-    <script src="../../../public/script/admin/admin_filter_hotels.js"></script>
+    <script src="http://localhost/TRAVO/public/script/admin/admin_filter_hotels.js"></script>
  <!--JS file for remove hotel-->
- <script src="../../../public/script/admin/admin_hotels.js"></script>
+ <script src="http://localhost/TRAVO/public/script/admin/admin_hotels.js"></script>
 </body>
 </html>
