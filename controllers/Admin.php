@@ -6,7 +6,9 @@ class Admin extends Controller{
     {
         parent::__construct();
     }
-
+    function index(){
+        $this->view->render('admin/admin_trips');
+    }
     function destinations(){
         //$this->view->users = $this->model->getData();
         $this->view->render('admin/admin_destinations');
