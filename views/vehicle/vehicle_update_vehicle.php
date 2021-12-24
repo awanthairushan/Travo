@@ -13,19 +13,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE</title>
-    <link rel="icon" href="../../../public/images/icons/favicon.ico">
-    <style> <?php include '../../css/vehicle/vehicle_update.css'; ?> </style>
-    <style> <?php include '../../css/vehicle/vehicle_repeating_css.css'; ?> </style>
+    <style> <?php include APPROOT . '/public/css/vehicle/vehicle_update.css'; ?> </style>
+    <style><?php include APPROOT . '/public/css/unregistered/repeating_css.css'; ?> </style>
+    <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico"> 
+    <?php include APPROOT . '/views/repeatable_contents/font.php'; ?>
     <?php
-      $result = require '../../db/vehicle/vehicle_update_profile.php';
-      include '../repeatable_contents/font.php';
+      //$result = require '../../db/vehicle/vehicle_update_profile.php';
     ?>
   </head>
   <body>
     <section class="sign_up-traveler">
-      <?php include '../repeatable_contents/nav_bar_vehicle.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
-      <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_vehicle.js"></script>
+      <?php include APPROOT . '/views/repeatable_contents/nav_bar_vehicle.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_vehicle.js"></script>
+      
+      
       <div class="box-sign_up-traveler">
         <br>
         <form class="form-sign_up-traveler" id="signup_form_vehicle" action="vehicle_view_vehicle.php" method="POST">
@@ -86,10 +88,15 @@
           <input type="submit" form="signup_form_vehicle" class="submitbtn" name="submitbtn" id="submitbtn" value="UPDATE">
       </div>
     </section>
-    <section id="contact_us-section">
-      <?php include '../repeatable_contents/footer.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
-    </section>
+
+  <!--__________________contact_us________________-->
+  
+  <section id="contact_us-section">
+        <?php include APPROOT . '/views/repeatable_contents/footer.php';?>
+        <style> <?php include APPROOT . '/public/css/repeatable_contents/footer.css'; ?>  </style>
+  </section>
+
+<!--__________________END contact_us________________-->
 
   </body>
 </html>

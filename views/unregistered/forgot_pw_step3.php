@@ -13,24 +13,25 @@ if (isset($_SESSION['username'])) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title></title>
-    <style>      <?php include '../../../public/css/unregistered/forgot_pw.css'; ?>    </style>
-    <style> <?php include '../../../public/css/unregistered/repeating_css.css'; ?> </style>
-    <?php include '../repeatable_contents/font.php'; ?>
+    <title>LOGIN</title>
+    <style><?php include APPROOT . '/public/css/unregistered/forgot_pw.css'; ?></style>
+    <style> <?php include APPROOT . '/public/css/unregistered/repeating_css.css'; ?> </style>
+    <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico">
+    <?php include APPROOT . '/views/repeatable_contents/font.php'; ?> 
  </head>
 
   <body>
     <section class="forgot_pw">
-      <?php include '../repeatable_contents/nav_bar.php'; ?>
-      <style>
-        <?php include '../../../public/css/repeatable_contents/nav_bar.css'; ?>
-      </style>
+      <?php include APPROOT . '/views/repeatable_contents/nav_bar.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar.js"></script>
+
 
       <div class="box_forgot_pw_step3"><br>
         <div class="description_forgot_pw">
           <h3>Forgot Password</h3>
           <p>Reset Password</p>
-          <form class="" id="reset_pw_form" action="../../php/unregistered/forgotpw.php" method="post">
+          <form class="" id="reset_pw_form" action="login" method="post">
             <div class="username_div_fogot_pw">
               <img class="img-username_div_fogot_pw" src="../../../public/images/icons/password.png" alt="">
               <input class="text-log_in" type="password" name="new_fogot_pw" id="otp" placeholder="New Password"> 
@@ -49,7 +50,7 @@ if (isset($_SESSION['username'])) {
               <p class="error-log_in"><?php echo $_GET['error']; ?></p>
             <?php }   ?>
 
-            <input type="submit" value="RESET PASSWORD" name="update_pw_btn" class="otp_send_btn" id="otp_send_btn"><br>
+            <input type="submit" value="RESET PASSWORD" name="update_pw_btn" class="otp_send_btn" id="otp_send_btn" onclick="window.location.href='login'"><br>
           </form>
         </div>
       </div>

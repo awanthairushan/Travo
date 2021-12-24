@@ -14,24 +14,21 @@ session_start();
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>FAQ</title>
-      <link rel="icon" href="../../../public/images/icons/favicon.ico">
-      <style>
-        <?php include '../../../public/css/vehicle/vehicle_faq.css'; ?>
-      </style>
-        <style> <?php include '../../../public/css/vehicle/vehicle_repeating_css.css'; ?> </style>
+      <style><?php include APPROOT . '/public/css/vehicle/vehicle_faq.css'; ?></style>
+      <style><?php include APPROOT . '/public/css/unregistered/repeating_css.css'; ?> </style>
+      <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico"> 
+      <?php include APPROOT . '/views/repeatable_contents/font.php'; ?>  
       <?php
-      // $result = require '../../db/all/all_faq.php';
-      include '../repeatable_contents/font.php';
+        // $result = require '../../db/all/all_faq.php';
       ?>
     </head>
 
     <body>
       <section class="faq">
-        <?php include '../repeatable_contents/nav_bar_vehicle.php'; ?>
-        <style>
-          <?php include '../../../public/css/repeatable_contents/nav_bar_vehicle.css'; ?>
-        </style>
-        <script type="text/javascript" src="../../../public/script/repeatable_contents/nav_bar_vehicle.js"></script>
+        <?php include APPROOT . '/views/repeatable_contents/nav_bar_vehicle.php';?>
+        <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
+        <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_vehicle.js"></script>
+  
         <div class="heading">FAQ</div>
         <div class="question_and_answers-faq">
           <br>
@@ -48,14 +45,18 @@ session_start();
             ?>
           </table>
         </div>
-        <script type="text/javascript" src="../../script/vehicle/vehicle_faq.js"></script>
+        <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/vehicle/vehicle_faq.js"></script>
       </section>
-      <section id="contact_us-section">
-        <?php include '../repeatable_contents/footer.php'; ?>
-        <style>
-          <?php include '../../../public/css/repeatable_contents/footer.css'; ?>
-        </style>
-      </section>
+
+<!--__________________contact_us________________-->
+  
+  <section id="contact_us-section">
+        <?php include APPROOT . '/views/repeatable_contents/footer.php';?>
+        <style> <?php include APPROOT . '/public/css/repeatable_contents/footer.css'; ?>  </style>
+  </section>
+
+<!--__________________END contact_us________________-->
+
     </body>
 
     </html>

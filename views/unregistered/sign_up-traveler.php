@@ -6,11 +6,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title></title>
-    <style> <?php include '../../../public/css/unregistered/sign_up-traveler.css'; ?> </style>
-    <style> <?php include '../../../public/css/unregistered/repeating_css.css'; ?> </style>
-    <link rel="icon" href="../../../public/images/icons/favicon.ico">
-    <?php include '../repeatable_contents/font.php'; ?>
+    <title>SIGNUP</title>
+    <style> <?php include APPROOT . '/public/css/unregistered/sign_up-traveler.css'; ?> </style>
+    <style> <?php include APPROOT . '/public/css/unregistered/repeating_css.css'; ?> </style>
+    <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico">
+    <?php include APPROOT . '/views/repeatable_contents/font.php'; ?> 
     <!-- defer indicate that script is executed after the document has been parsed -->
   </head>
   <body>
@@ -32,8 +32,10 @@
   ?>
 
   <section class="sign_up-traveler">
-    <?php include '../repeatable_contents/nav_bar.php';?>
-    <style> <?php include '../../../public/css/repeatable_contents/nav_bar.css'; ?>  </style>
+    <?php include APPROOT . '/views/repeatable_contents/nav_bar.php';?>
+    <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar.css'; ?>  </style>
+    <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar.js"></script>
+
     <div class="heading">TRAVELER</div>
     <div class="box-sign_up-traveler">
       <form class="form-sign_up-traveler" id="form-sign_up-traveler" action="../../php/unregistered/traveler_sign_up.php" method="post">
@@ -91,10 +93,16 @@
     </div>
 
     </section>
-    <section id="contact_us-section">
-      <?php include '../repeatable_contents/footer.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
-    </section>
+
+  <!--__________________contact_us________________-->
+  
+  <section id="contact_us-section">
+      <?php include APPROOT . '/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/footer.css'; ?>  </style>
+   </section>
+
+<!--__________________END contact_us________________-->
+
     <script src="../../../public/script/unregistered/sign_up-traveler.js"></script>
   </body>
 </html>

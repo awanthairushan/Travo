@@ -8,11 +8,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title></title>
-    <style> <?php include '../../../public/css/unregistered/sign_up-vehicle.css'; ?> </style>
-    <style> <?php include '../../../public/css/unregistered/repeating_css.css'; ?> </style>
-    <link rel="icon" href="../../../public/images/icons/favicon.ico">
-    <?php include '../repeatable_contents/font.php'; ?>
+    <title>SIGNUP</title>
+    <style> <?php include APPROOT . '/public/css/unregistered/sign_up-vehicle.css'; ?> </style>
+    <style> <?php include APPROOT . '/public/css/unregistered/repeating_css.css'; ?> </style>
+    <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico">
+    <?php include APPROOT . '/views/repeatable_contents/font.php'; ?> 
   </head>
   <body>
  <?php 
@@ -35,8 +35,10 @@
 
     <section class="sign_up-traveler">
 
-      <?php include '../repeatable_contents/nav_bar.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/nav_bar.css'; ?>  </style>
+      <?php include APPROOT . '/views/repeatable_contents/nav_bar.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar.js"></script>
+
 
     <!--Start form-->
     <div class="box-sign_up-traveler">
@@ -165,12 +167,15 @@
     </div>
 
     </section>
-    <!--Footer-->
-    <section id="contact_us-section">
-      <?php include '../repeatable_contents/footer.php';?>
-      <style> <?php include '../../../public/css/repeatable_contents/footer.css'; ?>  </style>
-    </section>
+  <!--__________________contact_us________________-->
+  
+  <section id="contact_us-section">
+      <?php include APPROOT . '/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/footer.css'; ?>  </style>
+   </section>
+
+<!--__________________END contact_us________________-->
     <!--JS file for validation-->
-    <script src="../../../public/script/unregistered/sign_up-vehicle.js"></script>
+    <script src="<?php echo URLROOT ?>/public/script/unregistered/sign_up-vehicle.js"></script>
   </body>
 </html>

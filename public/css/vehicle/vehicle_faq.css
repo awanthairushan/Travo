@@ -1,5 +1,5 @@
 .faq {
-  background-image: url("../../../public/images//background_images/vehiclebg.jpg");
+  background-image: url("<?php echo URLROOT ?>/public/images/background_images/vehiclebg.jpg");
   background-size: cover;
   height: 100vh;
   margin: 0px;

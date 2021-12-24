@@ -1,5 +1,5 @@
 .uppersection {
-    background-image: url("../../../public/images//background_Images/vehiclebg.jpg");
+    background-image: url("<?php echo URLROOT ?>/public/images/background_images/vehiclebg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;

@@ -40,9 +40,9 @@ class Admin extends Controller{
     function vehicles(){
         $this->view->render('admin/admin_vehicles');
     }
-    function navigation(){
-        $this->view->render('admin/admin_nav_bar');
-    }
+    // function navigation(){
+    //     $this->view->render('admin/admin_nav_bar');
+    // }
 
 
 }

@@ -6,4 +6,37 @@ class Unregistered extends Controller{
     {
         parent::__construct();
     }
+    function index(){
+        $this->view->render('index');
+    }
+    function faq(){
+        $this->view->render('unregistered/faq');
+    }
+    function feedback(){
+        $this->view->render('unregistered/feedback');
+    }
+    function login(){
+        $this->view->render('unregistered/log_in');
+    }
+    function signup(){
+        $this->view->render('unregistered/sign_up');
+    }
+    function signupTraveler(){
+        $this->view->render('unregistered/sign_up-traveler');
+    }
+    function signupVehicle(){
+        $this->view->render('unregistered/sign_up-vehicle');
+    }
+    function signupHotel(){
+        $this->view->render('unregistered/sign_up-hotel');
+    }
+    function fogotPassword(){
+        $this->view->render('unregistered/forgot_pw_step1');
+    }
+    function fogotPassword2(){
+        $this->view->render('unregistered/forgot_pw_step2');
+    }
+    function fogotPassword3(){
+        $this->view->render('unregistered/forgot_pw_step3');
+    }
 }
