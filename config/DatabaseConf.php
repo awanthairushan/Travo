@@ -3,7 +3,7 @@
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_NAME', 'db_ieeecs');
+define('DB_NAME', 'travo');
 define('DB_PASSWORD', '');
 
     //URLROOT (Dynamic links)

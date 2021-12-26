@@ -57,7 +57,7 @@
         </thead>
         <tbody>
         <?php
-          /*  while ($rows = mysqli_fetch_array($result)){
+          while ($rows = mysqli_fetch_array($this->feedback)){
                 echo "<tr>
                     <td>".$rows['date']."</td>
                     <td>".$rows['feedback']."</td>
@@ -68,7 +68,7 @@
                     </form>
                     </td>
                 </tr>";
-            }*/
+            }
           ?>
         </tbody>
     </table>

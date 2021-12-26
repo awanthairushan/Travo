@@ -79,7 +79,7 @@
 
         <tbody class="table-body">
         <?php
-           /* while ($rows = mysqli_fetch_array($result)){
+            while ($rows = mysqli_fetch_array($this->vehicle_details)){
                 echo "<tr>
                     <td>".$rows['row_no']."</td>
                     <td>".$rows['vehicle_no']."</td>
@@ -99,7 +99,7 @@
                     </td>
 
                 </tr>";
-            }*/
+            }
             ?>
         </tbody>
     </table>
