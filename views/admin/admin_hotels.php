@@ -73,7 +73,7 @@ if(isset($_SESSION['username'])) {
             </thead>
             <tbody>
             <?php
-           /* while ($rows = mysqli_fetch_array($result)){
+           while ($rows = mysqli_fetch_array($this->hotels)){
                 echo "<tr>
                     <td>".$rows['row_no']."</td>
                     <td>".$rows['name']."</td>
@@ -96,7 +96,7 @@ if(isset($_SESSION['username'])) {
                     </td>
 
                 </tr>";
-            }*/
+            }
             ?>
             </tbody>
         </table>

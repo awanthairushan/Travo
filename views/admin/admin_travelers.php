@@ -83,7 +83,7 @@
         <tbody class="scroll">
 
         <?php
-          /*  while ($rows = mysqli_fetch_array($result)){
+          while ($rows = mysqli_fetch_array($this->travelers)){
 
             echo "<tr>
                 <td>".$rows['row_no']."</td>
@@ -100,7 +100,7 @@
                 </form>
                 </td>
             </tr>";
-        }*/
+        }
             ?>
         </tbody>
     </table>

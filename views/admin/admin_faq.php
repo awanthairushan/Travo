@@ -52,7 +52,7 @@
         </thead>
         <tbody>
         <?php
-           /* while ($rows = mysqli_fetch_array($result)){
+           while ($rows = mysqli_fetch_array($this->faq)){
                 echo "<tr>
                     <td>".$rows['question']."</td>
                     <td>".$rows['answer']."</td>
@@ -69,7 +69,7 @@
                     </form>
                     </td>
                 </tr>";
-            }*/
+            }
           ?>
         </tbody>
     </table>
