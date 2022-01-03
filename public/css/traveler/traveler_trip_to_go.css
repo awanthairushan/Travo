@@ -4,7 +4,7 @@ body{
 
 }
 .uppersection {
-  background-image: url("../../images/background_Images/travelerbg.jpg");
+  background-image: url("http://localhost/TRAVO/public/images/background_Images/travelerbg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -138,62 +138,62 @@ body{
 }
 
 .trip1 .t1{
-    background-image: url('../../images/Sample_images/for_trips/10.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/10.jpg');
     background-size: cover;
 }
 
 .trip1 .t2{
-    background-image: url('../../images/Sample_images/for_trips/9.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/9.jpg');
     background-size: cover;
 }
 
 .trip1 .t3{
-    background-image: url('../../images/Sample_images/for_trips/12.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/12.jpg');
     background-size: cover;
 }
 
 .trip1 .t4{
-    background-image: url('../../images/Sample_images/for_trips/1.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/1.jpg');
     background-size: cover;
 }
 
 .trip2 .t1{
-    background-image: url('../../images/Sample_images/for_trips/2.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/2.jpg');
     background-size: cover;
 }
 
 .trip2 .t2{
-    background-image: url('../../images/Sample_images/for_trips/3.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/3.jpg');
     background-size: cover;
 }
 
 .trip2 .t3{
-    background-image: url('../../images/Sample_images/for_trips/4.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/4.jpg');
     background-size: cover;
 }
 
 .trip2 .t4{
-    background-image: url('../../images/Sample_images/for_trips/7.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/7.jpg');
     background-size: cover;
 }
 
 .trip3 .t1{
-    background-image: url('../../images/Sample_images/for_trips/8.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/8.jpg');
     background-size: cover;
 }
 
 .trip3 .t2{
-    background-image: url('../../images/Sample_images/for_trips/11.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/11.jpg');
     background-size: cover;
 }
 
 .trip3 .t3{
-    background-image: url('../../images/Sample_images/for_trips/6.jpg');
+    background-image: url('http://localhost/TRAVO/public/images/Sample_images/for_trips/6.jpg');
     background-size: cover;
 }
 
 .trip3 .t4{
-    background-image: url('../../images/Sample_images/for_trips/5.jpg');
+    background-image: url('http://localhost/TRAVO/public/../public/images/Sample_images/for_trips/5.jpg');
     background-size: cover;
 }
 
@@ -219,6 +219,89 @@ body{
         height: 100px;
     }
 } */
+
+@media  screen and (max-width:850px) {
+    .topic{
+        margin:4rem 0 0.25rem 0;
+    }
+
+    .next,.prev{
+        margin: 3.5rem 0 0 0;
+    }
+}
+
+@media  screen and (max-width:750px) {
+    .tripdetail{
+        width: 80%;
+        height: 30vh;
+    }
+
+    .cols2{
+        overflow-y: scroll;
+    }
+
+    .cols2::-webkit-scrollbar {
+        display: none;
+      }
+
+}
+
+@media  screen and (max-width:625px) {
+    .topic{
+        font-size: 1.3rem;
+    }
+
+}
+
+@media  screen and (max-width:414px) {
+    .tripdetail{
+        width: 90%;
+        height: 30vh;
+    }
+
+    .topic{
+        width: 60%;
+    }
+
+    .next,.prev{
+        width: 10%;
+    }
+
+    .row1{
+        margin: 1rem auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cols2{
+        margin: 0.5rem auto;
+    }
+
+}
+
+@media  screen and (max-width:280px) {
+
+    .cols2{
+        width: 90%;
+    }
+
+    #selecttrip{
+          margin-top: 0.5rem;
+          padding: 0;
+          width: 10rem;
+          height: 3rem;
+          color: #ffffff;
+          border: 2px solid #FFFFFF;
+          box-sizing: border-box;
+          border-radius: 3rem;
+          background-color: transparent;
+          font-size: 1.3rem;
+          cursor: pointer;
+      }
+
+}
+
 /* ....................modal Box................................ */
 .delete_trip_modal {
   display: none;

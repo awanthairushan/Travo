@@ -3,7 +3,7 @@ body {
     margin: 0;
 }
 .uppersection {
-      background-image: url("../../images/background_Images/travelerbg.jpg");
+      background-image: url("http://localhost/TRAVO/public/images/background_Images/travelerbg.jpg");
       /* opacity: 90%; */
       background-size: cover;
       background-repeat: no-repeat;
@@ -22,14 +22,18 @@ body {
 
 .content {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   padding: 0;
 }
 .vehicledetails_div {
-  max-height: 72%;
+  max-height: 69%;
   overflow-y: scroll;
 }
 .vehicledetails_div::-webkit-scrollbar {
+  display: none;
+}
+
+.filterbtn{
   display: none;
 }
 
@@ -43,6 +47,7 @@ body {
 
 .filter_table td {
   text-align: center;
+  width: 25%;
 }
 select{
     width: 80%;
@@ -50,11 +55,29 @@ select{
     border: none;
 }
 
+.filtersubmitbtn{
+  display: none;
+  text-align: center;
+}
+
 .vehicledetails{
     background: rgba(255, 255, 255, 0.5);
     border-radius: 1.5rem;
-    height: 12vh;
+    height: 12%;
     border-collapse: collapse;
+    margin: auto;
+}
+
+
+/* new */
+.vtable{
+  /* background: rgba(255, 255, 255, 0.5); */
+  /* border-radius: 1.5rem; */
+  /* height: 12vh; */
+  display: block;
+  border-collapse: collapse;
+  margin:0 auto;
+  height: 18vw;
 }
 
 .vehicleType{
@@ -62,6 +85,17 @@ select{
     text-align: center;
     border-radius: 1.5rem 1.5rem 0px 0px;
     padding: 0.5rem;
+}
+
+/* new */
+.vdetails:nth-child(1){
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 1.5rem 1.5rem 0px 0px;
+  padding: 0.5rem 0 0.5rem 0;
+  font-weight: bold;
+  width: 100%;
+  color: #ffffff;
 }
 
 .vehicledetails th{
@@ -74,11 +108,33 @@ select{
     padding: 0 0 0 0.5rem;
 }
 
+/* new */
+.vdetails:nth-child(2),.vdetails:nth-child(3),.vdetails:nth-child(4){
+  background: rgba(255, 255, 255, 0.5);
+  width: 32%;
+  text-align: left;
+  padding: 0 0 0 1.33%;
+  float: left;
+  height: 13vw;
+}
+
+/* new */
+.vdetails:nth-child(2){
+  border-radius:0 0 0 0.5rem;
+}
+
+/* new */
+.vdetails:nth-child(4){
+  border-radius:0 0 0.5rem 0;
+}
+
 .vimg{
-      width: 15vw;
+      /* width: 15vw; */
+      width: 60%;
       height: auto;
       border-radius: 1rem;
-
+      /* display: block;
+      margin: 0 auto; */
 }
 
 
@@ -87,6 +143,184 @@ select{
     background-color: transparent;
 } */
 
-/* @media screen and (max-width:650px){
+@media screen and (max-width: 1060px){
+  .vtable{
+    height: 23vw;
+  }
 
-} */
+  .vdetails:nth-child(2),.vdetails:nth-child(3),.vdetails:nth-child(4){
+    height: 16vw;
+  }
+
+  .vimg{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .pageheading{
+    margin:4rem 0 0.25rem 0;
+  }
+
+  .vtable{
+    width: 45%;
+    float: left;
+    margin: 2% 2.5%;
+    height: 28rem;
+  }
+
+  .vdetails:nth-child(1){
+    width: 100%;
+    padding:0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .vdetails:nth-child(2),.vdetails:nth-child(3),.vdetails:nth-child(4){
+    width: 100%;
+    padding: 0;
+    height: 8rem;
+    font-size: 0.8rem;
+  }
+
+  .vimg{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .vdetails:nth-child(2){
+    border-radius: 0;
+  }
+  
+  .vdetails:nth-child(4){
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .vdetails dt{
+    padding: 0 0 0 0.5rem;
+  }
+} 
+
+@media screen and (max-width: 750px){
+  .vimg{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .vimg{
+    width: 70%;
+  }
+  .filter_form{
+    display: none;
+    z-index: 1;
+    position: fixed;
+    background-color: #000000;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+    width: 80vw;
+  }
+
+  .filter_table{
+    z-index: 1;
+  }
+
+  .filtersubmitbtn{
+    z-index: 1;
+    /* display: block; */
+    width: 5rem;
+    height: 1.5rem;
+    margin: 0.2rem auto;
+    background: #369093;
+    border-radius: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+    padding-top: 0.5rem;
+  }
+
+  select{
+    z-index: 1;
+  }
+
+  .filterbtn{
+    display: block;
+    width: 12rem;
+    height: 2rem;
+    margin:0.5rem auto;
+    background: #369093;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+
+  .filter_table td{
+    display: block;
+  }
+
+  .filter_table{
+    margin: 0.5rem auto;
+    width: 100%;
+  }
+  
+  .filter_table td {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .vtable{
+    width: 90%;
+    margin: 0 5%;
+    height: 24rem;
+  }
+
+  .vimg{
+    width: 40%;
+  }
+
+  .vdetails:nth-child(2),.vdetails:nth-child(3),.vdetails:nth-child(4){
+    height: 7rem;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+  .vimg{
+    width: 32vw;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .vimg{
+    width: 35vw;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .vimg{
+    width: 40vw;
+  }
+}
+
+@media screen and (max-width: 300px){
+
+  .vtable{
+    height: 26rem;
+  }
+
+  .vimg{
+    width: 45vw;
+  }
+}

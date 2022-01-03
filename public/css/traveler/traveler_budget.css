@@ -4,7 +4,7 @@ body{
 }
 
 .uppersection{
-    background-image: url("../../images/background_Images/travelerbg.jpg");
+    background-image: url("http://localhost/TRAVO/public/images/background_Images/travelerbg.jpg");
     height: 100vh;
     /* opacity: 90%; */
     background-size: cover;
@@ -51,7 +51,7 @@ body{
 
 .container{
     width: 80vw;
-    height: 63vh;
+    height: 60vh;
     /* align .tripmenu div tags to the center */
     margin: 0.5rem auto;
     background: rgba(196, 196, 196, 0.5);
@@ -60,13 +60,32 @@ body{
     border-radius: 2rem;
 }
 
-.main{
-  margin: 1rem auto;
-  width: 70%;
+ .main{
+  margin: 0 auto;
+  width: 60%;
 
 }
 
-.main td{
+.main .row,.main .row1{
+    width: 25%;
+} 
+
+.main .equal{
+    width: 50%;
+    text-align: center;
+}
+
+.main .row,.main .equal,.main .row1{
+    float: left;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+.main .final{
+    font-weight: bold;
+}
+
+/* .main td{
     padding: 10px 10px 10px 20px;
     font-size: 1.2rem;
 }
@@ -76,20 +95,27 @@ body{
     font-size: 1.2rem;
 }
 
+.row{
+    text-align: left;
+} */
+
+
+
 .main_details{
     margin: 0 auto;
     padding-top: 0.25rem ;
-    width: 50%;
+    width: 40%;
+    font-size: 0.9rem;
   }
   
-.main_details td{
+/* .main_details td{
       padding: 5px;
-}
+} */
 .main_details td:first-child{
-    width: 40%;
+    width: 50%;
 }
-.trow{
-    padding: 1rem;
+/* .trow{
+    padding: 0.5rem;
 }
 
 .days tr{
@@ -101,6 +127,7 @@ body{
   margin: 1rem auto;
   width: 80%;
   border-radius: 1.5rem;
+  font-size: 0.9rem;
 }
 .days tr th:first-child {
     padding-left: 2rem;
@@ -118,10 +145,48 @@ body{
 }
 .days tr td:nth-child(4) {
     width:18%;
+} */
+
+.days{
+    display:table;
+    width: 90%;
+    margin: 1rem auto;
 }
-.row{
-    text-align: left;
+
+.tcolumn,.thide{
+    width: 29%;
+    float: left;
 }
+
+.thide{
+    display: none;
+}
+
+.thide:first-child{
+    width: 13%;
+    display: block;
+}
+
+.trow,.trowhead{
+    width: 100%;
+    border-bottom: black solid;
+    border-width: 0.1rem;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.thide,.tcolumn{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.trow span{
+    margin-left: 0.4rem;
+}
+
+.trow:last-child{
+    border-bottom: none;
+}
+
 .buttons {
   text-align: center;
 }
@@ -143,7 +208,9 @@ body{
     letter-spacing: 2px;
 }
 .details iframe {
-  margin:auto;
+  margin:0 auto;
+  width: 70vw;
+  height: 50vh;
   border-radius: 3rem;
 }
 
@@ -159,15 +226,161 @@ body{
     display: none;
 }
 
-/* @media screen and (max-width:760px){
-
-    .trip{
-        width:100%;
+@media screen and (max-width:1090px){
+    .main .row1{
+        width: 40%;
     }
+
+    .main .equal{
+        width: 35%;
+    }
+
+    .days{
+        width: 100%;
+    }
+    
+    .main_details{
+        width: 50%;
+    }
+
+    .details{
+        max-height:56vh ;
+        overflow-y: scroll;
+        margin:0 auto;
+    }
+
+    .details::-webkit-scrollbar{
+        display: none;
+    }
+}
+
+@media screen and (max-width:850px){
+    .trip{
+        margin-top: 4rem;
+    }
+    
+    .main .row{
+        width: 30%;
+    }
+
+    .main .equal{
+        width: 30%;
+    }
+
+    .tcolumn,.thide{
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+
+    .thide:first-child{
+        width: 50%;
+    }
+
+    .thide{display: block;}
+
+    .days{
+        width: 70%;
+    }
+
+    .main_details{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:700px){
+    .trip{
+        width: 90vw;
+    }
+
+    .main{
+        width: 70%;
+    }
+
+    .main .row1{
+        width: 50%;
+    }
+    
+    .main .row{
+        width: 35%;
+    }
+
+    .main .equal{
+        width: 15%;
+    }
+
+    .main_details{
+        width: 75%;
+    }
+
+    .days{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:580px){
 
     .tripmenu{
-        font-size: 20px;
-        margin: 0.5px;
-        width:32.5%;
+        font-size: 1.4rem;
     }
-} */
+
+    .main{
+        width: 90%;
+        padding: 2rem 0;
+    }
+
+    .main_details{
+        width: 90%;
+    }
+
+    .trow,.trowhead{
+        font-size: 0.7rem;
+    }
+
+    .container{
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (max-width:450px){
+    .thide{
+        width: 30%;
+    }
+
+    .thide:first-child{
+        width: 30%;
+    }
+
+    .tcolumn{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:370px){
+
+    .tripmenu{
+        font-size: 1.2rem;
+    }
+
+    .main{
+        width: 100%;
+    }
+
+    .main .row,.main .equal,.main .row1{
+        font-size: 0.8rem;
+    }
+
+    .main .row1{
+        width:48% ;
+        padding-left: 4px;
+    }
+
+    .trow,.trowhead{
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width:370px){
+    .tripmenu{
+        font-size: 1rem;
+    }
+}

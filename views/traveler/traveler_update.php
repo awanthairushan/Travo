@@ -1,30 +1,31 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+  // session_start();
+  // if(isset($_SESSION['username'])) {
+  //   include '../../db/db_connection.php';
+  //   $temp = $_SESSION['username'];
+  //   $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
+  //   $resultForSession = mysqli_query($con, $sqlForSession);
+  //   if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE</title>
-    <link rel="icon" href="../../images/icons/favicon.ico">
-    <style> <?php include '../../css/traveler/traveler_update.css'; ?> </style>
-    <style> <?php include '../../css/traveler/traveler_repeating_css.css'; ?> </style>
+    <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+    <style> <?php include APPROOT.'/public/css/traveler/traveler_update.css'; ?> </style>
+    <style> <?php include APPROOT.'/public/css/traveler/traveler_repeating_css.css'; ?> </style>
     <!-- defer indicate that script is executed after the document has been parsed -->
     <?php
-      $result = require '../../db/traveler/traveler_updateprofile.php';
-      include '../../repeatable_contents/font.php';      
+      // $result = require '../../db/traveler/traveler_updateprofile.php';
+      include APPROOT.'/views/repeatable_contents/font.php';      
     ?>
   </head>
   <body>
     <section class="sign_up-traveler">
-      <?php include '../../repeatable_contents/nav_bar_traveler.php';?>
-      <style> <?php include '../../repeatable_contents/nav_bar_traveler.css'; ?>  </style>
-      <script type="text/javascript" src="../../repeatable_contents/nav_bar_traveler.js"></script>
+      <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php';?>
+      <style> <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>  </style>
+      <script type="text/javascript" src="http://localhost/TRAVO/public/repeatable_contents/nav_bar_traveler.js"></script>
       <br>
       <div class="pageheading">UPDATE</div>
     <div class="box-sign_up-traveler">
@@ -67,19 +68,19 @@
     </div>
     </section>
     <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include APPROOT.'/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
     <!--<script src="../../script/unregistered/sign_up-traveler.js"></script>-->
   </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+// }
  ?>
