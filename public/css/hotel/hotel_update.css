@@ -4,7 +4,7 @@ body {
 }
 
 .sign_up-traveler {
-    background-image: url("../../images/background_images/hotelbg.jpg");
+    background-image: url("http://localhost/TRAVO/public/images/background_images/hotelbg.jpg");
     background-size: cover;
     height: 100vh;
     margin: 0px;

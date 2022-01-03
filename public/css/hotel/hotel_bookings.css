@@ -6,7 +6,7 @@ body {
 
 .sign_up-traveler {
     height: 100vh;
-    background-image: url("../../images/background_Images/Hotelbg.jpg");
+    background-image: url("http://localhost/TRAVO/public/images/background_Images/Hotelbg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -156,3 +156,11 @@ input[type=date], select{
   float: right;
   }
 /* ........................end of modal box for cutomer details.......... */
+@media screen and (max-width:645px){
+  td.b {
+  width: 100%;
+  }
+  th.b {
+    width: 100%;
+  }
+  }

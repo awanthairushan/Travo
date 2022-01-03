@@ -5,7 +5,7 @@ body{
 }
 .sign_up-traveler{
     height: 100vh;
-    background-image: url("../../images/background_Images/Hotelbg.jpg");
+    background-image: url("http://localhost/TRAVO/public/images/background_Images/Hotelbg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -190,3 +190,49 @@ b{
         height: 100px;
     }
 }
+@media screen and (max-width:562px){
+  /* .tripdetail{
+      height: 200px;
+  }
+
+  .slide{
+      float: left;
+      width: 100%;
+      align-content: center;
+  }
+
+
+  .next{
+      float:left;
+      width: 5%;
+  }
+
+  #selecthotelbtn{
+      height: 100px;
+  }
+}
+@media screen and (max-width:650px) {
+.slide {
+    float: left;
+    width: 100%;
+    align-content: center;
+}
+.cols1,
+.cols2 {
+    width: 100%
+}
+.next {
+    float: left;
+    width: 5%;
+}
+#selecthotelbtn {
+    height: 100px;
+} */
+.rooms {
+  width: 100%;
+}
+.roomtype {
+    min-width: 25%;
+}
+}
+
