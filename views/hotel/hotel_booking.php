@@ -1,28 +1,28 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT hotelID FROM hotels WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+  // session_start();
+  // if(isset($_SESSION['username'])) {
+  //   include '../../db/db_connection.php';
+  //   $temp = $_SESSION['username'];
+  //   $sqlForSession = "SELECT hotelID FROM hotels WHERE email = '$temp'";
+  //   $resultForSession = mysqli_query($con, $sqlForSession);
+  //   if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <html>
 <head>
       <title>BOOKINGS</title>
-      <link rel="icon" href="../../images/icons/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="../../css/hotel/hotel_bookings.css">
-    <style> <?php include '../../css/hotel/hotel_repeating_css.css'; ?> </style>
-    <style> <?php include '../../css/hotel/hotel_bookings.css'; ?> </style>
+      <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="http://localhost/TRAVO/public/css/hotel/hotel_bookings.css">
+    <style> <?php include_once APPROOT.'/public/css/hotel/hotel_repeating_css.css'; ?> </style>
+    <style> <?php include_once APPROOT.'/public/css/hotel/hotel_bookings.css'; ?> </style>
 
 </head>
 <body>
 <section class="sign_up-traveler">
-      <?php include '../../repeatable_contents/nav_bar_hotel.php';?>
+      <?php include_once APPROOT.'/views/repeatable_contents/nav_bar_hotel.php';?>
       <style>
-      <?php include '../../repeatable_contents/nav_bar_hotel.css'; ?>
+      <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_hotel.css'; ?>
       </style>
-      <script type="text/javascript" src="../../repeatable_contents/nav_bar_hotel.js"></script>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
       <br>
             <!-- .....................modal box for cutomer details ...................... -->
     <div class="more_traveler_details_modal">
@@ -125,20 +125,20 @@
 
     </section>
 <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include_once APPROOT.'/views/repeatable_contents/footer.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
       </section>
       <!--JS file for cutomer details-->
-      <script src="../../script/hotel/hotel_booking.js"></script>
+      <script src="<?php echo APPROOT ?>/public/script/hotel/hotel_booking.js"></script>
     </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+// }
  ?>
