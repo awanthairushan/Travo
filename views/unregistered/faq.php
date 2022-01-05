@@ -23,14 +23,14 @@
         <br>
         <table class="faq_table-faq">
         <?php
-            // while ($rows = mysqli_fetch_array($result)){
-            //     echo "<tr>
-            //       <td class='question-faq'>".$rows['question']."</td>
-            //     </tr>
-            //   <tr>
-            //     <td class='answer-faq'>".$rows['answer']."</td>
-            //   </tr>";
-            // }
+            while ($rows = mysqli_fetch_array($this->faq)){
+                echo "<tr>
+                  <td class='question-faq'>".$rows['question']."</td>
+                </tr>
+              <tr>
+                <td class='answer-faq'>".$rows['answer']."</td>
+              </tr>";
+            }
           ?>
         </table>
       </div>

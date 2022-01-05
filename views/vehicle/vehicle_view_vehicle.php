@@ -41,81 +41,84 @@
             </div> -->
 
             <div class="vehicle_and_owner_details">
-                <form action="vehicle_update_vehicle">
-                <table class="vehicle_details">
-                    <!-- vehicle 1 -->
-                    <tr>
-                        <th colspan="2" class="vehicleType">Toyota Prius 4th Generation</th>
-                    </tr>
-                    <tr class="tr_with_img">
+                <?php 
+                while ($rows = mysqli_fetch_array($this->myVehicle)){
+                echo '
+                    <form action="vehicle_update_vehicle">
+                    <table class="vehicle_details">
+                        <!-- vehicle 1 -->
+                        <tr>
+                            <th colspan="2" class="vehicleType">' . $rows['type'] . '</th>
+                        </tr>
+                        <tr class="tr_with_img">
+                            <td>' . $rows['type'] . '</td>
+                            <td rowspan = "6"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        </tr>
+                        <tr>
+                        <td>' . ($rows['ac'] == 'yes' ?  'With A/C' : 'without A/C') .'</td>
+                        </tr>
+                        <tr>
+                        <td>' . $rows['no_of_passengers'] . ' Seats</td>
+                        </tr>
+                        <tr>
+                        <td>' . $rows['driver_type'] . '</td>
+                        </tr>
+                        <tr>
+                        <td>Rs.' . $rows['price_for_1km'] . ' per km</td>
+                        </tr>
+                        <tr>
+                        <td>Rs.' . $rows['price_for_day'] . ' per day</td>
+                        </tr>
+                    </table>
+                    <table class="small_vehicle_details">
+                        <!-- vehicle 1 -->
+                        <tr>
+                            <th colspan="2" class="vehicleType">Toyota Prius 4th Generation</th>
+                        </tr>
+                        <tr class="tr_with_img">
+                            <td colspan = "2"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        </tr>
+                        <tr>
                         <td>Car</td>
-                        <td rowspan = "6"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
-                    </tr>
-                    <tr>
-                    <td>With A/C</td>
-                    </tr>
-                    <tr>
-                    <td>5 Seats</td>
-                    </tr>
-                    <tr>
-                    <td>With Driver</td>
-                    </tr>
-                    <tr>
-                    <td>50 per km</td>
-                    </tr>
-                    <tr>
-                    <td>1000 per day</td>
-                    </tr>
-                </table>
-                <table class="small_vehicle_details">
-                    <!-- vehicle 1 -->
-                    <tr>
-                        <th colspan="2" class="vehicleType">Toyota Prius 4th Generation</th>
-                    </tr>
-                    <tr class="tr_with_img">
-                        <td colspan = "2"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
-                    </tr>
-                    <tr>
-                    <td>Car</td>
-                    <td>with driver</td>
-                    </tr>
-                    <tr>
-                    <td>With A/C</td>
-                    <td>50 per km</td>
-                    </tr>
-                    <tr>
-                    <td>5 Seats</td>
-                    <td>1000 per day</td>
-                    </tr>
-                </table>
-                <table class="driver_details">
-                    <tr>
-                        <th class="vehicleType">Mr.kamal</th>
-                    </tr>
-                    <tr>
-                        <td>Kamal Sumudu Nagodaarachchi</td>
-                    </tr>
-                    <tr>
-                        <td>kamal@gmail.com </td>
-                    </tr>
-                    <tr>
-                        <td>0332255654 0716663769</td>
-                    </tr>
-                    <tr>
-                        <td>Gampaha</td>
-                    </tr>
-                    <tr>
-                        <td>LKR.1200.00 per day</td>
-                    </tr>
-                </table>
+                        <td>with driver</td>
+                        </tr>
+                        <tr>
+                        <td>With A/C</td>
+                        <td>50 per km</td>
+                        </tr>
+                        <tr>
+                        <td>5 Seats</td>
+                        <td>1000 per day</td>
+                        </tr>
+                    </table>
+                    <table class="driver_details">
+                        <tr>
+                            <th class="vehicleType">Mr.kamal</th>
+                        </tr>
+                        <tr>
+                            <td>Kamal Sumudu Nagodaarachchi</td>
+                        </tr>
+                        <tr>
+                            <td>kamal@gmail.com </td>
+                        </tr>
+                        <tr>
+                            <td>0332255654 0716663769</td>
+                        </tr>
+                        <tr>
+                            <td>Gampaha</td>
+                        </tr>
+                        <tr>
+                            <td>LKR.1200.00 per day</td>
+                        </tr>
+                    </table>
 
-                <div class="buttons-sign_up-traveler">
-                <input type="button" class="updatebtn" name="submitbtn" id="submitbtn"  value="UPDATE DETAILS" onclick="window.location.href='updateVehicleDetails'">
-                <input type="submit" class="deletebtn" name="submitbtn" id="submitbtn"  value="DELETE VEHICLE">
-                 
-                </div>
-                </form>
-                
+                    <div class="buttons-sign_up-traveler">
+                        <input type="button" class="updatebtn" name="submitbtn" id="submitbtn"  value="UPDATE DETAILS" onclick="window.location.href="updateVehicleDetails"">
+                        <input type="submit" class="deletebtn" name="submitbtn" id="submitbtn"  value="DELETE VEHICLE">
+                    </div>
+                    </form>
+
+                '; }?>
             </div>
         </section>
 

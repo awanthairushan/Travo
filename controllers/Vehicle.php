@@ -10,9 +10,11 @@ class Vehicle extends Controller{
         $this->view->render('vehicle/vehicle_home');
     }
     function faq(){
+        $this->view->faq = $this->model->getFaq();
         $this->view->render('vehicle/vehicle_faq');
     }
     function myVehicle(){
+        $this->view->myVehicle =$this->model->getVehicleDetails();
         $this->view->render('vehicle/vehicle_view_vehicle');
     }
     function addVehicle(){

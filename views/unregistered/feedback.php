@@ -30,12 +30,12 @@
           <tbody class="feedback_tbody-feedback">
             
             <?php
-              // while ($rows = mysqli_fetch_array($result)){
-              //   echo "<tr>
-              //     <td class='date-feedback'>".$rows['date']."</td>
-              //     <td class='feedback-feedback'>".$rows['feedback']."</td>
-              //   </tr>";
-              // }
+              while ($rows = mysqli_fetch_array($this->faq)){
+                echo "<tr>
+                  <td class='date-feedback'>".$rows['date']."</td>
+                  <td class='feedback-feedback'>".$rows['feedback']."</td>
+                </tr>";
+              }
             ?>
           </tbody>
         </table>

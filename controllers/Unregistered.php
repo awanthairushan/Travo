@@ -7,12 +7,14 @@ class Unregistered extends Controller{
         parent::__construct();
     }
     function index(){
-        $this->view->render('index');
+        $this->view->render('unregistered/index');
     }
     function faq(){
+        $this->view->faq = $this->model->getFaq();
         $this->view->render('unregistered/faq');
     }
     function feedback(){
+        $this->view->faq = $this->model->getFeedback();
         $this->view->render('unregistered/feedback');
     }
     function login(){
