@@ -46,22 +46,17 @@
       <div class="form-control">
         <label for="name">Owner Name</label>
         <input class="text-form-sign_up-traveler" type="text" name="owner_name" id="owner_name" placeholder=""><br/>
-        <span id="error1" class="error-msg"></span>
-        <small>Error Message</small>
       </div>
 
       <div class="form-control">
         <label for="email">Email Address</label>
         <input class="text-form-sign_up-traveler" type="text" name="email" id="email" placeholder=""><br/>
-        <span id="error2" class="error-msg"></span>
       </div>
 
       <div class="form-control">
         <label for="contact">Contact Number</label>
         <input class="text-small-form-sign_up-traveler" type="text" name="contact2" id="contact2" placeholder=" Contact Number 2">
         <input class="text-small-form-sign_up-traveler" type="text" name="contact1" id="contact1" placeholder=" Contact Number 1"><br/>
-        <span id="error3" class="error-msg"></span>
-        <small>Error Message</small>
       </div>
 
       <div class="form-control">
@@ -71,45 +66,41 @@
         <span class="tooltiptext">*Please enter a password between 8 to 15 characters which contains at least one uppercase letter and one special character</span>
         <input class="text-small-form-sign_up-traveler" type="password" name="password1" id="password1" placeholder=""><br/>
         </div>
-        <span id="error4" class="error-msg"></span>
       </div>
 
 
-      <div class="form-control">
-        <label for="vehicle-model">Vehicle Model</label>
-        <input class="text-form-sign_up-traveler" type="text" name="Vehicle_model" id="vehicle_model" placeholder=" ex: Totota Prius 4th generation"><br/>
-        <span id="error6" class="error-msg"></span>
-      </div>
+
 
       <div class="form-control">
         <label for="vehicle-no">Vehicle Number</label>
         <input class="text-form-sign_up-traveler" type="text" name="vehicle_no" id="vehicle_no" placeholder=""><br/>
-        <span id="error6" class="error-msg"></span>
       </div>
 
       <div class="form-control">
         <label for="vehicle">Vehicle</label>
         <input class="text-small-form-sign_up-traveler" type="text" name="no_of_passengers" id="no_of_passengers" placeholder=" No of passengers">
-        <span id="error7" class="error-msg"></span>
         <select class="drop-down-form-sign_up-traveler" name="vehicle_type">
-                            <option value="" hidden>Vehicle Category</option>
-                            <option value="car">Car</option>
-                            <option value="van">Van</option>
-                            <option value="bus">Bus</option>
-                            <option value="suv">SUV</option>
-                            <option value="minibus">Mini Bus</option>
-                        </select><br/>
+          <option value="" hidden>Vehicle Category</option>
+          <option value="car">Car</option>
+          <option value="van">Van</option>
+          <option value="bus">Bus</option>
+          <option value="suv">SUV</option>
+          <option value="minibus">Mini Bus</option>
+        </select><br/>
 
         <!-- <input class="text-small-form-sign_up-traveler" type="text" name="type" id="type" placeholder=" Vehicle Category"><br><br> -->
         <span id="error8" class="error-msg"></span>
       </div>
 
       <div class="form-control">
+        <label for="vehicle-model">Vehicle Model</label>
+        <input class="text-form-sign_up-traveler" type="text" name="Vehicle_model" id="vehicle_model" placeholder=" ex: Toyota Prius 4th generation"><br/>
+      </div>
+
+      <div class="form-control">
         <label for="price">Price</label>
         <input class="text-small-form-sign_up-traveler" type="text" name="price_for_day" id="price_for_day" placeholder=" Price for day">
-        <span id="error9" class="error-msg"></span>
         <input class="text-small-form-sign_up-traveler" type="text" name="price_for_1km" id="price_for_1km" placeholder=" Price for 1km"><br/>
-        <span id="error10" class="error-msg"></span>
       </div>
 
       <div class="form-control">
@@ -124,40 +115,38 @@
       <div class="form-control">
         <label for="city">Location</label>
         <select class="select-form-sign_up-traveler" name="city">
-        <option value="All Sri Lanka">Sri Lanka</option>
-                            <option value="Ampara">Ampara</option>
-                            <option value="Anuradhapura">Anuradhapura</option>
-                            <option value="Badulla">Badulla</option>
-                            <option value="Batticaloa">Batticaloa</option>
-                            <option value="Colombo">Colombo</option>
-                            <option value="Galle">Galle</option>
-                            <option value="Gampaha">Gampaha</option>
-                            <option value="Hambantota">Hambantota</option>
-                            <option value="Jaffna">Jaffna</option>
-                            <option value="Kalutara">Kalutara</option>
-                            <option value="Kandy">Kandy</option>
-                            <option value="Kegalle">Kegalle</option>
-                            <option value="Kilinochchi">Kilinochchi</option>
-                            <option value="Kurunegala">Kurunegala</option>
-                            <option value="Mannar">Mannar</option>
-                            <option value="Matale">Matale</option>
-                            <option value="Matara">Matara</option>
-                            <option value="Monaragala">Monaragala</option>
-                            <option value="Mullaitivu">Mullaitivu</option>
-                            <option value="Nuwara Eliya">Nuwara Eliya</option>
-                            <option value="Polonnaruwa">Polonnaruwa</option>
-                            <option value="Puttalam">Puttalam</option>
-                            <option value="Ratnapura">Ratnapura</option>
-                            <option value="Trincomalee">Trincomalee</option>
-                            <option value="Vavuniya">Vavuniya</option>
-                        </select><br/>
-        <span id="error5" class="error-msg"></span>
+          <option value="All Sri Lanka">Sri Lanka</option>
+          <option value="Ampara">Ampara</option>
+          <option value="Anuradhapura">Anuradhapura</option>
+          <option value="Badulla">Badulla</option>
+          <option value="Batticaloa">Batticaloa</option>
+          <option value="Colombo">Colombo</option>
+          <option value="Galle">Galle</option>
+          <option value="Gampaha">Gampaha</option>
+          <option value="Hambantota">Hambantota</option>
+          <option value="Jaffna">Jaffna</option>
+          <option value="Kalutara">Kalutara</option>
+          <option value="Kandy">Kandy</option>
+          <option value="Kegalle">Kegalle</option>
+          <option value="Kilinochchi">Kilinochchi</option>
+          <option value="Kurunegala">Kurunegala</option>
+          <option value="Mannar">Mannar</option>
+          <option value="Matale">Matale</option>
+          <option value="Matara">Matara</option>
+          <option value="Monaragala">Monaragala</option>
+          <option value="Mullaitivu">Mullaitivu</option>
+          <option value="Nuwara Eliya">Nuwara Eliya</option>
+          <option value="Polonnaruwa">Polonnaruwa</option>
+          <option value="Puttalam">Puttalam</option>
+          <option value="Ratnapura">Ratnapura</option>
+          <option value="Trincomalee">Trincomalee</option>
+          <option value="Vavuniya">Vavuniya</option>
+        </select><br/>
       </div>
 
       <div class="form-control">
         <label for="images">Input Image</label> 
         <input type="file" class="image-small-form-sign_up-traveler" name="images" id="" ><br/>
-        <span class="error-msg"></span>
       </div>
       
       <div class="form-control">
@@ -169,16 +158,12 @@
       <div class="form-control">
         <label for="driver_name">Driver Name</label>
         <input class="text-form-sign_up-traveler" type="text" name="driver_name" id="driver_name" placeholder=" Mr. S.S.Sumathipala"><br/>
-        <span id="error1" class="error-msg"></span>
-        <small>Error Message</small>
       </div>
 
       <div class="form-control">
         <label for="driver_contact">Driver Contact Number</label>
         <input class="text-small-form-sign_up-traveler" type="text" name="driver_contact2" id="driver_contact2" placeholder=" Contact Number 2">
         <input class="text-small-form-sign_up-traveler" type="text" name="driver_contact1" id="driver_contact1" placeholder=" Contact Number 1"><br/>
-        <span id="error3" class="error-msg"></span>
-        <small>Error Message</small>
       </div>
 
       <div class="form-control">
