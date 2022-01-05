@@ -3,7 +3,7 @@ body {
   margin: 0px;
 }
 .faq {
-  background-image: url("../../images/background_images/Hotelbg.jpg");
+  background-image: url("http://localhost/TRAVO/public/images/background_images/Hotelbg.jpg");
   background-size: cover;
   height: 100vh;
   margin: 0px;

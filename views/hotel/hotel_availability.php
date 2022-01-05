@@ -1,30 +1,30 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT hotelID FROM hotels WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+//   session_start();
+//   if(isset($_SESSION['username'])) {
+//     include '../../db/db_connection.php';
+//     $temp = $_SESSION['username'];
+//     $sqlForSession = "SELECT hotelID FROM hotels WHERE email = '$temp'";
+//     $resultForSession = mysqli_query($con, $sqlForSession);
+//     if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>AVAILABILITY</title>
-        <link rel="icon" href="../../images/icons/favicon.ico">
-        <link rel="stylesheet" href="../../css/hotel/hotel_availability.css">
+        <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+        <link rel="stylesheet" href="http://localhost/TRAVO/public/css/hotel/hotel_availability.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../../script/hotel/hotel_availability.js"></script>
-        <style> <?php include '../../css/hotel/hotel_repeating_css.css'; ?> </style>
-        <link rel="icon" href="../../images/icons/favicon.ico">
+        <script src="<?php echo APPROOT ?>/public/script/hotel/hotel_availability.js"></script>
+        <style> <?php include_once APPROOT.'/public/css/hotel/hotel_repeating_css.css'; ?> </style>
+        <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
     </head>
     <body>
     <section class="sign_up-traveler">
-      <?php include '../../repeatable_contents/nav_bar_hotel.php';?>
+      <?php include_once APPROOT.'/views/repeatable_contents/nav_bar_hotel.php';?>
       <style>
-      <?php include '../../repeatable_contents/nav_bar_hotel.css';?>
+      <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_hotel.css';?>
       </style>
-      <script type="text/javascript" src="../../repeatable_contents/nav_bar_hotel.js"></script>
+      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
       <br>
             <form>
                 <table class="b">
@@ -89,18 +89,18 @@
 </form></center>
 </section>
 <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include_once APPROOT.'/views/repeatable_contents/footer.php';?>
+      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
     </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+// }
  ?>
