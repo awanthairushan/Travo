@@ -1,42 +1,44 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+  // session_start();
+  // if(isset($_SESSION['username'])) {
+  //   include '../../db/db_connection.php';
+  //   $temp = $_SESSION['username'];
+  //   $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
+  //   $resultForSession = mysqli_query($con, $sqlForSession);
+  //   if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
       <title>HOTEL</title>
-      <link rel="icon" href="../../images/icons/favicon.ico">
-        <style> <?php include '../../css/traveler/traveler_hotel_booking.css'; ?> </style>
-        <style> <?php include '../../css/traveler/traveler_repeating_css.css'; ?> </style>
+      <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+        <style> <?php include APPROOT.'/public/css/traveler/traveler_hotel_booking.css'; ?> </style>
+        <style> <?php include APPROOT.'/public/css/traveler/traveler_repeating_css.css'; ?> </style>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="../../script/traveler/traveler_hotel_booking.js"></script>
-        <?php include '../../repeatable_contents/font.php'; ?>
+        <script src="http://localhost/TRAVO/public/script/traveler/traveler_hotel_booking.js"></script>
+        <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
     </head>
     <body>
         <section class="uppersection">
-            <?php include '../../repeatable_contents/nav_bar_traveler.php';?>
-            <style> <?php include '../../repeatable_contents/nav_bar_traveler.css'; ?>  </style>
-            <script type="text/javascript" src="../../repeatable_contents/nav_bar_traveler.js"></script>
+            <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php';?>
+            <style> <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>  </style>
+            <script type="text/javascript" src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
+            <div class="pageheading">CINNAMON GRAND</div>
+            <div class="hotelcontent">
             <div class="image_gallery_hotel">
                 <table>
                   <tr>
-                    <td> <img src="../../images/sample_images/for_hotels/1.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"> </td>
-                    <td> <img src="../../images/sample_images/for_hotels/2.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../images/sample_images/for_hotels/3.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../images/sample_images/for_hotels/4.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                    <td><img src="../../images/sample_images/for_hotels/5.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td> <img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/1.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"> </td>
+                    <td> <img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/2.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/3.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/4.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                    <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/5.jpg" class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
                   </tr>
                 </table>
             </div>
 
             <div>
-                <form action="traveler_plantrip.php">
+                <form action="planTrip">
                 <div class="rooms">
                     <div class="slide">
                         <div class="rname">Single Room</div>
@@ -122,10 +124,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="confirm"><button id="confirmbtn" class="confirmbtn" onclick="window.location.href='traveler_plantrip.php'">CONFIRM</button></div>
+                <div class="confirm"><button id="confirmbtn" class="confirmbtn"  onclick="window.location.href='planTrip'">CONFIRM</button></div>
             </form>
 
-            <table class="hoteldetails">
+            <!-- <table class="hoteldetails">
                 <tr>
                     <th>Location</th>
                     <th>Description</th>
@@ -141,23 +143,41 @@
                         </p>
                     </td>
                 </tr>
-            </table>
+            </table> -->
+
+            <div class="hoteldetails">
+              <div class="hdrow">
+                <div class="hdhead">Location</div>
+                <div class="hdbody">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7921.539473306047!2d79.84874!3d6.918109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb0658168859e3c0e!2sCinnamon%20Grand%20Colombo!5e0!3m2!1sen!2slk!4v1629560069244!5m2!1sen!2slk" width="95%" height="92%"  allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="hdrow">
+                <div class="hdhead">Description</div>
+                <div class="hdbody">
+                  <p>
+                      Set 1 km from both the Slave Island Railway Station and Galle Face Green, a seaside urban park, this grand resort hotel is also 2 km from Gangaramaya Buddhist Temple.
+                      Featuring picture windows, the polished rooms come with minibars, free Wi-Fi and flat-screen TVs. Suites add living rooms and dining areas, and some offer kitchenettes, wet bars or butler service.
+                  </p>
+                </div>
+              </div>
+
             </div>
         </section>
 
     <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include APPROOT.'/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
     </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+//}
  ?>

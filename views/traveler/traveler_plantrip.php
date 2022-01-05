@@ -1,27 +1,27 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {
+//   session_start();
+//   if(isset($_SESSION['username'])) {
+//     include '../../db/db_connection.php';
+//     $temp = $_SESSION['username'];
+//     $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
+//     $resultForSession = mysqli_query($con, $sqlForSession);
+//     if (mysqli_num_rows($resultForSession) === 1) {
  ?>
 <html>
 <head>
     <title>PLAN</title>
-    <link rel="icon" href="../../images/icons/favicon.ico">
-    <style> <?php include '../../css/traveler/traveler_plantrip.css'; ?> </style>
-    <style> <?php include '../../css/traveler/traveler_repeating_css.css'; ?> </style>
+    <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+    <style> <?php include APPROOT.'/public/css/traveler/traveler_plantrip.css'; ?> </style>
+    <style> <?php include APPROOT.'/public/css/traveler/traveler_repeating_css.css'; ?> </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include '../../repeatable_contents/font.php'; ?>
+    <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
 </head>
 
 <body>
     <section class="uppersection">
-        <?php include '../../repeatable_contents/nav_bar_traveler.php';?>
-        <style> <?php include '../../repeatable_contents/nav_bar_traveler.css'; ?>  </style>
-        <script type="text/javascript" src="../../repeatable_contents/nav_bar_traveler.js"></script>
+        <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php';?>
+        <style> <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>  </style>
+        <script type="text/javascript" src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
         <div class="pageheading plan-head">PLAN</div>
         <div class="pageheading hotel-head">HOTELS</div>
         <div class="content">
@@ -124,7 +124,7 @@
                           <label for="mails">OTHER E-MAILS:</label><input type="email" id="mails" name="mails"><br/>
                         </div>
                         <br>
-                        <button id="nextbtn" class="nextbtn" onclick="window.location.href='../../pages/traveler/traveler_budget.php'">NEXT</button>
+                        <button id="nextbtn" class="nextbtn" onclick="window.location.href='budget'">NEXT</button>
                     
                         
                     
@@ -142,47 +142,47 @@
                   <td class="hotels">
                   <div class="slide hotels1">
                         <div class="cols1">
-                            <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn">Cinnamon Grand Colombo<br><br>Luxury<br><br>Rs.5,500 - Rs.12,000</button></div>
-                            <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Occidental Eden <br><br>Deluxe<br><br>Rs.10,000 - Rs.45,000</button></div>
+                            <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn">Cinnamon Grand Colombo<br><br>Luxury<br><br>Rs.5,500 - Rs.12,000</button></div>
+                            <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Occidental Eden <br><br>Deluxe<br><br>Rs.10,000 - Rs.45,000</button></div>
                         </div>
                         <div class="cols2">
-                            <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Lavinia Hotel<br><br> Standard<br><br>Rs.1,500 - Rs.10,000</button></div>
-                            <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Nelly Marine <br><br> Luxury<br><br>Rs.3,500 - Rs.15,000</button></div>
+                            <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Lavinia Hotel<br><br> Standard<br><br>Rs.1,500 - Rs.10,000</button></div>
+                            <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Nelly Marine <br><br> Luxury<br><br>Rs.3,500 - Rs.15,000</button></div>
                         </div>
                     </div>
 
                       <div class="slide hotels2">
                           <div class="cols1">
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> The Glamp - Kelaniya <br><br> Deluxe <br><br> Rs.7,500 - Rs.20,000 </button></div>
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Sigiriya Resort - Sigiriya <br><br> Luxury <br><br> Rs.4,000 - Rs.15,000 </button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> The Glamp - Kelaniya <br><br> Deluxe <br><br> Rs.7,500 - Rs.20,000 </button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Sigiriya Resort - Sigiriya <br><br> Luxury <br><br> Rs.4,000 - Rs.15,000 </button></div>
                           </div>
                           <div class="cols2">
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Amaya Lake - Pasikuda <br><br> Superior <br><br> Rs.3,500 - Rs.12,000 </button></div>
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Amaara Forest - Kandy <br><br> Standard <br><br> Rs.1,500 - Rs.5,000 </button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Amaya Lake - Pasikuda <br><br> Superior <br><br> Rs.3,500 - Rs.12,000 </button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Amaara Forest - Kandy <br><br> Standard <br><br> Rs.1,500 - Rs.5,000 </button></div>
                           </div>
                       </div>
 
 
                       <div class="slide hotels3">
                             <div class="cols1">
-                                <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Shanaya Mansion <br><br> Superior <br><br> Rs.2,000 - Rs.8,000 </button></div>
-                                <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Marriott resort <br><br> Luxury <br><br> Rs.2,500 - Rs.12,500 </button></div>
+                                <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Shanaya Mansion <br><br> Superior <br><br> Rs.2,000 - Rs.8,000 </button></div>
+                                <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Marriott resort <br><br> Luxury <br><br> Rs.2,500 - Rs.12,500 </button></div>
                             </div>
                             <div class="cols2">
-                                <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Tamarind Hill <br><br> Deluxe <br><br>  Rs.3000 - Rs.20,000 </button></div>
-                                <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Shangri-La Hambantota <br><br> Deuluxe <br><br> Rs.4,000 - Rs.20,000 </button></div>
+                                <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Tamarind Hill <br><br> Deluxe <br><br>  Rs.3000 - Rs.20,000 </button></div>
+                                <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Shangri-La Hambantota <br><br> Deuluxe <br><br> Rs.4,000 - Rs.20,000 </button></div>
                             </div>
                         </div>
 
 
                       <!-- <div class="slide hotels4">
                           <div class="cols1">
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
                           </div>
                           <div class="cols2">
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
-                              <div><button onclick="window.location.href='../../pages/traveler/traveler_hotel_booking.php';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
+                              <div><button onclick="window.location.href='hotelBooking';" id="selecthotelbtn"> Hotel Name <br/> 00-5000</button></div>
                           </div>
                       </div> -->
                   </td>
@@ -193,21 +193,21 @@
         </div>
     </section>
 
-    <script type="text/javascript" src="../../script/traveler/traveler_plantrip.js"></script>
+    <script type="text/javascript" src="http://localhost/TRAVO/public/script/traveler/traveler_plantrip.js"></script>
 
     <section id="contact_us-section">
-      <?php include '../../repeatable_contents/footer.php';?>
-      <style> <?php include '../../repeatable_contents/footer.css'; ?>  </style>
+      <?php include APPROOT.'/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
 </body>
 </html>
 <?php
-  } else{
-    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-    exit();
-  }
-}else{
-  header("location: ../../index.html");
-  exit();
-}
+//   } else{
+//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+//     exit();
+//   }
+// }else{
+//   header("location: ../../index.html");
+//   exit();
+// }
  ?>
