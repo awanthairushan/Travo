@@ -69,8 +69,8 @@ class Admin extends Controller{
         $action=$_POST['submit']; 
 
         $faq_id = uniqid("faq_");
-        $question = $_POST['fquestion'];
-        $answer = $_POST['fanswer'];
+        $question = trim($_POST['fquestion']);
+        $answer = trim($_POST['fanswer']);
 
         $this->model->addFaq($faq_id,$question,$answer);
 		header('location: faq');
@@ -116,13 +116,4 @@ class Admin extends Controller{
         $this->model->acceptHotel($hotel_id);
         header('location: hotels');
     }
-    // function loadHotelMorePage(){
-    //     echo "Wade harii";
-
-        
-
-    // }
-
-
-
 }

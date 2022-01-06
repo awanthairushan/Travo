@@ -45,14 +45,14 @@ class Unregistered extends Controller{
         $action=$_POST['submitbtn']; 
 
         $traveler_id = uniqid("tr_");
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $contact2 = $_POST['contact2'];
-        $contact1 = $_POST['contact1'];
-        $password = $_POST['password'];
-        $adressLine1 = $_POST['address-line1'];
-        $adressLine2 = $_POST['address-line2'];
-        $city = $_POST['city'];
+        $name = trim($_POST['name']);
+        $email = trim($_POST['email']);
+        $contact2 = trim($_POST['contact2']);
+        $contact1 = trim($_POST['contact1']);
+        $password = trim($_POST['password']);
+        $adressLine1 = trim($_POST['address-line1']);
+        $adressLine2 = trim($_POST['address-line2']);
+        $city = trim($_POST['city']);
         $otp = rand(1000, 9999);
         $password = password_hash($password, PASSWORD_DEFAULT);
 
