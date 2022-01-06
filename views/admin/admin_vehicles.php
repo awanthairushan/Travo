@@ -88,13 +88,13 @@
                     <td>
                     <form method='post' action=' '>
                         <input type='hidden' value='$rows[0]' name=con_id>
-                        <input type='button' id='morebtn' value='MORE' onclick=\"window.location.href='../../pages/admin/admin_vehicles_more.php'\">
+                        <input type='button' id='morebtn' value='MORE' onclick=\"window.location.href='vehiclesMore'\">
                     </form>
                     </td>
                     <td>
-                    <form method='post' action=' '>
+                    <form method='post' action=' ' >
                         <input type='hidden' value='$rows[0]' name=con_id>
-                        <input type='button' class='remove_hotel_btn' id='removebtn' value='REMOVE'>
+                        <input type='button' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
                     </form>
                     </td>
 
@@ -109,9 +109,9 @@
 
 </section>
 <!--JS file for search & filter-->
-    <script src="../../../public/script/admin/admin_filter_vehicles.js"></script>
+    <script src="<?php echo URLROOT ?>/public/script/admin/admin_filter_vehicles.js"></script>
  <!--JS file for remove vehicle-->
- <script src="../../../public/script/admin/admin_vehicle.js"></script>
+ <!-- <script src="<?php echo URLROOT ?>/public/script/admin/admin_vehicle.js"></script> -->
 </body>
 </html>
 <?php

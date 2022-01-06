@@ -62,7 +62,7 @@
                     <td>".$rows['date']."</td>
                     <td>".$rows['feedback']."</td>
                     <td>
-                    <form method='post' action='../../db/admin/admin_delete_feedback.php'>
+                    <form method='post' action='deleteFeedback'>
                         <input type='hidden' value='$rows[0]' name=feedback_id>
                         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
                     </form>

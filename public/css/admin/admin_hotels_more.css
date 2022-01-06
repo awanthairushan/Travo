@@ -1,64 +1,80 @@
-body{
-    color:#ffffff;
+body {
+    color: #ffffff;
     background-color: #000;
-  background-size: cover;
+    background-size: cover;
     font-family: sans-serif;
     margin: 0px;
 }
+
+
 /* .............image gallery.................. */
+
 .image_gallery_hotel {
-  height: 20.5vh;
-  background-color: none;
-  width: 80%;
-  margin: 0.5rem auto auto auto;
-  padding: 0;
+    height: 20.5vh;
+    background-color: none;
+    width: 80%;
+    margin: 0.5rem auto auto auto;
+    padding: 0;
 }
+
 .image_gallery_hotel table {
-  padding: 0;
+    padding: 0;
 }
+
 .image_gallery_hotel table td {
-  width: 20%;
-  padding: 0;
+    width: 20%;
+    padding: 0;
 }
+
 .images_image_gallery_hotel {
-  height: 18vh;
-  width: 95%;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-  padding: 0;
+    height: 18vh;
+    width: 95%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 0;
 }
+
 .images_image_gallery_hotel:hover {
-  transform: scale(1.03);
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
-  cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
+
+
 /* ..................end of image gallery..................... */
 
+
 /*  ..................hotel details and representattive details........................ */
+
 .hotel_account {
     width: 80%;
     margin: auto;
-    height: 40vh;
+    height: 55vh;
     background: rgba(255, 255, 255, 0.3);
     font-size: 1rem;
     padding: 0;
     /* padding: 1rem; */
-  }
+}
+
 .hotel_account table {
     width: 90%;
     margin: auto;
 }
+
 .hotel_account td {
     text-align: left;
     padding-top: 0.3rem;
 }
+
 .hotel_account td:first-child {
     width: 10%;
     font-weight: bold;
 }
+
 .hotel_account td:nth-child(2) {
     width: 20%;
 }
+
 .hotel_account_payment {
     width: 6rem;
     height: 6rem;
@@ -71,12 +87,14 @@ body{
     font-size: 2rem;
     font-weight: bold;
 }
+
 .paybtn {
     text-align: center;
     margin: auto;
     width: 10rem;
 }
-.paybtn button{
+
+.paybtn button {
     display: block;
     width: 10rem;
     height: 3rem;
@@ -87,12 +105,14 @@ body{
     border: none;
     cursor: pointer;
 }
+
 .checkbtn {
     text-align: center;
     margin: auto;
     width: 10rem;
 }
-.checkbtn button{
+
+.checkbtn button {
     display: block;
     width: 10rem;
     height: 3rem;
@@ -103,12 +123,17 @@ body{
     border: none;
     cursor: pointer;
 }
-.payForm input{
+
+.payForm input {
     display: none;
 }
-  /*  ..................end of hotel details and representattive details........................ */
+
+
+/*  ..................end of hotel details and representattive details........................ */
+
 
 /*  ........................room details table.......................*/
+
 .room_details-form-sign_up-hotel {
     width: 80%;
     padding: 0px;
@@ -154,38 +179,51 @@ body{
     text-align: center;
     padding: 0px;
 }
+
+
 /* ........................end of room details table....................... */
 
+
 /*  ..................hotel description and location........................ */
+
 .hoteldetails {
-  width: 80%;
-  margin: auto;
-  height: 28vh;
+    width: 80%;
+    margin: auto;
+    height: 28vh;
 }
-.hoteldetails tr th{
+
+.hoteldetails tr th {
     color: #ffffff;
     text-align: left;
 }
+
 .hoteldetails iframe {
-  margin: 0;
-  border:0;
+    margin: 0;
+    border: 0;
 }
-.hoteldetails td{
+
+.hoteldetails td {
     width: 50%;
     background: rgba(255, 255, 255, 0.3);
     font-size: 1rem;
 }
+
 .hoteldetails td p {
-    text-align:justify;
+    text-align: justify;
     width: 90%;
     margin: auto;
 }
 
-.hoteldetailsth,td{
+.hoteldetailsth,
+td {
     height: auto;
     text-align: center;
 }
+
+
 /*  ..................end of hotel description and location........................ */
+
+
 /* @media screen and (max-width:800px){
     .tripdetail{
         height: 200px;

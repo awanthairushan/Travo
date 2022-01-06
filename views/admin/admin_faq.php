@@ -7,6 +7,10 @@
     $resultForSession = mysqli_query($con, $sqlForSession);
     if (mysqli_num_rows($resultForSession) === 1) {*/
  ?>
+ <?php
+  // $fquestion=$this->content[0]['fquestion'];
+  // $fanswer=$this->content[0]['fanswer'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +67,7 @@
                     </form>
                     </td>
                     <td class='tdbtn'>
-                    <form method='post' action='../../db/admin/admin_delete_faq.php'>
+                    <form method='post' action='deleteFaq'>
                         <input type='hidden' value='$rows[0]' name=faq_id>
                         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
                     </form>
@@ -79,12 +83,12 @@
 <!--Start form of adding new FAQ-->
 <h1 class="heading-one">ADD NEW FAQ</h1>
 <div class="form-container">
-    <form action="../../php/admin/admin_addfaq.php" method="POST">
+    <form action="addNewFaq" method="POST">
         <label for="fquestion" class="fques">QUESTION</label>
             <input type="text" id="fquestion" name="fquestion" required><br />
         <label for="fanswer" class="fans">ANSWER</label>
             <input type="text" id="fanswer" name="fanswer" required><br />
-        <input type="submit" id="addbtn" value="SUBMIT" name="submitbtn">
+        <input type="submit" id="addbtn" value="SUBMIT" name="submit">
     </form>
   <!--End form of adding new FAQ-->
 
@@ -108,3 +112,5 @@
   exit();
 }*/
  ?>
+
+

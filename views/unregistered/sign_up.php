@@ -27,7 +27,7 @@
           <button type="button" name="button" onclick="window.location.href = 'signupTraveler';">TRAVELER</button><br>
           <button type="button" name="button" onclick="window.location.href = 'signupVehicle';">VEHICLE</button><br>
           <button type="button" name="button" onclick="window.location.href = 'signupHotel';">HOTEL</button><br>
-          <h3><a href="loginit">Already have an account ?</a></h3>
+          <h3><a href="<?php echo URLROOT ?>/unregistered/login">Already have an account ?</a></h3>
         </div>
       </div>
     </section>

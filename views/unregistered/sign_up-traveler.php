@@ -15,21 +15,6 @@
   </head>
   <body>
 
-  <?php 
-    if (isset($_SESSION['value'])) {
-      if($_SESSION['value']==="username_exist"){
-        echo '<div class="username_exist_modal">
-        <div class="username_exist_confirm_box">
-              <h3>Username Exist.!</h3>
-              <hr>
-              <p>Someone already has that username. Try another..!</p>
-              <hr>
-              <button type="button" name="okay_btn" class="username_exist_okay_btn" id="username_exist_okay_btn">Okay...!</button>
-        </div>
-        </div>';
-      }
-    }
-  ?>
 
   <section class="sign_up-traveler">
     <?php include APPROOT . '/views/repeatable_contents/nav_bar.php';?>
@@ -38,7 +23,13 @@
 
     <div class="heading">TRAVELER</div>
     <div class="box-sign_up-traveler">
-      <form class="form-sign_up-traveler" id="form-sign_up-traveler" action="../../php/unregistered/traveler_sign_up.php" method="post">
+
+      <form class="form-sign_up-traveler" id="form-sign_up-traveler" action="addNewTraveler" method="post">
+        <?php
+              if (isset($_GET['error'])) { ?>
+                <p class="error-log_in"><?php echo $_GET['error']; ?></p>
+              <?php }   
+        ?>
         <div class="form-control">
           <label for="name">Name</label>
           <input class="text-form-sign_up-traveler" type="text" name="name" id="name" value=""><br>
@@ -50,6 +41,8 @@
           <input class="text-form-sign_up-traveler" type="email" name="email" id="email" value=""  ><br>
           <span class="error-msg"></span>
         </div>
+
+
 
         <div class="form-control">
           <label for="contact">Contact Number</label>
@@ -76,6 +69,7 @@
           <span class="error-msg"></span>
         </div>
 
+
         <div class="tc_div_form_signup_traveler">
           <input class="tc-checkbox-form-sign_up-traveler" type="checkbox" name="tc" id="tc" value="" required><label id="tc-label-form-sign_up-traveler" for="tc">I agree to all the <a href="../../pages/unregistered/tc.php">Terms & Conditions</a> of travo.lk</label>
           <br>
@@ -85,7 +79,7 @@
     </div>
 
     <?php 
-      $_SESSION['value'] = "good";
+      //$_SESSION['value'] = "good";
     ?>
     <div class="buttons-sign_up-traveler">
           <input type="button" class="refreshbtn" value="REFRESH" onclick="window.location.reload();">
@@ -103,6 +97,6 @@
 
 <!--__________________END contact_us________________-->
 
-    <script src="../../../public/script/unregistered/sign_up-traveler.js"></script>
+    <script src="<?php echo URLROOT ?>/public/script/unregistered/sign_up-traveler.js"></script>
   </body>
 </html>
