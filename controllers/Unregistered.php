@@ -20,6 +20,105 @@ class Unregistered extends Controller{
     function login(){
         $this->view->render('unregistered/log_in');
     }
+    function logincheck(){
+        session_start();
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if(isset($_POST['username']) && isset($_POST['password'])){
+
+                // function validate($data){
+                //     $data = trim($data); //Remove characters(spaces) from both sides of a string
+                //     $data = stripslashes($data); //Remove the backslash
+                //     $data = htmlspecialchars($data); //Convert the predefined characters "<" (less than) and ">" (greater than) to HTML entities
+                //     return $data;
+                //   }
+              
+                $username = trim($_POST['username']);
+                $password = trim($_POST['password']);
+                $sqladmin = $this->model->selectAdmin($username);
+                $sqltraveler = $this->model->selectTraveler($username);
+                $sqlhotel = $this->model->selectHotel($username);
+                $sqlvehicle = $this->model->selectVehicle($username);
+                $sqldeleted = $this->model->selectdeleted($username);
+
+
+                if(empty($username)) {
+                    header('location: login?error=Username is required');
+                    exit();
+                }else if (empty($password)) {
+                    header('location: login?error=Password is required');
+                    exit();
+                }else {
+                    if (mysqli_num_rows($sqladmin) === 1) { //The mysqli_num_rows() function returns the number of rows in a result set.
+                        $row = mysqli_fetch_assoc($sqladmin); //The fetch_assoc() / mysqli_fetch_assoc() function fetches a result row as an associative array.
+                        if($row['username'] == $username  && password_verify($password, $row['password'])){
+                           
+                          $_SESSION['username'] = $row['username'];
+                          header("location: http://localhost/TRAVO/admin");
+                          exit();
+                        } else {
+                          header('location: login?error=Incorrect Username or Password');
+                          exit();
+                        }
+                    
+                    } else if (mysqli_num_rows($sqltraveler) === 1) {
+                        $row = mysqli_fetch_assoc($sqltraveler); //The fetch_assoc() / mysqli_fetch_assoc() function fetches a result row as an associative array.
+                        if($row['email'] == $username && password_verify($password, $row['password'])){
+                             
+                            $_SESSION['username'] = $row['email'];
+                            $_SESSION['travelerID'] = $row['travelerID'];
+                            $_SESSION['name'] = $row['name'];
+                            $_SESSION['city'] = $row['city'];
+                            $_SESSION['contact1'] = $row['contact1'];
+
+                            header("location: http://localhost/TRAVO/traveler");
+                            exit();
+                        } else {
+                            header('location: login?error=Incorrect Username or Password');
+                            exit();
+                        }
+                    } elseif (mysqli_num_rows($sqlhotel) === 1) {
+                        $row = mysqli_fetch_assoc($sqlhotel); //The fetch_assoc() / mysqli_fetch_assoc() function fetches a result row as an associative array.
+                        if($row['email'] == $username && password_verify($password, $row['password'])){
+                             
+                            $_SESSION['username'] = $row['email'];
+                            $_SESSION['hotelID'] = $row['hotelID'];
+                            $_SESSION['name'] = $row['name'];
+                            header("location: http://localhost/TRAVO/hotel");
+                            exit();
+                        } else {
+                            header('location: login?error=Incorrect Username or Password');
+                            exit();
+                        }
+                    } elseif (mysqli_num_rows($sqlvehicle) === 1) {
+                        $row = mysqli_fetch_assoc($sqlvehicle); //The fetch_assoc() / mysqli_fetch_assoc() function fetches a result row as an associative array.
+                        if($row['email'] == $username && password_verify($password, $row['password'])){
+                             
+                            $_SESSION['username'] = $row['email'];
+                            $_SESSION['owner_name'] = $row['owner_name'];
+                            $_SESSION['vehicle_no'] = $row['vehicle_no'];
+                            header("location: http://localhost/TRAVO/vehicle");
+                            exit();
+                        } else {
+                            header('location: login?error=Incorrect Username or Password');
+                            exit();
+                        }
+                    } elseif (mysqli_num_rows($sqldeleted) === 1) {
+                        header('location: login?error=Admin removed this account.');
+                         exit();
+                    } else {
+                        header('location: login?error=Incorrect Username or Password');
+                        exit();
+                    }
+                }
+            }else {
+              header('location: login');
+              exit();
+            }  
+        }
+    }
     function signup(){
         $this->view->render('unregistered/sign_up');
     }

@@ -1,6 +1,6 @@
 <?php
-  // session_start();
-  // if(isset($_SESSION['username'])) {
+  session_start();
+  if(isset($_SESSION['username'])) {
   //   include '../../db/db_connection.php';
   //   $temp = $_SESSION['username'];
   //   $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
@@ -25,7 +25,7 @@
     <section class="sign_up-traveler">
       <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php';?>
       <style> <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>  </style>
-      <script type="text/javascript" src="http://localhost/TRAVO/public/repeatable_contents/nav_bar_traveler.js"></script>
+      <script type="text/javascript" src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
       <br>
       <div class="pageheading">UPDATE</div>
     <div class="box-sign_up-traveler">
@@ -79,8 +79,8 @@
 //     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
 //     exit();
 //   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>

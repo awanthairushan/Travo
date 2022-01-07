@@ -28,15 +28,13 @@ class Traveler extends Controller{
 
             if(isset($_POST['submitbtn'])){
                 $data= trim($_POST['response']);
-                if (empty($data)) {
-                    $data['feedback']="please enter a valid response";
-                }else{
-                    if($this->model->addFeedbacks($data)){
-                        header('location: '.URLROOT.'/Traveler/feedbacks');   
-                    } else {
-                        die('Something went wrong.');
-                    }
+                
+                if($this->model->addFeedbacks($data)){
+                    header('location: '.URLROOT.'/Traveler/feedbacks');   
+                } else {
+                    die('Something went wrong.');
                 }
+                
             }
         }
     }
@@ -64,6 +62,12 @@ class Traveler extends Controller{
     }
     function fonts(){
         $this->view->render('repeatable_contents/font');
+    }
+    function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+        header('location: http://localhost/TRAVO');
     }
     
 }

@@ -1,6 +1,6 @@
 <?php
-  // session_start();
-  // if(isset($_SESSION['username'])) {
+  session_start();
+  if(isset($_SESSION['username'])) {
   //   include '../../db/db_connection.php';
   //   $temp = $_SESSION['username'];
   //   $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
@@ -176,8 +176,8 @@
 //     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
 //     exit();
 //   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-//}
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>

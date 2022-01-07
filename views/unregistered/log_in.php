@@ -1,11 +1,11 @@
 <?php
-// session_start();
-// if (isset($_SESSION['username'])) {
-//   session_unset();
-//   session_destroy();
-//   header("location: ../../pages/unregistered/log_in.php");
-//   exit();
-// } else {
+session_start();
+if (isset($_SESSION['username'])) {
+  session_unset();
+  session_destroy();
+  header("location: login");
+  exit();
+} else {
 ?>
   <!DOCTYPE html>
   <html lang="en" dir="ltr">
@@ -32,7 +32,7 @@
           <img class="img-log_in" src="<?php echo URLROOT ?>/public/images/icons/log_in.png" alt="SIGN UP">
         </div>
         <div class="description-log_in">
-          <form class="" id="log_in_form" action="../../php/unregistered/end-log_in.php" method="post">
+          <form class="" id="log_in_form" action="<?php echo "logincheck" ?>" method="post">
             <div class="username-div-log_in">
               <img class="img-username-div-log_in" src="<?php echo URLROOT ?>/public/images/icons/user.png" alt="">
               <input class="text-log_in" type="text" name="username" id="username" placeholder="Username...">
@@ -65,4 +65,4 @@
   </body>
 
   </html>
-<?php  ?>
+<?php } ?>
