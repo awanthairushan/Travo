@@ -93,7 +93,7 @@
                 <td>".$rows['email']."</td>
                 <td>".$rows['contact1']."<br>".$rows['contact2']."</td>
                <td>
-                <form method='post' action='../../db/admin/admin_delete_traveler.php'>
+                <form method='post' action='deleteTravelers'>
                     <input type='hidden' value='$rows[0]' name=travelerID>
                     <input type='hidden' value='$rows[6]' name=email>
                     <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
@@ -108,10 +108,12 @@
 <!--End "Registered vehicle" table-->
 
 </section>
+
 <!--JS file for search & filter-->
-    <script src="../../../public/script/admin/admin_filter_travelers.js"></script>
+    <script src="<?php echo URLROOT ?>/public/script/admin/admin_filter_travelers.js"></script>
 <!-- JS file for delete_modal -->
-<script type="text/javascript" src="../../../public/script/admin/admin_traveler_remove.js"></script>
+
+<script type="text/javascript" src="<?php echo URLROOT ?>/public/script/admin/admin_traveler_remove.js"></script>
 </body>
 </html>
 <?php

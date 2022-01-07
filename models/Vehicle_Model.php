@@ -4,12 +4,12 @@
             parent::__construct();
         }
         function getFaq(){
-            return $this->db->selectQuery("SELECT faq_id,question,answer FROM faq");
+            return $this->db->runQuery("SELECT faq_id,question,answer FROM faq");
         }
         function getVehicleDetails(){
-            return $this->db->selectQuery("SELECT * FROM vehicles");
+            return $this->db->runQuery("SELECT * FROM vehicles");
         }
         function getOwnerDetails(){
-            return $this->db->selectQuery("SELECT * FROM vehicle_owners");
+            return $this->db->runQuery("SELECT * FROM vehicle_owners");
         }
     }

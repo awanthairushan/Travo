@@ -73,26 +73,28 @@ if(isset($_SESSION['username'])) {
             </thead>
             <tbody>
             <?php
-           while ($rows = mysqli_fetch_array($this->hotels)){
+           while ($rows = mysqli_fetch_array($this->new_hotels)){
                 echo "<tr>
                     <td>".$rows['row_no']."</td>
                     <td>".$rows['name']."</td>
                     <td>".$rows['address_line1'].$rows['address_line2'].$rows['city']."</td>
                     <td>
-                    <form method='post' action=' '>
-                        <input type='hidden' value='$rows[0]' name=con_id>
-                        <input type='button' id='morebtn' class='hotel_morebtn' value='MORE' onclick=\"window.location.href='admin_hotels_more.php'\";>
+                    <form method='post' action='loadHotelsMorePage'>
+                        <input type='hidden' value='$rows[0]' name=hotelID>
+                        <input type='button' id='morebtn' name='hotel_morebtn' class='hotel_morebtn' value='MORE' onclick=\"window.location.href='hotelsMore'\";>
                     </form>
                     </td>
                     <td>
-                    <form method='post' action=' '>
-                    <input type='hidden' value='$rows[0]' name=con_id>
-                    <input type='button' class='hotel_morebtn hotel_morebtn_accept' id='morebtn' value='ACCEPT'>
+                    <form method='post' action='acceptHotelRequest'>
+                        <input type='hidden' value='$rows[0]' name=hotelID>
+                        <input type='submit' id='removebtn' name ='acceptbtn' class='hotel_morebtn hotel_morebtn_accept' value='ACCEPT'>
                     </form>
-                    <form method='post' action=' '>
-                        <input type='hidden' value='$rows[0]' name=con_id>
-                        <input type='button' id='decline_hotel_btn' class='remove_hotel_btn remove_hotel_btn_decline' value='DECLINE'>
+
+                    <form method='post' action='declineHotelRequest'>
+                        <input type='hidden' value='$rows[0]' name=hotelID>
+                        <input type='submit' id='removebtn' name ='removebtn' class='remove_hotel_btn' value='DECLINE'>
                     </form>
+
                     </td>
 
                 </tr>";
@@ -128,41 +130,28 @@ if(isset($_SESSION['username'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>1</td>
-                <td>Anantara Resort</td>
-                <td>Galle Rd, Kalutara</td>
-                <td><input type="button" id="morebtn" value="MORE" class='hotel_morebtn' onclick="window.location.href='hotelsMore'";></td>
-                <td><input type="button" id="remove_hotel_btn" class="remove_hotel_btn" value="REMOVE"></td>
-                </tr>
-                <tr>
-                <!--<td>Hotel Name</td>
-                <td>Location</td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="removebtn" value="REMOVE"></td>
-                </tr>
-                <tr>
-                <td>Hotel Name</td>
-                <td>Location</td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="removebtn" value="REMOVE"></td>
-                </tr>
-                <tr>
-                <td>Hotel Name</td>
-                    <td>Location</td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="removebtn" value="REMOVE"></td>
-                </tr>
-                <tr>
-                    <td>Hotel Name</td>
-                    <td>Location</td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="morebtn" value="MORE"></td>
-                    <td><input type="button" id="removebtn" value="REMOVE"></td>
-                </tr>-->
+            <?php
+           while ($rows = mysqli_fetch_array($this->existing_hotels)){
+                echo "<tr>
+                    <td>".$rows['row_no']."</td>
+                    <td>".$rows['name']."</td>
+                    <td>".$rows['address_line1'].$rows['address_line2'].$rows['city']."</td>
+                    <td>
+                    <form method='post' action='hotelsMore'>
+                        <input type='hidden' value='$rows[0]' name=hotelID>
+                        <input type='submit' name ='hotel_morebtn' id='morebtn' class='hotel_morebtn' value='MORE'>
+                    </form>
+                    </td>
+                    <td>
+                    <form method='post' action='declineHotelRequest'>
+                        <input type='hidden' value='$rows[0]' name=hotelID>
+                        <input type='submit' id='removebtn' name ='removebtn' class='remove_hotel_btn' value='REMOVE'>
+                    </form>
+                    </td>
+
+                </tr>";
+            }
+            ?>
             </tbody>
         </table>
     </div>
@@ -184,8 +173,8 @@ if(isset($_SESSION['username'])) {
 }*/
  ?>
  <!--JS file for search & filter-->
-    <script src="http://localhost/TRAVO/public/script/admin/admin_filter_hotels.js"></script>
+    <script src="<?php echo URLROOT ?>/public/script/admin/admin_filter_hotels.js"></script>
  <!--JS file for remove hotel-->
- <script src="http://localhost/TRAVO/public/script/admin/admin_hotels.js"></script>
+ <!-- <script src="<?php echo URLROOT ?>/public/script/admin/admin_hotels.js"></script> -->
 </body>
 </html>

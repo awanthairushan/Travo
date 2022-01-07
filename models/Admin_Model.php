@@ -9,33 +9,75 @@ class Admin_Model extends Model{
 
 //----------------------------------------Admin-Travelers---------------------------------------------------
 function getTravelerDetails(){
-    return $this->db->selectQuery("SELECT travelerID, ROW_NUMBER() OVER(ORDER BY name) AS row_no,name,address_line1,address_line2,city,email,contact1,contact2 FROM travelers");
+    return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY name) AS row_no FROM travelers");
+}
+function deleteTraveler($travelerID){
+    return $this->db->runQuery("DELETE FROM travelers WHERE travelerID= '$travelerID'");
+}
+function updateDeletedAccounts($acc_id, $email){
+    return $this->db->runQuery("INSERT INTO deleted_accounts (acc_id, email) VALUES ('$acc_id', '$email')");
 }
 
 
 //----------------------------------------Admin-Vehicle---------------------------------------------------
-    function getVehicleDetails(){
-        return $this->db->selectQuery("SELECT ROW_NUMBER() OVER(ORDER BY vehicle_no) AS row_no,vehicle_no,type,city FROM vehicles");
-    }
-    function getVehicleOwnerDetails(){
-        return $this->db->selectQuery("SELECT * from vehicle_owners");
-    }
+function getVehicleDetails(){
+    return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY vehicle_no) AS row_no FROM vehicles");
+}
+function getVehicleOwnerDetails(){
+    return $this->db->runQuery("SELECT * from vehicle_owners");
+}
+
 
 //----------------------------------------Admin-Hotels---------------------------------------------------
-function getHotelDetails(){
-    return $this->db->selectQuery("SELECT ROW_NUMBER() OVER(ORDER BY name) AS row_no,name,city,location,address_line1,address_line2 FROM hotels");
+function getNewHotelDetails(){
+    return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY name) AS row_no FROM hotels WHERE status='NEW'");
+}
+function getExsistingHotelDetails(){
+    return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY name) AS row_no FROM hotels WHERE status='Existing'");
+
+}
+function declineHotel($hotelID){
+    return $this->db->runQuery("DELETE FROM hotels WHERE hotelID= '$hotelID'");
+}
+function acceptHotel($hotelID){
+    return $this->db->runQuery("UPDATE hotels SET status='Existing' WHERE hotelID='$hotelID' ");
+}
+function getAllHotelDetails($hotel_id){
+    return $this->db->runQuery("SELECT h.*, i.* FROM hotels h INNER JOIN hotel_images i ON h.hotelID = i.hotelID WHERE h.hotelID='$hotel_id'");
+}
+function getDoubleRoomDetails($hotel_id){
+    return $this->db->runQuery("SELECT * from hotel_rooms WHERE hotelID='$hotel_id' AND room_type = 'double' " );
+}
+function getFamilyRoomDetails($hotel_id){
+    return $this->db->runQuery("SELECT * from hotel_rooms WHERE hotelID='$hotel_id' AND room_type = 'family' " );
+}
+function getSingleRoomDetails($hotel_id){
+    return $this->db->runQuery("SELECT * from hotel_rooms WHERE hotelID='$hotel_id' AND room_type = 'single' " );
+}
+function getMassiveRoomDetails($hotel_id){
+    return $this->db->runQuery("SELECT * from hotel_rooms WHERE hotelID='$hotel_id' AND room_type = 'massive' " );
 }
 
 //----------------------------------------Admin-Faq---------------------------------------------------------
     function getFaq(){
-        return $this->db->selectQuery("SELECT faq_id,question,answer FROM faq");
+        return $this->db->runQuery("SELECT * FROM faq");
     }
-    // function addFaq($faq_id,$question,$answer){
-    //     $this->db->insertQuery("INSERT INTO faq (faq_id, question, answer) VALUES ('$faq_id', '$question', '$answer')");
-    // }
+    function addFaq($id,$question,$answer){
+       // echo "Model ekata aawaa";
+        $this->db->runQuery("INSERT INTO faq (faq_id, question, answer) VALUES ('$id', '$question', '$answer')");
+    }
+    function deleteFaq($id){
+        $this->db->runQuery("DELETE FROM faq WHERE faq_id= '$id'");
+    }
 
-    //----------------------------------------Admin-Feedback---------------------------------------------------------
-    function getFeedback(){
-        return $this->db->selectQuery("SELECT feedback_id,date,feedback FROM feedback");
-    }
+
+//----------------------------------------Admin-Feedback---------------------------------------------------------
+function getFeedback(){
+    return $this->db->runQuery("SELECT * FROM feedback");
+}
+function deleteFeedback($id){
+    $this->db->runQuery("DELETE FROM feedback WHERE feedback_id= '$id'");
+}
+
+
 }

@@ -1,18 +1,19 @@
-
 .sign_up-traveler {
     background-image: url("http://localhost/Travo/public/images/background_images/unregisteredbg.jpg");
     background-size: cover;
     height: 100vh;
     margin: 0px;
 }
-.heading{
+
+.heading {
     font-size: 1.5rem;
-    margin:0 0 0.25rem 0;
+    margin: 0 0 0.25rem 0;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     align-content: center;
 }
+
 .box-sign_up-traveler {
     background-color: rgba(255, 255, 255, 0.4);
     height: 65vh;
@@ -20,6 +21,17 @@
     margin: auto auto 1rem auto;
     align-items: center;
     display: flex;
+}
+
+.error-log_in {
+    margin-left: 0;
+    font-size: 1rem;
+    /* background-color: #F2DEDE; */
+    color: #fa0a06;
+    /* padding-top: 0.2rem;
+    padding-bottom: 0.2rem; */
+    width: 100%;
+    padding-left: 20rem;
 }
 
 .form-sign_up-traveler {
@@ -59,11 +71,13 @@
     margin: 0 0 0 0.5vw;
     float: right;
 }
+
 .tc_div_form_signup_traveler {
     width: 70%;
     float: right;
     padding: 0;
 }
+
 .tc-checkbox-form-sign_up-traveler {
     background: rgba(0, 0, 0, 0);
     border-style: solid;
@@ -80,7 +94,7 @@
     max-width: 70%;
     font-size: 1rem;
     display: block;
-    margin: 0 1rem ;
+    margin: 0 1rem;
 }
 
 .buttons-sign_up-traveler {
@@ -191,52 +205,60 @@ input::-webkit-inner-spin-button {
     opacity: 1;
 }
 
+
 /* ....................modal Box................................ */
+
 .username_exist_modal {
     display: block;
     width: 100%;
     height: 100%;
     z-index: 1;
     position: fixed;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
-.username_exist_confirm_box{
-height: 25vh;
-width: 45%;
-background-color: rgba(255,255,255, 1);
-margin: auto;
-z-index: 1;
-position: fixed;
-border-radius: 0.5rem;
-left: 30%;
-top: 30vh;
-cursor: default;
+
+.username_exist_confirm_box {
+    height: 25vh;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 1);
+    margin: auto;
+    z-index: 1;
+    position: fixed;
+    border-radius: 0.5rem;
+    left: 30%;
+    top: 30vh;
+    cursor: default;
 }
-.username_exist_confirm_box h3,p {
+
+.username_exist_confirm_box h3,
+p {
     margin-left: 1rem;
 }
+
 .username_exist_okay_btn {
-width: 30%;
-margin: auto 1rem auto 1rem;
-height: 2rem;
-border-radius: 0.2rem;
-border-width: 0px;
-background-color: rgba(2, 222, 28 , 0.8);
-font-weight: bold;
-font-size: 1rem;
-letter-spacing: 1px;
-color: #ffffff;
-cursor: pointer;
-box-shadow: 1px 2px #888888;
-float: right;
+    width: 30%;
+    margin: auto 1rem auto 1rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border-width: 0px;
+    background-color: rgba(2, 222, 28, 0.8);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    float: right;
 }
-@media screen and (max-width: 850px){
+
+@media screen and (max-width: 850px) {
     .heading {
         margin-top: 4rem;
     }
-  }
-@media screen and (max-width: 680px){
+}
+
+@media screen and (max-width: 680px) {
     .text-form-sign_up-traveler {
         width: 50vw;
     }
@@ -244,7 +266,8 @@ float: right;
         width: 24.5vw;
     }
 }
-@media screen and (max-width: 550px){
+
+@media screen and (max-width: 550px) {
     .text-form-sign_up-traveler {
         width: 50vw;
     }

@@ -40,40 +40,118 @@ if(isset($_SESSION['username'])) {
 
 <!-- ..................hotel details and representattive details........................ -->
 <div class="hotel_account">
+          <?php
+            while ($rows = mysqli_fetch_array($this->hotel_details)){
+              $name = $rows['name'];
+              $email = $rows['email'];
+              $contact1 = $rows['contact1'];
+              $contact2 = $rows['contact2'];
+              $type = $rows['hotel_type'];
+              $regNo = $rows['regNo'];
+              $licenceNo = $rows['licenceNo'];
+              $city = $rows['city'];
+              $address1 = $rows['address_line1'];
+              $address2 = $rows['address_line2'];
+              $location = $rows['location'];
+              $repName = $rows['rep_name'];
+              $repEmail = $rows['rep_email'];
+              $repContact1 = $rows['rep_contact1'];
+              $repContact2 = $rows['rep_contact2'];
+              $website = $rows['webUrl'];
+              $description = $rows['description'];
+            }
+
+            while ($rows = mysqli_fetch_array($this->family_room_details)){
+              $f_room_count = $rows['no_of_rooms'];
+              $f_capacity = $rows['capacity'];
+              $f_food = $rows['food'];
+              $f_check_food = ($f_food == 'yes' ? "checked" : "");
+              $f_minibar = $rows['minibar'];
+              $f_check_minibar = ($f_minibar == 'yes' ? "checked" : "");
+              $f_ac = $rows['a/c'];
+              $f_check_ac = ($f_ac == 'yes' ? "checked" : "");
+              $f_price = $rows['price'];
+            }
+
+            while ($rows = mysqli_fetch_array($this->double_room_details)){
+              $d_room_count = $rows['no_of_rooms'];
+              $d_capacity = $rows['capacity'];
+              $d_food = $rows['food'];
+              $d_check_food = ($d_food == 'yes' ? "checked" : "");
+              $d_minibar = $rows['minibar'];
+              $d_check_minibar = ($d_minibar == 'yes' ? "checked" : "");
+              $d_ac = $rows['a/c'];
+              $d_check_ac = ($d_ac == 'yes' ? "checked" : "");
+              $d_price = $rows['price'];
+            }
+
+            while ($rows = mysqli_fetch_array($this->single_room_details)){
+              $s_room_count = $rows['no_of_rooms'];
+              $s_capacity = $rows['capacity'];
+              $s_food = $rows['food'];
+              $s_check_food = ($s_food == 'yes' ? "checked" : "");
+              $s_minibar = $rows['minibar'];
+              $s_check_minibar = ($s_minibar == 'yes' ? "checked" : "");
+              $s_ac = $rows['a/c'];
+              $s_check_ac = ($s_ac == 'yes' ? "checked" : "");
+              $s_price = $rows['price'];
+            }
+
+            while ($rows = mysqli_fetch_array($this->massive_room_details)){
+              $m_room_count = $rows['no_of_rooms'];
+              $m_capacity = $rows['capacity'];
+              $m_food = $rows['food'];
+              $m_check_food = ($m_food == 'yes' ? "checked" : "");
+              $m_minibar = $rows['minibar'];
+              $m_check_minibar = ($m_minibar == 'yes' ? "checked" : "");
+              $m_ac = $rows['a/c'];
+              $m_check_ac = ($m_ac == 'yes' ? "checked" : "");
+              $m_price = $rows['price'];
+            }
+
+           ?>
           <table>
             <tr>
               <td>Hotel name</td>
-              <td>Grand Hilton Colombo</td>
+              <td><?php echo $name;?></td>
               <td rowspan = "2"><div class="checkbtn"><button id="checkbtn" onclick="window.location.href='https://www.sltda.gov.lk/en'";>CHECK VALIDITY</button></div></td>
             </tr>
             <tr>
               <td>Email</td>
-              <td>grandhilton@gmaiil.com</td>
+              <td><?php echo $email;?></td>
             </tr>
             <tr>
               <td>Contact</td>
-              <td>0112879547</td>
+              <td><?php echo $contact1.",  ".$contact2;?></td>
               <td rowspan = "5"><div class = "hotel_account_payment">LKR 55000</div></td>
             </tr>
             <tr>
               <td>Type</td>
-              <td>Luxury</td>
+              <td><?php echo $type;?></td>
             </tr>
             <tr>
               <td>Registration No</td>
-              <td>SLTDA/SQA/HC/064</td>
+              <td><?php echo $regNo;?></td>
             </tr>
             <tr>
               <td>License No</td>
-              <td>HC/2021/0163</td>
+              <td><?php echo $licenceNo;?></td>
             </tr>
             <tr>
               <td>Address</td>
-              <td>Grand Hilton, Colombo 5</td>
+              <td><?php echo $address1.",  ".$address2.", ".$city;?></td>
+            </tr>
+            <tr>
+              <td>Location</td>
+              <td><a href = "<?php echo $location;?>">Click here to view location</a></td>
+            </tr>
+            <tr>
+              <td>Official Website</td>
+              <td><a href = "<?php echo $website;?>">Click here to view website</a></td>
             </tr>
             <tr>
               <td>Representative name</td>
-              <td>Harsha Ranawaka</td>
+              <td><?php echo $repName;?></td>
               <!-- <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">   
             <input type="text" name="merchant_id" value="1218929">
             <input type="text" name="return_url" value="http://localhost/Travo/pages/traveler/traveler_trip_to_go.php">
@@ -95,11 +173,11 @@ if(isset($_SESSION['username'])) {
             </tr>
             <tr>
               <td>Email</td>
-              <td>harsha.ranawaka@hilton.com</td>
+              <td><?php echo $repEmail;?></td>
             </tr>
             <tr>
               <td>Contact</td>
-              <td>0717964057s</td>
+              <td><?php echo $repContact1.",  ".$repContact2;?></td>
             </tr>
 
           </table>
@@ -120,42 +198,42 @@ if(isset($_SESSION['username'])) {
                    <th>A/C</th>
                    <th>Price</th>
                  </tr>
-                <tr>
+                <tr> 
                     <td id="first_column_room_details-form-sign_up-hotel">Single Room </td>
                     <td>1</td>
                     <td>10</td>
-                    <td><input type="checkbox" id="single_room_minibar" name="single_room_minibar" checked></td>
-                    <td><input type="checkbox" id="single_room_food" name="single_room_food" checked></td>
-                    <td><input type="checkbox" id="single_room_food" name="single_room_food" checked></td>
-                    <td>2500.00</td>
+                    <td><input type="checkbox" id="single_room_minibar" name="single_room_minibar" <?php echo $s_check_minibar;?> ></td>
+                    <td><input type="checkbox" id="single_room_food" name="single_room_food" <?php echo $s_check_food;?>></td>
+                    <td><input type="checkbox" id="single_room_food" name="single_room_food" <?php echo $s_check_ac;?>></td>
+                    <td><?php echo $s_price;?></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Double Room </td>
-                    <td>2</td>
-                    <td>10</td>
-                    <td><input type="checkbox" id="double_room_minibar" name="double_room_minibar" checked></td>
-                    <td><input type="checkbox" id="double_room_food" name="double_room_food" ></td>
-                    <td><input type="checkbox" id="double_room_ac" name="double_room_ac" checked></td>
-                    <td>3500.00</td>
+                    <td><?php echo $d_capacity;?></td>
+                    <td><?php echo $d_room_count;?></td>
+                    <td><input type="checkbox" id="double_room_minibar" name="double_room_minibar" <?php echo $d_check_minibar;?>></td>
+                    <td><input type="checkbox" id="double_room_food" name="double_room_food" <?php echo $d_check_food;?>></td>
+                    <td><input type="checkbox" id="double_room_ac" name="double_room_ac" <?php echo $d_check_ac;?>></td>
+                    <td><?php echo $d_price;?></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Family Room </td>
-                    <td>4</td>
-                    <td>10</td>
-                    <td><input type="checkbox" id="family_room_minibar" name="family_room_minibar" checked></td>
-                    <td><input type="checkbox" id="family_room_food" name="family_room_food"></td>
-                    <td><input type="checkbox" id="family_room_ac" name="family_room_ac"></td>
-                    <td>5000.00</td>
+                    <td><?php echo $f_capacity;?></td>
+                    <td><?php echo $f_room_count;?></td>
+                    <td><input type="checkbox" id="family_room_minibar" name="family_room_minibar" <?php echo $f_check_minibar;?>></td>
+                    <td><input type="checkbox" id="family_room_food" name="family_room_food" <?php echo $f_check_food;?>></td>
+                    <td><input type="checkbox" id="family_room_ac" name="family_room_ac" <?php echo $f_check_ac;?>></td>
+                    <td><?php echo $f_price;?></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Massive Room </td>
                     <!-- <td><input class="number-form-sign_up-traveler" type="number" id="massive_room_capacity" name="massive_room_capacity" ></td> -->
-                    <td>6</td>
-                    <td>10</td>
-                    <td><input type="checkbox" id="massive_room_minibar" name="massive_room_minibar"></td>
-                    <td><input type="checkbox" id="massive_room_food" name="massive_room_food"></td>
-                    <td><input type="checkbox" id="massive_room_ac" name="massive_room_ac"></td>
-                    <td>7000.00</td>
+                    <td><?php echo $m_capacity;?></td>
+                    <td><?php echo $m_room_count;?></td>
+                    <td><input type="checkbox" id="massive_room_minibar" name="massive_room_minibar" <?php echo $m_check_minibar;?>></td>
+                    <td><input type="checkbox" id="massive_room_food" name="massive_room_food" <?php echo $m_check_food;?>></td>
+                    <td><input type="checkbox" id="massive_room_ac" name="massive_room_ac" <?php echo $m_check_ac;?>></td>
+                    <td><?php echo $m_price;?></td>
                   </tr>
                </tr>
              </table>
@@ -172,10 +250,7 @@ if(isset($_SESSION['username'])) {
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7921.539473306047!2d79.84874!3d6.918109!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb0658168859e3c0e!2sCinnamon%20Grand%20Colombo!5e0!3m2!1sen!2slk!4v1629560069244!5m2!1sen!2slk" width="95%" height="92%"  allowfullscreen="" loading="lazy"></iframe>
                     </td>
                     <td>
-                      <p>
-                        Set 1 km from both the Slave Island Railway Station and Galle Face Green, a seaside urban park, this grand resort hotel is also 2 km from Gangaramaya Buddhist Temple.
-                        Featuring picture windows, the polished rooms come with minibars, free Wi-Fi and flat-screen TVs. Suites add living rooms and dining areas, and some offer kitchenettes, wet bars or butler service.
-                        </p>
+                      <p><?php echo $description;?></p>
                     </td>
                 </tr>
             </table>
