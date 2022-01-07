@@ -56,6 +56,9 @@ class Admin extends Controller{
     }
 
     function vehiclesMore(){
+        $action = $_POST['vehicle_morebtn']; 
+        $vehicle_id = $_POST['vehicle_id'];
+        $this->view->all_vehicle_details = $this->model->getAllVehicleDetails($vehicle_id);
         $this->view->render('admin/admin_vehicles_more');
     }
 
@@ -65,7 +68,6 @@ class Admin extends Controller{
     }
 
     function addNewFaq(){
-		//echo "controller ekata awaa";
         $action=$_POST['submit']; 
 
         $faq_id = uniqid("faq_");
