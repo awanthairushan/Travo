@@ -11,9 +11,17 @@ class Traveler_Model extends Model{
 
     //----------------------------------------Traveler-Vehicle---------------------------------------------------
     
-        function getVehicleAndOwnerDetails(){
-            return $this->db->runQuery("SELECT * from vehicles INNER JOIN vehicle_owners ON vehicles.owner_id=vehicle_owners.owner_id");
-        }
+    function getVehicleAndOwnerDetails(){
+        return $this->db->runQuery("SELECT * from vehicles INNER JOIN vehicle_owners ON vehicles.owner_id=vehicle_owners.owner_id");
+    }
+
+    function vehicleSeats(){
+        return $this->db->runQuery("SELECT DISTINCT no_of_passengers from vehicles ORDER BY no_of_passengers");
+    }
+    
+    function vehicleType(){
+        return $this->db->runQuery("SELECT DISTINCT type from vehicles");
+    }
 
     //----------------------------------------Traveler-Faq---------------------------------------------------------
     function getFaq(){

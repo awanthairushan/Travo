@@ -54,6 +54,8 @@ class Traveler extends Controller{
         $this->view->render('traveler/traveler_update');
     }
     function vehicleDetails(){
+        $this->view->vehicleType = $this->model->vehicleType();
+        $this->view->seats = $this->model->vehicleSeats();
         $this->view->vehicles = $this->model->getVehicleAndOwnerDetails();
         $this->view->render('traveler/traveler_vehicle');
     }

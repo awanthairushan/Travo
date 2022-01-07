@@ -30,17 +30,20 @@
                       <td>
                         <select class="type" id="vehicletype" onchange="filterVValue()">
                             <option value="all">All types</option>
-                            <option value="Van">Van</option>
-                            <option value="Car">Car</option>
-                            <option value="Bus">Bus</option>
+                            <?php
+                              while($types = mysqli_fetch_array($this->vehicleType)){
+                                  echo '<option value="'.$types['type'].'">'.$types['type'].'</option>';
+                                }
+                            ?>
                         </select>
                       </td>
                       <td>
                         <select class="seats" id="seats" onchange="filterVValue()">
                             <option value="all">Any Seats</option>
                             <?php
-                              for($i=2;$i<=20;$i++){
-                                echo '<option value="'.$i.' seats">'.$i.'</option>';
+
+                              while($seats = mysqli_fetch_array($this->seats)){
+                                echo '<option value="'.$seats['no_of_passengers'].' seats">'.$seats['no_of_passengers'].'</option>';
                               }
                             ?>
                         </select>
