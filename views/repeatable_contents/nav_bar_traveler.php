@@ -30,14 +30,14 @@
                     <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/traveler/travelerUpdate">UPDATE</a></div>
                     <div class="drop-box"><button class="deleteAccount_btn" id="deleteAccount_btn">DELETE ACCOUNT</button></div>                    
                     <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/traveler/feedbacks">GIVE FEEDBACKS</a></div>
-                    <div class="drop-box"><a class="drop-nav" href=../../php/unregistered/end-log_out.php>LOG OUT</a></div>
+                    <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/traveler/logout">LOG OUT</a></div>
                 </div>
             </div>
         </li>
         <li class="navigations_name drop_content_mini">',$_SESSION['name'],'</li>
         <li class="navigations_name drop_content_mini"><button class="deleteAccount_btn" id="deleteAccount_btn">DELETE ACCOUNT</button></li>
         <li class="navigations_name drop_content_mini"><a class="drop-nav" href="'.URLROOT.'/traveler/travelerUpdate">UPDATE</a></li>
-        <li class="navigations_name drop_content_mini"><a class="drop-nav" href=../../php/unregistered/end-log_out.php>LOG OUT</a></li> 
+        <li class="navigations_name drop_content_mini"><a class="drop-nav" href="'.URLROOT.'/traveler/logout">LOG OUT</a></li> 
         </ul>
     <div class="delete_modal">
       <div class="deleteAccount_confirm_box">

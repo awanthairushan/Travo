@@ -7,16 +7,20 @@ class Traveler extends Controller{
         parent::__construct();
     }
     function index(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_home');
     }
     function budget(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_budget');
     }
     function faq(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->faq = $this->model->getFaq();
         $this->view->render('traveler/traveler_faq');
     }
     function feedbacks(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->feedbacks = $this->model->getFeedback();
         $this->view->render('traveler/traveler_feedback_list');
     }
@@ -28,42 +32,55 @@ class Traveler extends Controller{
 
             if(isset($_POST['submitbtn'])){
                 $data= trim($_POST['response']);
-                if (empty($data)) {
-                    $data['feedback']="please enter a valid response";
-                }else{
-                    if($this->model->addFeedbacks($data)){
-                        header('location: '.URLROOT.'/Traveler/feedbacks');   
-                    } else {
-                        die('Something went wrong.');
-                    }
+                
+                if($this->model->addFeedbacks($data)){
+                    header('location: '.URLROOT.'/Traveler/feedbacks');   
+                } else {
+                    die('Something went wrong.');
                 }
+                
             }
         }
     }
     function hotelBooking(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_hotel_booking');
     }
     function planTrip(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_plantrip');
     }
     function savedBudget(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_saved_budget');
     }
     function tripToGo(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_trip_to_go');
     }
     function travelerUpdate(){
+        $this->view->isTraveler = $this->model->selectTravelers();
         $this->view->render('traveler/traveler_update');
     }
     function vehicleDetails(){
+        $this->view->isTraveler = $this->model->selectTravelers();
+        $this->view->vehicleType = $this->model->vehicleType();
+        $this->view->seats = $this->model->vehicleSeats();
         $this->view->vehicles = $this->model->getVehicleAndOwnerDetails();
         $this->view->render('traveler/traveler_vehicle');
     }
-    function navigation(){
-        $this->view->render('repeatable_contents/nav_bar_traveler');
+    function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+        header('location: http://localhost/TRAVO');
     }
-    function fonts(){
-        $this->view->render('repeatable_contents/font');
-    }
+    // function navigation(){
+    //     $this->view->render('repeatable_contents/nav_bar_traveler');
+    // }
+    // function fonts(){
+    //     $this->view->render('repeatable_contents/font');
+    // }
+    
     
 }

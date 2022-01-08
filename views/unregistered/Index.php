@@ -25,7 +25,7 @@
       <div class="home-watermark_and_started-div">
         <div class = "watermark">TRAVO.lk</div>
         <br>
-        <button type="button" name="button" class="get_started-btn" onclick="window.location.href='login'">GET STARTED</button>
+        <button type="button" name="button" class="get_started-btn" onclick="window.location.href='<?php echo URLROOT.'/unregistered/login'?>'">GET STARTED</button>
       </div>
 
     </section>

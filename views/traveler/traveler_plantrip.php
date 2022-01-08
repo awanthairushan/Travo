@@ -1,11 +1,13 @@
 <?php
-//   session_start();
-//   if(isset($_SESSION['username'])) {
-//     include '../../db/db_connection.php';
-//     $temp = $_SESSION['username'];
-//     $sqlForSession = "SELECT travelerID FROM travelers WHERE email = '$temp'";
-//     $resultForSession = mysqli_query($con, $sqlForSession);
-//     if (mysqli_num_rows($resultForSession) === 1) {
+  session_start();
+  if(isset($_SESSION['username'])) {
+    $count=0;
+    while($travelers = mysqli_fetch_array($this->isTraveler)){
+      if($travelers['email']===$_SESSION['username']){
+        $count=$count+1;
+      }
+    }
+    if ($count === 1) {
  ?>
 <html>
 <head>
@@ -202,12 +204,12 @@
 </body>
 </html>
 <?php
-//   } else{
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+  } else{
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>

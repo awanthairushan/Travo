@@ -18,6 +18,21 @@ class Unregistered_Model extends Model{
     function checkForExistingUsers($email){
         return $this->db->runQuery("SELECT email FROM hotels WHERE email = '$email' UNION SELECT email FROM travelers WHERE email = '$email' UNION SELECT email FROM vehicle_owners WHERE email = '$email'");
     }
+    function selectAdmin($username){
+        return $this->db->runQuery("SELECT * FROM admin WHERE username = '$username'");
+    }
+    function selectTraveler($username){
+        return $this->db->runQuery("SELECT * FROM travelers WHERE email = '$username'");
+    }
+    function selectHotel($username){
+        return $this->db->runQuery("SELECT * FROM hotels WHERE email = '$username'");
+    }
+    function selectVehicle($username){
+        return $this->db->runQuery("SELECT * FROM vehicle_owners WHERE email = '$username'");
+    }
+    function selectdeleted($username){
+      return $this->db->runQuery("SELECT * FROM deleted_accounts WHERE email = '$username'");
+    }
     function addVehicle($owner_id, $vehicle_id, $vehicle_no, $type,  $Vehicle_model, $city, $no_of_passengers,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $image, $driver_name, $driver_contact1, $driver_contact2){
         // $this->db->runQuery("INSERT INTO vehicles VALUES ('$vehicle_id', '$vehicle_no',  '$type', ' $Vehicle_model', '$city', '$owner_id', 
         // '$price_for_1km', '$price_for_day', '$driver_type', '$driver_charge', '$ac', '$no_of_passengers', '$image', '$driver_name', 
