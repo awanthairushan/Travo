@@ -7,7 +7,11 @@ class Traveler_Model extends Model{
         parent::__construct();
     }
 
+    //----------------------------------------Traveler-session---------------------------------------------------
 
+    function selectTravelers(){
+        return $this->db->runQuery("SELECT * FROM travelers");
+    }
 
     //----------------------------------------Traveler-Vehicle---------------------------------------------------
     
