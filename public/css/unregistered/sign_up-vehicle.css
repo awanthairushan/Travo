@@ -1,5 +1,3 @@
-
-
 .sign_up-traveler {
     background-image: url("http://localhost/Travo/public/images/background_images/unregisteredbg.jpg");
     background-size: cover;
@@ -16,6 +14,17 @@
     flex-direction: column;
     overflow-y: auto;
     padding-top: 1rem;
+}
+
+.error-log_in {
+    margin-left: 0;
+    font-size: 1rem;
+    /* background-color: #F2DEDE; */
+    color: #fa0a06;
+    /* padding-top: 0.2rem;
+    padding-bottom: 0.2rem; */
+    width: 100%;
+    padding-left: 20rem;
 }
 
 .form-sign_up-traveler {
@@ -69,8 +78,6 @@
     border-radius: 0.2rem;
 }
 
-
-
 .tc_div_form_signup_traveler {
     width: 70%;
     float: right;
@@ -108,10 +115,12 @@
     float: right;
     border-radius: 0.2rem;
 }
-.ac-div-form-sign_up-traveler{
+
+.ac-div-form-sign_up-traveler {
     width: 34.5%;
     float: right;
 }
+
 .ac-checkbox-form-sign_up-traveler {
     border-style: solid;
     border-width: thin;
@@ -121,6 +130,7 @@
     width: 1.3rem;
     margin: auto auto auto 29.7%;
 }
+
 .image-small-form-sign_up-traveler {
     background-color: rgba(0, 0, 0, 0);
     border-style: solid;
@@ -209,8 +219,6 @@
 .error-msg-box {
     border: 1px solid red;
 }
-
-
 
 
 /*Tooltip in password*/

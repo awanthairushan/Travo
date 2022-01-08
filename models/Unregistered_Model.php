@@ -31,6 +31,16 @@ class Unregistered_Model extends Model{
         return $this->db->runQuery("SELECT * FROM vehicle_owners WHERE email = '$username'");
     }
     function selectdeleted($username){
-        return $this->db->runQuery("SELECT * FROM deleted_accounts WHERE email = '$username'");
+      return $this->db->runQuery("SELECT * FROM deleted_accounts WHERE email = '$username'");
+    }
+    function addVehicle($owner_id, $vehicle_id, $vehicle_no, $type,  $Vehicle_model, $city, $no_of_passengers,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $image, $driver_name, $driver_contact1, $driver_contact2){
+        // $this->db->runQuery("INSERT INTO vehicles VALUES ('$vehicle_id', '$vehicle_no',  '$type', ' $Vehicle_model', '$city', '$owner_id', 
+        // '$price_for_1km', '$price_for_day', '$driver_type', '$driver_charge', '$ac', '$no_of_passengers', '$image', '$driver_name', 
+        // '$driver_contact1', '$driver_contact2')");
+
+       $this->db->runQuery("INSERT INTO vehicles (vehicle_id,vehicle_no, owner_id, city, type, no_of_passengers, price_for_1km, price_for_day, driver_type, driver_charge, ac, vehicle_image) VALUES ('$vehicle_id', '$vehicle_no', '$owner_id', '$city', '$type', '$no_of_passengers', '$price_for_1km', '$price_for_day', '$driver_type', '$driver_charge', '$ac', '$image')");
+    }
+    function addVehicleOwner($owner_id, $owner_name,  $email, $contact2, $contact1, $otp, $password){
+        $this->db->runQuery("INSERT INTO vehicle_owners VALUES ('$owner_id', '$owner_name', '$email', '$password', '$contact1', '$contact2',  '$otp')");
     }
 }

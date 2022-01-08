@@ -79,7 +79,7 @@ if(isset($_SESSION['username'])) {
                     <td>".$rows['name']."</td>
                     <td>".$rows['address_line1'].$rows['address_line2'].$rows['city']."</td>
                     <td>
-                    <form method='post' action='loadHotelsMorePage'>
+                    <form method='post' action=''>
                         <input type='hidden' value='$rows[0]' name=hotelID>
                         <input type='button' id='morebtn' name='hotel_morebtn' class='hotel_morebtn' value='MORE' onclick=\"window.location.href='hotelsMore'\";>
                     </form>
