@@ -23,7 +23,7 @@ class Database {
         return $result = mysqli_query($this->con, $sql);
     }
 
-    // public function insertQuery($sql){
+    // public function runQuery($sql){
     //     if (mysqli_query($this->con, $sql)) {
     //         echo "New record created successfully !";
     //     } else {

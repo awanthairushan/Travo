@@ -86,14 +86,14 @@
                     <td>".$rows['type']."</td>
                     <td>".$rows['city']."</td>
                     <td>
-                    <form method='post' action=' '>
-                        <input type='hidden' value='$rows[0]' name=con_id>
-                        <input type='button' id='morebtn' value='MORE' onclick=\"window.location.href='vehiclesMore'\">
+                    <form method='post' action='vehiclesMore'>                        
+                        <input type='hidden' value='$rows[0]' name=vehicle_id>
+                        <input type='submit' id='morebtn' name='vehicle_morebtn' class='hotel_morebtn' value='MORE' onclick=\"window.location.href='vehiclesMore'\";>
                     </form>
                     </td>
                     <td>
                     <form method='post' action=' ' >
-                        <input type='hidden' value='$rows[0]' name=con_id>
+                        <input type='hidden' value='$rows[0]' name=vehicle_id>
                         <input type='button' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
                     </form>
                     </td>

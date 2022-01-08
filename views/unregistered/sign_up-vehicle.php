@@ -15,21 +15,7 @@
     <?php include APPROOT . '/views/repeatable_contents/font.php'; ?> 
   </head>
   <body>
- <?php 
-    if (isset($_SESSION['value'])) {
-      if($_SESSION['value']==="username_exist"){
-        echo '<div class="username_exist_modal">
-        <div class="username_exist_confirm_box">
-              <h3>Username Exist.!</h3>
-              <hr>
-              <p>Someone already has that username. Try another..!</p>
-              <hr>
-              <button type="button" name="okay_btn" class="username_exist_okay_btn" id="username_exist_okay_btn">Okay...!</button>
-        </div>
-        </div>';
-      }
-    }
-  ?>
+
 
 
 
@@ -42,7 +28,12 @@
 
     <!--Start form-->
     <div class="box-sign_up-traveler">
-      <form class="form-sign_up-traveler" id="signup_form_vehicle" action="../../php/unregistered/Signup_vehicle.php" method="POST">
+      <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST">
+      <?php
+              if (isset($_GET['error'])) { ?>
+                <p class="error-log_in"><?php echo $_GET['error']; ?></p>
+              <?php }   
+      ?>
       <div class="form-control">
         <label for="name">Owner Name</label>
         <input class="text-form-sign_up-traveler" type="text" name="owner_name" id="owner_name" placeholder=""><br/>
