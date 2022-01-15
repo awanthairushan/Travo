@@ -1,13 +1,12 @@
 <?php
-  session_start();
   if(isset($_SESSION['username'])) {
-    $count=0;
-    while($travelers = mysqli_fetch_array($this->isTraveler)){
-      if($travelers['email']===$_SESSION['username']){
-        $count=$count+1;
-      }
-    }
-    if ($count === 1) {
+    // $count=0;
+    // while($travelers = mysqli_fetch_array($this->isTraveler)){
+    //   if($travelers['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isTraveler)===1) {
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,7 @@
             <div>
                 <form action="planTrip">
                 <div class="rooms">
-                    <div class="slide">
+                    <div class="slide_room">
                         <div class="rname">Single Room</div>
                           <div class="roomtype r1">
                             <dl class="">
@@ -63,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="slide">
+                    <div class="slide_room">
                         <div class="rname">Double Room</div>
                         <div class="roomtype r2">
                           <dl class="">
@@ -84,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="slide">
+                    <div class="slide_room">
                         <div class="rname">Family Room</div>
                         <div class="roomtype r3">
                           <dl class="">
@@ -105,7 +104,7 @@
                         </div>
                     </div>
 
-                    <div class="slide">
+                    <div class="slide_room">
                         <div class="rname">Massive Room</div>
                         <div class="roomtype r4">
                           <dl class="">

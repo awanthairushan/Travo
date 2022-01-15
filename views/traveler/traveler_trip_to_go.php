@@ -1,13 +1,12 @@
 <?php
-  session_start();
   if(isset($_SESSION['username'])) {
-    $count=0;
-    while($travelers = mysqli_fetch_array($this->isTraveler)){
-      if($travelers['email']===$_SESSION['username']){
-        $count=$count+1;
-      }
-    }
-    if ($count === 1) {
+    // $count=0;
+    // while($travelers = mysqli_fetch_array($this->isTraveler)){
+    //   if($travelers['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isTraveler)===1) {
  ?>
 <html>
     <head>

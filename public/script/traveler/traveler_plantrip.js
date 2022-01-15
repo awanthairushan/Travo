@@ -5,9 +5,13 @@ var popup = document.querySelector(".hotel_names_popup");
 var popupBtn = document.querySelectorAll(".selecthotelpopupbtn");
 var cancelBtn = document.querySelector("#cancelbtn");
 var formPlantrip = document.querySelector("#form_plan");
-formPlantrip.addEventListener("submit", function(event){
-  event.preventDefault();
-});
+
+var allhotels = document.querySelectorAll("#selecthotelbtn");
+var hotelDetails = document.querySelector(".content3");
+
+// formPlantrip.addEventListener("submit", function(event){
+//   event.preventDefault();
+// });
 for (var i = 0; i < popupBtn.length; i++) {
      popupBtn[i].addEventListener("click", function(event){
        openPopup();
@@ -34,7 +38,13 @@ cancelBtn.addEventListener("click", function(){
   hotelsheading.style.display="none";
  });
 
-
+for (var j = 0; j < allhotels.length; j++) {
+  allhotels[j].addEventListener("click", function(event){
+    popup.style.display = "none";
+    hotelDetails.style.display = "block";
+    hotelsheading.style.display="none";
+});
+}
 
 
 
@@ -82,20 +92,27 @@ function getSelectedValue(){
     }
 
     if(count<3){
-        count=count+1;
-        op[e.selectedIndex].disabled=true;
-        choicetext.display="none";
-        var newDiv = document.createElement('span');
-        newDiv.setAttribute("class","choice");
-        newDiv.setAttribute("id",e.selectedIndex);
-        newDiv.innerHTML=choicetext+ " ";
-        var spanDiv = document.createElement('b');
-        spanDiv.setAttribute("class","close");
-        spanDiv.innerHTML=" x ";
-        spanDiv.setAttribute("onclick",'closeDiv(this)');
-        newDiv.appendChild(spanDiv);
-        displaydiv.appendChild(newDiv);
-    }
+      count=count+1;
+      op[e.selectedIndex].disabled=true;
+      choicetext.display="none";
+      var newDiv = document.createElement('span');
+      newDiv.setAttribute("class","choice");
+      newDiv.setAttribute("id",e.selectedIndex);
+      newDiv.innerHTML=choicetext+ " ";
+      var spanDiv = document.createElement('b');
+      spanDiv.setAttribute("class","close");
+      spanDiv.innerHTML=" x ";
+      spanDiv.setAttribute("onclick",'closeDiv(this)');
+      var newInput = document.createElement('input');
+      newInput.setAttribute("type","hidden");
+      newInput.setAttribute("value",choicetext);
+      countString=count.toString();
+      let destination = "destination";
+      newInput.setAttribute("name",destination.concat(countString));
+      newDiv.appendChild(spanDiv);
+      newDiv.appendChild(newInput);
+      displaydiv.appendChild(newDiv);
+  }
 }
 
 function closeDiv(x){

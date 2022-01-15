@@ -1,13 +1,12 @@
 <?php
-  session_start();
   if(isset($_SESSION['username'])) {
-    $count=0;
-    while($travelers = mysqli_fetch_array($this->isTraveler)){
-      if($travelers['email']===$_SESSION['username']){
-        $count=$count+1;
-      }
-    }
-    if ($count === 1) {
+    // $count=0;
+    // while($travelers = mysqli_fetch_array($this->isTraveler)){
+    //   if($travelers['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isTraveler)===1) {
 ?>
         <html>
 
@@ -39,24 +38,25 @@
                         <button class="tripmenu" id="route_btn">ROUTE</button>
                     </div>
 
+                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ ?>
                     <div class="container modal1">
                         <div class="details">
                             <table class="main_details">
                                 <tr>
                                     <td>Date : </td>
-                                    <td>2021-11-10 To 2021-11-13</td>
+                                    <td><?php echo $details['start_date'].' To '.$details['end_date']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Number of Travelers : </td>
-                                    <td>4</td>
+                                    <td><?php echo $details['no_of_people']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Category : </td>
-                                    <td>Cultural</td>
+                                    <td><?php echo $details['category']; ?></td>
                                 </tr>
                                 <tr>
                                     <td>Mileage : </td>
-                                    <td>350km</td>
+                                    <td><?php echo $details['mileage'].'km'; ?></td>
                                 </tr>
                             </table>
 
@@ -97,8 +97,8 @@
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 1</div>
-                                    <div class="trow"> Anuradhapura	</div>
-                                    <div class="trow"> Hotel Alakamanda</div>
+                                    <div class="trow"><?php echo ' '.$details['destination_id'].' ' ?></div>
+                                    <div class="trow"><?php echo ' '.$details['hotel_id1'].' ' ?></div>
                                     <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div>
                                 </div>
                                 <div class="thide">
@@ -110,8 +110,8 @@
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 2</div>
-                                    <div class="trow">Galle</div>
-                                    <div class="trow">CocoBay Unawatuna</div>
+                                    <div class="trow"><?php echo ' '.$details['destination_id2'].' ' ?></div>
+                                    <div class="trow"><?php echo ' '.$details['hotel_id2'].' ' ?></div>
                                     <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div>
                                 </div>
                                 <div class="thide">
@@ -123,13 +123,14 @@
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 3</div>
-                                    <div class="trow">Colombo</div>
-                                    <div class="trow">Cinnamon Grand Colombo</div>
+                                    <div class="trow"><?php echo ' '.$details['destination_id3'].' ' ?></div>
+                                    <div class="trow"><?php echo ' '.$details['hotel_id3'].' ' ?></div>
                                     <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
 
                     <div class="container modal2">
                         <div class="details main">
@@ -172,33 +173,35 @@
                                 </tr>
                             </table> -->
 
+                            <?php while ($budget = mysqli_fetch_array($this->budget)){ ?>
                             <div class="row1">Hotel 1</div>
                             <div class="equal">=</div>
-                            <div class="row">RS 3500.00</div>
+                            <div class="row">RS <?php echo $budget['hotel1_accomodation'] ?></div>
 
                             <div class="row1">Hotel 2</div>
                             <div class="equal">=</div>
-                            <div class="row">RS 4500.00</div>
+                            <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
 
                             <div class="row1">Hotel 3</div>
                             <div class="equal">=</div>
-                            <div class="row">RS 5000.00</div>
+                            <div class="row">RS <?php echo $budget['hotel3_accomodation'] ?></div>
 
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>
-                            <div class="row final">RS 13000.00</div>
+                            <div class="row final">RS <?php echo $budget['accomodation'] ?></div>
 
                             <div class="row1">Service Charges</div>
                             <div class="equal">=</div>
-                            <div class="row">RS 1000.00</div>
+                            <div class="row">RS <?php echo $budget['service_charges'] ?></div>
 
                             <div class="row1">Ticket fees</div>
                             <div class="equal">=</div>
-                            <div class="row">(RS 500.00)</div>
+                            <div class="row">(RS <?php echo $budget['ticket_fees'] ?>)</div>
 
                             <div class="row1 final">Total Budget</div>
                             <div class="equal final">=</div>
-                            <div class="row final">RS 14000.00</div>
+                            <div class="row final">RS <?php echo $budget['total_expenses'] ?></div>
+                            <?php } ?>
                         </div>
                     </div>
 
@@ -227,8 +230,13 @@
                         <input type="text" name="country" value="Sri Lanka"><br><br>
                     </form>
 
+                    <form id="saveTripForm" action="<?php echo URLROOT; ?>/traveler/saveTrip" method="post">
+                    <input type="hidden" name="trip_id" value="<?php echo $_SESSION['trip_id']; ?>">
+                    <input type="hidden" name="traveler_id" value="<?php echo $_SESSION['travelerID']; ?>">
+                    </form>
+
                     <div class="buttons">
-                        <button class="button" id="savebtn" onclick="window.location.href='tripToGo'">SAVE</button>
+                        <input type="submit" class="button" id="savebtn" value="SAVE" name="savetripbtn" form="saveTripForm">
                         <button class="button" form="payForm" id="paybtn">PAY NOW</button>
                     </div>
                 </div>

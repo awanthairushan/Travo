@@ -276,6 +276,277 @@ table {
     opacity: 0.6;
 }
 
+/* ------------------------css to show details of a specific hotel-------------------- */
+
+.content3{
+    display: none;
+}
+
+.hotelcontent{
+    max-height: 75vh;
+    overflow-y: scroll;
+  }
+  
+  .hotelcontent::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* title of the page */
+  .hotelpageheading{
+    font-size: 1.5rem;
+    margin:0 0 0.25rem 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+  }
+  
+  .image_gallery_hotel {
+    height: 20.5vh;
+    background-color: rgba(0,0,0,0.5);
+    width: 80%;
+    margin: 0 auto auto auto;
+    padding: 0;
+  }
+  .image_gallery_hotel table {
+    padding: 0;
+  }
+  .image_gallery_hotel table td {
+    width: 20%;
+    padding: 0;
+  }
+  .images_image_gallery_hotel {
+    height: 18vh;
+    width: 95%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 0;
+  }
+  .images_image_gallery_hotel:hover {
+    transform: scale(1.03);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+  }
+  form{
+      margin: auto;
+  }
+  
+  .rooms{
+      font-size: 0.8rem;
+      font-weight:lighter;
+      width: 80%;
+      height: auto;
+      margin: 0.5rem auto auto auto;
+      background: rgba(196, 196, 196, 0.5);
+      border-radius: 40px;
+      padding-top: 0.5rem;
+      text-align: center;
+  }
+  
+  .slide_room{
+      display: inline-block;
+      width: 24%;
+      text-align: center;
+      align-content: center;
+  }
+  
+  .rname{
+      /* font-size: 25px; */
+      font-size: 1rem;
+      font-weight: bold;
+  }
+  
+  .r1,.r2,.r3,.r4{
+      display: block;
+  }
+  
+  
+  
+  .roomtype{
+      /* to center .roomtype */
+      display: inline-block;
+      width: 90%;
+      height: 8rem;
+      padding-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      color: #ffffff;
+      margin:4px;
+  
+      /* align texts and button center */
+      text-align: center;
+  }
+  
+  .roomtype dl{
+    margin: 0;
+  
+  }
+  .left{
+    font-size: 1rem;
+    color: rgb(185, 8, 8);
+    font-weight: bold;
+  }
+  .price {
+      font-size: 1rem;
+  }
+  
+  b{
+      color: black;
+  }
+  
+  .confirm{
+      width: 100%;
+      text-align: center;
+  }
+  
+  .confirmbtn{
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.5rem auto 0 auto;
+    background: #369093;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;    
+  }
+  
+  /* css for changing no of rooms part */
+  .value-button {
+      display: inline-block;
+      margin: 0px;
+      width: 3rem;
+      height: 1.5rem;
+      padding-top: 0.4rem;
+      text-align: center;
+      vertical-align: middle;
+      background: none;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  
+    .value-button:hover {
+      cursor: pointer;
+    }
+  
+    form #decrease {
+      font-size: 1.2rem;
+      vertical-align: middle;
+      text-align: center;
+    }
+  
+    form #increase {
+      font-size: 1.2rem;
+        vertical-align: middle;
+        text-align: center;
+    }
+  
+    form #input-wrap {
+      margin: 0px;
+      padding: 0px;
+    }
+  
+    input#Snumber,#Dnumber,#Fnumber,#Mnumber {
+      text-align: center;
+      border: none;
+      border: 0.15rem solid #000;
+      background: none;
+      margin: 0;
+      width: 2rem;
+      height: 1.2rem;
+      vertical-align: middle;
+    }
+  
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+  .hoteldetails {
+    width: 80%;
+    margin: auto;
+    height: 28vh;
+  }
+  .hoteldetails tr th{
+        color: #ffffff;
+        text-align: left;
+    }
+  
+    /* new */
+    .hdrow{
+      float: left;
+      width: 49%;
+      margin: 0 0.5%;
+    }
+  
+    /* new */
+    .hdhead{
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+    }
+  
+  /* .hoteldetails iframe {
+    margin: 0;
+    border-radius: 1rem;
+    border:0;
+  } */
+  
+  /* new */
+  .hdbody iframe{
+    display: block;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border:0;
+  }
+  
+    /* .hoteldetails td{
+      border-radius: 1rem;
+      width: 50%;
+      background: rgba(196, 196, 196, 0.6);
+      font-size: 1rem;
+    } */
+  
+    /* new */
+    .hdbody{
+      border-radius: 2rem;
+      background: rgba(196, 196, 196, 0.6);
+      font-size: 1rem;
+      height: 12rem;
+      text-align: center;
+      margin-top: 0;
+    }
+  
+      /* .hoteldetails td p {
+        text-align:justify;
+        width: 90%;
+        margin: auto;
+      } */
+  
+      .hdbody p{
+        margin: 0 auto;
+        padding: 0.5rem;
+        text-align:justify;
+      }
+  
+    /* .hoteldetailsth,td{
+        height: auto;
+        text-align: center;
+    } */
+  
+@media screen and (max-width:1200px){
+    .hdbody{
+      height: 15rem;
+    }
+}
+
 @media screen and (max-width:1050px){
     #selecthotelbtn {
         width: 95%;
@@ -283,10 +554,65 @@ table {
     }
 }
 
+@media screen and (max-width:950px){
+    .hdbody{
+      height: 18rem;
+    }
+  }
+
 @media screen and (max-width:850px){
     .pageheading{
         margin:4rem 0 0.25rem 0;
     }
+
+    .hotelpageheading{
+        margin:4rem 0 0.25rem 0;
+    }
+
+    .hdbody{
+      height: 22rem;
+    }
+}
+
+@media screen and (max-width:755px){
+    .slide_room{
+        float: left;
+        width: 50%;
+        align-content: center;
+    }
+
+    .rooms{
+      height: 30rem;
+    }
+
+    .rname{
+      margin-top: 0.5rem;
+    }
+
+    .hdrow{
+      width: 90%;
+    }
+
+    .hdrow div{
+      width: 100%;
+    }
+
+    .hdhead{
+      text-align: center;
+    }
+
+    .hdbody{
+      height: 12rem;
+    }
+
+    .hoteldetails{
+      /* center .hdrow divs inside the .hoteldetails */
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
 }
 
 @media screen and (max-width:700px){
@@ -313,6 +639,39 @@ table {
     }
 }
 
+@media screen and (max-width:650px){
+    .hdrow{
+      width: 100%;
+    }
+  
+    .hdbody{
+      height: 15rem;
+    }
+  }
+
+@media screen and (max-width:500px){
+
+    .rooms{
+      height: 60rem;
+    }
+  
+    .slide_room{
+      float: left;
+      width: 90%;
+      align-content: center;
+      margin: 0 5%;
+    }
+  
+  
+    .hdbody{
+      height: 18rem;
+    }
+  
+    .hoteldetails {
+      width: 90%;
+    }
+  }
+
 @media screen and (max-width:450px){
     .hotel_names_popup {
         margin: 5vh auto auto auto;
@@ -337,7 +696,6 @@ table {
     }
 }
 
-
 @media screen and (max-width:350px){
 
     .prev {
@@ -350,6 +708,14 @@ table {
         border-top: 3rem solid transparent;
         border-left: 2rem solid #555;
         border-bottom: 3rem solid transparent;
+    }
+
+    .rooms{
+        width: 90%;
+      }
+    
+    .hdbody{
+        height: 24rem;
     }
 }
 

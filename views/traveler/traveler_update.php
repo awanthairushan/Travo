@@ -1,13 +1,12 @@
 <?php
-  session_start();
   if(isset($_SESSION['username'])) {
-    $count=0;
-    while($travelers = mysqli_fetch_array($this->isTraveler)){
-      if($travelers['email']===$_SESSION['username']){
-        $count=$count+1;
-      }
-    }
-    if ($count === 1) {
+    // $count=0;
+    // while($travelers = mysqli_fetch_array($this->isTraveler)){
+    //   if($travelers['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isTraveler)===1) {
  ?>
 <html lang="en" dir="ltr">
   <head>
@@ -28,39 +27,74 @@
       <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php';?>
       <style> <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>  </style>
       <script type="text/javascript" src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
-      <br>
+      
       <div class="pageheading">UPDATE</div>
-    <div class="box-sign_up-traveler">
-      <br>
-      <form class="form-sign_up-traveler" id="form-sign_up-traveler" action="../../php/traveler/traveler_updateprofile.php" method="post">
-      <br>
-        <label for="name">Name</label>
-        <input class="text-form-sign_up-traveler" type="text" name="name" id="name" value="" placeholder="<?php echo $name ?>"><br>
-        <br>
-        <label for="email">Email Address</label>
-        <input class="text-form-sign_up-traveler" type="email" name="email" id="email" value="" placeholder="<?php echo $email ?>" ><br>
-        <br>
-        <label for="contact">Contact Number</label>
-        <input class="text-small-form-sign_up-traveler" type="text" name="contact2" id="contact2" value="" placeholder="<?php echo $contact1 ?>">
-        <input class="text-small-form-sign_up-traveler" type="text" name="contact1" id="contact1" value="" placeholder="<?php echo $contact2 ?>"><br>
-        <br>
+      <div class="box-sign_up-traveler">
 
-        <label for="password">Password</label>
-        <input class="text-small-form-sign_up-traveler" type="password" name="retype-password" id="retype-password" value="" placeholder=" Confirm new password" >
-        <div class="tooltip">
-        <span class="tooltiptext">*Please enter a password between 8 to 15 characters which contains at least one uppercase letter and one special character</span>
-        <input class="text-small-form-sign_up-traveler" type="password" name="password" id="password" value="" placeholder=" New password"><br>
-        <br>
-        </div>
-        
+<form class="form-sign_up-traveler" id="form-sign_up-traveler" action="updateTravelerProfile" method="post">
+  <?php
+        if (isset($_GET['error'])) { ?>
+          <p class="error-log_in"><?php echo $_GET['error']; ?></p>
+        <?php }   
+  ?>
+  <?php
+    while ($rows = mysqli_fetch_array($this->isTraveler)){
+      $id=$rows['travelerID'];
+      $name=$rows['name'];
+      $address1=$rows['address_line1'];
+      $address2=$rows['address_line2'];
+      $city=$rows['city'];
+      $email=$rows['email'];
+      $contact1=$rows['contact1'];
+      $contact2=$rows['contact2'];
+      $password=$rows['password'];
 
-      <label for="adress">Address</label>
-      <input class="text-form-sign_up-traveler" type="text" name="address-line1" id="address-line1" placeholder="<?php echo $address1 ?>" value=""  ><br>
-      <br>
-      <input class="text-form-sign_up-traveler" type="text" name="address-line2" id="address-line2" placeholder="<?php echo $address2 ?>" value=""  ><br>
-      <br>
-      <input class="text-form-sign_up-traveler" type="text" name="city" id="city" placeholder="<?php echo $city ?>" value=""  ><br>
-      <br>
+  }
+  ?>
+  <div class="form-control">
+    <label for="name">Name</label>
+    <input class="text-form-sign_up-traveler" type="text" name="name" id="name" value="" placeholder="<?php echo $name; ?>"><br>
+    <span class="error-msg"></span>
+  </div>
+
+  <br>
+
+  <div class="form-control">
+    <label for="email">Email Address</label>
+    <input class="text-form-sign_up-traveler" type="email" name="email" id="email" value=""  placeholder="<?php echo $email; ?>"><br>
+    <span class="error-msg"></span>
+  </div>
+
+  <br>
+
+  <div class="form-control">
+    <label for="contact">Contact Number</label>
+    <input class="text-small-form-sign_up-traveler" type="number" name="contact2" id="contact2" value="" placeholder="<?php echo $contact2; ?>">
+    <input class="text-small-form-sign_up-traveler" type="number" name="contact1" id="contact1" value="" placeholder="<?php echo $contact1; ?>"><br>
+    <span class="error-msg"></span>
+  </div>
+
+  <br>
+
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input class="text-small-form-sign_up-traveler" type="password" name="retype-password" id="retype-password" value="" placeholder=" Confirm password" >
+    <div class="tooltip">
+      <span class="tooltiptext">*Please enter a password between 8 to 15 characters which contains at least one uppercase letter and one special character</span>
+      <input class="text-small-form-sign_up-traveler" type="password" name="password" id="password" value=""><br>
+    </div>
+    <span class="error-msg"></span>
+  </div>
+
+  <br>
+
+  <div class="form-control">
+    <label for="adress">Address</label>
+    <input class="text-form-sign_up-traveler" type="text" name="address-line1" id="address-line1" placeholder="<?php echo $address1; ?>" value=""  ><br>
+    <input class="text-form-sign_up-traveler" type="text" name="address-line2" id="address-line2" placeholder="<?php echo $address2 ?>" value=""  ><br>
+    <input class="text-form-sign_up-traveler" type="text" name="city" id="city" placeholder="<?php echo $city; ?>" value=""  ><br>
+    <span class="error-msg"></span>
+  </div>
 
     </form>
     </div>

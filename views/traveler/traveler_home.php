@@ -1,13 +1,12 @@
 <?php
-  session_start();
   if(isset($_SESSION['username'])) {
-    $count=0;
-    while($travelers = mysqli_fetch_array($this->isTraveler)){
-      if($travelers['email']===$_SESSION['username']){
-        $count=$count+1;
-      }
-    }
-    if ($count === 1) {
+    // $count=0;
+    // while($travelers = mysqli_fetch_array($this->isTraveler)){
+    //   if($travelers['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isTraveler)===1) {
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -49,7 +48,7 @@
               </div>
               <!-- end of the toggle -->
 
-              <form class="" action="traveler/planTrip" method="post">
+              <form class="" action="<?php echo URLROOT ?>/traveler/tripPlanBegin" method="post">
                 <table class="main">
                       <tr>
                           <th class="trow heading">PEOPLE COUNT</th>
@@ -67,8 +66,10 @@
                               </select>
                           </td>
                   </table>
-                  <button id="nextbtn" class="nextbtn" onclick="window.location.href='traveler/planTrip'">NEXT</button>
+                  <input type="submit" id="nextbtn" class="nextbtn" value="NEXT" name="submitbtn">
+                  <!-- <button id="nextbtn" class="nextbtn" onclick="window.location.href='traveler/planTrip'">NEXT</button> -->
                 </form>
+                <script src="<?php echo URLROOT ?>/public/script/traveler/traveler_home.js"></script>
             </div>
         </div>
     </section>
