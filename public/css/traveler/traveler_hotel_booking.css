@@ -71,7 +71,7 @@ form{
     text-align: center;
 }
 
-.slide{
+.slide_room{
     display: inline-block;
     width: 24%;
     text-align: center;
@@ -292,7 +292,7 @@ b{
 }
 
 @media screen and (max-width:755px){
-    .slide{
+    .slide_room{
         float: left;
         width: 50%;
         align-content: center;
@@ -348,7 +348,7 @@ b{
     height: 60rem;
   }
 
-  .slide{
+  .slide_room{
     float: left;
     width: 90%;
     align-content: center;

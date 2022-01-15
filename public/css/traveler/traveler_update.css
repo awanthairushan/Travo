@@ -1,8 +1,3 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0px;
-}
-
 .sign_up-traveler {
     background-image: url("http://localhost/TRAVO/public/images/background_images/travelerbg.jpg");
     background-size: cover;
@@ -10,60 +5,77 @@ body {
     margin: 0px;
 }
 
-/* title of the page */
-.pageheading{
+.pageheading {
     font-size: 1.5rem;
-    margin:0 0 0.25rem 0;
+    margin: 0 0 0.25rem 0;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     align-content: center;
-  }
-
-
+}
 
 .box-sign_up-traveler {
     background-color: rgba(255, 255, 255, 0.4);
-    height: 70vh;
+    height: 65vh;
     width: 80vw;
-    border-radius: 2rem;
     margin: auto auto 1rem auto;
+    align-items: center;
+    display: flex;
+}
+
+.error-log_in {
+    margin-left: 0;
+    font-size: 1rem;
+    /* background-color: #F2DEDE; */
+    color: #fa0a06;
+    /* padding-top: 0.2rem;
+    padding-bottom: 0.2rem; */
+    width: 100%;
+    padding-left: 20rem;
 }
 
 .form-sign_up-traveler {
-    width: 75vw;
-    margin: 0.8% auto 0.8% auto;
-    height: 70vh;
+    width: 70vw;
+    margin: auto;
+    height: auto;
 }
 
 .form-sign_up-traveler label {
-    max-width: 22.5vw;
-    font-size: 1.2rem;
+    margin: 0;
+    max-width: 30vw;
+    font-size: 1.1rem;
     display: block;
     float: left;
 }
 
 .text-form-sign_up-traveler {
+    border-radius: 0.2rem;
     background-color: rgba(0, 0, 0, 0);
     border-style: solid;
     border-width: thin;
     border-color: #000000;
-    width: 52.5vw;
+    width: 55vw;
     height: 1.3rem;
-    margin: 0px;
+    margin: 0 0 1rem 0;
     float: right;
 }
 
 .text-small-form-sign_up-traveler {
+    border-radius: 0.2rem;
     background-color: rgba(0, 0, 0, 0);
     border-style: solid;
     border-width: thin;
     border-color: #000000;
-    width: 25.5vw;
+    width: 27vw;
     height: 1.3rem;
-    margin: 0;
-    margin-left: 1.5vw;
+    margin: 0 0 0 0.8vw;
     float: right;
+}
+
+.tc_div_form_signup_traveler {
+    width: 70%;
+    float: right;
+    padding: 0;
 }
 
 .tc-checkbox-form-sign_up-traveler {
@@ -73,17 +85,16 @@ body {
     border-color: #000000;
     height: 1.3rem;
     width: 1.3rem;
-    margin: 1% auto auto 25%;
+    margin: 0;
     float: left;
 }
 
 #tc-label-form-sign_up-traveler {
     width: 70%;
     max-width: 70%;
-    font-size: 1.2rem;
-    float: right;
+    font-size: 1rem;
     display: block;
-    margin: 1% auto auto auto;
+    margin: 0 1rem;
 }
 
 .buttons-sign_up-traveler {
@@ -93,7 +104,7 @@ body {
 }
 
 .refreshbtn {
-    width: 12rem;
+    width: 40%;
     height: 2.5rem;
     margin: auto;
     border-radius: 0.8rem;
@@ -109,7 +120,7 @@ body {
 }
 
 .submitbtn {
-  width: 12rem;
+  width: 40%;
   height: 2.5rem;
   background: #369093;
   border-radius: 0.8rem;
@@ -126,6 +137,51 @@ body {
   /* box-shadow: 1px 2px #888888; */
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/*Validation*/
+
+.form-control {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control label {
+    display: inline-block;
+}
+
+.form-control input {
+    display: block;
+}
+
+.form-control.success input {
+    border: 2px solid rgb(26, 167, 26);
+}
+
+.form-control.error input {
+    border: 2px solid rgb(228, 29, 22);
+}
+
+.form-control small {
+    position: absolute;
+    margin-top: -20px;
+    visibility: hidden;
+    color: rgba(255, 0, 0, 0.781);
+}
+
+.error-msg {
+    color: rgba(238, 156, 156, 0.788);
+    font-size: 12px;
+}
+
+.error-msg-box {
+    border: 1px solid red;
+}
 
 /*Tooltip in password*/
 
@@ -151,8 +207,124 @@ body {
     opacity: 1;
 }
 
-@media screen and (max-width:850px){
+
+/* ....................modal Box................................ */
+
+.username_exist_modal {
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.username_exist_confirm_box {
+    height: 25vh;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 1);
+    margin: auto;
+    z-index: 1;
+    position: fixed;
+    border-radius: 0.5rem;
+    left: 30%;
+    top: 30vh;
+    cursor: default;
+}
+
+.username_exist_confirm_box h3,
+p {
+    margin-left: 1rem;
+}
+
+.username_exist_okay_btn {
+    width: 30%;
+    margin: auto 1rem auto 1rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    border-width: 0px;
+    background-color: rgba(2, 222, 28, 0.8);
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    float: right;
+}
+
+@media screen and (max-width: 1026px) {
+    .text-form-sign_up-traveler {
+        width: 50vw;
+    }
+    .text-small-form-sign_up-traveler {
+        width: 24.6vw;
+    }
+
+    .buttons-sign_up-traveler {
+        width: 20%;
+    }
+    .refreshbtn,.submitbtn{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 850px) {
     .pageheading{
         margin:4rem 0 0.25rem 0;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .form-sign_up-traveler{
+        width: 75vw;
+    }
+    
+    .form-sign_up-traveler label {
+        font-size: 1rem;
+    }
+
+    .buttons-sign_up-traveler {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .text-form-sign_up-traveler {
+        width: 50vw;
+    }
+    .text-small-form-sign_up-traveler {
+        width: 50vw;
+        float: right;
+        margin-bottom: 1rem;
+    }
+
+    .form-control label {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .form-sign_up-traveler label {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .buttons-sign_up-traveler {
+        width: 40%;
+    }
+    .text-form-sign_up-traveler {
+        width: 40vw;
+    }
+    .text-small-form-sign_up-traveler {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 402px){
+    .form-sign_up-traveler label {
+        font-size: 0.8rem;
     }
 }
