@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/TRAVO/public/css/hotel/hotel_bookings.css">
     <style> <?php include_once APPROOT.'/public/css/hotel/hotel_repeating_css.css'; ?> </style>
     <style> <?php include_once APPROOT.'/public/css/hotel/hotel_bookings.css'; ?> </style>
+    <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
 
 </head>
 <body>

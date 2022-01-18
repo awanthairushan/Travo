@@ -198,5 +198,65 @@ class Unregistered extends Controller{
             header('location: login');
         }
     }
+    function addNewHotel(){
+        $action=$_POST['submitbtn'];
+        $hotel_id = uniqid("hot_");
+        $name = trim( $_POST['name']);
+        $regNo = trim($_POST['regNO']);
+        $licenceNo = trim($_POST['licenceNo']);
+        $email = trim($_POST['email']);
+        $contact1 = trim($_POST['contact1']);
+        $contact2 = trim($_POST['contact2']);
+        $password1 = trim($_POST['password']);
+        $line1 = trim($_POST['address-line1']);
+        $line2 = trim($_POST['address-line2']);
+        $city = trim($_POST['city']);
+        $decription = trim($_POST['description']);
+        $website = trim($_POST['web']);
+        $location = trim($_POST['location']);
+        $rep_name = trim($_POST['rep_name']);
+        $rep_email = trim($_POST['rep_email']);
+        $rep_contact1 = trim($_POST['rep_contact1']);
+        $rep_contact2 = trim($_POST['rep_contact2']);
+        $hotel_type = $_POST['hotel_type-type'];
+        $images = $_POST['images'];
+        $otp = rand(1000, 9999);
+        $password = password_hash($password1, PASSWORD_DEFAULT);
+
+        $single_count = trim($_POST['single_room_count']);
+        $single_mini_bar = $_POST['single_room_minibar'];
+        $single_food = $_POST['single_room_food'];
+        $single_ac = $_POST['single_room_ac'];
+        $single_price = trim($_POST['single_room_price']);
+        $double_count = trim($_POST['double_room_count']);
+        $double_mini_bar = $_POST['double_room_minibar'];
+        $double_food = $_POST['double_room_food'];
+        $double_ac = $_POST['double_room_ac'];
+        $double_price = trim($_POST['double_room_price']);
+        $family_count = trim($_POST['family_room_count']);
+        $family_mini_bar = $_POST['family_room_minibar'];
+        $family_food = $_POST['family_room_food'];
+        $family_ac = $_POST['family_room_ac'];
+        $family_price = trim($_POST['family_room_price']);
+        $massive_capacity = trim($_POST['massive_room_capacity']);
+        $massive_count = trim($_POST['massive_room_count']);
+        $massive_mini_bar = $_POST['massive_room_minibar'];
+        $massive_food = $_POST['massive_room_food'];
+        $massive_ac = $_POST['massive_room_ac'];
+        $massive_price = trim($_POST['massive_room_price']);
+
+        if (mysqli_num_rows($this->model->checkForExistingUsers($email)) >0 ) {
+            header('location: signupHotel?error=Someone already taken that email. Try with another..!');
+        }else{
+            $this->model->addHotel($hotel_id,$name, $regNo, $licenceNo, $line1, $line2, $city, $location, $contact1,$contact2,$decription, $website, $email,$password,$hotel_type,$rep_name, $rep_email, $rep_contact1, $rep_contact2, $otp);
+            $this->model->addHotelRoom($hotel_id,'single',$single_count,1,$single_food,$single_mini_bar,$single_ac,$single_price);
+            $this->model->addHotelRoom($hotel_id,'double',$double_count,2,$double_food,$double_mini_bar,$double_ac,$double_price);
+            $this->model->addHotelRoom($hotel_id,'family',$family_count,4,$family_food,$family_mini_bar,$family_ac,$family_price);
+            $this->model->addHotelRoom($hotel_id,'massive',$massive_count,$massive_capacity,$massive_food,$massive_mini_bar,$massive_ac,$massive_price);
+            $image_id=uniqid('hotelimg_');
+            $this->model->addHotelImages($hotel_id,$image_id,$images);
+            header('location: login');
+        }
+    }
 
 }

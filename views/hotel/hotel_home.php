@@ -19,6 +19,7 @@
     <style> 
     <?php include_once APPROOT.'/public/css/hotel/hotel_repeating_css.css'; ?> 
     </style>
+    <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
     </script>
   </head>
   <body>
@@ -34,23 +35,28 @@
       <div class="home-watermark_and_started-div">
       <div class = "watermark">TRAVO.lk</div><br>
       <br>
-      <button type="button" name="button" class="get_started-btn" onclick="window.location.href='/views/hotel/hotel_booking.php'>GET STARTED</button>
+      <button type="button" name="button" class="get_started-btn" onclick="window.location.href='<?php echo URLROOT ?>/hotel/hotelBooking'">GET STARTED</button>
       </div>
     </section>
 
-<!--__________________about_us________________-->
+    <!--__________________about_us________________-->
     <section id="about_us-section">
-      <?php include '../../repeatable_contents/about_us.php';?>
-      <style> <?php include '../../repeatable_contents/about_us.css'; ?>  </style>
-      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/about_us.js"></script>
+      <?php include APPROOT . '/views/repeatable_contents/about_us.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/about_us.css'; ?>  </style>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/about_us.js"></script>
       <br>
     </section>
 <!--__________________END about_us________________-->
 
-    <section id="contact_us-section">
-      <?php include_once APPROOT.'/views/repeatable_contents/footer.php';?>
-      <style> <?php include_once APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
-    </section>
+
+<!--__________________contact_us________________-->
+  
+<section id="contact_us-section">
+      <?php include APPROOT . '/views/repeatable_contents/footer.php';?>
+      <style> <?php include APPROOT . '/public/css/repeatable_contents/footer.css'; ?>  </style>
+   </section>
+
+<!--__________________END contact_us________________-->
 
 
   </body>

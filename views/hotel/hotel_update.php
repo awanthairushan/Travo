@@ -15,6 +15,7 @@
     <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
     <style> <?php include_once APPROOT.'/public/css/hotel/hotel_update.css'; ?> </style>
     <style> <?php include_once APPROOT.'/public/css/css/hotel/hotel_repeating_css.css'; ?> </style>
+    <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
     <!-- <?php
       // $result = require '../../db/hotel/hotel_updateprofile.php';
     ?> -->
