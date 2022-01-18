@@ -1,9 +1,11 @@
 .navigations_name {
     font-weight: normal;
-  }
+}
+
 .navigations_bold_style {
     font-weight: bolder;
 }
+
 .nav_bar-table {
     width: 100%;
     height: 2.5rem;
@@ -26,7 +28,7 @@ table td a {
 }
 
 .nav_bar-active {
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .nav_bar-table td:hover {

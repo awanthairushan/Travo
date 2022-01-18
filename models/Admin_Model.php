@@ -7,6 +7,10 @@ class Admin_Model extends Model{
         parent::__construct();
     }
 
+function selectAdmins($user){
+    return $this->db->runQuery("SELECT * FROM admin WHERE username='$user'");
+}
+
 //----------------------------------------Admin-Travelers---------------------------------------------------
 function getTravelerDetails(){
     return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY name) AS row_no FROM travelers");

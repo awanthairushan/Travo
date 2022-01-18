@@ -1,11 +1,13 @@
 <?php
-  // session_start();
-  // if(isset($_SESSION['username'])) {
-  //   include '../../db/db_connection.php';
-  //   $temp = $_SESSION['username'];
-  //   $sqlForSession = "SELECT owner_id FROM vehicle_owners WHERE email = '$temp'";
-  //   $resultForSession = mysqli_query($con, $sqlForSession);
-  //   if (mysqli_num_rows($resultForSession) === 1) {
+  //session_start();
+  if(isset($_SESSION['username'])) {
+    // $count=0;
+    // while($vehicles = mysqli_fetch_array($this->isVehicle)){
+    //   if($vehicles['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->isVehicle)===1) {
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -30,7 +32,7 @@
       <div class="home-watermark_and_started-div">
       <div class = "watermark">TRAVO.lk</div><br>
       <br>
-      <button type="button" name="button" class="get_started-btn" onclick="window.location.href='myVehicle'">GET STARTED</button>
+      <button type="button" name="button" class="get_started-btn" onclick="window.location.href='VEHICLE/myVehicle'">GET STARTED</button>
       </div>
     </section>
 
@@ -56,12 +58,12 @@
   </body>
 </html>
 <?php
-//   } else{
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+  } else{
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>

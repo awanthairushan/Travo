@@ -156,7 +156,7 @@ class Unregistered extends Controller{
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         if(mysqli_num_rows($this->model->checkForExistingUsers($email)) >0 ){
-            header('location: signupTraveler?error=Someone already taken that email. Try with another..!');
+            header('location: signupTraveler?error=Someone already taken that email. Try another..!');
         }else{
             $this->model->addTraveler($traveler_id,  $name,  $email, $contact2, $contact1, $password, $adressLine1, $adressLine2, $city, $otp);
             header('location: login');
@@ -165,7 +165,6 @@ class Unregistered extends Controller{
     function addNewVehicle(){
         $action=$_POST['submitbtn']; 
 
-        echo "mekata aawa";
         $vehicle_id = uniqid("veh_");
         $owner_id = uniqid("own_");
         $owner_name = trim($_POST['owner_name']);
@@ -190,11 +189,12 @@ class Unregistered extends Controller{
         $otp = rand(1000, 9999);
         $password = password_hash($password, PASSWORD_DEFAULT);
 
+
         if(mysqli_num_rows($this->model->checkForExistingUsers($email)) >0 ){
             header('location: signupVehicle?error=Someone already taken that email. Try with another..!');
         }else{
-            $this->model->addVehicle($owner_id, $vehicle_id, $vehicle_no, $type,  $Vehicle_model, $city, $no_of_passengers,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $image, $driver_name, $driver_contact1, $driver_contact2);
             $this->model->addVehicleOwner($owner_id, $owner_name,  $email, $contact2, $contact1, $otp, $password);
+            $this->model->addVehicle($owner_id, $vehicle_id, $vehicle_no, $type, $Vehicle_model, $city, $no_of_passengers,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $image, $driver_name, $driver_contact1, $driver_contact2);
             header('location: login');
         }
     }

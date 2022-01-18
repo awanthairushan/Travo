@@ -30,7 +30,7 @@
     <!--Start Navigation bar-->
     <?php include_once  APPROOT.'/views/repeatable_contents/nav_bar_admin.php';?>
       <style> <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_admin.css'; ?>  </style>
-      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_admin.js"></script>
     <!--End Navigation bar-->
 
 <!-- .....................modal box for traveler remove...................... -->

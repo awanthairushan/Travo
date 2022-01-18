@@ -1,11 +1,14 @@
 <?php
-//   session_start();
-//   if(isset($_SESSION['username'])) {
-//     include '../../db/db_connection.php';
-//     $temp = $_SESSION['username'];
-//     $sqlForSession = "SELECT owner_id FROM vehicle_owners WHERE email = '$temp'";
-//     $resultForSession = mysqli_query($con, $sqlForSession);
-//     if (mysqli_num_rows($resultForSession) === 1) {
+$i=0;
+  //session_start();
+  if(isset($_SESSION['username'])) {
+    // $count=0;
+    // while($vehicles = mysqli_fetch_array($this->isVehicle)){
+    //   if($vehicles['email']===$_SESSION['username']){
+    //     $count=$count+1;
+    //   }
+    // }
+    if (mysqli_num_rows($this->myVehicle)===1) {
  ?>
 <html>
     <head>
@@ -22,54 +25,42 @@
         <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar_vehicle.css'; ?>  </style>
         <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_vehicle.js"></script>
 
-            <!-- <div class="content">
-            <div class="vehicledetails_div">
-              <table class="vehicledetails">
-                <tr>
-                      <th colspan="5" class="vehicleType">Toyota Prius 4th Generation</th>
-                  </tr>
-                  <tr class="detail">
-                      <td class="trow">Type<br/>A/C<br/>Seating capacity<br/>Driver<br/>Price per day</td>
-                      <td class="trow">Car<br/><input type="checkbox"><br/>5<br/>with<input type="checkbox"> without<input type="checkbox"><br/>LKR.</td>
-                      <td class="trow"><img class="vimg" src="../../../public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
-                      <td class="trow">Name<br/>E-mail<br/>Contact<br/>Location<br/>Driver charges</td>
-                      <td class="trow">Mr.Kamal Ranasinghe<br/>kamal@gmail.com<br/>0710000000/0332200000<br/>Gampaha<br/>LKR.1000.00</td>
-                  </tr>
-              </table>
-              <br/> 
-              </div>
-            </div> -->
-
+        
             <div class="vehicle_and_owner_details">
                 <?php 
-                while ($rows = mysqli_fetch_array($this->myVehicle)){
+                $rows = mysqli_fetch_array($this->myVehicle);
+                while ($i<2){
                 echo '
                     <form action="vehicle_update_vehicle">
                     <table class="vehicle_details">
                         <!-- vehicle 1 -->
                         <tr>
-                            <th colspan="2" class="vehicleType">' . $rows['type'] . '</th>
+                            <th colspan="2" class="vehicleType">' . $rows['vehicle_model'] . '</th>
                         </tr>
                         <tr class="tr_with_img">
-                            <td>' . $rows['type'] . '</td>
-                            <td rowspan = "6"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                            <td>Type : ' . $rows['type'] . '</td>
+                            <td rowspan = "6"><img class="vimg" src="<?php echo URLROOT ?>/public/images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
+                        </tr>
+                        <tr>
+                        <td>Available In : ' . $rows['city'] . '</td>
+                        </tr>
+                        <tr>
+                        <td>Maximum Passengers : ' . $rows['no_of_passengers'] . '</td>
                         </tr>
                         <tr>
                         <td>' . ($rows['ac'] == 'yes' ?  'With A/C' : 'without A/C') .'</td>
                         </tr>
                         <tr>
-                        <td>' . $rows['no_of_passengers'] . ' Seats</td>
+                        <td>Rs. ' . $rows['price_for_1km'] . ' Per km</td>
+                        </tr>
+                        <tr>
+                        <td>Rs. ' . $rows['price_for_day'] . ' Per Day</td>
                         </tr>
                         <tr>
                         <td>' . $rows['driver_type'] . '</td>
                         </tr>
-                        <tr>
-                        <td>Rs.' . $rows['price_for_1km'] . ' per km</td>
-                        </tr>
-                        <tr>
-                        <td>Rs.' . $rows['price_for_day'] . ' per day</td>
-                        </tr>
                     </table>
+
                     <table class="small_vehicle_details">
                         <!-- vehicle 1 -->
                         <tr>
@@ -90,26 +81,32 @@
                         <td>5 Seats</td>
                         <td>1000 per day</td>
                         </tr>
-                    </table>
+                    </table>                   
+
+
                     <table class="driver_details">
                         <tr>
-                            <th class="vehicleType">Mr.kamal</th>
+                            <th class="vehicleType">Owner Details</th>
                         </tr>
                         <tr>
-                            <td>Kamal Sumudu Nagodaarachchi</td>
+                            <td>' . $rows['owner_name'] . '</td>
                         </tr>
                         <tr>
-                            <td>kamal@gmail.com </td>
-                        </tr>
-                        <tr>
-                            <td>0332255654 0716663769</td>
-                        </tr>
-                        <tr>
-                            <td>Gampaha</td>
+                            <td>' . $rows['contact1'] ."  ". $rows['contact2'] . '</td>
                         </tr>
                         <tr>
                             <td>LKR.1200.00 per day</td>
                         </tr>
+                        <tr>
+                            <th class="driverType">Driver Details</th>
+                        </tr>
+                        <tr>
+                            <td>' . $rows['driver_name'] . '</td>
+                        </tr>
+                        <tr>
+                            <td>' . $rows['driver_contact1'] ."  ". $rows['driver_contact2'] . '</td>
+                        </tr>
+
                     </table>
 
                     <div class="buttons-sign_up-traveler">
@@ -118,7 +115,7 @@
                     </div>
                     </form>
 
-                '; }?>
+                '; $i++;}?>
             </div>
         </section>
 
@@ -134,12 +131,12 @@
     </body>
 </html>
 <?php
-//   } else{
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+  } else{
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>
