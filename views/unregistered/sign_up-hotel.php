@@ -38,8 +38,12 @@
 
     <div class="box-sign_up-traveler">
     
-    <form class="form-sign_up-traveler" id = "sign_up_form-hotel" name="sign_up_form-hotel" action="../../php/unregistered/signup_submit_hotel.php" method="post">
-      <br><br>
+    <form class="form-sign_up-traveler" id = "sign_up_form-hotel" name="sign_up_form-hotel" action="addNewHotel" method="post">
+      <?php
+              if (isset($_GET['error'])) { ?>
+                <p class="error-log_in"><?php echo $_GET['error']; ?></p>
+              <?php }   
+        ?>
 
       <div class="form-control">
       <label for="name">Hotel Name</label> <input class="text-form-sign_up-traveler" type="text" name="name" id="name" value="" ><br>
@@ -181,36 +185,72 @@
                     <td id="first_column_room_details-form-sign_up-hotel">Single Room </td>
                     <td>1</td>
                     <td><input class="number-form-sign_up-traveler" type="number" id="single_room_count" name="single_room_count" ></td>
-                    <td><input type="checkbox" id="single_room_minibar" name="single_room_minibar"></td>
-                    <td><input type="checkbox" id="single_room_food" name="single_room_food"></td>
-                    <td><input type="checkbox" id="single_room_food" name="single_room_food"></td>
+                    <td>
+                      <input type="hidden" name="single_room_minibar" value="no" />
+                      <input type="checkbox" id="single_room_minibar" name="single_room_minibar" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="single_room_food" value="no" />
+                      <input type="checkbox" id="single_room_food" name="single_room_food" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="single_room_ac" value="no" />
+                      <input type="checkbox" id="single_room_ac" name="single_room_ac" value="yes"> <span></span>
+                    </td>
                     <td><input class="price-form-sign_up-traveler"  type="text" id="single_room_price" name="single_room_price" placeholder="0.00" ></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Double Room </td>
                     <td>2</td>
                     <td><input class="number-form-sign_up-traveler" type="number" id="double_room_count" name="double_room_count" ></td>
-                    <td><input type="checkbox" id="double_room_minibar" name="double_room_minibar"></td>
-                    <td><input type="checkbox" id="double_room_food" name="double_room_food"></td>
-                    <td><input type="checkbox" id="double_room_ac" name="double_room_ac"></td>
+                    <td>
+                      <input type="hidden" name="double_room_minibar" value="no" />
+                      <input type="checkbox" id="double_room_minibar" name="double_room_minibar" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="double_room_food" value="no" />
+                      <input type="checkbox" id="double_room_food" name="double_room_food" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="double_room_ac" value="no" />
+                      <input type="checkbox" id="double_room_ac" name="double_room_ac" value="yes"> <span></span>
+                    </td>
                     <td><input class="price-form-sign_up-traveler" type="text" id="double_room_price" name="double_room_price" placeholder="0.00" ></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Family Room </td>
                     <td>4</td>
                     <td><input class="number-form-sign_up-traveler" type="number" id="family_room_count" name="family_room_count" ></td>
-                    <td><input type="checkbox" id="family_room_minibar" name="family_room_minibar"></td>
-                    <td><input type="checkbox" id="family_room_food" name="family_room_food"></td>
-                    <td><input type="checkbox" id="family_room_ac" name="family_room_ac"></td>
+                    <td>
+                      <input type="hidden" name="family_room_minibar" value="no" />
+                      <input type="checkbox" id="family_room_minibar" name="family_room_minibar" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="family_room_food" value="no" />
+                      <input type="checkbox" id="family_room_food" name="family_room_food" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="family_room_ac" value="no" />
+                      <input type="checkbox" id="family_room_ac" name="family_room_ac" value="yes"> <span></span>
+                    </td>
                     <td><input class="price-form-sign_up-traveler"  type="text" id="family_room_price" name="family_room_price" placeholder="0.00" ></td>
                   </tr>
                   <tr>
                     <td id="first_column_room_details-form-sign_up-hotel">Massive Room </td>
                     <td><input class="number-form-sign_up-traveler" type="number" id="massive_room_capacity" name="massive_room_capacity" ></td>
                     <td><input class="number-form-sign_up-traveler" type="number" id="massive_room_count" name="massive_room_count" ></td>
-                    <td><input type="checkbox" id="massive_room_minibar" name="massive_room_minibar"></td>
-                    <td><input type="checkbox" id="massive_room_food" name="massive_room_food"></td>
-                    <td><input type="checkbox" id="massive_room_ac" name="massive_room_ac"></td>
+                    <td>
+                      <input type="hidden" name="massive_room_minibar" value="no" />
+                      <input type="checkbox" id="massive_room_minibar" name="massive_room_minibar" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="massive_room_food" value="no" />
+                      <input type="checkbox" id="massive_room_food" name="massive_room_food" value="yes"> <span></span>
+                    </td>
+                    <td>
+                      <input type="hidden" name="massive_room_ac" value="no" />
+                      <input type="checkbox" id="massive_room_ac" name="massive_room_ac" value="yes"> <span></span>
+                    </td>
                     <td><input class="price-form-sign_up-traveler"  type="text" id="massive_room_price" name="massive_room_price" placeholder="0.00" ></td>
                   </tr>
                </tr>

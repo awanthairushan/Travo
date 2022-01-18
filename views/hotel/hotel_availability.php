@@ -13,10 +13,12 @@
         <title>AVAILABILITY</title>
         <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
         <link rel="stylesheet" href="http://localhost/TRAVO/public/css/hotel/hotel_availability.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="<?php echo APPROOT ?>/public/script/hotel/hotel_availability.js"></script>
+        <script type="text/javascript" src="http://localhost/TRAVO/public/script/hotel/hotel_availability.js"></script>
         <style> <?php include_once APPROOT.'/public/css/hotel/hotel_repeating_css.css'; ?> </style>
         <link rel="icon" href="http://localhost/TRAVO/public/images/icons/favicon.ico">
+        <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
     <section class="sign_up-traveler">
