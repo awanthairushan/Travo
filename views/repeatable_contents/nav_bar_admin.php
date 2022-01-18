@@ -14,7 +14,7 @@
           <td class="navigations_name"><a href="'.URLROOT.'/admin/faq">FAQ</a></td>
           <td class="navigations_name"><a href="'.URLROOT.'/admin/feedback">FEEDBACK</a></td>
           <td class="navigations_name"><a href="'.URLROOT.'/admin/destinations">DESTINATIONS</a></td>
-          <td class="navigations_name"><a id="demo" href="'.URLROOT.'/unregistered/login">LOG OUT</a></td>
+          <td class="navigations_name"><a id="demo" href="'.URLROOT.'/admin/logout">LOG OUT</a></td>
         </tr>
       </table>
     </div> '; ?>

@@ -1,243 +1,269 @@
-.uppersection {
-    background-image: url("<?php echo URLROOT ?>/public/images/background_images/vehiclebg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
-
-.vehicle_and_owner_details {
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 1rem;
-    width: 85vw;
-    margin: auto;
-    height: 80vh;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.vehicle_and_owner_details h3 {
-    margin-left: 2.5vw;
-}
-
-.vehicle_details {
-    background: rgba(255, 255, 255, 0.5);
-    height: 23rem;
-    width: 48vw;
-    border-collapse: collapse;
-    float: left;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 2.5vw;
-    border-radius: 1rem;
-}
-
-
-.vehicleType {
-    border-radius: 1rem 1rem 0 0;
-    background: rgba(0, 0, 0, 0.5);
-    text-align: center;
-    text-align: center;
-    margin: 0;
-    height: 2rem;
-    padding: 0;
-}
-.vehicle_details tr td:first-child{
-    width: 12vw;
-    padding-left: 1rem;
-}
-.tr_with_img td:nth-child(2){
-    margin: auto;
-    text-align: center;
-    margin: auto;
-}
-
-.vimg {
-    border-radius: 1rem;
-    height: auto;
-    width: 80%;
-    max-height: 95%;
-    margin: 0;
-}
-.small_vehicle_details {
-    display: none;
-    background: rgba(255, 255, 255, 0.5);
-    height: 23rem;
-    width: 48vw;
-    border-collapse: collapse;
-    float: left;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: 2.5vw;
-    border-radius: 1rem;
-}
-.small_vehicle_details td {
-    text-align: center;
-}
-.driver_details {
-    margin-right: 2.5vw;
-    border-radius: 1rem;
-    float: right;
-    width: 31vw;
-    background: rgba(255, 255, 255, 0.5);
-    height: 23rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 0;
-    border-collapse: collapse;
-}
-
-.driver_details td {
-    padding: 1rem;
-    text-align: left;
-    line-height: 1.5rem;
-    margin: 0;
-}
-
-.buttons-sign_up-traveler {
-    width: 40%;
-    padding: 0px;
-    margin:auto;
-}
-
-.updatebtn {
-    width: 12rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border-width: 0px;
-    background-color: 369093;
-    font-weight: bold;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: #ffffff;
-    cursor: pointer;
-    float: left;
-    box-shadow: 1px 2px #888888;
-    margin-left: 0;
-}
-.deletebtn {
-    width: 12rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    border-width: 0px;
-    background-color: rgb(204, 78, 109);
-    font-weight: bold;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    color: #ffffff;
-    cursor: pointer;
-    float: right;
-    box-shadow: 1px 2px #888888;
-}
-
-@media screen and (max-width : 1200px){
-    .buttons-sign_up-traveler {
-        width: 50%;
-    }
-}@media screen and (max-width : 1000px){
-    .vimg {
-        width: 90%;
-    }
-    .buttons-sign_up-traveler {
-        width: 60%;
-    }
-}
-@media screen and (max-width : 850px){
-    .vimg {
-        width: 70%;
-        margin: auto;
-    }
-    .vehicle_and_owner_details {
-        margin-top: 3rem;
-    }
-    .vehicle_details {
-        display: none;
-    }
-    .small_vehicle_details {
-        display: block;
-        font-size: 0.9rem;
-    }
-    .driver_details {
-        font-size: 0.9rem;
-    }
-    .buttons-sign_up-traveler {
-        width: 65%;
-    }
-}
-@media screen and (max-width : 750px){
- .vimg {
-     width: 80%;
- }
- .buttons-sign_up-traveler {
-    width: 75%;
- }
-}
-@media screen and (max-width : 650px){
-    .vimg {
-        width: 90%;
-    }
-    .buttons-sign_up-traveler {
-        width: 90%;
-     }
-}
-@media screen and (max-width : 550px){
-    .small_vehicle_details {
-        display: none;
-    }
-    .vehicle_details {
-        display: block;
-        width: 90%;
-        float: none;
-        font-size: 0.9rem;
-        height: auto;
-        margin: 1rem auto;
-    }
-    .vehicle_details tr td:first-child{
-        width: 20vw;
-        padding-left: 1rem;
-    }
-    .vimg {
-        width: 80%;
-    }
-    .driver_details {
-        width: 90%;
-        float: none;
-        height: auto;
-        margin: auto auto 1rem auto;
-    }
-    .driver_details td {
-        padding: 0.2rem 1rem;
-        text-align: left;
-        line-height: 1.5rem;
-        margin: 0;
-    }
-    .buttons-sign_up-traveler {
-        width: 85%;
-     }
-     .updatebtn , .deletebtn {
-        width: 10rem;
-        font-size: 1rem;
-    }
-}
-@media screen and (max-width : 450px){
-    .small_vehicle_details {
-        display: block;
-        width: 90%;
-        float: none;
-        font-size: 0.9rem;
-        height: auto;
-        margin: 1rem auto;
-    }
-    .vehicle_details {
-        display: none;
-    }
-    .buttons-sign_up-traveler {
-        width: 85%;
-        text-align: center;
-     }
-    .updatebtn , .deletebtn {
-        width: 10rem;
-        font-size: 1rem;
-        float: none;
-        margin: auto auto 0.5rem auto;
-    }
-}
+        .uppersection {
+            background-image: url("<?php echo URLROOT ?>/public/images/background_images/vehiclebg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+        
+        .vehicle_and_owner_details {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 1rem;
+            width: 85vw;
+            margin: auto;
+            height: 80vh;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .vehicle_and_owner_details h3 {
+            margin-left: 2.5vw;
+        }
+        
+        .vehicle_details {
+            background: rgba(255, 255, 255, 0.5);
+            height: 23rem;
+            width: 48vw;
+            border-collapse: collapse;
+            float: left;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            margin-left: 2.5vw;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .vehicleType {
+            border-radius: 1rem 1rem 0 0;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            text-align: center;
+            margin: 0;
+            height: 2rem;
+            padding: 0;
+            font-size: 1rem;
+        }
+        
+        .driverType {
+            border-radius: 0rem 0rem 0 0;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            text-align: center;
+            margin: 0;
+            height: 2rem;
+            padding: 0;
+        }
+        
+        .vehicle_details tr td:first-child {
+            width: 15vw;
+            padding-left: 1rem;
+        }
+        
+        .tr_with_img td:nth-child(2) {
+            margin-left: auto;
+            text-align: center;
+        }
+        
+        .vimg {
+            border-radius: 1rem;
+            height: auto;
+            width: 80%;
+            max-height: 95%;
+            margin-left: 100px;
+        }
+        
+        .small_vehicle_details {
+            display: none;
+            background: rgba(255, 255, 255, 0.5);
+            height: 23rem;
+            width: 48vw;
+            border-collapse: collapse;
+            float: left;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            margin-left: 2.5vw;
+            border-radius: 1rem;
+        }
+        
+        .small_vehicle_details td {
+            text-align: center;
+        }
+        
+        .driver_details {
+            margin-right: 2.5vw;
+            border-radius: 1rem;
+            float: right;
+            width: 31vw;
+            background: rgba(255, 255, 255, 0.5);
+            height: 23rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 0;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        
+        .driver_details td {
+            padding: 1rem;
+            text-align: left;
+            line-height: 1.5rem;
+            margin: 0;
+        }
+        
+        .buttons-sign_up-traveler {
+            width: 40%;
+            padding: 0px;
+            margin: auto;
+        }
+        
+        .updatebtn {
+            width: 12rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            border-width: 0px;
+            background-color: 369093;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            cursor: pointer;
+            float: left;
+            box-shadow: 1px 2px #888888;
+            margin-left: 0;
+        }
+        
+        .deletebtn {
+            width: 12rem;
+            height: 2rem;
+            border-radius: 0.5rem;
+            border-width: 0px;
+            background-color: rgb(204, 78, 109);
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            cursor: pointer;
+            float: right;
+            box-shadow: 1px 2px #888888;
+        }
+        
+        @media screen and (max-width: 1200px) {
+            .buttons-sign_up-traveler {
+                width: 50%;
+            }
+        }
+        
+        @media screen and (max-width: 1000px) {
+            .vimg {
+                width: 90%;
+            }
+            .buttons-sign_up-traveler {
+                width: 60%;
+            }
+        }
+        
+        @media screen and (max-width: 850px) {
+            .vimg {
+                width: 70%;
+                margin: auto;
+            }
+            .vehicle_and_owner_details {
+                margin-top: 3rem;
+            }
+            .vehicle_details {
+                display: none;
+            }
+            .small_vehicle_details {
+                display: block;
+                font-size: 0.9rem;
+            }
+            .driver_details {
+                font-size: 0.9rem;
+            }
+            .buttons-sign_up-traveler {
+                width: 65%;
+            }
+        }
+        
+        @media screen and (max-width: 750px) {
+            .vimg {
+                width: 80%;
+            }
+            .buttons-sign_up-traveler {
+                width: 75%;
+            }
+        }
+        
+        @media screen and (max-width: 650px) {
+            .vimg {
+                width: 90%;
+            }
+            .buttons-sign_up-traveler {
+                width: 90%;
+            }
+        }
+        
+        @media screen and (max-width: 550px) {
+            .small_vehicle_details {
+                display: none;
+            }
+            .vehicle_details {
+                display: block;
+                width: 90%;
+                float: none;
+                font-size: 0.9rem;
+                height: auto;
+                margin: 1rem auto;
+            }
+            .vehicle_details tr td:first-child {
+                width: 20vw;
+                padding-left: 1rem;
+            }
+            .vimg {
+                width: 80%;
+            }
+            .driver_details {
+                width: 90%;
+                float: none;
+                height: auto;
+                margin: auto auto 1rem auto;
+            }
+            .driver_details td {
+                padding: 0.2rem 1rem;
+                text-align: left;
+                line-height: 1.5rem;
+                margin: 0;
+            }
+            .buttons-sign_up-traveler {
+                width: 85%;
+            }
+            .updatebtn,
+            .deletebtn {
+                width: 10rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media screen and (max-width: 450px) {
+            .small_vehicle_details {
+                display: block;
+                width: 90%;
+                float: none;
+                font-size: 0.9rem;
+                height: auto;
+                margin: 1rem auto;
+            }
+            .vehicle_details {
+                display: none;
+            }
+            .buttons-sign_up-traveler {
+                width: 85%;
+                text-align: center;
+            }
+            .updatebtn,
+            .deletebtn {
+                width: 10rem;
+                font-size: 1rem;
+                float: none;
+                margin: auto auto 0.5rem auto;
+            }
+        }

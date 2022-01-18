@@ -15,12 +15,12 @@
         <ul class="nav_bar_links">
           <li class="navigations_name"></li>
           <li class="navigations_name"></li>
-          <li class="navigations_name"><a href="index">HOME</a></li>
-          <li class="navigations_name"><a href="faq">FAQ</a></li>
-          <li class="navigations_name"><a href="index">ABOUT</a></li>
-          <li class="navigations_name"><a href="#contact_us-section">CONTACT</a></li>
-          <li class="navigations_name"><a href="myVehicle">MY VEHICLES</a></li>
-          <li class="navigations_name"><a href="addVehicle">ADD VEHICLE</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle">HOME</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle/faq">FAQ</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle#about_us-section">ABOUT</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle#contact_us-section">CONTACT</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle/myVehicle">MY VEHICLES</a></li>
+          <li class="navigations_name"><a href="'.URLROOT.'/vehicle/addVehicle">ADD VEHICLE</a></li>
           <li class = "dropdown_li"> 
             <div class="dropdown">
               <img class="nav_bar-img" src="' . URLROOT . '/public/images/icons/user.png">
@@ -28,7 +28,7 @@
                   <div class="drop-title">',$_SESSION['owner_name'],'</div>
                   <div class="drop-box"><button class="deleteAccount_btn" id="deleteAccount_btn" >DELETE ACCOUNT</button></div>
                   <div class="drop-box"><a class="drop-nav" href=updateVehicle>UPDATE</a></div>
-                  <div class="drop-box"><a class="drop-nav" href=../../php/unregistered/end-log_out.php>LOG OUT</a></div>
+                  <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/vehicle/logout">LOG OUT</a></div>
               </div>
             </div>
           </li>

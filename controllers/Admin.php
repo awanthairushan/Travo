@@ -7,6 +7,8 @@ class Admin extends Controller{
         parent::__construct();
     }
     function index(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->render('admin/admin_trips');
     }
 
@@ -117,5 +119,11 @@ class Admin extends Controller{
 
         $this->model->acceptHotel($hotel_id);
         header('location: hotels');
+    }
+    function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+        header('location: http://localhost/TRAVO');
     }
 }
