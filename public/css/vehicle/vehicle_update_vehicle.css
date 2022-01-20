@@ -15,6 +15,7 @@ body {
     height: 55vh;
     width: 90%;
     margin: 2rem auto 0.5rem auto;
+    padding-bottom: 1rem;
 }
 
 .form-sign_up-traveler {
@@ -93,7 +94,7 @@ body {
     border-color: #000000;
     height: 1.3rem;
     width: 1.3rem;
-    margin: auto auto auto 26.4%;
+    margin: auto auto auto 29%;
 }
 
 .buttons-sign_up-traveler {
@@ -144,16 +145,12 @@ body {
     float: right;
 }
 
-.ownerId_class {
-    display: none;
-}
-
 
 /*Validation*/
 
 .form-control {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
 }
 
 .form-control lable {

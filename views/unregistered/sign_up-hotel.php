@@ -116,7 +116,7 @@
 
       <div class="form-control">
       <label for="description">Description</label>
-      <textarea class="description-form-hotel" id="description" name="description" rows="8" cols="80" ></textarea ></br>
+      <textarea class="description-form-hotel" id="description" name="description" rows="8" cols="80" maxlength="500"></textarea ></br>
       <br><br><br>
         <span class="error-msg"></span>
       </div>

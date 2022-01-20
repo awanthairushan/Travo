@@ -1,12 +1,5 @@
 <?php
-  //session_start();
   if(isset($_SESSION['username'])) {
-    // $count=0;
-    // while($vehicles = mysqli_fetch_array($this->isVehicle)){
-    //   if($vehicles['email']===$_SESSION['username']){
-    //     $count=$count+1;
-    //   }
-    // }
     if (mysqli_num_rows($this->isVehicle)===1) {
  ?>
 <!DOCTYPE html>
