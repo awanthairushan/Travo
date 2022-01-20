@@ -65,9 +65,9 @@
         
         .vimg {
             border-radius: 1rem;
+            width: 22rem;
             height: auto;
-            width: 80%;
-            max-height: 95%;
+            max-height: 19rem;
             margin-left: 100px;
         }
         

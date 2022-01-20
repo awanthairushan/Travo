@@ -114,7 +114,7 @@ if(isset($_SESSION['username'])) {
             <tr>
               <td>Hotel name</td>
               <td><?php echo $name;?></td>
-              <td rowspan = "2"><div class="checkbtn"><button id="checkbtn" onclick="window.location.href='https://www.sltda.gov.lk/en'";>CHECK VALIDITY</button></div></td>
+              <td rowspan = "2"><div class="checkbtn"><button id="checkbtn" onclick="window.location.href='https://www.srilanka.travel/index.php?route=travel/tostay&hotel_type=4&hotel_district=&hotel_star=5'";>CHECK VALIDITY</button></div></td>
             </tr>
             <tr>
               <td>Email</td>

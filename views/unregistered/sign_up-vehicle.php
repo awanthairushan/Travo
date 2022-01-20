@@ -28,7 +28,7 @@
 
     <!--Start form-->
     <div class="box-sign_up-traveler">
-      <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST">
+      <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST" enctype="multipart/form-data">
       <?php
               if (isset($_GET['error'])) { ?>
                 <p class="error-log_in"><?php echo $_GET['error']; ?></p>
@@ -36,26 +36,26 @@
       ?>
       <div class="form-control">
         <label for="name">Owner Name</label>
-        <input class="text-form-sign_up-traveler" type="text" name="owner_name" id="owner_name" placeholder=""><br/>
+        <input class="text-form-sign_up-traveler compulsory_fields" type="text" name="owner_name" id="owner_name" placeholder=""><br/>
       </div>
 
       <div class="form-control">
         <label for="email">Email Address</label>
-        <input class="text-form-sign_up-traveler" type="text" name="email" id="email" placeholder=""><br/>
+        <input class="text-form-sign_up-traveler compulsory_fields" type="text" name="email" id="email" placeholder=""><br/>
       </div>
 
       <div class="form-control">
         <label for="contact">Contact Number</label>
-        <input class="text-small-form-sign_up-traveler" type="text" name="contact2" id="contact2" placeholder=" Contact Number 2">
-        <input class="text-small-form-sign_up-traveler" type="text" name="contact1" id="contact1" placeholder=" Contact Number 1"><br/>
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="text" name="contact2" id="contact2" placeholder=" Contact Number 2">
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="text" name="contact1" id="contact1" placeholder=" Contact Number 1"><br/>
       </div>
 
       <div class="form-control">
         <label for="password">Password</label>
-        <input class="text-small-form-sign_up-traveler" type="password" name="password2" id="password2" placeholder=" Confirm password">
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="password" name="password2" id="password2" placeholder=" Confirm password">
         <div class="tooltip">
         <span class="tooltiptext">*Please enter a password between 8 to 15 characters which contains at least one uppercase letter and one special character</span>
-        <input class="text-small-form-sign_up-traveler" type="password" name="password1" id="password1" placeholder=""><br/>
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="password" name="password1" id="password1" placeholder=""><br/>
         </div>
       </div>
 
@@ -64,12 +64,12 @@
 
       <div class="form-control">
         <label for="vehicle-no">Vehicle Number</label>
-        <input class="text-form-sign_up-traveler" type="text" name="vehicle_no" id="vehicle_no" placeholder=""><br/>
+        <input class="text-form-sign_up-traveler compulsory_fields" type="text" name="vehicle_no" id="vehicle_no" placeholder=""><br/>
       </div>
 
       <div class="form-control">
         <label for="vehicle">Vehicle</label>
-        <input class="text-small-form-sign_up-traveler" type="text" name="no_of_passengers" id="no_of_passengers" placeholder=" No of passengers">
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="text" name="no_of_passengers" id="no_of_passengers" placeholder=" No of passengers">
         <select class="drop-down-form-sign_up-traveler" name="vehicle_type">
           <option value="" hidden>Vehicle Category</option>
           <option value="car">Car</option>
@@ -78,24 +78,22 @@
           <option value="suv">SUV</option>
           <option value="minibus">Mini Bus</option>
         </select><br/>
-
-        <!-- <input class="text-small-form-sign_up-traveler" type="text" name="type" id="type" placeholder=" Vehicle Category"><br><br> -->
-        <span id="error8" class="error-msg"></span>
       </div>
 
       <div class="form-control">
         <label for="vehicle-model">Vehicle Model</label>
-        <input class="text-form-sign_up-traveler" type="text" name="Vehicle_model" id="vehicle_model" placeholder=" ex: Toyota Prius 4th generation"><br/>
+        <input class="text-form-sign_up-traveler compulsory_fields" type="text" name="Vehicle_model" id="vehicle_model" placeholder=" ex: Toyota Prius 4th generation"><br/>
       </div>
 
       <div class="form-control">
         <label for="price">Price</label>
-        <input class="text-small-form-sign_up-traveler" type="text" name="price_for_day" id="price_for_day" placeholder=" Price for day">
-        <input class="text-small-form-sign_up-traveler" type="text" name="price_for_1km" id="price_for_1km" placeholder=" Price for 1km"><br/>
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="text" name="price_for_day" id="price_for_day" placeholder=" Price for day">
+        <input class="text-small-form-sign_up-traveler compulsory_fields" type="text" name="price_for_1km" id="price_for_1km" placeholder=" Price for 1km"><br/>
       </div>
 
       <div class="form-control">
-        <label for="driver">Driver</label> <input class="text-small-form-sign_up-traveler" type="text" name="driver_charge" id="driver_charge" placeholder=" Driver charges for a day">
+        <label for="driver">Driver</label> 
+        <input class="text-small-form-sign_up-traveler driver_fields" type="text" name="driver_charge" id="driver_charge" placeholder=" Driver charges for a day">
         <select class="drop-down-form-sign_up-traveler" type="driver-type" name="driver_type" id="driver_type">
             <option value="with driver">With Driver</option>
             <option value="without driver">Without Driver</option>
@@ -105,7 +103,7 @@
 
       <div class="form-control">
         <label for="city">Location</label>
-        <select class="select-form-sign_up-traveler" name="city">
+        <select class="select-form-sign_up-traveler compulsory_fields" name="city">
           <option value="All Sri Lanka">Sri Lanka</option>
           <option value="Ampara">Ampara</option>
           <option value="Anuradhapura">Anuradhapura</option>
@@ -137,7 +135,7 @@
 
       <div class="form-control">
         <label for="images">Input Image</label> 
-        <input type="file" class="image-small-form-sign_up-traveler" name="images" id="" ><br/>
+        <input type="file" class="image-small-form-sign_up-traveler compulsory_fields" name="vehcle_image" id="vehcle_image" ><br/>
       </div>
       
       <div class="form-control">
@@ -148,13 +146,13 @@
 
       <div class="form-control">
         <label for="driver_name">Driver Name</label>
-        <input class="text-form-sign_up-traveler" type="text" name="driver_name" id="driver_name" placeholder=" Mr. S.S.Sumathipala"><br/>
+        <input class="text-form-sign_up-traveler driver_fields" type="text" name="driver_name" id="driver_name" placeholder=" Mr. S.S.Sumathipala"><br/>
       </div>
 
       <div class="form-control">
         <label for="driver_contact">Driver Contact Number</label>
-        <input class="text-small-form-sign_up-traveler" type="text" name="driver_contact2" id="driver_contact2" placeholder=" Contact Number 2">
-        <input class="text-small-form-sign_up-traveler" type="text" name="driver_contact1" id="driver_contact1" placeholder=" Contact Number 1"><br/>
+        <input class="text-small-form-sign_up-traveler driver_fields" type="text" name="driver_contact2" id="driver_contact2" placeholder=" Contact Number 2">
+        <input class="text-small-form-sign_up-traveler driver_fields" type="text" name="driver_contact1" id="driver_contact1" placeholder=" Contact Number 1"><br/>
       </div>
 
       <div class="form-control">
@@ -165,7 +163,7 @@
 
 
 
-      </form>
+  </form>
     </div>
     <?php 
       $_SESSION['value'] = "good";
