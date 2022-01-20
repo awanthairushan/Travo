@@ -136,6 +136,46 @@ class Unregistered extends Controller{
     }
     function fogotPassword2(){
         $this->view->render('unregistered/forgot_pw_step2');
+        $email = trim($_POST['username_fogot_pw']);
+
+        if(empty($email)){
+            header('location: fogotPassword?error=Username is required');
+            exit();
+        }else{
+            $existingTraveler = $this->model->checkForExistingTraveler($email);
+            if (mysqli_num_rows($existingTraveler) > 0) {
+                //echo "54321";
+                while ($rows = mysqli_fetch_array($existingTraveler)){
+                    $existing_traveler_email = $rows['email'];
+                    $traveler_name = $rows['name'];
+                    $existing_otp = $rows['otp'];
+                }
+                if($email == $existing_traveler_email){
+                    $traveler_otp = rand(1000, 9999);
+                    
+                    if($traveler_otp == $existing_otp){
+                        $traveler_otp = rand(1000, 9999); //if exists,generate a new otp
+                    }else{
+                        $updateTravelerOtp = $this->model->updateTravelerOtp($traveler_otp,$email);
+                            $mail_subject = "OTP for reset password";
+                            $mail_upper_body = "Hello {$traveler_name} ,";
+                            $mail_middle_boddy = "Your OTP for reset password is {$traveler_otp}";
+
+                            $send_mail_result = mail($existing_traveler_email, $mail_subject, $mail_middle_boddy, $mail_upper_body);
+
+                            if($send_mail_result){
+                                header('location: fogotPassword2?user_email='.$existing_traveler_email);
+                            }else{
+                               header('location: fogotPassword?error=Email not sent');
+                            }                                 
+                    }
+                }
+            }else{
+                header('location: fogotPassword?error=Invalid username');
+                exit();
+            }
+        }
+ 
     }
     function fogotPassword3(){
         $this->view->render('unregistered/forgot_pw_step3');

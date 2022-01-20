@@ -31,6 +31,10 @@ if (isset($_SESSION['username'])) {
         <div class="description_forgot_pw">
           <h3>Forgot Password</h3>
           <p>Enter Email For OTP</p>
+          <?php
+            if (isset($_GET['error'])) { ?>
+              <p class="error-log_in"><?php echo $_GET['error']; ?></p>
+            <?php }   ?>
           <form class="" id="send_otp_form" action="fogotPassword2" method="post">
 
             <div class="username_div_fogot_pw">
@@ -38,10 +42,7 @@ if (isset($_SESSION['username'])) {
               <input class="text-log_in" type="text" name="username_fogot_pw" id="username_fogot_pw" placeholder="Username">
             </div>
 
-            <?php
-            if (isset($_GET['error'])) { ?>
-              <p class="error-log_in"><?php echo $_GET['error']; ?></p>
-            <?php }   ?>
+
 
             <input type="submit" value="SEND OTP" name="otp_send_btn" class="otp_send_btn" id="otp_send_btn" onclick="window.location.href='fogotPassword2'"><br>
           </form>

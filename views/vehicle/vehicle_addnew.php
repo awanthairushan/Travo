@@ -1,12 +1,7 @@
 <?php
-  // session_start();
-  // if(isset($_SESSION['username'])) {
-  //     include '../../db/db_connection.php';
-  //     $temp = $_SESSION['username'];
-  //     $sqlForSession = "SELECT owner_id FROM vehicle_owners WHERE email = '$temp'";
-  //     $resultForSession = mysqli_query($con, $sqlForSession);
-  //     if (mysqli_num_rows($resultForSession) === 1) {
- ?> 
+  if(isset($_SESSION['username'])) {
+    if (mysqli_num_rows($this->isVehicle)===1) {
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -27,7 +22,15 @@
     
     <div class="box-sign_up-traveler">
         <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST">
-        <div class="form-control">
+
+        <?php
+          while ($rows = mysqli_fetch_array($this->ownerId)){
+            $owner_id = $rows['owner_id'];
+          }
+        ?>        
+        <input type="hidden" class="ownerId_class" name="ownerId" id="ownerId" value="<?php echo $owner_id; ?>">
+
+      <div class="form-control">
         <label for="vehicle-no">Vehicle Number</label>
         <input class="text-form-sign_up-traveler" type="text" name="vehicle_no" id="vehicle_no" placeholder=""><br/>
       </div>
@@ -148,12 +151,12 @@
   </body>
 </html>
 <?php
-//   } else{
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+  } else{
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>

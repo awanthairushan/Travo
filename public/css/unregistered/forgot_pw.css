@@ -1,5 +1,3 @@
-
-
 .forgot_pw {
     background-image: url("http://localhost/Travo/public/images/background_images/unregisteredbg.jpg");
     background-size: cover;
@@ -62,8 +60,7 @@ input:focus {
 .error-log_in {
     margin-left: 0;
     font-size: 0.8rem;
-    background-color: #F2DEDE;
-    color: #A94442;
+    color: #ff0601;
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     width: 100%;

@@ -24,9 +24,10 @@ class Database {
     }
 
     // public function runQuery($sql){
-    //     if (mysqli_query($this->con, $sql)) {
-    //         echo "New record created successfully !";
+    //     if (!mysqli_query($this->con, $sql)) {
+    //         //echo "New record created successfully !";
     //     } else {
+    //         echo "77777777777777777777777777777777777777777777";
     //         echo "Error: " . $this->con->error;
     //         mysqli_close($this->con);
     //     }
