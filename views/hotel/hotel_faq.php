@@ -1,11 +1,11 @@
 <?php
   // session_start();
-  // if(isset($_SESSION['username'])) {
+  if(isset($_SESSION['username'])) {
   //   include '../../db/db_connection.php';
   //   $temp = $_SESSION['username'];
   //   $sqlForSession = "SELECT hotelID FROM hotels WHERE email = '$temp'";
   //   $resultForSession = mysqli_query($con, $sqlForSession);
-  //   if (mysqli_num_rows($resultForSession) === 1) {
+  if (mysqli_num_rows($this->isHotel) === 1) {
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -52,12 +52,12 @@
   </body>
 </html>
 <?php
-//   } else{
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// }else{
-//   header("location: ../../index.html");
-//   exit();
-// }
+  } else{
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+}else{
+  header("location: http://localhost/TRAVO");
+  exit();
+}
  ?>
