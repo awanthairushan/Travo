@@ -29,20 +29,21 @@
       <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js">
     </script>
       <br>
-    <div class="question_and_answers-faq">
+      <div class="question_and_answers-faq">
       <br>
       <table class="faq_table-faq">
-      <?php
+        <?php
           while ($rows = mysqli_fetch_array($this->faq)){
               echo "<tr>
-                <td class='question-faq'>".$rows['question']."</td>
-              </tr>
-            <tr>
-              <td class='answer-faq'>".$rows['answer']."</td>
-            </tr>";
+                      <td class='question-faq'>".$rows['question']."</td>
+                    </tr>
+                    <tr>
+                      <td class='answer-faq'>".$rows['answer']."</td>
+                    </tr>";
           }
         ?>
       </table>
+      <script type="text/javascript" src="http://localhost/TRAVO/public/script/hotel/hotel_faq.js"></script>
     </div>
     </section>
     <section id="contact_us-section">
