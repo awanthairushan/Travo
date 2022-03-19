@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
             <div class="username_div_fogot_pw">
               <img class="img-username_div_fogot_pw" src="../../../public/images/icons/user.png" alt="">
               <input class="text-log_in" type="text" name="otp_forgot_pw" id="otp" placeholder="Enter OTP"> 
-              <input type="text" name="username_forgot_pw" id="username_forgot_pw" value="<?php echo $username; ?>">
+              <input type="hidden" name="username_forgot_pw" id="username_forgot_pw" value="<?php echo $username; ?>">
             </div>
 
             <input type="submit" value="SUBMIT OTP" name="enter_otp_btn" class="otp_send_btn" id="submitbtn" onclick="window.location.href='fogotPassword3'"><br>
