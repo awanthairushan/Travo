@@ -28,10 +28,43 @@ function getFaq(){
     }
 
     function updateHotel($new_name,$new_regNo,$new_licenceNo,$new_address1,$new_address2,$new_city,$new_location,$new_email,$new_contact1,$new_contact2,$new_description,$new_webUrl,$new_password,$new_hotelType,$new_repName,$new_repEmail,$new_repContact1,$new_repContact2,$hotel_id){
-        return $this->db->runQuery("UPDATE hotels SET name='$new_name', regNo='$new_regNo', licenceNo='$new_licenceNo', address_line1='$new_address1', address_line2='$new_address2', city='$new_city', location='$new_location', email='$new_email', contact1='$new_contact1', contact2='$new_contact2', description='$new_description', webUrl='$new_webUrl', password='$new_password', hotel_type='$new_hotelType', rep_name='$new_repName', rep_email='$new_repEmail', rep_contact1='$new_repContact1', rep_contact2='$new_repContact2' WHERE hotelID='$hotel_id' ");
+        return $this->db->runQuery("UPDATE hotels SET name = '$new_name', regNo = '$new_regNo', licenceNo = '$new_licenceNo', address_line1 = '$new_address1', address_line2 = '$new_address2', city = '$new_city', location = '$new_location', contact1 = '$new_contact1',contact2 = '$new_contact2', description = '$new_description', webUrl = '$new_webUrl', email = '$new_email', password = '$new_password',hotel_type = '$new_hotelType', rep_name = '$new_repName', rep_email = '$new_email', rep_contact1 = '$new_repContact1', rep_contact2 = '$new_repContact2' WHERE hotelID = '$hotel_id'");
     }
     
     function selectHotel($user){
         return $this->db->runQuery("SELECT * FROM hotels WHERE email='$user'");
+    }
+
+    //----------------------------------------Hotel-Update Availability--------------------------------------------------
+    function selectSinglePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='single'");
+    }
+
+    function selectDoublePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='double'");
+    }
+
+    function selectFamilyPrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='family'");
+    }
+
+    function selectMassivePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='massive'");
+    }
+
+    function selectBookingToDate($userID,$date){
+        return $this->db->runQuery("SELECT count(*) as total FROM hotel_availability WHERE hotelID='$userID' AND date='$date'");
+    }
+
+    function selectBooking($userID,$date){
+        return $this->db->runQuery("SELECT * FROM hotel_availability WHERE hotelID='$userID' AND date='$date'");
+    }
+
+    function updateHotelAvailability($userID,$date,$sr,$dr,$fr,$mr){
+        return $this->db->runQuery("UPDATE hotel_availability SET single_rooms = '$sr', double_rooms = '$dr', family_rooms = '$fr', massive_rooms = '$mr' WHERE hotelID = '$userID' AND date = '$date'");
+    }
+
+    function addHotelAvailability($userID,$date,$sr,$dr,$fr,$mr){
+        return $this->db->runQuery("INSERT INTO hotel_availability (hotelID, date, single_rooms, double_rooms, family_rooms, massive_rooms) VALUES ('$userID','$date','$sr','$dr','$fr','$mr')");
     }
 }
