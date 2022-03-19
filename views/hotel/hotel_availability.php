@@ -28,67 +28,143 @@
       </style>
       <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
       <br>
-            <form>
+      <?php 
+        $date=$this->day;
+        $check = mysqli_fetch_array($this->checkToDate);
+
+        //total is counted in the query
+        if($check['total']==0){
+            while($book1 = mysqli_fetch_assoc($this->singlePricecheck)){
+                $noBook1 = $book1['no_of_rooms'];
+            }
+            while($book2 = mysqli_fetch_assoc($this->DoublePricecheck)){
+                $noBook2 = $book2['no_of_rooms'];
+            }
+            while($book3 = mysqli_fetch_assoc($this->familyPricecheck)){
+                $noBook3 = $book3['no_of_rooms'];
+            }
+            while($book4 = mysqli_fetch_assoc($this->massivePricecheck)){
+                $noBook4 = $book4['no_of_rooms'];
+            }
+        }
+        else{
+            while($booking = mysqli_fetch_assoc($this->checkBooking)){
+                $noBook1 = $booking['single_rooms'];
+                $noBook2 = $booking['double_rooms'];
+                $noBook3 = $booking['family_rooms'];
+                $noBook4 = $booking['massive_rooms'];
+            }
+        }
+      ?>
+            <form action="availabilityDate" method="post">
                 <table class="b">
                   <tr>
-                    <td class="b" colspan="3" >  <div class="calendar"><input type="date" id="start"></div></td>
-
-                    <td class="b" colspan="3" > <div class="calendar"><input type="date" id="end"></div> </td>
+                    <td class="b" colspan="3" >  <div class="calendar"><input type="date" name="start" id="start" onchange="this.form.submit()" value=<?php echo $date; ?>></div></td>
                   </tr>
 </table>
            </form>
 <br>
     <center>
 
-        <form>
-
+        <form action="availabilityChange" method="post">
+            <input type="hidden" name="change_date" value="<?php echo $date; ?>">
+            <input type="hidden" name="new_old" value="<?php echo $check['total']; ?>">
             <div class="bg">
                 <div class="rooms">
                     <div class="slide">
                         <div class ="text1">Single Room</div>
-                        <div class="roomtype r1">1 Person<br/><br/>Breakfast included<br/>Attached bathroom<br/><br/>LKR 1000.00<br/>without Luxury facilities<br/><br/><b class="nos">Only 2 left !</b></div>
+                        <?php
+                            while($price1= mysqli_fetch_array($this->singlePrice)){
+
+                                if($price1['food']=="yes"){
+                                    $food="Breakfast included";
+                                }
+                                else{
+                                    $food="Without breakfast";
+                                }
+                        ?>
+                        <div class="roomtype r1">1 Person<br/><br/><?php echo $food; ?><br/>Attached bathroom<br/><br/>LKR <?php echo $price1['price'] ?><br/>without Luxury facilities<br/><br/><b class="nos">Only <?php echo $noBook1 ?> left !</b></div>
+                        <?php } ?>
                         <div>
                             <div class="value-button" id="decrease" onclick="decreaseSBValue()" value="Decrease Value">-</div>
-                            <input type="number" id="SBnumber" value="0" />
+                            <input type="hidden" name="oldSBnumber" id="oldSBnumber" value="<?php echo $noBook1; ?>" />
+                            <input type="number" name="SBnumber" id="SBnumber" value="0" />
                             <div class="value-button" id="increase" onclick="increaseSBValue()" value="Increase Value">+</div>
                         </div>
                     </div>
 
                     <div class="slide">
                         <div class ="text1">Double Room</div>
-                        <div class="roomtype r2">2 Person<br/><br/>Breakfast included<br/>Attached bathroom<br/><br/>LKR 2000.00<br/>without Luxury facilities<br/><br/><b class="nos">Only 3 left !</b></div>
+                        <?php
+                            while($price2= mysqli_fetch_array($this->DoublePrice)){
+
+                                if($price2['food']=="yes"){
+                                    $food2="Breakfast included";
+                                }
+                                else{
+                                    $food2="Without breakfast";
+                                }
+                        ?>
+                        <div class="roomtype r2">2 Person<br/><br/><?php echo $food2; ?><br/>Attached bathroom<br/><br/>LKR <?php echo $price2['price'] ?><br/>without Luxury facilities<br/><br/><b class="nos">Only <?php echo $noBook2 ?> left !</b></div>
+                        <?php } ?>
                         <div>
                             <div class="value-button" id="decrease" onclick="decreaseDBValue()" value="Decrease Value">-</div>
-                            <input type="number" id="DBnumber" value="0" />
+                            <input type="hidden" name="oldDBnumber" id="oldDBnumber" value="<?php echo $noBook2; ?>" />
+                            <input type="number" name="DBnumber" id="DBnumber" value="0" />
                             <div class="value-button" id="increase" onclick="increaseDBValue()" value="Increase Value">+</div>
                         </div>
                     </div>
 
                     <div class="slide">
                         <div class ="text1">Family Room</div>
-                        <div class="roomtype r3">4 Person<br/><br/>Breakfast included<br/>Attached bathroom<br/><br/>LKR 3000.00<br/>without Luxury facilities<br/><br/><b class="nos">Only 5 left !</b></div>
+                        <?php
+                            while($price3= mysqli_fetch_array($this->familyPrice)){
+
+                                if($price3['food']=="yes"){
+                                    $food3="Breakfast included";
+                                }
+                                else{
+                                    $food3="Without breakfast";
+                                }
+                        ?>
+                        <div class="roomtype r3">4 Person<br/><br/><?php echo $food3; ?><br/>Attached bathroom<br/><br/>LKR <?php echo $price3['price'] ?><br/>without Luxury facilities<br/><br/><b class="nos">Only <?php echo $noBook3 ?> left !</b></div>
+                        <?php } ?>
                         <div>
                             <div class="value-button" id="decrease" onclick="decreaseFBValue()" value="Decrease Value">-</div>
-                            <input type="number" id="FBnumber" value="0" />
+                            <input type="hidden" name="oldFBnumber" id="oldFBnumber" value="<?php echo $noBook3; ?>" />
+                            <input type="number" name="FBnumber" id="FBnumber" value="0" />
                             <div class="value-button" id="increase" onclick="increaseFBValue()" value="Increase Value">+</div>
                         </div>
                     </div>
 
                     <div class="slide">
                         <div class ="text1">Massive Room</div>
-                        <div class="roomtype r4">6 Person<br/><br/>Breakfast included<br/>Attached bathroom<br/><br/>LKR 4000.00<br/>without Luxury facilities<br/><br/><b class="nos">Only 4 left !</b></div>
+                        <?php
+                            while($price4= mysqli_fetch_array($this->massivePrice)){
+
+                                if($price4['food']=="yes"){
+                                    $food4="Breakfast included";
+                                }
+                                else{
+                                    $food4="Without breakfast";
+                                }
+                        ?>
+                        <div class="roomtype r4"><?php echo $price4['capacity']; ?> Person<br/><br/><?php echo $food4; ?><br/>Attached bathroom<br/><br/>LKR <?php echo $price4['price'] ?><br/>without Luxury facilities<br/><br/><b class="nos">Only <?php echo $noBook4 ?> left !</b></div>
+                        <?php } ?>
                         <div>
                             <div class="value-button" id="decrease" onclick="decreaseMBValue()" value="Decrease Value">-</div>
-                            <input type="number" id="MBnumber" value="0" />
+                            <input type="hidden" name="oldMBnumber" id="oldMBnumber" value="<?php echo $noBook4; ?>" />
+                            <input type="number" name="MBnumber" id="MBnumber" value="0" />
                             <div class="value-button" id="increase" onclick="increaseMBValue()" value="Increase Value">+</div>
                         </div>
                     </div>
                 </div>
                 <br/>
-                <div class="confirm"><button id="confirmbtn">CONFIRM</button></div>
+                <div class="confirm"><button type="submit" name="confirmbtn" id="confirmbtn">CONFIRM</button></div>
         </div>
 
 </form></center>
+<?php //} ?>
 </section>
 <section id="contact_us-section">
       <?php include_once APPROOT.'/views/repeatable_contents/footer.php';?>
