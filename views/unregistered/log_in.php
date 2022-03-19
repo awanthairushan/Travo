@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
             <?php }   ?>
             <input type="submit" value="LOG IN"><br>
           </form>
-          <h3><a href="fogotPassword">Forgot Password...?</a></h3>
+          <h3><a href="fogotPasswordGetUsername">Forgot Password...?</a></h3>
           <h3><a href="signup">New to Travo.lk...?</a></h3>
         </div>
     </section>

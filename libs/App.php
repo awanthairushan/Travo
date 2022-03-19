@@ -80,7 +80,6 @@ class App {
                 echo $this->_controller->{$this->_url[1]}($this->_url[2], $this->_url[3]);
                 break;
             case 3:
-                echo 'abcd';
                 $abc = $this->_controller->{$this->_url[1]}($this->_url[2]);
                 echo $abc;
                 break;

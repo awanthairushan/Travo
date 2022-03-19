@@ -21,6 +21,12 @@ class Unregistered_Model extends Model{
     function checkForExistingTraveler($email){
         return $this->db->runQuery("SELECT * FROM travelers WHERE email='$email'");
     }
+    function checkForExistingVehicle($email){
+        return $this->db->runQuery("SELECT * FROM vehicle_owners WHERE email='$email'");
+    }
+    function checkForExistingHotel($email){
+        return $this->db->runQuery("SELECT * FROM hotels WHERE email = '$email' ");
+    }
     function selectAdmin($username){
         return $this->db->runQuery("SELECT * FROM admin WHERE username = '$username'");
     }
@@ -57,5 +63,20 @@ class Unregistered_Model extends Model{
     }
     function updateTravelerOtp($traveler_otp, $user_email){
         $this->db->runQuery("UPDATE travelers SET otp = '$traveler_otp' WHERE email = '$user_email' ");
+    }
+    function updateTravelerPassword($newPassword, $email){
+        $this->db->runQuery("UPDATE travelers SET password = '$newPassword' WHERE email = '$email' ");
+    }
+    function updateVehicleOtp($vehicle_otp, $user_email){
+        $this->db->runQuery("UPDATE vehicle_owners SET otp = '$vehicle_otp' WHERE email = '$user_email' ");
+    }
+    function updateVehiclePassword($newPassword, $email){
+        $this->db->runQuery("UPDATE vehicle_owners SET password = '$newPassword' WHERE email = '$email' ");
+    }
+    function updateHotelOtp($hotel_otp, $user_email){
+        $this->db->runQuery("UPDATE hotels SET otp = '$hotel_otp' WHERE email = '$user_email' ");
+    }
+    function updateHotelPassword($newPassword, $email){
+        $this->db->runQuery("UPDATE hotels SET password = '$newPassword' WHERE email = '$email' ");
     }
 }
