@@ -66,9 +66,8 @@
   border-width: thin;
   border-spacing: none;
   border-color: rgba(0, 0, 0, 0);
-  border-radius: 1vh;
 }
-.toggle {
+.toggle-faq {
   /* display: none; */
   background-color: #89C2B8;
   height: 15vh;
@@ -79,7 +78,6 @@
   border-width: thin;
   border-spacing: none;
   border-color: rgba(0, 0, 0, 0);
-  border-radius: 1vh;
 }
 @media screen and (max-width: 850px){
   .heading {

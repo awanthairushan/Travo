@@ -11,7 +11,7 @@ for (i = 0; i < faq.length; i++) {
         var body = this.parentElement.nextElementSibling.firstElementChild;
 
         if (body.className == "answer-faq") {
-            body.className = "toggle";
+            body.className = "toggle-faq";
         } else {
             body.className = "answer-faq";
             // body.style.width="100%";
