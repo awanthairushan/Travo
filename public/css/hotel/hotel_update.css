@@ -55,6 +55,7 @@ body {
     height: 1.2rem;
     margin: 0px;
     float: right;
+    border-radius: 0.2rem;
 }
 
 .text-small-form-sign_up-traveler {
@@ -66,6 +67,7 @@ body {
     height: 1.3rem;
     margin: 0px 0px 0px 1.25%;
     float: right;
+    border-radius: 0.2rem;
 }
 
 .description-form-hotel {

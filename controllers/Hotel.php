@@ -136,27 +136,29 @@ function updateHotel(){
             $repContact1=$rows['rep_contact1'];
             $repContact2=$rows['rep_contact2'];
 
+
         }
         if(isset($_POST['submit'])){
             $hotel_id=$id;
-            $new_name=trim($_POST['name']);
-            $new_hotelType=trim($_POST['hotel_type-type']);
-            $new_regNo=trim($_POST['regNO']);
-            $new_licenceNo=trim($_POST['licenceNo']);
-            $new_address1=trim($_POST['address-line1']);
-            $new_address2=trim($_POST['address-line2']);
-            $new_city=trim($_POST['city']);
-            $new_location=trim($_POST['location']);
-            $new_contact1=trim($_POST['contact1']);
-            $new_contact2=trim($_POST['contact2']);
-            $new_email=trim($_POST['email']);
-            $new_password=trim($_POST['password']);
-            $new_description=trim($_POST['description']);
-            $new_webUrl=trim($_POST['web']);
-            $new_repName=trim($_POST['rep_name']);
-            $new_repEmail=trim($_POST['rep_email']);
-            $new_repContact1=trim($_POST['rep_contact1']);
-            $new_repContact2=trim($_POST['rep_contact2']);
+            $new_name = trim($_POST['name']);
+            $new_regNo = trim($_POST['regNO']);
+            $new_licenceNo = trim($_POST['licenceNo']);
+            $new_email = trim($_POST['email']);
+            $new_contact1 = trim($_POST['contact1']);
+            $new_contact2 = trim($_POST['contact2']);
+            $new_password = trim($_POST['password']);
+            $new_line1 = trim($_POST['address-line1']);
+            $new_line2 = trim($_POST['address-line2']);
+            $new_city = trim($_POST['city']);
+            $new_decription = trim($_POST['description']);
+            $new_website = trim($_POST['web']);
+            $new_location = trim($_POST['location']);
+            $new_rep_name = trim($_POST['rep_name']);
+            $new_rep_email = trim($_POST['rep_email']);
+            $new_rep_contact1 = trim($_POST['rep_contact1']);
+            $new_rep_contact2 = trim($_POST['rep_contact2']);
+            $new_hotel_type = $_POST['hotel_type-type'];
+
 
             //check whether newly entered data is empty
  
@@ -169,18 +171,6 @@ function updateHotel(){
             if(empty($new_licenceNo)){
                 $new_licenceNo=$licenceNo;
             }
-            if(empty($new_address1)){
-                $new_address1=$address1;
-            }
-            if(empty($new_address2)){
-                $new_address2=$address2;
-            }
-            if(empty($new_city)){
-                $new_city=$city;
-            }
-            if(empty($new_location)){
-                $new_location=$location;
-            }
             if(empty($new_email)){
                 $new_email=$email;
             }
@@ -190,39 +180,51 @@ function updateHotel(){
             if(empty($new_contact2)){
                 $new_contact2=$contact2;
             }
-            if(empty($new_description)){
-                $new_description=$description;
-            }
-            if(empty($new_webUrl)){
-                $new_webUrl=$webUrl;
-            }
             if(empty($new_password)){
                 $new_password=$password;
             }else{
                 $new_password = password_hash($new_password, PASSWORD_DEFAULT);
             }
-            if(empty($new_hotelType)){
-                $new_hotelType=$hotelType;
+            if(empty($new_line1)){
+                $new_line1=$address1;
             }
-            if(empty($new_repName)){
-                $new_repName=$repName;
+            if(empty($new_line2)){
+                $new_line2=$address2;
             }
-            if(empty($new_repEmail)){
-                $new_repEmail=$repEmail;
+            if(empty($new_city)){
+                $new_city=$city;
             }
-            if(empty($new_repContact1)){
-                $new_repContact1=$repContact1;
+            if(empty($new_decription)){
+                $new_decription=$description;
             }
-            if(empty($new_repContact2)){
-                $new_repContact2=$repContact2;
-            }   
+            if(empty($new_website)){
+                $new_website=$webUrl;
+            }
+            if(empty($new_location)){
+                $new_location=$location;
+            }
+            if(empty($new_rep_name)){
+                $new_rep_name=$repName;
+            }
+            if(empty($new_rep_email)){
+                $new_rep_email=$repEmail;
+            }
+            if(empty($new_rep_contact1)){
+                $new_rep_contact1=$repContact1;
+            }
+            if(empty($new_rep_contact2)){
+                $new_rep_contact2=$repContact2;
+            }
+            if(empty($new_hotel_type)){
+                $new_hotel_type=$hotelType;
+            }
             
-            if($this->model->updateHotel($new_name,$new_regNo,$new_licenceNo,$new_address1,$new_address2,$new_city,$new_location,$new_email,$new_contact1,$new_contact2,$new_description,$new_webUrl,$new_password,$new_hotelType,$new_repName,$new_repEmail,$new_repContact1,$new_repContact2,$hotel_id)){
-                header('location: '.URLROOT.'/hotel/hotelUpdate');   
-            } else {
-                die('Something went wrong.');
+            if($this->model->updateHotel($hotel_id,$new_name,$new_regNo,$new_licenceNo,$new_line1,$new_line2,$new_city,$new_location,$new_contact1,$new_contact2,$new_decription,$new_email,$new_password,$new_hotel_type,$new_website,$new_rep_name,$new_rep_email,$new_rep_contact1,$new_rep_contact2)){
+                $_SESSION['username']=$new_email;
+                header('location: '.URLROOT.'/hotel/hotelUpdate');
+            }else{
+                die("Something went wrong.");
             }
-            
         }
     }
  }
