@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])) {
             if (isset($_GET['error'])) { ?>
               <p class="error-log_in"><?php echo $_GET['error']; ?></p>
             <?php }   ?>
-          <form class="" id="send_otp_form" action="fogotPassword2" method="post">
+          <form class="forgotPasswordForm" id="send_otp_form" action="fogotPasswordSendOtp" method="post">
 
             <div class="username_div_fogot_pw">
               <img class="img-username_div_fogot_pw" src="<?php echo URLROOT ?>/public/images/icons/user.png" alt="">
@@ -44,11 +44,12 @@ if (isset($_SESSION['username'])) {
 
 
 
-            <input type="submit" value="SEND OTP" name="otp_send_btn" class="otp_send_btn" id="otp_send_btn" onclick="window.location.href='fogotPassword2'"><br>
+            <input type="submit" value="SEND OTP" name="otp_send_btn" class="otp_send_btn" id="submitbtn" onclick="window.location.href='fogotPassword2'"><br>
           </form>
         </div>
       </div>
     </section>
+    
   </body>
 
   </html>

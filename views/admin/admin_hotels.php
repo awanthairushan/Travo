@@ -77,11 +77,11 @@ if(isset($_SESSION['username'])) {
                 echo "<tr>
                     <td>".$rows['row_no']."</td>
                     <td>".$rows['name']."</td>
-                    <td>".$rows['address_line1'].$rows['address_line2'].$rows['city']."</td>
+                    <td>".$rows['address_line1'].", ".$rows['address_line2'].", ".$rows['city']."</td>
                     <td>
-                    <form method='post' action=''>
+                    <form method='post' action='hotelsMore'>
                         <input type='hidden' value='$rows[0]' name=hotelID>
-                        <input type='button' id='morebtn' name='hotel_morebtn' class='hotel_morebtn' value='MORE' onclick=\"window.location.href='hotelsMore'\";>
+                        <input type='submit' name ='hotel_morebtn' id='morebtn' class='hotel_morebtn' value='MORE'>
                     </form>
                     </td>
                     <td>
@@ -107,6 +107,7 @@ if(isset($_SESSION['username'])) {
 
     <!--Start "Exsisting Hotels" table-->
     <h1 class="heading-one"><br />EXSISTING HOTELS</h1>
+    
         <!--Start search option-->
         <div class="search_div">
             <label for="filter" class="filter-labels">SEARCH BY :</label>
@@ -135,7 +136,7 @@ if(isset($_SESSION['username'])) {
                 echo "<tr>
                     <td>".$rows['row_no']."</td>
                     <td>".$rows['name']."</td>
-                    <td>".$rows['address_line1'].$rows['address_line2'].$rows['city']."</td>
+                    <td>".$rows['address_line1'].", ".$rows['address_line2'].", ".$rows['city']."</td>
                     <td>
                     <form method='post' action='hotelsMore'>
                         <input type='hidden' value='$rows[0]' name=hotelID>

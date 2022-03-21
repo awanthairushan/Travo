@@ -26,31 +26,35 @@ if (isset($_SESSION['username'])) {
       <style> <?php include APPROOT . '/public/css/repeatable_contents/nav_bar.css'; ?>  </style>
       <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar.js"></script>
 
+      <?php
+        while ($rows = mysqli_fetch_array($this->fp_traveler)){
+          $username = $rows['email'];
+        }
+      ?>
 
       <div class="box_forgot_pw_step3"><br>
         <div class="description_forgot_pw">
           <h3>Forgot Password</h3>
           <p>Reset Password</p>
-          <form class="" id="reset_pw_form" action="login" method="post">
-            <div class="username_div_fogot_pw">
-              <img class="img-username_div_fogot_pw" src="../../../public/images/icons/password.png" alt="">
-              <input class="text-log_in" type="password" name="new_fogot_pw" id="otp" placeholder="New Password"> 
-            </div>
-            <div class="username_div_fogot_pw">
-              <img class="img-username_div_fogot_pw" src="../../../public/images/icons/password.png" alt="">
-              <input class="text-log_in" type="password" name="confirm_fogot_pw" id="otp" placeholder="Confirm Password"> 
-            </div>
-            <?php
-              if (isset($_GET['user_email'])) { ?>
-                <input  type="hidden" name="sentEmail" value="<?php echo $_GET['user_email']; ?>">
-            <?php }   ?>
 
-            <?php
+          <?php
             if (isset($_GET['error'])) { ?>
               <p class="error-log_in"><?php echo $_GET['error']; ?></p>
-            <?php }   ?>
+          <?php }   ?>
+          
+          <form class="forgotPasswordForm" id="reset_pw_form" action="resetPassword" method="post">
 
-            <input type="submit" value="RESET PASSWORD" name="update_pw_btn" class="otp_send_btn" id="otp_send_btn" onclick="window.location.href='login'"><br>
+            <div class="username_div_fogot_pw">
+              <img class="img-username_div_fogot_pw" src="../../../public/images/icons/password.png" alt="">
+              <input class="text-log_in" type="password" name="new_forgot_pw" id="otp" placeholder="New Password"> 
+            </div>
+            <div class="username_div_fogot_pw">
+              <img class="img-username_div_fogot_pw" src="../../../public/images/icons/password.png" alt="">
+              <input class="text-log_in" type="password" name="confirm_forgot_pw" id="otp" placeholder="Confirm Password"> 
+              <input type="hidden" name="username_forgot_pw" id="username_forgot_pw" value="<?php echo $username; ?>">
+            </div>
+
+            <input type="submit" value="RESET PASSWORD" name="update_pw_btn" class="otp_send_btn" id="submitbtn" onclick="window.location.href='login'"><br>
           </form>
         </div>
       </div>

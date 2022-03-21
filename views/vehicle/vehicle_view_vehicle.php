@@ -40,8 +40,7 @@ if (isset($_SESSION['username'])) {
                             </tr>
                             <tr class="tr_with_img">
                                 <td>' . $rows['type'] . '</td>
-                                <td rowspan = "6"><img src="'.URLROOT.'/public/images/assets/vehicle/'.$rows['vehicle_image'].'" class="vimg">
-                                </td>
+                                <td rowspan = "6"><img class="vimg" src="<?php echo URLROOT ?>/public/images/Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                             </tr>
                             <tr>
                             <td>Available In  ' . $rows['city'] . '</td>
@@ -69,20 +68,19 @@ if (isset($_SESSION['username'])) {
                                 <th colspan="2" class="vehicleType">Toyota Prius 4th Generation</th>
                             </tr>
                             <tr class="tr_with_img">
-                                <td colspan = "2"><img src="'.URLROOT.'/public/images/assets/vehicle/'.$rows['vehicle_image'].'" class="vimg">
-                                </td>
+                                <td colspan = "2"><img class="vimg" src="<?php echo URLROOT ?>/public/images//Sample_images/toyota-2010-prius-wallpaper-01.jpg"></td>
                             </tr>
                             <tr>
-                            <td>' . $rows['type'] . '</td>
-                            <td>' . $rows['driver_type'] . '</td>
+                            <td>Car</td>
+                            <td>with driver</td>
                             </tr>
                             <tr>
-                            <td>' . ($rows['ac'] == 'yes' ?  'With A/C' : 'without A/C') . '</td>
-                            <td>Rs. ' . $rows['price_for_1km'] . ' Per km</td>
+                            <td>With A/C</td>
+                            <td>50 per km</td>
                             </tr>
                             <tr>
-                            <td>' . $rows['no_of_passengers'] . ' Maximum Passengers </td>
-                            <td>Rs. ' . $rows['price_for_day'] . ' Per Day</td>
+                            <td>5 Seats</td>
+                            <td>1000 per day</td>
                             </tr>
                         </table>                   
     

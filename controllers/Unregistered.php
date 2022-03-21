@@ -140,55 +140,212 @@ class Unregistered extends Controller
     {
         $this->view->render('unregistered/sign_up-hotel');
     }
-    function fogotPassword()
+    function fogotPasswordGetUsername()
     {
         $this->view->render('unregistered/forgot_pw_step1');
     }
-    function fogotPassword2()
+    function fogotPasswordSendOtp()
     {
-        $this->view->render('unregistered/forgot_pw_step2');
         $email = trim($_POST['username_fogot_pw']);
 
-        if (empty($email)) {
-            header('location: fogotPassword?error=Username is required');
+        if(empty($email)){
+            header('location: fogotPasswordGetUsername?error=Username is required');
             exit();
-        } else {
+        }else{
             $existingTraveler = $this->model->checkForExistingTraveler($email);
+            $existingVehicle = $this->model->checkForExistingVehicle($email);
+            $existingHotel = $this->model->checkForExistingHotel($email);
+
+            //------------------------Traveler--------------------------------------
             if (mysqli_num_rows($existingTraveler) > 0) {
-                //echo "54321";
-                while ($rows = mysqli_fetch_array($existingTraveler)) {
+                while ($rows = mysqli_fetch_array($existingTraveler)){
                     $existing_traveler_email = $rows['email'];
                     $traveler_name = $rows['name'];
                     $existing_otp = $rows['otp'];
                 }
-                if ($email == $existing_traveler_email) {
-                    $traveler_otp = rand(1000, 9999);
-
-                    if ($traveler_otp == $existing_otp) {
+                if($email == $existing_traveler_email){
+                    $traveler_otp = rand(1000, 9999);                    
+                    if($traveler_otp == $existing_otp){
                         $traveler_otp = rand(1000, 9999); //if exists,generate a new otp
-                    } else {
-                        $updateTravelerOtp = $this->model->updateTravelerOtp($traveler_otp, $email);
-                        $mail_subject = "OTP for reset password";
-                        $mail_upper_body = "Hello {$traveler_name} ,";
-                        $mail_middle_boddy = "Your OTP for reset password is {$traveler_otp}";
+                    }else{
+                        $updateTravelerOtp = $this->model->updateTravelerOtp($traveler_otp,$email);
+                            $mail_subject = "OTP for reset password";
+                            $mail_upper_body = "Hello {$traveler_name} ,";
+                            $mail_middle_boddy = "Your OTP for reset password is {$traveler_otp}";
 
-                        $send_mail_result = mail($existing_traveler_email, $mail_subject, $mail_middle_boddy, $mail_upper_body);
+                            $send_mail_result = mail($existing_traveler_email, $mail_subject, $mail_middle_boddy, $mail_upper_body);
 
-                        if ($send_mail_result) {
-                            header('location: fogotPassword2?user_email=' . $existing_traveler_email);
-                        } else {
-                            header('location: fogotPassword?error=Email not sent');
-                        }
+                            if($send_mail_result){
+                                $this->view->fp_traveler = $this->model->checkForExistingTraveler($email);
+                                $this->view->render('unregistered/forgot_pw_step2');
+                            }else{
+                               header('location: fogotPasswordGetUsername?error=Something went wrong. Try again !');
+                            }                                 
                     }
+                }else{
+                    header('location: fogotPasswordGetUsername?error=Invalid username');
+                    exit();
                 }
-            } else {
-                header('location: fogotPassword?error=Invalid username');
-                exit();
+            }//------------------------Vehicle--------------------------------------
+            
+            else if (mysqli_num_rows($existingVehicle) > 0) {
+                while ($rows = mysqli_fetch_array($existingVehicle)){
+                    $existing_vehicle_email = $rows['email'];
+                    $vehicle_name = $rows['owner_name'];
+                    $existing_otp = $rows['otp'];
+                }
+                if($email == $existing_vehicle_email){
+                    $vehicle_otp = rand(1000, 9999);                    
+                    if($vehicle_otp == $existing_otp){
+                        $vehicle_otp = rand(1000, 9999); //if exists,generate a new otp
+                    }else{
+                        $updateVehicleOtp = $this->model->updateVehicleOtp($vehicle_otp,$email);
+                            $mail_subject = "OTP for reset password";
+                            $mail_upper_body = "Hello {$vehicle_name} ,";
+                            $mail_middle_boddy = "Your OTP for reset password is {$vehicle_otp}";
+
+                            $send_mail_result = mail($existing_vehicle_email, $mail_subject, $mail_middle_boddy, $mail_upper_body);
+
+                            if($send_mail_result){
+                                $this->view->fp_traveler = $this->model->checkForExistingVehicle($email);
+                                $this->view->render('unregistered/forgot_pw_step2');
+                            }else{
+                               header('location: fogotPasswordGetUsername?error=Something went wrong. Try again !');
+                            }                                 
+                    }
+                }else{
+                    header('location: fogotPasswordGetUsername?error=Invalid username');
+                    exit();
+                }
+            }//------------------------hotel--------------------------------------
+
+            else if (mysqli_num_rows($existingHotel) > 0) {
+                while ($rows = mysqli_fetch_array($existingHotel)){
+                    $existing_hotel_email = $rows['email'];
+                    $hotel_name = $rows['rep_name'];
+                    $existing_otp = $rows['otp'];
+                }
+                if($email == $existing_hotel_email){
+                    $hotel_otp = rand(1000, 9999);                    
+                    if($hotel_otp == $existing_otp){
+                        $hotel_otp = rand(1000, 9999); //if exists,generate a new otp
+                    }else{
+                        $updateHotelOtp = $this->model->updateHotelOtp($hotel_otp,$email);
+                            $mail_subject = "OTP for reset password";
+                            $mail_upper_body = "Hello {$hotel_name} ,";
+                            $mail_middle_boddy = "Your OTP for reset password is {$hotel_otp}";
+
+                            $send_mail_result = mail($existing_hotel_email, $mail_subject, $mail_middle_boddy, $mail_upper_body);
+
+                            if($send_mail_result){
+                                $this->view->fp_traveler = $this->model->checkForExistingHotel($email);
+                                $this->view->render('unregistered/forgot_pw_step2');
+                            }else{
+                               header('location: fogotPasswordGetUsername?error=Something went wrong. Try again !');
+                            }                                 
+                    }
+                }else{
+                    header('location: fogotPasswordGetUsername?error=Invalid username');
+                    exit();
+                }
+            }
+        }
+ 
+    }
+
+    function fogotPasswordCheckOtp()
+    {
+        $email = trim($_POST['username_forgot_pw']);
+        $otp = $_POST['otp_forgot_pw'];
+
+
+        $existingTraveler = $this->model->checkForExistingTraveler($email);
+        $existingVehicle = $this->model->checkForExistingVehicle($email);
+        $existingHotel = $this->model->checkForExistingHotel($email);
+        
+        if (mysqli_num_rows($existingTraveler) > 0) {
+            while ($rows = mysqli_fetch_array($existingTraveler)){
+                $existing_traveler_otp = $rows['otp'];
+            }
+            if($otp == $existing_traveler_otp){
+                $this->view->fp_traveler = $this->model->checkForExistingTraveler($email);
+                $this->view->render('unregistered/forgot_pw_step3');
+            }
+        }else if(mysqli_num_rows($existingVehicle) > 0) {
+            while ($rows = mysqli_fetch_array($existingVehicle)){
+                $existing_vehicle_otp = $rows['otp'];
+            }
+            if($otp == $existing_vehicle_otp){
+                $this->view->fp_traveler = $this->model->checkForExistingVehicle($email);
+                $this->view->render('unregistered/forgot_pw_step3');
+            }
+        }else if(mysqli_num_rows($existingHotel) > 0) {
+            while ($rows = mysqli_fetch_array($existingHotel)){
+                $existing_Hotel_otp = $rows['otp'];
+            }
+            if($otp == $existing_Hotel_otp){
+                $this->view->fp_traveler = $this->model->checkForExistingHotel($email);
+                $this->view->render('unregistered/forgot_pw_step3');
+            }
+        }else{
+            header('location: fogotPasswordGetUsername?error=Invalid OTP. Try again !');
+            exit();
+        }
+    }
+
+    function resetPassword(){
+        $email = trim($_POST['username_forgot_pw']);
+        $newPassword = trim($_POST['new_forgot_pw']);
+        $confirmPassword = trim($_POST['confirm_forgot_pw']);
+
+        $existingTraveler = $this->model->checkForExistingTraveler($email);
+        $existingVehicle = $this->model->checkForExistingVehicle($email);
+        $existingHotel = $this->model->checkForExistingHotel($email);
+
+        if(empty($newPassword) || empty($confirmPassword)){
+            header('location: resetPasswordErrors/$email?error=Passwords cannot be empty');
+        }
+        else if($newPassword != $confirmPassword){
+            header('location: resetPasswordErrors/$email?error=Passwords do not match');
+        }else{
+            $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+            if (mysqli_num_rows($existingTraveler) > 0) {            
+                $isUpdatedPassword = $this->model->updateTravelerPassword($newPassword, $email);                
+                if($isUpdatedPassword === false){
+              
+                    header('location: fogotPasswordGetUsername?error=Failed to reset password. Try again !');
+                }
+                else{
+                    header('location: login');
+                }
+            }
+            else if (mysqli_num_rows($existingVehicle) > 0) {            
+                $isUpdatedPassword = $this->model->updateVehiclePassword($newPassword, $email);                
+                if($isUpdatedPassword === false){
+                    header('location: fogotPasswordGetUsername?error=Failed to reset password. Try again !');
+                }
+                else{
+                    header('location: login');
+                }
+            }
+            else if (mysqli_num_rows($existingHotel) > 0) {            
+                $isUpdatedPassword = $this->model->updateHotelPassword($newPassword, $email);                
+                if($isUpdatedPassword === false){
+                    header('location: fogotPasswordGetUsername?error=Failed to reset password. Try again !');
+                }
+                else{
+                    header('location: login');
+                }
+            }
+            else{
+                header('location: login?error=Failed to reset password. Try again !');
             }
         }
     }
-    function fogotPassword3()
-    {
+
+    function resetPasswordErrors($email){
+        $this->view->fp_traveler = $this->model->checkForExistingTraveler($email);
         $this->view->render('unregistered/forgot_pw_step3');
     }
     function addNewTraveler()

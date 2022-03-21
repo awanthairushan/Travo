@@ -15,9 +15,9 @@ class Database {
 
     
 
-    // public function selectQuery($sql){
-    //     return $result = mysqli_query($this->con, $sql);
-    // }
+    public function selectQuery($sql){
+        return $result = mysqli_query($this->con, $sql);
+    }
 
     public function runQuery($sql){
         return $result = mysqli_query($this->con, $sql);
@@ -25,9 +25,8 @@ class Database {
 
     // public function runQuery($sql){
     //     if (!mysqli_query($this->con, $sql)) {
-    //         //echo "New record created successfully !";
+    //         echo "New record created successfully !";
     //     } else {
-    //         echo "77777777777777777777777777777777777777777777";
     //         echo "Error: " . $this->con->error;
     //         mysqli_close($this->con);
     //     }
