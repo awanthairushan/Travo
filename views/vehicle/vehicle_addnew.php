@@ -21,7 +21,7 @@
   
     
     <div class="box-sign_up-traveler">
-        <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST">
+        <form class="form-sign_up-traveler" id="signup_form_vehicle" action="addNewVehicle" method="POST" enctype="multipart/form-data">
 
         <?php
           while ($rows = mysqli_fetch_array($this->ownerId)){
@@ -103,11 +103,16 @@
         </select><br/>
       </div>
 
-      <div class="form-control">
+      <!-- <div class="form-control">
         <label for="images">Input Image</label> 
         <input type="file" class="image-small-form-sign_up-traveler" name="images" id="" ><br/>
+      </div> -->
+      <div class="form-control">
+        <label for="images">Input Image</label> 
+        <input type="file" class="image-small-form-sign_up-traveler compulsory_fields" name="vehcle_image" id="vehcle_image" ><br/>
       </div>
       
+
       <div class="form-control">
         <label for="ac">A/C</label>
         <input type="hidden" name="ac" value="no" />

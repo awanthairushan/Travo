@@ -2,8 +2,8 @@ const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav_bar_links");
 const links = document.querySelectorAll(".nav_bar_links li");
 
-hamburger.addEventListener('click', ()=>{
-   //Animate Links
+hamburger.addEventListener('click', () => {
+    //Animate Links
     navLinks.classList.toggle("open");
     links.forEach(link => {
         link.classList.toggle("fade");
@@ -16,15 +16,16 @@ hamburger.addEventListener('click', ()=>{
 
 var title = document.getElementsByTagName("title")[0];
 var navigation = document.querySelectorAll(".navigations_name");
-if(title.textContent == "HOME"){
+if (title.textContent == "HOME") {
     navigation[2].classList.add("navigations_bold_style");
-}else if(title.textContent == "FAQ"){
-  navigation[3].classList.add("navigations_bold_style");
-}else if(title.textContent == "VIEW"){
+} else if (title.textContent == "FAQ") {
+    navigation[3].classList.add("navigations_bold_style");
+} else if (title.textContent == "VIEW") {
     navigation[6].classList.add("navigations_bold_style");
-}else if(title.textContent == "ADD NEW"){
+} else if (title.textContent == "ADD NEW") {
     navigation[7].classList.add("navigations_bold_style");
 }
+
 
 
 var modal = document.querySelector(".delete_modal");

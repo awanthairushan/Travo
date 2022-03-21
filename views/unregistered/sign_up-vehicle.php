@@ -59,9 +59,6 @@
         </div>
       </div>
 
-
-
-
       <div class="form-control">
         <label for="vehicle-no">Vehicle Number</label>
         <input class="text-form-sign_up-traveler compulsory_fields" type="text" name="vehicle_no" id="vehicle_no" placeholder=""><br/>

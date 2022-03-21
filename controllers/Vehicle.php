@@ -81,7 +81,7 @@ class Vehicle extends Controller
                 $new_password = password_hash($new_password, PASSWORD_DEFAULT);
             }
             $this->model->updateProfileDetails($owner_id, $new_name, $new_email, $new_contact2, $new_contact1, $new_password);
-            header('location: loadUpdateProfile');
+            header('location: myVehicle');
         }
     }
     function updateVehicleDetails()
@@ -93,31 +93,82 @@ class Vehicle extends Controller
     function addNewVehicle()
     {
         session_start();
+        
+        $action = $_POST['submitbtn'];
+
         $owner_id = $_POST['ownerId'];
         $vehicle_id = uniqid("veh_");
         $city = trim($_POST['city']);
         $vehicle_no = trim($_POST['vehicle_no']);
         $type = $_POST['vehicle_type'];
-        $Vehicle_model = trim($_POST['Vehicle_model']);
+        $vehicle_model = trim($_POST['Vehicle_model']);
         $no_of_passengers = trim($_POST['no_of_passengers']);
         $price_for_1km =  trim($_POST['price_for_1km']);
         $price_for_day = trim($_POST['price_for_day']);
         $driver_type = $_POST['driver_type'];
         $driver_charge =  trim($_POST['driver_charge']);
         $ac =  $_POST['ac'];
-        $image = $_POST['images'];
         $driver_name = trim($_POST['driver_name']);
         $driver_contact1 = trim($_POST['driver_contact1']);
         $driver_contact2 = trim($_POST['driver_contact2']);
+        $image = $_FILES['vehcle_image'];
+        // uploading vehicle image
 
-        $this->model->addVehicle($owner_id, $vehicle_id, $city, $vehicle_no, $type, $Vehicle_model, $no_of_passengers, $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $image, $driver_name, $driver_contact1, $driver_contact2);
+        $imageName = $_FILES['vehcle_image']['name'];
+        $imageTmpName = $_FILES['vehcle_image']['tmp_name'];
+        $imageSize = $_FILES['vehcle_image']['size'];
+        $imageError = $_FILES['vehcle_image']['error'];
+        $imageType = $_FILES['vehcle_image']['type'];
+
+        $imageExt = explode('.', $imageName);
+        $imageActucalExt = strtolower(end($imageExt));
+        $allowedFormates = array('jpg', 'jpeg', 'png');
+
+        if (in_array($imageActucalExt, $allowedFormates)) {
+            if ($imageError === 0) {
+                if ($imageSize < 500000) {
+                    $imageNewName = uniqid('', true) . "." . $imageActucalExt;
+                    $imageDestination =  APPROOT . '/public/images/assets/vehicle/' . $imageNewName;
+                    move_uploaded_file($imageTmpName, $imageDestination);
+                } else {
+                    header('location: signupVehicle?error=Your image is too big..!');
+                }
+            } else {
+                header('location: signupVehicle?error=There was an error uploading your image..!');
+            }
+        } else {
+            header('location: signupVehicle?error=You cannot upload images of this type..!');
+        }
+
+        // end of uploading vehicle image
+
+        $this->model->addVehicle($vehicle_id, $vehicle_no, $type, $vehicle_model, $city, $owner_id,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $no_of_passengers, $imageNewName, $driver_name, $driver_contact1, $driver_contact2);
         header('location: myVehicle');
     }
     function logout()
     {
         session_start();
         session_unset();
-        session_destroy();
+        session_destroy();        
         header('location: http://localhost/TRAVO');
+    }
+
+    function deleteVehicle(){
+        $vehicle_id = $_POST['vehicleID'];
+        $this->model->deleteVehicle($vehicle_id);
+        header('location: myVehicle');
+    }
+
+    function deleteVehicleOwner(){
+//        $this->logout();
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            if(isset($_POST['delete_confirm_btn'])){
+                $owner_id= $_POST['ownerID'];
+                $this->model->deleteVehicleOwner($owner_id);
+                $this->logout();
+            }
+        }
     }
 }

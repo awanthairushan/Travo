@@ -103,6 +103,7 @@ class Unregistered extends Controller
 
                             $_SESSION['username'] = $row['email'];
                             $_SESSION['owner_name'] = $row['owner_name'];
+                            $_SESSION['owner_id'] = $row['owner_id'];
                             $_SESSION['vehicle_no'] = $row['vehicle_no'];
                             header("location: http://localhost/TRAVO/vehicle");
                             exit();

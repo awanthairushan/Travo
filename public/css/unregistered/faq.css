@@ -50,6 +50,7 @@
   color: black;
   float: right;
   margin-left: 5px;
+  cursor: pointer;
 }
 .active:after {
   content: "\2796";
@@ -78,6 +79,7 @@
   border-width: thin;
   border-spacing: none;
   border-color: rgba(0, 0, 0, 0);
+  border-radius: 1vh;
 }
 @media screen and (max-width: 850px){
   .heading {

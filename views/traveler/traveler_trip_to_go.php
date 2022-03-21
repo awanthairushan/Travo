@@ -7,7 +7,7 @@
     //   }
     // }
     if (mysqli_num_rows($this->isTraveler)===1) {
- ?>
+?>
 <html>
     <head>
         <title>MY TRIPS</title>
@@ -32,7 +32,7 @@
                     <button type="button" name="deleteTrip_confirm_btn" class="deletetrip_confirm_btn" id="deleteTrip_confirm_btn">DELETE TRIP</button>
                     <button type="button" name="deleteTrip_cancel_btn" class="deleteTrip_cancel_btn" id="deleteTrip_cancel_btn">CANCEL</button>
               </div>
-              </div>
+            </div>
 
             <div class="content">
                 <div class="trips">
@@ -76,7 +76,7 @@
                         <div class="tripdetail t2"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Kandy</dt> <dt>Nuwara Eliya</dt> <dt>Anuradhapura</dt> <dt>2021-11-20</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
 
                         <div class="tripdetail t3"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Galle</dt> <dt>Ratnapura</dt> <dt>Kandy</dt> <dt>2022-06-06</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-			            <div class="tripdetail t4"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Colombo</dt> <dt>Gampaha</dt> <dt>Kegalle</dt> <dt>2021-12-23</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
+                  <div class="tripdetail t4"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Colombo</dt> <dt>Gampaha</dt> <dt>Kegalle</dt> <dt>2021-12-23</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
                     </div>
                 </div>
                 </div>
@@ -98,4 +98,4 @@
   header("location: http://localhost/TRAVO");
   exit();
 }
- ?>
+?>
