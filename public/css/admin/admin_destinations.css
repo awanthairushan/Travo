@@ -41,11 +41,9 @@
     border-bottom: 2px solid #000000;
     padding: 0;
 }
-.content_table th:nth-child(1){
-    width: 45vw;
-}
-.content_table th:nth-child(2){
-    width: 40vw;
+
+.content_table th{
+    width: 25%;
 }
 .content_table td {    
     height: 3rem;

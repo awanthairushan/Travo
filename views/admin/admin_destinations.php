@@ -40,52 +40,42 @@
     <table class="content_table" id="conn_table" >
         <thead>
             <tr>
-                <th colspan = "2">DESTINATION</th>
-                <th colspan = "2">VISITING PLACES</th>
-                <th colspan = "2"></th>
-                <th colspan = "2"></th>
+                <th >DESTINATION</th>
+                <th >VISITING PLACES</th>
+                <th >&nbsp</th>
+                <th >&nbsp</th>
             </tr>
         </thead>
         <tbody>
         <?php
+
+        $i=0;
            while ($rows = mysqli_fetch_array($this->destinations)){
                
-               while ($rows2 = mysqli_fetch_array($this->visitingPlaces)){
-                   $size = count($rows2);
+                   $count=0;
+              
                    echo "<tr>
-                        <td>".$rows['destination']."</td>
-                        for($i=0; $i>$size; $i++){
-                            <td>".$rows[$i]."<br /></td>
-                            <td>
+                        <td>".$rows['destination']."</td><td>";
+                        
+                        while($rows2=mysqli_fetch_array($this->sightsall[$i])){
+                            echo $rows2['sight']."<br />";
+                            $count++;
+                        }
+
+                        echo "</td><td>";
+                        for($j=0;$j<$count;$j++){
+                            echo "
                             <form method = 'POST'>
                                 <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE PLACE'><br />
-                            </form>
-                            </td>
+                            </form>";
                         }
-                        <td>
+                        echo "</td><td>
                         <form method = 'POST'>
                         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE DESTINATION'><br />
                         </form>
                         </td>
                     </tr>";
-                        
-               }
-                // echo "<tr>
-                //     <td>".$rows['destination']."</td>
-                //     <td>".$rows['sight']."</td>
-                //     <td>
-                //     <form method='post' >
-                //         <input type='hidden' value='$rows[0]' name=faq_id>
-                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='EDIT'>
-                //     </form>
-                //     </td>
-                //     <td class='tdbtn'>
-                //     <form method='post' action='deleteFaq'>
-                //         <input type='hidden' value='$rows[0]' name=faq_id>
-                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
-                //     </form>
-                //     </td>
-                // </tr>";
+               $i++;
             }
           ?>
             <!-- <tr>
@@ -138,7 +128,33 @@
     <form class="form_add_destination" id="form_add_destination" action="addDestinationsAndSights" method="POST">
        <!-- Enter destination-->
         <label for="fdestination" class="fdes">DESTINATION</label>
-            <input type="text" id="fdestination" name="destination">
+            <select id="fdestination" name="destination">
+                                <option value="Ampara">Ampara</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Kegalle">Kegalle</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                        </select>
             <!-- Enter visiting places-->
             <div class="site_details_div">
               <input type="text" id="fvp" name="visitingPlace[]" placeholder="  Sight">
@@ -150,7 +166,8 @@
                   <option value="Pilgrimage">Pilgrimage</option>
                   <option value="Leisure">Leisure</option>
               </select>
-              <input type="text" id="flocation" name="location[]" placeholder="  Location">
+              <input type="text" id="flocationlatitude" name="location[]" placeholder="  Latitude">
+              <input type="text" id="flocationlongitude" name="locationlong[]" placeholder="  Longitude">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 

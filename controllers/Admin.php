@@ -14,11 +14,27 @@ class Admin extends Controller{
 
     
     function destinations(){
+        $this->view->destinations=$this->model->getDestination();
+        $destinations = $this->model->getDestination();
+        $sights = array();
+        $count=0;
+        while($rowDes = mysqli_fetch_array($destinations)){
+
+            
+            $destinationId = $rowDes['destination_id'];
+            $sights[$count] = $this->model-> getSights($destinationId); 
+            $this->view->countSights = count($sights);
+            $count++;
+        }
+        $this->view->sightsall=$sights;
         $this->view->render('admin/admin_destinations');
     }
     function addDestinationsAndSights(){
         $destination = $_POST['destination'];
-        $destinationId = uniqid("des_");
+        $destinationDetails = $this->model->getDestinationId($destination);
+        while ($desId = mysqli_fetch_array($destinationDetails)){
+            $destinationId=$desId['destination_id'];
+        }
 
         $this->model->addDestination($destination, $destinationId);
 
