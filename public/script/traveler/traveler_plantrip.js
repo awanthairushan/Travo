@@ -79,7 +79,7 @@ cancelBtn.addEventListener("click", function(){
 
   if(count==0){
       displaydiv.innerHTML="";
-      displaydiv.style.padding= "0 0 1vh 0";
+      displaydiv.style.padding= "0";
   }
 
   if(count<limit){
@@ -118,7 +118,7 @@ function closeDiv(x){
     if(count<=0){
         count=0;
         displaydiv.innerHTML="Select up to "+limit+" destinations";
-        displaydiv.style.padding= "0 0 2vh 0";
+        displaydiv.style.padding= "0 0 0 0";
     }
 
 }

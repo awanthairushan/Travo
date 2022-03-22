@@ -39,24 +39,25 @@ body {
   border-radius: 2rem;
   margin: 0 auto;
   width: 80%;
-  height: 70vh;
+  height: 73vh;
   overflow-y:scroll;
 }
 
 .details::-webkit-scrollbar{
   display: none;
 }
+.mapform {
+  margin-bottom: 0.3rem;
+}
 
 .location_div {
   width: 90%;
   margin: auto;
-  margin-top: 1rem;
   padding: 0;
   height: 12vh;
 }
 
 .location_div label {
-
   float: left;
   margin: 0;
   margin-left: 5rem;
@@ -68,8 +69,22 @@ body {
   margin: 0;
   margin-right: 0.25rem;
   width: 60%;
+  padding-bottom: 0;
 }
-
+.get-location-btn {
+  width: 20rem;
+  height: 2rem;
+  margin: 0 auto 1rem auto;
+  background-color: #369093;
+  opacity: 1;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
 .clear{
   clear: both;
   height: 1.2rem;
@@ -161,7 +176,6 @@ input[type="text"],select {
 }
 
 .nextbtn {
-
   width: 12rem;
   height: 2.5rem;
   margin: 1rem auto;
@@ -176,6 +190,7 @@ input[type="text"],select {
   cursor: pointer;
   letter-spacing: 2px;
 }
+
 
 .other_email {
   text-align: center;
