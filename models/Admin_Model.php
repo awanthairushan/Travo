@@ -98,7 +98,7 @@ function getDestination(){
     return $this->db->runQuery("SELECT * FROM destinations");
 }
 function getSights($destinationId){
-    return $this->db->runQuery("SELECT sight FROM sights WHERE destination_id = '$destinationId' ");
+    return $this->db->runQuery("SELECT * FROM sights WHERE destination_id = '$destinationId' ");
 }
 
 

@@ -40,52 +40,53 @@
     <table class="content_table" id="conn_table" >
         <thead>
             <tr>
-                <th colspan = "2">DESTINATION</th>
-                <th colspan = "2">VISITING PLACES</th>
-                <th colspan = "2"></th>
-                <th colspan = "2"></th>
+                <th >DESTINATION</th>
+                <th >VISITING PLACES</th>
+                <th >&nbsp</th>
+                <th >&nbsp</th>
             </tr>
         </thead>
         <tbody>
         <?php
+        
+        // for($i=0; $i<$this->countSights; $i++ ){
+        //     echo $this->sightsall[$i].;
+        // }
+      
+        // for($i=0;$i<$this->countSights;$i++){
+        //     while($rows=mysqli_fetch_array($this->sightsall[$i])){
+        //         echo $rows['sight'];
+        //     }
+        // }
+        $i=0;
            while ($rows = mysqli_fetch_array($this->destinations)){
                
-               while ($rows2 = mysqli_fetch_array($this->visitingPlaces)){
-                   $size = count($rows2);
+                   $count=0;
+              
                    echo "<tr>
-                        <td>".$rows['destination']."</td>
-                        for($i=0; $i>$size; $i++){
-                            <td>".$rows[$i]."<br /></td>
-                            <td>
+                        <td>".$rows['destination']."</td><td>";
+                        
+                        while($rows2=mysqli_fetch_array($this->sightsall[$i])){
+                            echo $rows2['sight']."<br />";
+                            $count++;
+                        }
+
+                        echo "</td><td>";
+                        for($j=0;$j<$count;$j++){
+                            echo "
                             <form method = 'POST'>
                                 <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE PLACE'><br />
-                            </form>
-                            </td>
+                            </form>";
                         }
-                        <td>
+                        echo "</td><td>
                         <form method = 'POST'>
                         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE DESTINATION'><br />
                         </form>
                         </td>
                     </tr>";
                         
-               }
-                // echo "<tr>
-                //     <td>".$rows['destination']."</td>
-                //     <td>".$rows['sight']."</td>
-                //     <td>
-                //     <form method='post' >
-                //         <input type='hidden' value='$rows[0]' name=faq_id>
-                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='EDIT'>
-                //     </form>
-                //     </td>
-                //     <td class='tdbtn'>
-                //     <form method='post' action='deleteFaq'>
-                //         <input type='hidden' value='$rows[0]' name=faq_id>
-                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
-                //     </form>
-                //     </td>
-                // </tr>";
+    
+               $i++;
             }
           ?>
             <!-- <tr>
