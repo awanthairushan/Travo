@@ -467,7 +467,7 @@ class Unregistered extends Controller
         $rep_contact1 = trim($_POST['rep_contact1']);
         $rep_contact2 = trim($_POST['rep_contact2']);
         $hotel_type = $_POST['hotel_type-type'];
-        $images = $_POST['images'];
+        $image = $_FILES['hotel_image'];
         $otp = rand(1000, 9999);
         $password = password_hash($password1, PASSWORD_DEFAULT);
 
@@ -493,17 +493,72 @@ class Unregistered extends Controller
         $massive_ac = $_POST['massive_room_ac'];
         $massive_price = trim($_POST['massive_room_price']);
 
+        // uploading hotel image
+
+        $error=array();
+        $countImg=0;
+
+        foreach($_FILES["hotel_image"]["tmp_name"] as $key=>$tmp_name) {
+            $imageName = $_FILES['hotel_image']['name'][$key];
+            $imageTmpName = $_FILES['hotel_image']['tmp_name'][$key];
+            $imageSize = $_FILES['hotel_image']['size'][$key];
+            $imageError = $_FILES['hotel_image']['error'][$key];
+            $imageType = $_FILES['hotel_image']['type'][$key];
+
+            $imageExt = explode('.', $imageName);
+            $imageActucalExt = strtolower(end($imageExt));
+            $allowedFormates = array('jpg', 'jpeg', 'png');
+
+            echo $imageActucalExt;
+
+            if (in_array($imageActucalExt, $allowedFormates)) {
+                if ($imageError === 0) {
+                    if ($imageSize < 500000) {
+                        $imageNewName[$countImg] = uniqid('', true) . "." . $imageActucalExt;
+                        $imageDestination =  APPROOT . '/public/images/assets/hotel/' . $imageNewName[$countImg];
+                        move_uploaded_file($imageTmpName, $imageDestination);
+                    } else {
+                        $error[$countImg][0]="Your image is too big..!";
+                    }
+                } else {
+                    $error[$countImg][1]="There was an error uploading your image..!";
+                }
+            } else {
+                $error[$countImg][2]="You cannot upload images of this type..!";
+            }
+            $countImg=$countImg+1;
+        }
+
+        $errormsg="";
+        for ($row = 0; $row <= $countImg; $row++) {
+            for ($col = 0; $col < 3; $col++) {
+                if(!empty($error[$row][$col])){
+                    $errormsg."picture ".$row." error - ".$error[$row][$col]."\n";
+                }
+            }
+        }
+
+        if($errormsg != ""){
+            header('location: signupHotel?error='.$errormsg);
+        }
+
         if (mysqli_num_rows($this->model->checkForExistingUsers($email)) > 0) {
             header('location: signupHotel?error=Someone already taken that email. Try with another..!');
         } else {
+            echo $imageName;
             $this->model->addHotel($hotel_id, $name, $regNo, $licenceNo, $line1, $line2, $city, $location, $contact1, $contact2, $decription, $website, $email, $password, $hotel_type, $rep_name, $rep_email, $rep_contact1, $rep_contact2, $otp);
             $this->model->addHotelRoom($hotel_id, 'single', $single_count, 1, $single_food, $single_mini_bar, $single_ac, $single_price);
             $this->model->addHotelRoom($hotel_id, 'double', $double_count, 2, $double_food, $double_mini_bar, $double_ac, $double_price);
             $this->model->addHotelRoom($hotel_id, 'family', $family_count, 4, $family_food, $family_mini_bar, $family_ac, $family_price);
             $this->model->addHotelRoom($hotel_id, 'massive', $massive_count, $massive_capacity, $massive_food, $massive_mini_bar, $massive_ac, $massive_price);
-            $image_id = uniqid('hotelimg_');
-            $this->model->addHotelImages($hotel_id, $image_id, $images);
+            for ($rows = 0; $rows < $countImg; $rows++){
+                $image_id = uniqid('hotelimg_');
+                $this->model->addHotelImages($hotel_id, $image_id, $imageNewName[$rows]);
+            }
             header('location: login');
         }
+    }
+    function termsAndConditions(){
+        $this->view->render('unregistered/tc');
     }
 }

@@ -86,6 +86,38 @@ class Traveler_Model extends Model{
     function saveTrip($traveler_id,$trip_id){
         return $this->db->runQuery("UPDATE trips SET status='Saved' WHERE trip_id='$trip_id' AND traveler_id='$traveler_id'");
     }
+
+    //------------------------------------Traveler-trip to go-------------------------------------------------------------------
+
+    function selectPaidTrips($traveler_id){
+        return $this->db->runQuery("SELECT * FROM trips WHERE traveler_id='$traveler_id' AND status='Paid'");
+    }
+
+    function selectSavedTrips($traveler_id){
+        return $this->db->runQuery("SELECT * FROM trips WHERE traveler_id='$traveler_id' AND status='Saved'");
+    }
+
+    function selectCompletedTrips($traveler_id){
+        return $this->db->runQuery("SELECT * FROM trips WHERE traveler_id='$traveler_id' AND status='Completed'");
+    }
+
+    function updateTripPaid($trip_id,$traveler_id){
+        return $this->db->runQuery("UPDATE trips SET status='Paid' WHERE trip_id='$trip_id' AND traveler_id='$traveler_id' ");
+    }
+
+    function deleteTrip($trip_id){
+        return $this->db->runQuery("DELETE FROM trips WHERE trip_id='$trip_id'");
+    }
+
+    function deleteBudget($trip_id){
+        return $this->db->runQuery("DELETE FROM budget WHERE trip_id='$trip_id'");
+    }
+
+    //-----------------------------------Traveler-delete traveler------------------------------------------------------
+
+    function deleteTraveler($traveler_id){
+        return $this->db->runQuery("DELETE FROM travelers WHERE travelerID='$traveler_id'");
+    }
 }
 
 ?>

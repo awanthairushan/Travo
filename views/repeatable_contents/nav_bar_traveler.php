@@ -15,6 +15,7 @@
         <ul class="nav_bar_links">
         <li></li>
         <li></li>
+        <li class="navigations_name drop_content_mini">',$_SESSION['name'],'</li>
         <li class="navigations_name"><a href="'.URLROOT.'/traveler">HOME</a></li>
         <li class="navigations_name"><a href="'.URLROOT.'/traveler/faq">FAQ</a></li>
         <li class="navigations_name"><a href="'.URLROOT.'/traveler#about_us-section">ABOUT</a></li>
@@ -34,7 +35,6 @@
                 </div>
             </div>
         </li>
-        <li class="navigations_name drop_content_mini">',$_SESSION['name'],'</li>
         <li class="navigations_name drop_content_mini"><button class="deleteAccount_btn" id="deleteAccount_btn">DELETE ACCOUNT</button></li>
         <li class="navigations_name drop_content_mini"><a class="drop-nav" href="'.URLROOT.'/traveler/travelerUpdate">UPDATE</a></li>
         <li class="navigations_name drop_content_mini"><a class="drop-nav" href="'.URLROOT.'/traveler/logout">LOG OUT</a></li> 
@@ -45,9 +45,12 @@
             <hr>
             <p>There is no recovery option. Are you sure you want to delete this account ?</p>
             <hr>
-            <button type="button" name="delete_confirm_btn" class="delete_confirm_btn" id="delete_confirm_btn">DELETE ACCOUNT</button>
+            <form action="'.URLROOT.'/traveler/deleteTraveler" method="post">
+            <input type="hidden" name="travelerDelete" value="'.$_SESSION['travelerID'].'">
+            <button type="submit" name="delete_confirm_btn" class="delete_confirm_btn" id="delete_confirm_btn">DELETE ACCOUNT</button>
             <button type="button" name="delete_cancel_btn" class="delete_cancel_btn" id="delete_cancel_btn">CANCEL</button>
-      </div>
+            </form>
+        </div>
       </div>
   </div>
 '; ?>

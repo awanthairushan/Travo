@@ -1,13 +1,16 @@
+//---------------------------trip delete box---------------------
+
 var deleteTrip_modal = document.querySelector(".delete_trip_modal");
+var dleteTripId = document.getElementById("deleteTrip");
 var deleteTrip_btn = document.querySelectorAll(".delete_img");
 var trip_cancelBtn = document.querySelector("#deleteTrip_cancel_btn");
 
 
-for (var i = 0; i < deleteTrip_btn.length; i++) {
-    deleteTrip_btn[i].addEventListener("click", function(e) {
-        deleteTrip_modal.style.display = "block";
-    });
-}
+// for (var i = 0; i < deleteTrip_btn.length; i++) {
+//   deleteTrip_btn[i].addEventListener("click", function(e){
+//     deleteTrip_modal.style.display = "block";
+//   });
+// }
 
 window.onclick = function(e) {
     if (event.target == deleteTrip_modal) {
@@ -15,11 +18,19 @@ window.onclick = function(e) {
     }
 }
 
-trip_cancelBtn.addEventListener("click", function() {
-    deleteTrip_modal.style.display = "none";
-});
+function deleteTripid(id){
+  deleteTrip_modal.style.display = "block";
+  dleteTripId.value=id;
 
-var slideIndex = 1;
+}
+
+trip_cancelBtn.addEventListener("click", function(){
+   deleteTrip_modal.style.display = "none";
+ });
+
+
+//----------------------------change between trip to go, saved and completed-----------------------
+ var slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls

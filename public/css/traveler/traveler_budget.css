@@ -153,7 +153,7 @@ body{
     margin: 1rem auto;
 }
 
-.tcolumn,.thide{
+/* .tcolumn,.thide{
     width: 29%;
     float: left;
 }
@@ -165,7 +165,7 @@ body{
 .thide:first-child{
     width: 13%;
     display: block;
-}
+} */
 
 .trow,.trowhead{
     width: 100%;
@@ -207,6 +207,21 @@ body{
     cursor: pointer;
     letter-spacing: 2px;
 }
+
+.cancelbutton{
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    background-color: rgba(239, 49, 49);
+  opacity: 0.8;
+}
+
 .details iframe {
   margin:0 auto;
   width: 70vw;
@@ -267,7 +282,7 @@ body{
         width: 30%;
     }
 
-    .tcolumn,.thide{
+    /* .tcolumn,.thide{
         width: 50%;
         margin-bottom: 1rem;
     }
@@ -276,7 +291,7 @@ body{
         width: 50%;
     }
 
-    .thide{display: block;}
+    .thide{display: block;} */
 
     .days{
         width: 70%;
@@ -341,7 +356,7 @@ body{
     }
 }
 
-@media screen and (max-width:450px){
+/* @media screen and (max-width:450px){
     .thide{
         width: 30%;
     }
@@ -353,7 +368,7 @@ body{
     .tcolumn{
         width: 70%;
     }
-}
+} */
 
 @media screen and (max-width:370px){
 

@@ -38,7 +38,7 @@
 
     <div class="box-sign_up-traveler">
     
-    <form class="form-sign_up-traveler" id = "sign_up_form-hotel" name="sign_up_form-hotel" action="addNewHotel" method="post">
+    <form class="form-sign_up-traveler" id = "sign_up_form-hotel" name="sign_up_form-hotel" action="addNewHotel" method="post" enctype="multipart/form-data">
       <?php
               if (isset($_GET['error'])) { ?>
                 <p class="error-log_in"><?php echo $_GET['error']; ?></p>
@@ -74,7 +74,34 @@
       <br>
       <input class="text-form-sign_up-traveler" type="text" name="address-line2" id="address-line2" placeholder=" Address Line 2"  ></br>
       <br>
-      <input class="text-form-sign_up-traveler" type="text" name="city" id="city" placeholder=" City"></br>
+      <select class="text-form-sign_up-traveler select-form-sign_up-traveler  drop-down-form-sign_up-traveler" name="city" id="city">
+          <option value="">Sri Lanka</option>
+          <option value="Ampara">Ampara</option>
+          <option value="Anuradhapura">Anuradhapura</option>
+          <option value="Badulla">Badulla</option>
+          <option value="Batticaloa">Batticaloa</option>
+          <option value="Colombo">Colombo</option>
+          <option value="Galle">Galle</option>
+          <option value="Gampaha">Gampaha</option>
+          <option value="Hambantota">Hambantota</option>
+          <option value="Jaffna">Jaffna</option>
+          <option value="Kalutara">Kalutara</option>
+          <option value="Kandy">Kandy</option>
+          <option value="Kegalle">Kegalle</option>
+          <option value="Kilinochchi">Kilinochchi</option>
+          <option value="Kurunegala">Kurunegala</option>
+          <option value="Mannar">Mannar</option>
+          <option value="Matale">Matale</option>
+          <option value="Matara">Matara</option>
+          <option value="Monaragala">Monaragala</option>
+          <option value="Mullaitivu">Mullaitivu</option>
+          <option value="Nuwara Eliya">Nuwara Eliya</option>
+          <option value="Polonnaruwa">Polonnaruwa</option>
+          <option value="Puttalam">Puttalam</option>
+          <option value="Ratnapura">Ratnapura</option>
+          <option value="Trincomalee">Trincomalee</option>
+          <option value="Vavuniya">Vavuniya</option>
+        </select></br>
       <br>
         <span class="error-msg"></span>
       </div>
@@ -132,14 +159,11 @@
       </div>
 
       <div class="form-control">
-      <label for="images">Input Images</label> 
-      <input type="file" class="images-small-form-sign_up-traveler" name="images" id="images" multiple="" ></br>
+      <label for="images">Input Images</label>
+      <input type="file" class="images-small-form-sign_up-traveler" name="hotel_image[]" id="images" multiple="" ></br>
       <br>
         <span class="error-msg"></span>
       </div>
-
-
-
 
 
       <div class="form-control">
@@ -258,7 +282,7 @@
              <br>
           <div class="tc_div_form_signup_traveler">
              <input class="tc-checkbox-form-sign_up-traveler" type="checkbox" name="tc" id="tc" value="" required>
-              <label id="tc-label-form-sign_up-traveler" for="tc">I agree to all the <a href="tc.php">Terms & Conditions</a> of travo.lk</label>
+              <label id="tc-label-form-sign_up-traveler" for="tc">I agree to all the <a href="http://localhost/TRAVO/unregistered/termsAndConditions">Terms & Conditions</a> of travo.lk</label>
 </div>
   </div>
       </form>

@@ -21,6 +21,7 @@
     margin: auto auto 1rem auto;
     align-items: center;
     display: flex;
+    border-radius: 2rem;
 }
 
 .error-log_in {

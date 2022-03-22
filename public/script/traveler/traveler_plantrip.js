@@ -5,10 +5,6 @@ var popup = document.querySelector(".hotel_names_popup");
 var popupBtn = document.querySelectorAll(".selecthotelpopupbtn");
 var cancelBtn = document.querySelector("#cancelbtn");
 var formPlantrip = document.querySelector("#form_plan");
-
-var allhotels = document.querySelectorAll("#selecthotelbtn");
-var hotelDetails = document.querySelector(".content3");
-
 // formPlantrip.addEventListener("submit", function(event){
 //   event.preventDefault();
 // });
@@ -38,13 +34,7 @@ cancelBtn.addEventListener("click", function(){
   hotelsheading.style.display="none";
  });
 
-for (var j = 0; j < allhotels.length; j++) {
-  allhotels[j].addEventListener("click", function(event){
-    popup.style.display = "none";
-    hotelDetails.style.display = "block";
-    hotelsheading.style.display="none";
-});
-}
+
 
 
 
@@ -78,41 +68,42 @@ for (var j = 0; j < allhotels.length; j++) {
 
  var count=0;
 
+ const limit=parseInt(document.getElementById("limit").value)+1;
 
-function getSelectedValue(){
-    var e = document.getElementById("choices");
-    var choiceValue = e.value; // to get value only
-    var op=e.getElementsByTagName("option");
-    var choicetext = e.options[e.selectedIndex].text;
-    var displaydiv=document.getElementById('displaydiv');
+ function getSelectedValue(){
+  var e = document.getElementById("choices");
+  var choiceValue = e.value; // to get value only
+  var op=e.getElementsByTagName("option");
+  var choicetext = e.options[e.selectedIndex].text;
+  var displaydiv=document.getElementById('displaydiv');
 
-    if(count==0){
-        displaydiv.innerHTML="";
-        displaydiv.style.padding= "0 0 1vh 0";
-    }
-
-    if(count<3){
-      count=count+1;
-      op[e.selectedIndex].disabled=true;
-      choicetext.display="none";
-      var newDiv = document.createElement('span');
-      newDiv.setAttribute("class","choice");
-      newDiv.setAttribute("id",e.selectedIndex);
-      newDiv.innerHTML=choicetext+ " ";
-      var spanDiv = document.createElement('b');
-      spanDiv.setAttribute("class","close");
-      spanDiv.innerHTML=" x ";
-      spanDiv.setAttribute("onclick",'closeDiv(this)');
-      var newInput = document.createElement('input');
-      newInput.setAttribute("type","hidden");
-      newInput.setAttribute("value",choicetext);
-      countString=count.toString();
-      let destination = "destination";
-      newInput.setAttribute("name",destination.concat(countString));
-      newDiv.appendChild(spanDiv);
-      newDiv.appendChild(newInput);
-      displaydiv.appendChild(newDiv);
+  if(count==0){
+      displaydiv.innerHTML="";
+      displaydiv.style.padding= "0 0 1vh 0";
   }
+
+  if(count<limit){
+    count=count+1;
+    op[e.selectedIndex].disabled=true;
+    choicetext.display="none";
+    var newDiv = document.createElement('span');
+    newDiv.setAttribute("class","choice");
+    newDiv.setAttribute("id",e.selectedIndex);
+    newDiv.innerHTML=choicetext+ " ";
+    var spanDiv = document.createElement('b');
+    spanDiv.setAttribute("class","close");
+    spanDiv.innerHTML=" x ";
+    spanDiv.setAttribute("onclick",'closeDiv(this)');
+    var newInput = document.createElement('input');
+    newInput.setAttribute("type","hidden");
+    newInput.setAttribute("value",choicetext);
+    countString=count.toString();
+    let destination = "destination";
+    newInput.setAttribute("name",destination.concat(countString));
+    newDiv.appendChild(spanDiv);
+    newDiv.appendChild(newInput);
+    displaydiv.appendChild(newDiv);
+}
 }
 
 function closeDiv(x){
@@ -126,7 +117,7 @@ function closeDiv(x){
     count=count-1;
     if(count<=0){
         count=0;
-        displaydiv.innerHTML="Select up to 3 destinations";
+        displaydiv.innerHTML="Select up to "+limit+" destinations";
         displaydiv.style.padding= "0 0 2vh 0";
     }
 

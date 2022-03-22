@@ -115,7 +115,7 @@
 
                   echo '<div class="vtable">
                   <!-- vehicle details -->
-                  <div class="vdetails">Toyota Prius 4th Generation</div>
+                  <div class="vdetails">'.$rows['vehicle_model'].'</div>
                   <div class="vdetails">
                     <dl>
                       <dt class="vspecs vtype">'.$rows['type'].'</dt>
@@ -125,14 +125,22 @@
                       <dt class="vspecs">LKR.'.$rows['price_for_1km'].' per km</dt>
                     </dl>
                   </div>
-                  <div class="vdetails"><img class="vimg" src="http://localhost/TRAVO/public/images/Sample_images/for_vehicles/car2.jpg"></div>
+                  <div class="vdetails"><img class="vimg" src="http://localhost/TRAVO/public/images/assets/vehicle/'.$rows['vehicle_image'].'"></div>
                   <div class="vdetails">
                     <dl>
                       <dt class="vspecs">Mr.'.$rows['owner_name'].'</dt>
                       <dt class="vspecs">'.$rows['email'].'</dt>
                       <dt class="vspecs">'.$rows['contact1'].'/'.$rows['contact2'].'</dt>
-                      <dt class="vspecs vareatype">'.$rows['city'].'</dt>
-                      <dt class="vspecs">LKR.'.$rows['driver_charge'].' for a driver</dt>
+                      <dt class="vspecs vareatype">'.$rows['city'].'</dt>';
+
+                      if($rows['driver_type']=='with driver'){
+                        echo '<dt class="vspecs">LKR.'.$rows['driver_charge'].' for a driver</dt>';
+                      }
+                      else{
+                        echo '<dt class="vspecs">-</dt>';
+                      }
+
+                      echo'
                     </dl>
                   </div>
                 </div>';
