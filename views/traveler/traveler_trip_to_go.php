@@ -27,56 +27,105 @@
               <div class="deleteTrip_confirm_box">
                     <h3>Delete Trip</h3>
                     <hr>
-                    <p>There is no recovery option. Are you sure you want to delete this trip ?</p>
-                    <hr>
-                    <button type="button" name="deleteTrip_confirm_btn" class="deletetrip_confirm_btn" id="deleteTrip_confirm_btn">DELETE TRIP</button>
-                    <button type="button" name="deleteTrip_cancel_btn" class="deleteTrip_cancel_btn" id="deleteTrip_cancel_btn">CANCEL</button>
+                    <form action="<?php echo URLROOT; ?>/traveler/deleteTrip" method="post">
+                      <p>There is no recovery option. Are you sure you want to delete this trip ?</p>
+                      <hr>
+                      <input type="hidden"  id="deleteTrip" name="deleteTrip" value="0">
+                      <button type="submit" name="deleteTrip_confirm_btn" class="deletetrip_confirm_btn" id="deleteTrip_confirm_btn">DELETE TRIP</button>
+                      <button type="button" name="deleteTrip_cancel_btn" class="deleteTrip_cancel_btn" id="deleteTrip_cancel_btn">CANCEL</button>
+                    </form>
               </div>
             </div>
 
             <div class="content">
                 <div class="trips">
-                <div class="slide trip1">
+                <div class="slide trip1" id="trip1">
                     <div class="row1">
                         <div class="prev" onclick="plusSlides(-1)"></div>
                         <div class="topic">TRIP TO GO</div>
                         <div class="next" onclick="plusSlides(1)"></div>
                     </div>
                     <div class="cols2">
-                        <div class="tripdetail t1"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Kandy</dt> <dt>Mathale</dt> <dt>Dambulla</dt> <dt>2021-11-02</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t2"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Anuradhapura</dt> <dt>Trincomalee</dt> <dt>Jaffna</dt> <dt>2021-10-25</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
+                      <?php 
+                        $count1=1;
 
-                        <div class="tripdetail t3"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Mathale</dt> <dt>Badulla</dt> <dt>Nuwara-Eliya</dt> <dt>2022-01-05</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t4"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Matara</dt> <dt>Galle</dt> <dt>Kataragama</dt> <dt>2021-12-15</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                    </div>
+                        while ($rows1 = mysqli_fetch_array($this->paidTrips)){
+                          if($count1==5){
+                            $count1=1;
+                          }
+
+                          if($rows1['destination_id2']==""){
+                            $rows1['destination_id2']="-";
+                          }
+
+                          if($rows1['destination_id3']==""){
+                            $rows1['destination_id3']="-";
+                          }
+
+                          echo '<div class="tripdetail t'.$count1.'"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"  id="'.$rows1['trip_id'].'" onClick="deleteTripid(this.id)"><dl class=""> <dt>'.$rows1['destination_id'].'</dt> <dt>'.$rows1['destination_id2'].'</dt> <dt>'.$rows1['destination_id3'].'</dt> <dt>'.$rows1['start_date'].'</dt></dl><button onclick="window.location.href='."'savedBudget?id=".$rows1['trip_id']."'".'" id="selecttrip">READ MORE</button></div>';
+                          $count1=$count1+1;
+                        }
+                        ?>
+                      </div>
                 </div>
 
-                <div class="slide trip2">
+                <div class="slide trip2" id="trip2">
                     <div class="row1">
                         <div class="prev" onclick="plusSlides(-1)"></div>
                         <div class="topic">SAVED</div>
                         <div class="next" onclick="plusSlides(1)"></div>
                     </div>
                     <div class="cols2">
-                        <div class="tripdetail t1"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Jaffna</dt> <dt>Nuwara Eliya</dt> <dt>Gampaha</dt> <dt>2021-11-12 </dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t2"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Kilinochchi</dt> <dt>Batticaloa</dt> <dt> Monaragala</dt> <dt>2021-11-15</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t3"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Kurunegala</dt> <dt>Mannar</dt> <dt> Puttalam</dt> <dt>2021-11-19</dt></dl><button onclick="window.location.href='savedBudget'"id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t4"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Matara</dt> <dt>Galle</dt> <dt>Kataragama</dt> <dt>2021-12-15</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
+                    <?php 
+                        $count2=1;
+
+                        while ($rows2 = mysqli_fetch_array($this->savedTrips)){
+                          if($count2==5){
+                            $count2=1;
+                          }
+
+                          if($rows2['destination_id2']==""){
+                            $rows2['destination_id2']="-";
+                          }
+
+                          if($rows2['destination_id3']==""){
+                            $rows2['destination_id3']="-";
+                          }
+
+                          echo '<div class="tripdetail t'.$count2.'" id="'.$rows2['trip_id'].'"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"  id="'.$rows2['trip_id'].'" onClick="deleteTripid(this.id)"><dl class=""> <dt>'.$rows2['destination_id'].'</dt> <dt>'.$rows2['destination_id2'].'</dt> <dt>'.$rows2['destination_id3'].'</dt> <dt>'.$rows2['start_date'].'</dt></dl><button onclick="window.location.href='."'savedBudget?id=".$rows2['trip_id']."'".'" id="selecttrip">READ MORE</button></div>';
+                          $count2=$count2+1;
+                        }
+                        ?>
                     </div>
                 </div>
 
-                <div class="slide trip3">
+                <div class="slide trip3" id="trip3">
                     <div class="row1">
                         <div class="prev" onclick="plusSlides(-1)"></div>
                         <div class="topic">COMPLETED</div>
                         <div class="next" onclick="plusSlides(1)"></div>
                     </div>
                     <div class="cols2">
-                        <div class="tripdetail t1"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Matara</dt> <dt>Galle</dt> <dt>Colombo</dt> <dt>2021-12-09</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                        <div class="tripdetail t2"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Kandy</dt> <dt>Nuwara Eliya</dt> <dt>Anuradhapura</dt> <dt>2021-11-20</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
+                    <?php 
+                        $count3=1;
 
-                        <div class="tripdetail t3"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Galle</dt> <dt>Ratnapura</dt> <dt>Kandy</dt> <dt>2022-06-06</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
-                  <div class="tripdetail t4"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"><dl class=""> <dt>Colombo</dt> <dt>Gampaha</dt> <dt>Kegalle</dt> <dt>2021-12-23</dt></dl><button onclick="window.location.href='savedBudget'" id="selecttrip">READ MORE</button></div>
+                        while ($rows3 = mysqli_fetch_array($this->completedTrips)){
+                          if($count3==5){
+                            $count3=1;
+                          }
+
+                          if($rows3['destination_id2']==""){
+                            $rows3['destination_id2']="-";
+                          }
+
+                          if($rows3['destination_id3']==""){
+                            $rows3['destination_id3']="-";
+                          }
+
+                          echo '<div class="tripdetail t'.$count3.'"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"  id="'.$rows3['trip_id'].'" onClick="deleteTripid(this.id)"><dl class=""> <dt>'.$rows3['destination_id'].'</dt> <dt>'.$rows3['destination_id2'].'</dt> <dt>'.$rows3['destination_id3'].'</dt> <dt>'.$rows3['start_date'].'</dt></dl><button onclick="window.location.href='."'savedBudget?id=".$rows3['trip_id']."'".'" id="selecttrip">READ MORE</button></div>';
+                          $count3=$count3+1;
+                        }
+                        ?>
                     </div>
                 </div>
                 </div>

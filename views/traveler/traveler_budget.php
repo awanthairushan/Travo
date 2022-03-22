@@ -87,6 +87,67 @@
                                 </tr>
                             </table> -->
 
+                            <?php
+                                $day2=0;
+                                $day3=0;
+                                if($details['no_of_days']==0){
+                                    $tcolhide=50;
+                                    $firstchild=50;
+                                }
+                                if($details['no_of_days']==1){
+                                    $tcolhide=34;
+                                    $firstchild=32;
+                                    $day2=1;
+                                }
+                                if($details['no_of_days']==2){
+                                    $tcolhide=29;
+                                    $firstchild=13;
+                                    $day2=1;
+                                    $day3=1;
+                                }
+                            ?>
+                            <style>
+                                .tcolumn,.thide{
+                                    width: <?php echo $tcolhide; ?>%;
+                                    float: left;
+                                }
+
+                                .thide{
+                                    display: none;
+                                }
+
+                                .thide:first-child{
+                                    width: <?php echo $firstchild; ?>%;
+                                    display: block;
+                                }
+
+                                @media screen and (max-width:850px){
+                                    .tcolumn,.thide{
+                                        width: 50%;
+                                        margin-bottom: 1rem;
+                                    }
+
+                                    .thide:first-child{
+                                        width: 50%;
+                                    }
+
+                                    .thide{display: block;}
+                                }
+
+                                @media screen and (max-width:450px){
+                                    .thide{
+                                        width: 30%;
+                                    }
+
+                                    .thide:first-child{
+                                        width: 30%;
+                                    }
+
+                                    .tcolumn{
+                                        width: 70%;
+                                    }
+                                }
+                            </style>
                             <div class="days">
                                 <div class="thide">
                                     <!-- trowhead is an empty div -->
@@ -101,6 +162,7 @@
                                     <div class="trow"><?php echo ' '.$details['hotel_id1'].' ' ?></div>
                                     <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div>
                                 </div>
+                                <?php if($day2==1){ ?>
                                 <div class="thide">
                                     <!-- trowhead is an empty div -->
                                     <div class="trowhead">&nbsp</div>
@@ -114,6 +176,9 @@
                                     <div class="trow"><?php echo ' '.$details['hotel_id2'].' ' ?></div>
                                     <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div>
                                 </div>
+                                <?php } 
+                                    if($day3==1){
+                                ?>
                                 <div class="thide">
                                     <!-- trowhead is an empty div -->
                                     <div class="trowhead">&nbsp</div>
@@ -127,6 +192,7 @@
                                     <div class="trow"><?php echo ' '.$details['hotel_id3'].' ' ?></div>
                                     <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -214,10 +280,10 @@
 
                     <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
                         <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
-                        <input type="text" name="return_url" value="tripToGo">
-                        <input type="text" name="cancel_url" value="savedBudget">
-                        <input type="text" name="notify_url" value="https://localhost//Travo.lk/php/traveler/traveler_payment.php">
-                        <input type="text" name="order_id" value="1">
+                        <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
+                        <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
+                        <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
+                        <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
                         <input type="text" name="items" value="Trip"><br>
                         <input type="text" name="currency" value="LKR">
                         <input type="text" name="amount" value="1000">

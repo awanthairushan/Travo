@@ -144,6 +144,9 @@ label {
   opacity: 1;
 }
 
+.error{
+  margin: 0 auto;
+}
 
 /* -------- Switch Styles ------------*/
 [type="checkbox"] {

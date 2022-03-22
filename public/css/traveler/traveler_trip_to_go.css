@@ -85,9 +85,14 @@ body {
     padding-top: 1rem;
     /* to center .tripdetails */
     text-align: center;
+    overflow-y:scroll;
 }
 
-.trip1 {
+.cols2::-webkit-scrollbar {
+    display: none;
+  }
+
+.trip1{
     display: block;
 }
 

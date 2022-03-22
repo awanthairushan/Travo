@@ -48,7 +48,7 @@
               </div>
               <!-- end of the toggle -->
 
-              <form class="" action="<?php echo URLROOT ?>/traveler/tripPlanBegin" method="post">
+              <form  id="tripPlanBegin" class="" action="<?php echo URLROOT ?>/traveler/tripPlanBegin" method="post">
                 <table class="main">
                       <tr>
                           <th class="trow heading">PEOPLE COUNT</th>
@@ -56,20 +56,24 @@
                           <th class="trow heading">CATEGORY</th>
                       </tr>
                       <tr>
-                          <td class="trow"><input type="number" id="peoplecount" name="peoplecount" ></td>
-                          <td class="trow to"><input type="date" id="startdate" name="startdate"><span class="select-to">to</span><input type="date" id="enddate" name="enddate"></td>
-                          <td class="trow"><select name="category" id="category">
-                              <option selected>Select Category</option>
+                          <td class="trow"><input type="number" id="peoplecount" class="tripbegin" name="peoplecount" ></td>
+                          <?php
+                            $NewDate=Date('Y-m-d', strtotime('+7 days'));
+                          ?>
+                          <td class="trow to"><input type="date" id="startdate" name="startdate" class="tripbegin" min="<?php echo $NewDate; ?>"><span class="select-to">to</span><input type="date" id="enddate" name="enddate" class="tripbegin" min="<?php echo $NewDate; ?>" ></td>
+                          <td class="trow"><select name="category" id="category" class="tripbegincat">
+                              <option selected value="">Select Category</option>
                               <option value="pilgrimage">Pilgrimage</option>
                               <option value="cultural">Cultural</option>
                               <option value="leisure">Leisure</option>
                               </select>
                           </td>
                   </table>
+                  <br>
+                  <center><span class="error" id="error"> &nbsp </span></center>
                   <input type="submit" id="nextbtn" class="nextbtn" value="NEXT" name="submitbtn">
                   <!-- <button id="nextbtn" class="nextbtn" onclick="window.location.href='traveler/planTrip'">NEXT</button> -->
                 </form>
-                <script src="<?php echo URLROOT ?>/public/script/traveler/traveler_home.js"></script>
             </div>
         </div>
     </section>
@@ -88,6 +92,7 @@
       <style> <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
 
+    <script src="<?php echo URLROOT ?>/public/script/traveler/traveler_home.js"></script>
   </body>
 </html>
 <?php
