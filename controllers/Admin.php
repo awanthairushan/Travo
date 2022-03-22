@@ -31,7 +31,10 @@ class Admin extends Controller{
     }
     function addDestinationsAndSights(){
         $destination = $_POST['destination'];
-        $destinationId = uniqid("des_");
+        $destinationDetails = $this->model->getDestinationId($destination);
+        while ($desId = mysqli_fetch_array($destinationDetails)){
+            $destinationId=$desId['destination_id'];
+        }
 
         $this->model->addDestination($destination, $destinationId);
 

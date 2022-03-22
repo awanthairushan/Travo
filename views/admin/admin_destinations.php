@@ -48,16 +48,7 @@
         </thead>
         <tbody>
         <?php
-        
-        // for($i=0; $i<$this->countSights; $i++ ){
-        //     echo $this->sightsall[$i].;
-        // }
-      
-        // for($i=0;$i<$this->countSights;$i++){
-        //     while($rows=mysqli_fetch_array($this->sightsall[$i])){
-        //         echo $rows['sight'];
-        //     }
-        // }
+
         $i=0;
            while ($rows = mysqli_fetch_array($this->destinations)){
                
@@ -84,8 +75,6 @@
                         </form>
                         </td>
                     </tr>";
-                        
-    
                $i++;
             }
           ?>
@@ -139,7 +128,33 @@
     <form class="form_add_destination" id="form_add_destination" action="addDestinationsAndSights" method="POST">
        <!-- Enter destination-->
         <label for="fdestination" class="fdes">DESTINATION</label>
-            <input type="text" id="fdestination" name="destination">
+            <select id="fdestination" name="destination">
+                                <option value="Ampara">Ampara</option>
+                                <option value="Anuradhapura">Anuradhapura</option>
+                                <option value="Badulla">Badulla</option>
+                                <option value="Batticaloa">Batticaloa</option>
+                                <option value="Colombo">Colombo</option>
+                                <option value="Galle">Galle</option>
+                                <option value="Gampaha">Gampaha</option>
+                                <option value="Hambantota">Hambantota</option>
+                                <option value="Jaffna">Jaffna</option>
+                                <option value="Kalutara">Kalutara</option>
+                                <option value="Kandy">Kandy</option>
+                                <option value="Kegalle">Kegalle</option>
+                                <option value="Kilinochchi">Kilinochchi</option>
+                                <option value="Kurunegala">Kurunegala</option>
+                                <option value="Mannar">Mannar</option>
+                                <option value="Matale">Matale</option>
+                                <option value="Matara">Matara</option>
+                                <option value="Monaragala">Monaragala</option>
+                                <option value="Mullaitivu">Mullaitivu</option>
+                                <option value="Nuwara Eliya">Nuwara Eliya</option>
+                                <option value="Polonnaruwa">Polonnaruwa</option>
+                                <option value="Puttalam">Puttalam</option>
+                                <option value="Ratnapura">Ratnapura</option>
+                                <option value="Trincomalee">Trincomalee</option>
+                                <option value="Vavuniya">Vavuniya</option>
+                        </select>
             <!-- Enter visiting places-->
             <div class="site_details_div">
               <input type="text" id="fvp" name="visitingPlace[]" placeholder="  Sight">
@@ -151,7 +166,8 @@
                   <option value="Pilgrimage">Pilgrimage</option>
                   <option value="Leisure">Leisure</option>
               </select>
-              <input type="text" id="flocation" name="location[]" placeholder="  Location">
+              <input type="text" id="flocationlatitude" name="location[]" placeholder="  Latitude">
+              <input type="text" id="flocationlongitude" name="locationlong[]" placeholder="  Longitude">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
