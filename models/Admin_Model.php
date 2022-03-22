@@ -87,5 +87,19 @@ function deleteFeedback($id){
     $this->db->runQuery("DELETE FROM feedback WHERE feedback_id= '$id'");
 }
 
+//----------------------------------------Admin-Destination---------------------------------------------------------
+function addDestination($destination, $destinationId){
+    $this->db->runQuery("INSERT INTO destinations (destination_id, destination) VALUES ('$destinationId', '$destination')");
+}
+function addSights($destinationId, $sightId, $sights,$ticketPrices,$categories,$location){
+    return $this->db->runQuery("INSERT INTO sights (destination_id, sight_id, sight, category, ticket_price, location) VALUES ('$destinationId', '$sightId', '$sights', '$categories', '$ticketPrices', '$location')");
+}
+function getDestination(){
+    return $this->db->runQuery("SELECT * FROM destinations");
+}
+function getSights($destinationId){
+    return $this->db->runQuery("SELECT sight FROM sights WHERE destination_id = '$destinationId' ");
+}
+
 
 }

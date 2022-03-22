@@ -16,6 +16,41 @@ class Admin extends Controller{
     function destinations(){
         $this->view->render('admin/admin_destinations');
     }
+    function addDestinationsAndSights(){
+        $destination = $_POST['destination'];
+        $destinationId = uniqid("des_");
+
+        $this->model->addDestination($destination, $destinationId);
+
+        $sights = $_POST['visitingPlace'];
+        $ticketPrices = $_POST['ticketPrice'];
+        $categories = $_POST['tripCategory'];
+        $locations = $_POST['location'];
+
+        $numberOfSights = count($sights);
+
+ 
+        for($i = 0; $i<$numberOfSights; $i++){
+            $sightId = uniqid('site_'); 
+            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);
+
+            //echo $destinationId." ".$sightId." ". $sights[$i]." ".$ticketPrices[$i]." ".$categories[$i]." ".$locations[$i];
+            
+
+            if($isSuccess){
+                header('location: destinations');
+            }else{
+                echo "kela unaaa";
+            }
+        }
+    }
+    function getDestination(){
+        return $this->view->destinations = $this->model->getDestination();
+        while ($rows = mysqli_fetch_array($this->destinations)){
+            $destinationId = $rows['destination_id'];
+        }
+        return $this->view->visitingPlaces = $this->model->getSights($destinationId);
+    }
 
     function faq(){
         $this->view->faq = $this->model->getFaq();

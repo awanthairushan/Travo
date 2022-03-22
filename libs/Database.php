@@ -15,9 +15,9 @@ class Database {
 
     
 
-    public function selectQuery($sql){
-        return $result = mysqli_query($this->con, $sql);
-    }
+    // public function selectQuery($sql){
+    //     return $result = mysqli_query($this->con, $sql);
+    // }
 
     public function runQuery($sql){
         return $result = mysqli_query($this->con, $sql);
