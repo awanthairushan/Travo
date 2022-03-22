@@ -42,10 +42,53 @@
             <tr>
                 <th colspan = "2">DESTINATION</th>
                 <th colspan = "2">VISITING PLACES</th>
+                <th colspan = "2"></th>
+                <th colspan = "2"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+        <?php
+           while ($rows = mysqli_fetch_array($this->destinations)){
+               
+               while ($rows2 = mysqli_fetch_array($this->visitingPlaces)){
+                   $size = count($rows2);
+                   echo "<tr>
+                        <td>".$rows['destination']."</td>
+                        for($i=0; $i>$size; $i++){
+                            <td>".$rows[$i]."<br /></td>
+                            <td>
+                            <form method = 'POST'>
+                                <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE PLACE'><br />
+                            </form>
+                            </td>
+                        }
+                        <td>
+                        <form method = 'POST'>
+                        <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE DESTINATION'><br />
+                        </form>
+                        </td>
+                    </tr>";
+                        
+               }
+                // echo "<tr>
+                //     <td>".$rows['destination']."</td>
+                //     <td>".$rows['sight']."</td>
+                //     <td>
+                //     <form method='post' >
+                //         <input type='hidden' value='$rows[0]' name=faq_id>
+                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='EDIT'>
+                //     </form>
+                //     </td>
+                //     <td class='tdbtn'>
+                //     <form method='post' action='deleteFaq'>
+                //         <input type='hidden' value='$rows[0]' name=faq_id>
+                //         <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
+                //     </form>
+                //     </td>
+                // </tr>";
+            }
+          ?>
+            <!-- <tr>
                 <td>Galle</td>
                 <td>Galle Dutch Fort<br />
                     Dutch Reformed Church<br />
@@ -84,7 +127,7 @@
                     <input type="button" id="removebtn" value="REMOVE PLACE"><br /></td>
                 <td><input type="button" id="removebtn" value="REMOVE DESTINATION"><br />
                     <input type="button" id="addbtn" value="ADD NEW PLACE"></td>
-            </tr>
+            </tr> -->
         </tbody>
     </table>
 </div>
@@ -92,27 +135,26 @@
 
 <!--Start form of adding new destination-->
 <div class="form-container">
-    <form class="form_add_destination" id="form_add_destination" action="../../php/unregistered/admin_add_destinations.php" method="POST">
+    <form class="form_add_destination" id="form_add_destination" action="addDestinationsAndSights" method="POST">
        <!-- Enter destination-->
         <label for="fdestination" class="fdes">DESTINATION</label>
-            <input type="text" id="fdestination" name="fdestination">
-
+            <input type="text" id="fdestination" name="destination">
             <!-- Enter visiting places-->
             <div class="site_details_div">
-              <input type="text" id="fvp" name="fvp" placeholder="  Sight">
-              <input type="text" id="fprice" name="fprice" placeholder="  Ticket price LKR">
-              <input type="text" id="ftime" name="ftime" placeholder="  Time">
-              <select id="fcategory" name="fcategory">
-                  <option value="0">Select Category :</option>
-                  <option value="1">Cultural</option>
-                  <option value="2">Pilgrimage</option>
-                  <option value="3">Leisure</option>
+              <input type="text" id="fvp" name="visitingPlace[]" placeholder="  Sight">
+              <input type="text" id="fprice" name="ticketPrice[]" placeholder="  Ticket price LKR">
+              <!-- <input type="text" id="ftime" name="ftime" placeholder="  Time"> -->
+              <select id="fcategory" name="tripCategory[]">
+                  <option value="No Category">Select Category :</option>
+                  <option value="Cultural">Cultural</option>
+                  <option value="Pilgrimage">Pilgrimage</option>
+                  <option value="Leisure">Leisure</option>
               </select>
-              <input type="text" id="flocation" name="flocation">
+              <input type="text" id="flocation" name="location[]" placeholder="  Location">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
             </div>
 
-            <div class="site_details_div">
+            <!-- <div class="site_details_div">
               <input type="text" id="fvp" name="fvp" placeholder="  Sight">
               <input type="text" id="fprice" name="fprice" placeholder="  Ticket price LKR">
               <input type="text" id="ftime" name="ftime" placeholder="  Time">
@@ -124,9 +166,9 @@
               </select>
               <input type="text" id="flocation" name="flocation">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
-            </div>
+            </div> -->
 
-            <div class="site_details_div">
+            <!-- <div class="site_details_div">
               <input type="text" id="fvp" name="fvp" placeholder="  Sight">
               <input type="text" id="fprice" name="fprice" placeholder="  Ticket price LKR">
               <input type="text" id="ftime" name="ftime" placeholder="  Time">
@@ -138,9 +180,9 @@
               </select>
               <input type="text" id="flocation" name="flocation">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
-            </div>
+            </div> -->
 
-            <div class="site_details_div">
+            <!-- <div class="site_details_div">
               <input type="text" id="fvp" name="fvp" placeholder="  Sight">
               <input type="text" id="fprice" name="fprice" placeholder="  Ticket price LKR">
               <input type="text" id="ftime" name="ftime" placeholder="  Time">
@@ -152,7 +194,7 @@
               </select>
               <input type="text" id="flocation" name="flocation">
               <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location">
-            </div>
+            </div> -->
 
 
 
