@@ -43,7 +43,7 @@
           }
         ?>
       </table>
-      <script type="text/javascript" src="http://localhost/TRAVO/public/script/hotel/hotel_faq.js"></script>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/hotel/hotel_faq.js"></script>
     </div>
     </section>
     <section id="contact_us-section">
