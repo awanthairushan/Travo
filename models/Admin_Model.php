@@ -103,5 +103,8 @@ function getSights($destinationId){
 function getDestinationId($destination){
     return $this->db->runQuery("SELECT destination_id FROM destinations WHERE destination='$destination'");
 }
+function removeSight($sightId){
+    return $this->db->runQuery("DELETE FROM `sights` WHERE `sights`.`sight_id` = '$sightId' ");
+}
 
 }

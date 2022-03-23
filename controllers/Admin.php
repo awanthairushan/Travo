@@ -10,32 +10,36 @@ class Admin extends Controller{
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->render('admin/admin_trips');
-    }
-
-    
+    }    
     function destinations(){
         $this->view->destinations=$this->model->getDestination();
         $destinations = $this->model->getDestination();
         $sights = array();
+        $ticket = array();
+        $category = array();
         $count=0;
-        while($rowDes = mysqli_fetch_array($destinations)){
-
-            
+        while($rowDes = mysqli_fetch_array($destinations)){            
             $destinationId = $rowDes['destination_id'];
             $sights[$count] = $this->model-> getSights($destinationId); 
+            $ticket[$count] = $this->model-> getSights($destinationId); 
+            $category[$count] = $this->model-> getSights($destinationId); 
+            $sightId[$count] = $this->model-> getSights($destinationId);
             $this->view->countSights = count($sights);
             $count++;
         }
         $this->view->sightsall=$sights;
+        $this->view->ticketsall=$ticket;
+        $this->view->categoryall=$category;
+        $this->view->sightIdAll=$sightId;
         $this->view->render('admin/admin_destinations');
     }
     function addDestinationsAndSights(){
+        $destinationId = uniqid('des_');
         $destination = $_POST['destination'];
         $destinationDetails = $this->model->getDestinationId($destination);
         while ($desId = mysqli_fetch_array($destinationDetails)){
             $destinationId=$desId['destination_id'];
         }
-
         $this->model->addDestination($destination, $destinationId);
 
         $sights = $_POST['visitingPlace'];
@@ -48,15 +52,10 @@ class Admin extends Controller{
  
         for($i = 0; $i<$numberOfSights; $i++){
             $sightId = uniqid('site_'); 
-            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);
-
-            //echo $destinationId." ".$sightId." ". $sights[$i]." ".$ticketPrices[$i]." ".$categories[$i]." ".$locations[$i];
-            
+            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
 
             if($isSuccess){
                 header('location: destinations');
-            }else{
-                echo "kela unaaa";
             }
         }
     }
@@ -66,6 +65,25 @@ class Admin extends Controller{
             $destinationId = $rows['destination_id'];
         }
         return $this->view->visitingPlaces = $this->model->getSights($destinationId);
+    }
+    function removeSight(){
+        $sightId = $_POST['sightID'];
+        $isRemoveSuccess = $this->model->removeSight($sightId);
+        if($isRemoveSuccess){
+            header('location: destinations');
+        }
+    }
+    function editSight(){
+        $sightId = $_POST['sightID'];
+        $sightName = $_POST[''];
+        $ticketPrice = $_POST[''];
+        $category = $_POST[''];
+
+        
+        $isEditSuccess = $this->model->editSight($sightId);
+        if($isEditSuccess){
+            header('location: destinations');
+        }
     }
 
     function faq(){
