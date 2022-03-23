@@ -26,7 +26,7 @@
       <style>
       <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_hotel.css';?>
       </style>
-      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
       <br>
       <?php 
         $date=$this->day;

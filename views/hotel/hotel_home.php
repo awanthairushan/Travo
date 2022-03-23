@@ -29,7 +29,7 @@
       <style>
       <?php include_once APPROOT.'/public/css/repeatable_contents/nav_bar_hotel.css'; ?>
       </style>
-      <script type="text/javascript" src="<?php echo APPROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js">
+      <script type="text/javascript" src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js">
       </script>
       <br>
       <div class="home-watermark_and_started-div">
