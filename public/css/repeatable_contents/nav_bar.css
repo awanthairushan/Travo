@@ -36,7 +36,7 @@
   text-decoration: none;
 }
 .nav_bar_links li a:hover {
-  color: rgba(1,1,1,0.6);
+    color: #6b6a6a;
 }
 .nav_bar_links li {
   position: relative;
