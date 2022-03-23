@@ -14,8 +14,8 @@ hamburger.addEventListener('click', () => {
 });
 
 
-var title = document.getElementsByTagName("title")[0];
-var navigation = document.querySelectorAll(".navigations_name");
+let title = document.getElementsByTagName("title")[0];
+let navigation = document.querySelectorAll(".navigations_name");
 if (title.textContent == "HOME") {
     navigation[2].classList.add("navigations_bold_style");
 } else if (title.textContent == "FAQ") {
@@ -28,9 +28,9 @@ if (title.textContent == "HOME") {
 
 
 
-var modal = document.querySelector(".delete_modal");
-var deleteAccount_btn = document.querySelector(".deleteAccount_btn");
-var acc_cancelBtn = document.querySelector("#delete_cancel_btn");
+let modal = document.querySelector(".delete_modal");
+let deleteAccount_btn = document.querySelector(".deleteAccount_btn");
+let acc_cancelBtn = document.querySelector("#delete_cancel_btn");
 
 deleteAccount_btn.addEventListener("click", function(e){
   modal.style.display = "block";

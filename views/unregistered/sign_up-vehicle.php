@@ -154,7 +154,7 @@
 
       <div class="form-control">
         <div class="tc_div_form_signup_traveler">
-          <input class="tc-checkbox-form-sign_up-traveler" type="checkbox" name="tc" id="tc" value="yes" required><label id="tc-label-form-sign_up-traveler" for="tc">I agree to all the <a href="../../pages/unregistered/tc.php">Terms & Conditions</a> of travo.lk</label>
+          <input class="tc-checkbox-form-sign_up-traveler" type="checkbox" name="tc" id="tc" value="yes" required><label id="tc-label-form-sign_up-traveler" for="tc">I agree to all the <a href="<?php echo URLROOT ?>/unregistered/termsAndConditions">Terms & Conditions</a> of travo.lk</label>
         </div>
       </div>
 

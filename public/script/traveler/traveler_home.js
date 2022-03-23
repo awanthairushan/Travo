@@ -1,8 +1,21 @@
 //Create an array to get all inputs with the class name = "tripbegin"
 const fields = document.getElementsByClassName("tripbegin"); 
 const fields2 = document.getElementById("category");
-const error = document.getElementById("error"); 
+const error = document.getElementById("error");
 
+// const planningBtn = document.getElementsByClassName("planning");
+// const upcomingBtn = document.getElementsByClassName("upcoming");
+// const tripPlanBeginForm = document.getElementsByClassName("tripPlanBegin");
+// const upcomingTableForm = document.getElementsByClassName("upcoming-table");
+//
+// planningBtn.addEventListener("click", function(){
+//     tripPlanBeginForm.style.display = "block";
+//     upcomingTableForm.style.display = "none";
+// });
+// upcomingBtn.addEventListener("click", function(){
+//     upcomingTableForm.style.display = "block";
+//     tripPlanBeginForm.style.display = "none";
+// });
 //Get form submit button
 submitbtn = document.getElementById("nextbtn");
 
