@@ -42,8 +42,10 @@
             <tr>
                 <th >DESTINATION</th>
                 <th >VISITING PLACES</th>
-                <th >&nbsp</th>
-                <th >&nbsp</th>
+                <th >TICKET PRICE</th>
+                <th >Category</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -57,67 +59,55 @@
                    echo "<tr>
                         <td>".$rows['destination']."</td><td>";
                         
-                        while($rows2=mysqli_fetch_array($this->sightsall[$i])){
-                            echo $rows2['sight']."<br />";
+                        while($rows=mysqli_fetch_array($this->sightsall[$i])){
+                            echo $rows['sight']."<br />";
                             $count++;
                         }
 
-                        echo "</td><td>";
+                        echo "</td>
+                        <td>";
+                        
+                        while($rows=mysqli_fetch_array($this->ticketsall[$i])){
+                            echo "Rs. ".$rows['ticket_price']."<br />";
+                        }
+
+                        echo "</td>
+
+                        <td>";
+                        
+                        while($rows=mysqli_fetch_array($this->categoryall[$i])){
+                            echo $rows['category']."<br />";
+                        }
+
+                        echo "</td>
+
+                        <td>";
                         for($j=0;$j<$count;$j++){
+                          while($rows=mysqli_fetch_array($this->sightIdAll[$i])){
+                            $sightId = $rows['sight_id'];
+                          }
                             echo "
-                            <form method = 'POST'>
-                                <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE PLACE'><br />
+                            <form method='post' action='removeSight'>
+                              <input type='hidden' value='$sightId' name=sightID>                    
+                              <input type='submit' id='removebtn' name ='acceptbtn' class='removebtn' value='REMOVE SIGHT'>
                             </form>";
                         }
-                        echo "</td><td>
-                        <form method = 'POST'>
-                        <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE DESTINATION'><br />
-                        </form>
-                        </td>
+                        echo "</td>
+
+                        <td>";
+                        for($j=0;$j<$count;$j++){
+                            echo "
+                            <form method='post' action='editSight'>
+                            <input type='submit' id='addbtn' name ='acceptbtn' class='addbtn' value='EDIT SIGHT'>
+                        </form>";
+                        }
+                        echo "</td>
+
+                        
                     </tr>";
                $i++;
             }
           ?>
-            <!-- <tr>
-                <td>Galle</td>
-                <td>Galle Dutch Fort<br />
-                    Dutch Reformed Church<br />
-                    The National Museum of Galle<br />
-                    Japanese Peace Pagoda</td>
-                <td><input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br /></td>
-                <td><input type="button" id="removebtn" value="REMOVE DESTINATION"><br />
-                    <input type="button" id="addbtn" value="ADD NEW PLACE"></td>
-            </tr>
-
-          <tr>
-                <td>Rathnapura</td>
-                <td>Galle Dutch Fort<br />
-                    Dutch Reformed Church<br />
-                    The National Museum of Galle<br />
-                    Japanese Peace Pagoda</td>
-                <td><input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br /></td>
-                <td><input type="button" id="removebtn" value="REMOVE DESTINATION"><br />
-                    <input type="button" id="addbtn" value="ADD NEW PLACE"></td>
-            </tr>
-            <tr>
-                <td>Rathnapura</td>
-                <td>Galle Dutch Fort<br />
-                    Dutch Reformed Church<br />
-                    The National Museum of Galle<br />
-                    Japanese Peace Pagoda</td>
-                <td><input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br />
-                    <input type="button" id="removebtn" value="REMOVE PLACE"><br /></td>
-                <td><input type="button" id="removebtn" value="REMOVE DESTINATION"><br />
-                    <input type="button" id="addbtn" value="ADD NEW PLACE"></td>
-            </tr> -->
         </tbody>
     </table>
 </div>
@@ -129,6 +119,7 @@
        <!-- Enter destination-->
         <label for="fdestination" class="fdes">DESTINATION</label>
             <select id="fdestination" name="destination">
+                                <option value="">Select Destination</option>
                                 <option value="Ampara">Ampara</option>
                                 <option value="Anuradhapura">Anuradhapura</option>
                                 <option value="Badulla">Badulla</option>
@@ -161,7 +152,7 @@
               <input type="text" id="fprice" name="ticketPrice[]" placeholder="  Ticket price LKR">
               <!-- <input type="text" id="ftime" name="ftime" placeholder="  Time"> -->
               <select id="fcategory" name="tripCategory[]">
-                  <option value="No Category">Select Category :</option>
+                  <option value="">Select Category :</option>
                   <option value="Cultural">Cultural</option>
                   <option value="Pilgrimage">Pilgrimage</option>
                   <option value="Leisure">Leisure</option>

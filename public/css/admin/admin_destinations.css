@@ -43,7 +43,7 @@
 }
 
 .content_table th{
-    width: 25%;
+    width: 20%;
 }
 .content_table td {    
     height: 3rem;
@@ -67,7 +67,16 @@
     padding: 0;
     text-align: center;
 }
-
+.content_table td:nth-child(5){
+    width: 10vw;
+    padding: 0;
+    text-align: center;
+}
+.content_table td:nth-child(5){
+    width: 10vw;
+    padding: 0;
+    text-align: center;
+}
 .content_table tbody tr {
     background-color: #323534;
     border-bottom: 2px solid #000000;
@@ -99,7 +108,7 @@ tbody a {
     margin-left: 370px;
     background-color: rgb(41, 180, 161);
     border-radius: 8px;
-    width: 160px;
+    width: 80px;
     height: 30px;
     cursor: pointer;
     border-width: 0.01ch;
