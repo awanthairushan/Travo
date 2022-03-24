@@ -39,6 +39,9 @@ if (isset($_SESSION['username'])) {
                             ?>
 
                             <div class="location_div">
+
+                                <!--                                -------------------------location input map ------------------------------------------>
+
                                 <label for="location">LOCATION:</label>
                                 <div class="mapform">
                                     <div class="row">
@@ -54,7 +57,7 @@ if (isset($_SESSION['username'])) {
 
                                     <button class="get-location-btn" onclick="getLocation(event)">Get Current Location
                                     </button>
-
+                                    <label class="label-for-map">drag the marker for your location</label>
                                     <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"
                                          class="my-3"></div>
 
@@ -114,6 +117,9 @@ if (isset($_SESSION['username'])) {
                                             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap"
                                             type="text/javascript"></script>
                                 </div>
+
+                                <!--                                ------------------------------end of location input map------------------------------------------------------>
+
                                 <div id="displaydiv" class="displaydiv"> Select up
                                     to <?php echo $_SESSION['difference'] + 1; ?> destinations
                                 </div>
@@ -180,7 +186,8 @@ if (isset($_SESSION['username'])) {
                                 <div id="destinations">
                                     <table class="tableday">
                                         <tr>
-                                            <td class="tdata"><label for="destination1">DESTINATION <?php echo $i; ?></label></td>
+                                            <td class="tdata"><label
+                                                        for="destination1">DESTINATION <?php echo $i; ?></label></td>
                                         </tr>
 
                                         <tr>

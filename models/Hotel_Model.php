@@ -1,6 +1,6 @@
 <?php
 
-class Hotel_Model extends Model{
+class   Hotel_Model extends Model{
 
     function __construct()
     {
@@ -27,8 +27,8 @@ function getFaq(){
         return $this->db->runQuery("SELECT feedback_id,date,feedback FROM feedback");
     }
 
-    function updateHotel($hotel_id,$new_name,$new_regNo,$new_licenceNo,$new_line1,$new_line2,$new_city,$new_location,$new_contact1,$new_contact2,$new_decription,$new_email,$new_password,$new_hotel_type,$new_website,$new_rep_name,$new_rep_email,$new_rep_contact1,$new_rep_contact2){
-        return $this->db->runQuery("UPDATE hotels SET name='$new_name', regNo='$new_regNo', hotel_type='$new_hotel_type', licenceNo='$new_licenceNo' , address_line1='$new_line1' , address_line2='$new_line2' , city='$new_city' , location='$new_location' , contact1='$new_contact1', contact2='$new_contact2', email='$new_email', password='$new_password', webUrl='$new_website', description='$new_decription', rep_name='$new_rep_name', rep_email='$new_rep_email', rep_contact1='$new_rep_contact1', rep_contact2='$new_rep_contact2' WHERE hotelId='$hotel_id'"); 
+    function updateHotel($hotel_id,$new_name,$new_regNo,$new_licenceNo,$new_line1,$new_line2,$new_city,$new_latitude,$new_longitude,$new_contact1,$new_contact2,$new_decription,$new_email,$new_password,$new_hotel_type,$new_website,$new_rep_name,$new_rep_email,$new_rep_contact1,$new_rep_contact2){
+        return $this->db->runQuery("UPDATE hotels SET name='$new_name', regNo='$new_regNo', hotel_type='$new_hotel_type', licenceNo='$new_licenceNo' , address_line1='$new_line1' , address_line2='$new_line2' , city='$new_city' , longitude = '$new_longitude', latitude='$new_latitude' , contact1='$new_contact1', contact2='$new_contact2', email='$new_email', password='$new_password', webUrl='$new_website', description='$new_decription', rep_name='$new_rep_name', rep_email='$new_rep_email', rep_contact1='$new_rep_contact1', rep_contact2='$new_rep_contact2' WHERE hotelId='$hotel_id'");
     }
     
     function selectHotel($user){
