@@ -265,6 +265,7 @@ input[type=file]::file-selector-button {
     font-size: .9rem !important;
     float: right !important;
     margin-right: 4rem !important;
+    font-weight: bold !important;
 }
 
 /*-----------------end of location input map-------------------------------*/
