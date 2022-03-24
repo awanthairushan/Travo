@@ -84,12 +84,93 @@ class Vehicle extends Controller
             header('location: myVehicle');
         }
     }
+
+    function loadupdateVehicleDetails()
+    {
+        session_start();
+
+        $vehicle_id=$_GET['vehicleID'];
+
+        $this->view->isVehicle = $this->model->getVehicleDetailsId($vehicle_id);
+        $this->view->vehicleDetails = $this->model->getVehicleDetailsId($vehicle_id);
+        $this->view->vehicleID = $this->model->getVehicleDetails($_SESSION['username']);
+        $this->view->render('vehicle/vehicle_update_vehicle');
+    }
+
     function updateVehicleDetails()
     {
         session_start();
-        $this->view->isVehicle = $this->model->getOwnerDetails($_SESSION['username']);
-        $this->view->render('vehicle/vehicle_update_vehicle');
+
+        $vehicle_id = $_POST['vehicle_id'];
+
+        echo $vehicle_id;
+
+        $vehiclesDetails = $this->model->getVehicleDetailsId($vehicle_id);
+        while ($rows = mysqli_fetch_array($vehiclesDetails)) {
+            $vehicle_no = $rows['vehicle_no'];
+            $type = $rows['type'];
+            $no_of_passengers = $rows['no_of_passengers'];
+            $city = $rows['city'];
+            $price_for_1km = $rows['price_for_1km'];
+            $price_for_day = $rows['price_for_day'];
+            $driver_type = $rows['driver_type'];
+            $driver_charge = $rows['driver_charge'];
+            $ac = $rows['ac'];
+        }
+
+        $vehiclesDetails = $this->model->getVehicleDetailsId($_SESSION['username']);
+        
+        $new_vehicle_no = trim($_POST['vehicle_no']);
+        $new_type = trim($_POST['type']);
+        $new_no_of_passengers = trim($_POST['no_of_passengers']);
+        $new_city = trim($_POST['city']);
+        $new_price_for_1km = trim($_POST['price_for_1km']);
+        $new_price_for_day = trim($_POST['price_for_day']);
+        $new_driver_type = trim($_POST['driver_type']);
+        $new_driver_charge =  trim($_POST['driver_charge']);
+        $new_ac="";
+        if(isset($_POST['ac'])){
+            $new_ac="yes";
+        }
+        echo $new_vehicle_no;
+
+        if (empty($new_vehicle_no)) {
+            $new_vehicle_no = $vehicle_no;
+        }
+        if (empty($new_type)) {
+            $new_type = $type;
+        }
+        if (empty($new_no_of_passengers)) {
+            $new_no_of_passengers = $no_of_passengers;
+        } 
+        if (empty($new_city)) {
+            $new_city = $city;
+        }
+        if (empty($new_price_for_1km)) {
+            $new_price_for_1km = $price_for_1km;
+        }
+        if (empty($new_price_for_day)) {
+            $new_price_for_day = $price_for_day;
+        }
+        if (empty($new_driver_type)) {
+            $new_driver_type = $driver_type;
+        }
+        if (empty($new_driver_charge)) {
+            $new_driver_charge = $driver_charge;
+        } 
+        if (empty($new_ac)) {
+            $new_ac = $ac;
+        }          
+        
+        if($this->model->updateVehicleDetails($vehicle_id, $new_vehicle_no, $new_type, $new_no_of_passengers, $new_city, $new_price_for_1km, $new_price_for_day, $new_driver_type, $new_driver_charge, $new_ac)){
+            header('location: loadupdateVehicleDetails?vehicleID='.$vehicle_id);
+        }
+        else{
+            die('Something went wrong.');
+        }
     }
+
+    
     function addNewVehicle()
     {
         session_start();
@@ -145,6 +226,7 @@ class Vehicle extends Controller
         $this->model->addVehicle($vehicle_id, $vehicle_no, $type, $vehicle_model, $city, $owner_id,  $price_for_1km, $price_for_day, $driver_type, $driver_charge, $ac, $no_of_passengers, $imageNewName, $driver_name, $driver_contact1, $driver_contact2);
         header('location: myVehicle');
     }
+
     function logout()
     {
         session_start();
@@ -158,9 +240,8 @@ class Vehicle extends Controller
         $this->model->deleteVehicle($vehicle_id);
         header('location: myVehicle');
     }
-
     function deleteVehicleOwner(){
-//        $this->logout();
+    //$this->logout();
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -171,4 +252,6 @@ class Vehicle extends Controller
             }
         }
     }
+
+
 }
