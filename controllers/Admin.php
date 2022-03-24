@@ -12,6 +12,8 @@ class Admin extends Controller{
         $this->view->render('admin/admin_trips');
     }    
     function destinations(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->destinations=$this->model->getDestination();
         $destinations = $this->model->getDestination();
         $sights = array();
@@ -34,6 +36,8 @@ class Admin extends Controller{
         $this->view->render('admin/admin_destinations');
     }
     function addDestinationsAndSights(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $destinationId = uniqid('des_');
         $destination = $_POST['destination'];
         $destinationDetails = $this->model->getDestinationId($destination);
@@ -60,6 +64,8 @@ class Admin extends Controller{
         }
     }
     function getDestination(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         return $this->view->destinations = $this->model->getDestination();
         while ($rows = mysqli_fetch_array($this->destinations)){
             $destinationId = $rows['destination_id'];
@@ -67,6 +73,8 @@ class Admin extends Controller{
         return $this->view->visitingPlaces = $this->model->getSights($destinationId);
     }
     function removeSight(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $sightId = $_POST['sightID'];
         $isRemoveSuccess = $this->model->removeSight($sightId);
         if($isRemoveSuccess){
@@ -74,12 +82,14 @@ class Admin extends Controller{
         }
     }
     function editSight(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $sightId = $_POST['sightID'];
         $sightName = $_POST[''];
         $ticketPrice = $_POST[''];
         $category = $_POST[''];
 
-        
+
         $isEditSuccess = $this->model->editSight($sightId);
         if($isEditSuccess){
             header('location: destinations');
@@ -87,16 +97,22 @@ class Admin extends Controller{
     }
 
     function faq(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->faq = $this->model->getFaq();
         $this->view->render('admin/admin_faq');
     }
 
     function feedback(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->feedback = $this->model->getFeedback();
         $this->view->render('admin/admin_feedback');
     }
 
     function hotelsMore(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['hotel_morebtn']; 
         $hotel_id = $_POST['hotelID'];
         $this->view->hotel_details = $this->model->getAllHotelDetails($hotel_id);
@@ -108,25 +124,35 @@ class Admin extends Controller{
     }
 
     function hotels(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->new_hotels = $this->model->getNewHotelDetails();
         $this->view->existing_hotels = $this->model->getExsistingHotelDetails();
         $this->view->render('admin/admin_hotels');
     }
 
     function travelers(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->travelers = $this->model->getTravelerDetails();
         $this->view->render('admin/admin_travelers');
     }
 
     function tripDetails(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->render('admin/admin_trip_details');
     }
 
     function trips(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->render('admin/admin_trips');
     }
 
     function vehiclesMore(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['vehicle_morebtn']; 
         $vehicle_id = $_POST['vehicle_id'];
         $this->view->all_vehicle_details = $this->model->getAllVehicleDetails($vehicle_id);
@@ -134,11 +160,15 @@ class Admin extends Controller{
     }
 
     function vehicles(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->vehicle_details = $this->model->getVehicleDetails();
         $this->view->render('admin/admin_vehicles');
     }
 
     function addNewFaq(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action=$_POST['submit']; 
 
         $faq_id = uniqid("faq_");
@@ -150,6 +180,8 @@ class Admin extends Controller{
 	}
 
     function deleteFaq(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['removebtn']; 
         $faq_id = $_POST['faq_id'];
 
@@ -158,6 +190,8 @@ class Admin extends Controller{
     }
 
     function deleteFeedback(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['removebtn']; 
         $feedback_id = $_POST['feedback_id'];
 
@@ -166,6 +200,8 @@ class Admin extends Controller{
     }
 
     function deleteTravelers(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['removebtn'];
         $traveler_id=$_POST['travelerID'];
         $email=$_POST['email'];
@@ -176,6 +212,8 @@ class Admin extends Controller{
     }
 
     function declineHotelRequest(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['removebtn']; 
         $hotel_id = $_POST['hotelID'];
 
@@ -183,6 +221,8 @@ class Admin extends Controller{
         header('location: hotels');
     }
     function acceptHotelRequest(){
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $action = $_POST['acceptbtn']; 
         $hotel_id = $_POST['hotelID'];
 

@@ -219,6 +219,10 @@ tbody a {
     font-size: 20px;
     font-weight: bold;
 }
+
+.destination_empty_header{
+    width: 30rem !important;
+}
 /* .mvp {
   font-weight: 500;
   margin-left: 30px;
