@@ -1,0 +1,760 @@
+body {
+    font-family: sans-serif;
+    margin: 0px;
+  }
+  
+  .uppersection {
+    background-image: url("http://localhost/TRAVO/public/images/background_Images/travelerbg.jpg");
+    /* opacity: 90%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  
+  /* title of the page */
+  .pageheading{
+    font-size: 1.5rem;
+    margin:0 0 0.25rem 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+  }
+  
+  .plan-head{
+    display: block;
+  }
+  
+  .hotel-head{
+    display: none;
+  }
+  
+  .content {
+    display: block;
+  }
+  
+  .details {
+    align-content: center;
+    background: rgba(196, 196, 196, 0.6);
+    border-radius: 2rem;
+    margin: 0 auto;
+    width: 80%;
+    height: 70vh;
+    overflow-y:scroll;
+  }
+  
+  .details::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .location_div {
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0;
+    height: 12vh;
+  }
+  
+  .location_div label {
+  
+    float: left;
+    margin: 0;
+    margin-left: 5rem;
+    width: 20%;
+  }
+  
+  .location_div input,select,.displaydiv {
+    float: right;
+    margin: 0;
+    margin-right: 0.25rem;
+    width: 60%;
+  }
+  
+  .clear{
+    clear: both;
+    height: 1.2rem;
+  }
+  
+  .tableday {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .tdata {
+    padding: 0.6rem;
+    text-align: center;
+  }
+  
+  #destinations {
+    float: left;
+    /* width: 33.33%; */
+    margin-bottom: 1rem;
+  }
+  
+  .selecthotelpopupbtn {
+    width: 15rem;
+    height: 4rem;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    background: #369093;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+  
+  .sights {
+    width: 15rem;
+    height: 20vh;
+    padding: 0.5rem;
+    margin-bottom: auto;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+  
+  input[type=email],
+  input[type="text"],select {
+    background: none;
+    border: 2px solid #000000;
+    margin: 0px;
+    border-radius: 0.5rem;
+    width: 65%;
+  }
+  
+  .displaydiv{
+    border: none;
+    background: none;
+    margin: 0px;
+    padding-bottom: 0.8rem;
+    width: 65%;
+  }
+  
+  .choice{
+    background: #369093;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0.1rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    width: 7vh;
+  }
+  
+  .choice b{
+    /* color: black; */
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  #img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .addmail {
+    color: #000000;
+  }
+  
+  .nextbtn {
+  
+    width: 12rem;
+    height: 2.5rem;
+    margin: 1rem auto;
+    background-color: #369093;
+    opacity: 1;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+  
+  .other_email {
+    text-align: center;
+  }
+  
+  /* styles of popup */
+  
+  .hotel_names_popup_main {
+    /* padding-top: 2rem; */
+    display: none;
+    height: 70vh;
+    background: rgba(196, 196, 196, 0.6);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 2rem;
+    overflow-y: scroll;
+  }
+
+  .hotel_names_popup_main::-webkit-scrollbar{
+    display: none;
+  }
+
+  
+  table {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .prev {
+    border-top: 4.5rem solid transparent;
+    border-right: 3.2rem solid #555;
+    border-bottom: 4.5rem solid transparent;
+    width: 5%;
+    float: right;
+    align-content: center;
+    cursor: pointer;
+  }
+  
+  .hotels {
+    width: 80%;
+  }
+  
+  .next {
+    width: 0;
+    height: 0;
+    border-top: 4.5rem solid transparent;
+    border-left: 3.2rem solid #555;
+    border-bottom: 4.5rem solid transparent;
+    width: 5%;
+    float: left;
+    align-content: center;
+    cursor: pointer;
+  }
+  
+  .slide div{
+    float: left;
+    width: 50%;
+    align-content: center;
+    padding: 0;
+  }
+  .slide button {
+    font-size: 1rem;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  #selecthotelbtn {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 20rem;
+    height: 7rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  #cancelbtn {
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.5rem auto;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+    background-color: rgba(239, 49, 49);
+    opacity: 0.6;
+  }
+  
+  /* hotel booking */
+
+  .hotel_booking{
+      display: none;
+  }
+  
+  .hotelcontent {
+    max-height: 75vh;
+    overflow-y: scroll;
+  }
+
+  .image_gallery_hotel {
+    height: 20.5vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    margin: 0 auto auto auto;
+    padding: 0;
+}
+  
+  .image_gallery_hotel table {
+    padding: 0;
+  }
+  
+  .image_gallery_hotel table td {
+    width: 20%;
+    padding: 0;
+  }
+  
+  .images_image_gallery_hotel {
+    height: 18vh;
+    width: 95%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 0;
+  }
+  
+  .images_image_gallery_hotel:hover {
+    transform: scale(1.03);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  form {
+    margin: auto;
+  }
+  
+  .rooms {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    width: 80%;
+    height: auto;
+    margin: 0.5rem auto auto auto;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 40px;
+    padding-top: 0.5rem;
+    text-align: center;
+  }
+  
+  .slide_room {
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    align-content: center;
+  }
+  
+  .rname {
+    /* font-size: 25px; */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .r1,
+  .r2,
+  .r3,
+  .r4 {
+    display: block;
+  }
+  
+  .roomtype {
+    /* to center .roomtype */
+    display: inline-block;
+    width: 90%;
+    /* height: 8rem; */
+    padding-top: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    color: #ffffff;
+    margin: 4px;
+    /* align texts and button center */
+    text-align: center;
+  }
+  
+  .roomtype dl {
+    margin: 0;
+  }
+  
+  .left {
+    font-size: 1rem;
+    color: rgb(185, 8, 8);
+    font-weight: bold;
+  }
+  
+  .price {
+    font-size: 1rem;
+  }
+  
+  b {
+    color: red;
+  }
+  
+  .confirm {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .confirmbtn {
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.5rem 0.5rem 0 auto;
+    background: #369093;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    /* display: block; */
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+
+  .cancelhtlbtn{
+    width: 12rem;
+    height: 2.5rem;
+    margin: 0.5rem 0.5rem 0 auto;
+    background-color: rgba(239, 49, 49);
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    /* display: block; */
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+  
+  
+  /* css for changing no of rooms part */
+  
+  .value-button {
+    display: inline-block;
+    margin: 0px;
+    width: 3rem;
+    height: 1.5rem;
+    padding-top: 0.4rem;
+    text-align: center;
+    vertical-align: middle;
+    background: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .value-button:hover {
+    cursor: pointer;
+  }
+  
+  form #decrease {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  form #increase {
+    font-size: 1.2rem;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  input#Snumber,
+  #Dnumber,
+  #Fnumber,
+  #Mnumber {
+    text-align: center;
+    border: none;
+    border: 0.15rem solid #000;
+    background: none;
+    margin: 0;
+    width: 2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .hoteldetails {
+    width: 80%;
+    margin: auto;
+    height: 28vh;
+  }
+  
+  .hoteldetails tr th {
+    color: #ffffff;
+    text-align: left;
+  }
+  
+  
+  /* new */
+  
+  .hdrow {
+    float: left;
+    width: 49%;
+    margin: 0 0.5%;
+  }
+  
+  
+  /* new */
+  
+  .hdhead {
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  
+  /* .hoteldetails iframe {
+  margin: 0;
+  border-radius: 1rem;
+  border:0;
+  } */
+  
+  
+  /* new */
+  
+  .hdbody iframe {
+    display: block;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border: 0;
+  }
+  
+  
+  /* .hoteldetails td{
+    border-radius: 1rem;
+    width: 50%;
+    background: rgba(196, 196, 196, 0.6);
+    font-size: 1rem;
+  } */
+  
+  
+  /* new */
+  
+  .hdbody {
+    border-radius: 2rem;
+    background: rgba(196, 196, 196, 0.6);
+    font-size: 0.9rem;
+    height: 12rem;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  
+  /* .hoteldetails td p {
+      text-align:justify;
+      width: 90%;
+      margin: auto;
+    } */
+  
+  .hdbody p {
+    margin: 0 auto;
+    padding: 0.5rem;
+    text-align: justify;
+  }
+  
+  
+  /* .hoteldetailsth,td{
+      height: auto;
+      text-align: center;
+  } */
+  
+  @media screen and (max-width:1200px) {
+    .hdbody {
+        height: 15rem;
+    }
+  }
+  
+  @media screen and (max-width:1050px){
+    #selecthotelbtn {
+        width: 95%;
+        padding: 0 1rem;
+    }
+  }
+  
+  @media screen and (max-width:950px) {
+    .hdbody {
+        height: 18rem;
+    }
+  }
+  
+  @media screen and (max-width:850px){
+    .pageheading{
+        margin:4rem 0 0.25rem 0;
+    }
+  
+    .location_div label {
+      margin-left: 0;
+    }
+  
+    .hdbody {
+      height: 22rem;
+    }
+  }
+  
+  @media screen and (max-width:755px) {
+    .slide_room {
+        float: left;
+        width: 50%;
+        align-content: center;
+    }
+    .rooms {
+        height: 30rem;
+    }
+    .rname {
+        margin-top: 0.5rem;
+    }
+    .hdrow {
+        width: 90%;
+    }
+    .hdrow div {
+        width: 100%;
+    }
+    .hdhead {
+        text-align: center;
+    }
+    .hdbody {
+        height: 12rem;
+    }
+    .hoteldetails {
+        /* center .hdrow divs inside the .hoteldetails */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+  }
+  
+  @media screen and (max-width:700px){
+    #selecthotelbtn {
+        font-size: 0.9rem;
+        padding: 0;
+        height: 6rem;
+        margin: 3px 5px 0 5px;
+    }
+  
+    .cols1,.cols2{
+        float: left;
+        width: 100%;
+    }
+  
+    .slide div{
+        width: 100%;
+    }
+  
+    .hotel_names_popup {
+        padding-top: 0.5rem;
+        height: 28.5rem;
+        margin: 0.5vh auto auto auto;
+    }
+  }
+  
+  @media screen and (max-width:650px) {
+    .hdrow {
+        width: 100%;
+    }
+    .hdbody {
+        height: 15rem;
+    }
+  }
+  
+  @media screen and (max-width:500px) {
+    .rooms {
+        height: 60rem;
+    }
+    .slide_room {
+        float: left;
+        width: 90%;
+        align-content: center;
+        margin: 0 5%;
+    }
+    .hdbody {
+        height: 18rem;
+    }
+    .hoteldetails {
+        width: 90%;
+    }
+  }
+  
+  @media screen and (max-width:450px){
+    .hotel_names_popup {
+        margin: 5vh auto auto auto;
+    }
+  
+    #form_plan label{
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media screen and (max-width:400px){
+    #selecthotelbtn {
+        height: 7rem;
+        padding: 3px;
+        margin: 2px 2px 0 2px;
+    }
+  
+    .hotel_names_popup {
+        padding-top: 0.1rem;
+        margin: 0 auto auto auto;
+        height: 31.7rem;
+    }
+  
+    #cancelbtn {
+        margin: 0.1rem auto;
+    }
+  }
+  
+  @media screen and (max-width:375px){
+    .details{
+      height: 65vh;
+    }
+  }
+  
+  @media screen and (max-width:350px){
+  
+    .prev {
+        border-top: 3rem solid transparent;
+        border-right: 2rem solid #555;
+        border-bottom: 3rem solid transparent;
+    }
+  
+    .next {
+        border-top: 3rem solid transparent;
+        border-left: 2rem solid #555;
+        border-bottom: 3rem solid transparent;
+    }
+  
+    .rooms {
+      width: 90%;
+    }
+    .hdbody {
+        height: 24rem;
+    }
+  }
+  
+  @media screen and (max-width:300px){
+    #selecthotelbtn {
+        font-size: 0.8rem;
+        margin: 2px 0;
+    }
+  
+    #cancelbtn {
+        height: 2rem;
+    }
+    
+  }
+  
+  
+  
+  /* @media screen and (max-width:1075px){
+    #destinations{
+        float: none;
+        width: 90%;
+    }
+    body{
+        background-repeat: repeat-y;
+    }
+  } */

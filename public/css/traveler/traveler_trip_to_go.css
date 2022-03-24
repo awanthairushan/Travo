@@ -303,7 +303,7 @@ body {
 
 /* ....................modal Box................................ */
 
-.delete_vehicle_modal {
+.delete_trip_modal {
     display: none;
     width: 100%;
     height: 100%;
