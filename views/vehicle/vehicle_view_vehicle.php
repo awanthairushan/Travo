@@ -122,13 +122,15 @@ if (isset($_SESSION['username'])) {
 
                                     </table>
                                 </form>
-                                
+                                <form action="loadupdateVehicleDetails?vehicleID='.$rows['vehicle_id'].'" id="updateVehicleDetails" method="POST">
+                                                                        
+                                </form>
                                 <form action="deleteVehicle" id="deleteVehicle" method="POST">
                                     <input type="hidden" value="'.$rows['vehicle_id'].'" name="vehicleID" >                                    
                                 </form>
                                 
                                 <div class="buttons-sign_up-traveler">
-                                    <input type="submit" class="updatebtn" name="submitbtn" id="submitbtn" form= "viewVehicleDetails" value="UPDATE DETAILS">
+                                    <input type="submit" class="updatebtn" name="submitbtn" id="submitbtn" form= "updateVehicleDetails" value="UPDATE DETAILS">
                                     <input type="submit" class="deletebtn" name="deletebtn" id="deletebtn" form= "deleteVehicle" value="DELETE VEHICLE">
                                 </div>
                             ';

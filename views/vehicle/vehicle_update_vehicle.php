@@ -13,7 +13,7 @@ if (isset($_SESSION['username'])) {
     <link rel="icon" href="<?php echo URLROOT ?>/public/images/icons/favicon.ico"> 
     <?php include APPROOT . '/views/repeatable_contents/font.php'; ?>
     <?php
-      //$result = require '../../db/vehicle/vehicle_update_profile.php';
+      // $result = require '../../db/vehicle/vehicle_update_profile.php';
     ?>
   </head>
   <body>
@@ -25,17 +25,21 @@ if (isset($_SESSION['username'])) {
       
       <div class="box-sign_up-traveler">
         <br/>
-        <form class="form-sign_up-traveler" id="signup_form_vehicle" action="vehicle_view_vehicle.php" method="POST">
-           
+        <form class="form-sign_up-traveler" id="signup_form_vehicle" action="updateVehicleDetails" method="POST">
+           <?php 
+            while ($rows = mysqli_fetch_array($this->vehicleDetails)) {          
+                                      
+           ?>
+           <input type= 'hidden' value ="<?php echo $rows['vehicle_id']; ?>" name = 'vehicle_id'>
           <div class="form-control">
             <label for="vehicle-no">Vehicle Number</label>
-            <input class="text-form-sign_up-traveler" type="text" name="vehicle_no" id="vehicle_no" placeholder=" Vehicle number"><br/>
+            <input class="text-form-sign_up-traveler" type="text" name="vehicle_no" id="vehicle_no" placeholder=" <?php echo $rows['vehicle_no'];?>"><br/>
           </div>
 
           <div class="form-control">
             <label for="vehicle">Vehicle</label>
-            <input class="text-small-form-sign_up-traveler" type="text" name="no_of_passengers" id="no_of_passengers" placeholder=" No of passengers">
-            <input class="text-small-form-sign_up-traveler" type="text" name="type" id="type" placeholder=" Type"><br/>
+            <input class="text-small-form-sign_up-traveler" type="text" name="no_of_passengers" id="no_of_passengers" placeholder=" <?php echo $rows['no_of_passengers'];?>">
+            <input class="text-small-form-sign_up-traveler" type="text" name="type" id="type" placeholder="<?php echo $rows['type'];?>"><br/>
           </div>
 
           <div class="form-control">
@@ -73,12 +77,12 @@ if (isset($_SESSION['username'])) {
 
           <div class="form-control">
             <label for="price">Price</label>
-            <input class="text-small-form-sign_up-traveler" type="text" name="price_for_day" id="price_for_day" placeholder=" Price for day">
-            <input class="text-small-form-sign_up-traveler" type="text" name="price_for_1km" id="price_for_1km" placeholder=" Price for 1km"><br/>
+            <input class="text-small-form-sign_up-traveler" type="text" name="price_for_day" id="price_for_day" placeholder=" <?php echo $rows['price_for_day'];?>">
+            <input class="text-small-form-sign_up-traveler" type="text" name="price_for_1km" id="price_for_1km" placeholder=" <?php echo $rows['price_for_1km'];?>"><br/>
           </div>
           
           <div class="form-control">
-            <label for="driver">Driver</label> <input class="text-small-form-sign_up-traveler" type="text" name="driver_charge" id="driver_charge" placeholder=" Driver charges for a day">
+            <label for="driver">Driver</label> <input class="text-small-form-sign_up-traveler" type="text" name="driver_charge" id="driver_charge" placeholder=" <?php echo $rows['driver_charge'];?>">
             <select class="drop-down-form-sign_up-traveler" type="driver-type" name="driver_type" id="driver_type">
               <option value="with-driver">With Driver</option>
               <option value="without-driver">Without Driver</option>
@@ -87,8 +91,9 @@ if (isset($_SESSION['username'])) {
           </div>
 
           <div class="form-control">
-            <label for="ac">A/C</label><input class="ac-checkbox-form-sign_up-traveler" type="checkbox" name="ac" id="ac" value="yes"> <span></span> <br/>
+            <label for="ac">A/C</label><input class="ac-checkbox-form-sign_up-traveler" type="checkbox" name="ac" id="ac"> <span></span> <br/>
           </div>
+          <?php } ?>
         </form>
       </div>
 
@@ -115,7 +120,7 @@ if (isset($_SESSION['username'])) {
     exit();
   }
 }else{
-  header("location: ../../index.html");
+  header("location: http://localhost/TRAVO");
   exit();
 }
  ?>
