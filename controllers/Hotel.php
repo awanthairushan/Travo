@@ -123,7 +123,8 @@ function updateHotel(){
             $address1=$rows['address_line1'];
             $address2=$rows['address_line2'];
             $city=$rows['city'];
-            $location=$rows['location'];
+            $latitude=$rows['latitude'];
+            $longitude  =$rows['longitude'];
             $email=$rows['email'];
             $contact1=$rows['contact1'];
             $contact2=$rows['contact2'];
@@ -152,7 +153,8 @@ function updateHotel(){
             $new_city = trim($_POST['city']);
             $new_decription = trim($_POST['description']);
             $new_website = trim($_POST['web']);
-            $new_location = trim($_POST['location']);
+            $new_latitude = trim($_POST['lat']);
+            $new_longitude = trim($_POST['lng']);
             $new_rep_name = trim($_POST['rep_name']);
             $new_rep_email = trim($_POST['rep_email']);
             $new_rep_contact1 = trim($_POST['rep_contact1']);
@@ -200,8 +202,11 @@ function updateHotel(){
             if(empty($new_website)){
                 $new_website=$webUrl;
             }
-            if(empty($new_location)){
-                $new_location=$location;
+            if(empty($new_latitude)){
+                $new_latitude=$latitude;
+            }
+            if(empty($new_longitude)){
+                $new_longitude=$longitude;
             }
             if(empty($new_rep_name)){
                 $new_rep_name=$repName;
@@ -219,7 +224,7 @@ function updateHotel(){
                 $new_hotel_type=$hotelType;
             }
             
-            if($this->model->updateHotel($hotel_id,$new_name,$new_regNo,$new_licenceNo,$new_line1,$new_line2,$new_city,$new_location,$new_contact1,$new_contact2,$new_decription,$new_email,$new_password,$new_hotel_type,$new_website,$new_rep_name,$new_rep_email,$new_rep_contact1,$new_rep_contact2)){
+            if($this->model->updateHotel($hotel_id,$new_name,$new_regNo,$new_licenceNo,$new_line1,$new_line2,$new_city,$new_latitude,$new_longitude,$new_contact1,$new_contact2,$new_decription,$new_email,$new_password,$new_hotel_type,$new_website,$new_rep_name,$new_rep_email,$new_rep_contact1,$new_rep_contact2)){
                 $_SESSION['username']=$new_email;
                 header('location: '.URLROOT.'/hotel/hotelUpdate');
             }else{

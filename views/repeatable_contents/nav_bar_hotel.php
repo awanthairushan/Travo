@@ -25,7 +25,6 @@
               <img class="nav_bar-img" src="' . URLROOT . '/public/images/icons/user.png">
               <div class="dropdown-content">
                   <div class="drop-title">',$_SESSION['name'],'</div>
-                  <div class="drop-box"><button class="deleteAccount_btn" id="deleteAccount_btn" >DELETE ACCOUNT</button></div>
                   <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/hotel/hotelUpdate">UPDATE</a></div>
                   <div class="drop-box"><a class="drop-nav" href="'.URLROOT.'/hotel/logout">LOG OUT</a></div>
               </div>
@@ -38,15 +37,4 @@
        
           </ul>
       </nav>
-      <div class="delete_modal">
-        <div class="deleteAccount_confirm_box">
-              <h3>Delete Account</h3>
-              <hr>
-              <p>There is no recovery option. Are you sure you want to delete this account ?</p>
-              <hr>
-              <button type="button" name="delete_confirm_btn" class="delete_confirm_btn" id="delete_confirm_btn">DELETE ACCOUNT</button>
-              <button type="button" name="delete_cancel_btn" class="delete_cancel_btn" id="delete_cancel_btn">CANCEL</button>
-        </div>
-      </div>
-      <script type="text/javascript" src="nav_bar_vehicle.js"></script>
-    </div> '; ?>
+    '; ?>

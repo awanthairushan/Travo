@@ -1,5 +1,4 @@
 
-
 .sign_up-traveler {
     background-image: url("http://localhost/Travo/public/images/background_images/unregisteredbg.jpg");
     background-size: cover;
@@ -216,7 +215,29 @@ input::-webkit-inner-spin-button {
     color: red;
 }
 
+/*-----------------location input map-------------------------------*/
+.get-location-btn {
+    width: 20rem;
+    height: 2rem;
+    margin: 0 auto 1rem auto;
+    background-color: #369093;
+    opacity: 1;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #ffffff;
+    border: none;
+    display: block;
+    cursor: pointer;
+}
 
+.label-for-map {
+    font-size: .9rem !important;
+    float: right !important;
+    margin-right: 4rem !important;
+}
+
+/*-----------------end of location input map-------------------------------*/
 /*Validation*/
 
 .form-control {

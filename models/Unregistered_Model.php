@@ -52,8 +52,8 @@ class Unregistered_Model extends Model{
     function addVehicleOwner($owner_id, $owner_name,  $email, $contact2, $contact1, $otp, $password){
         $this->db->runQuery("INSERT INTO vehicle_owners VALUES ('$owner_id', '$owner_name', '$email', '$password', '$contact1', '$contact2',  '$otp')");
     }
-    function addHotel($hotel_id,$name, $regNo, $licenceNo, $line1, $line2, $city, $location, $contact1,$contact2,$decription, $website, $email,$password1,$hotel_type,$rep_name, $rep_email, $rep_contact1, $rep_contact2, $otp){
-        $this->db->runQuery("INSERT INTO hotels VALUES ('$hotel_id', '$name','$regNo', '$licenceNo', '$line1', '$line2', '$city', '$location', '$contact1','$contact2','$decription', '$website', '$email','$password1','$hotel_type','$rep_name', '$rep_email', '$rep_contact1', '$rep_contact2','NEW', '$otp')");
+    function addHotel($hotel_id, $name, $regNo, $licenceNo, $line1, $line2, $city, $latitude, $longitude, $contact1, $contact2, $description, $website, $email, $password, $hotel_type, $rep_name, $rep_email, $rep_contact1, $rep_contact2,$status, $otp){
+        $this->db->runQuery("INSERT INTO hotels VALUES ('$hotel_id', '$name','$regNo', '$licenceNo', '$line1', '$line2', '$city','$longitude', '$latitude', '$contact1','$contact2','$description', '$website', '$email','$password','$hotel_type','$rep_name', '$rep_email', '$rep_contact1', '$rep_contact2','$status', '$otp')");
     }
     function addHotelRoom($hotel_id,$type,$room_count,$room_capacity,$room_food,$room_mini_bar,$room_ac,$room_price){
         $this->db->runQuery("INSERT INTO hotel_rooms VALUES ('$hotel_id', '$type', '$room_count',$room_capacity, '$room_food', '$room_mini_bar', '$room_ac', '$room_price')");
