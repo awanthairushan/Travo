@@ -333,6 +333,7 @@ class Traveler extends Controller{
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             
             if(isset($_POST['saveSubmit'])){
+                echo 'awoo';
                 $trip_id=$_POST['trip_id'];
                 $traveler_count=$_POST['peoplecount'];
                 $start_date=$_POST['startdate'];
@@ -346,103 +347,109 @@ class Traveler extends Controller{
                 if($difference==0){
                     $destination1=$_POST['destination1'];
                     $checkbox1=$_POST['sights1'];  
-                    $chka="";  
+                    $chka="";
+                    $ticket1=0; 
                     foreach($checkbox1 as $chk1)  
                     {  
-                        $chka .= $chk1.",";  
+                        $chka .= $chk1.","; 
+                        $ticketquery1=$this->model->getTickets($chk1);
+                        while($ticketPrice1=mysqli_fetch_array($ticketquery1)){
+                            $ticket1 = $ticket1 + intval($ticketPrice1['ticket_price']);
+                        }
                     }
 
                     $destination2="-";
                     $chkb="-";
+                    $ticket2=0;
 
                     $destination3="-";
                     $chkc="-";
+                    $ticket3=0;
                 }
 
                 if($difference==1){
                     $destination1=$_POST['destination1'];
                     $checkbox1=$_POST['sights1'];  
-                    $chka="";  
+                    $chka="";
+                    $ticket1=0; 
                     foreach($checkbox1 as $chk1)  
                     {  
-                        $chka .= $chk1.",";  
+                        $chka .= $chk1.","; 
+                        $ticketquery1=$this->model->getTickets($chk1);
+                        while($ticketPrice1=mysqli_fetch_array($ticketquery1)){
+                            $ticket1 = $ticket1 + intval($ticketPrice1['ticket_price']);
+                        }
                     }
 
                     $destination2=$_POST['destination2'];
                     $checkbox2=$_POST['sights2'];  
-                    $chkb="";  
+                    $chkb="";
+                    $ticket2=0;
+                    $chkbArray=array();   
                     foreach($checkbox2 as $chk2)  
                     {  
                         $chkb .= $chk2.",";  
+                        $ticketquery2=$this->model->getTickets($chk2);
+                        while($ticketPrice2=mysqli_fetch_array($ticketquery2)){
+                            $ticket2 = $ticket2 + intval($ticketPrice2['ticket_price']);
+                        }
                     }
 
                     $destination3="-";
                     $chkc="-";
+                    $ticket3=0;
                 }
 
                 if($difference==2){
                     $destination1=$_POST['destination1'];
                     $checkbox1=$_POST['sights1'];  
-                    $chka="";  
+                    $chka="";
+                    $ticket1=0; 
                     foreach($checkbox1 as $chk1)  
                     {  
-                        $chka .= $chk1.",";  
+                        $chka .= $chk1.","; 
+                        $ticketquery1=$this->model->getTickets($chk1);
+                        while($ticketPrice1=mysqli_fetch_array($ticketquery1)){
+                            $ticket1 = $ticket1 + intval($ticketPrice1['ticket_price']);
+                        }
                     }
+
+                    echo $ticket1;
 
                     $destination2=$_POST['destination2'];
                     $checkbox2=$_POST['sights2'];  
-                    $chkb="";  
+                    $chkb="";
+                    $ticket2=0;
+                    $chkbArray=array();   
                     foreach($checkbox2 as $chk2)  
                     {  
                         $chkb .= $chk2.",";  
+                        $ticketquery2=$this->model->getTickets($chk2);
+                        while($ticketPrice2=mysqli_fetch_array($ticketquery2)){
+                            $ticket2 = $ticket2 + intval($ticketPrice2['ticket_price']);
+                        }
                     }
 
                     $destination3=$_POST['destination3'];
                     $checkbox3=$_POST['sights3'];  
-                    $chkc="";  
+                    $chkc="";
+                    $ticket3=0;
+                    $chkcArray=array();   
                     foreach($checkbox3 as $chk3)  
                     {  
                         $chkc .= $chk3.",";  
+                        $ticketquery3=$this->model->getTickets($chk3);
+                        while($ticketPrice3=mysqli_fetch_array($ticketquery3)){
+                            $ticket3 = $ticket3 + intval($ticketPrice3['ticket_price']);
+                        }
                     }
                 }
 
-                
-                
-                
-
-                // $mileage=$_POST['mileage'];
-                // $hotelacc1=$_POST['hotelacc1'];
-                // $hotelacc2=$_POST['hotelacc2'];
-                // $hotelacc3=$_POST['hotelacc3'];
-                // $servicecharges=$_POST['servicecharges'];
-                // $ticketfees=$_POST['ticketfees'];
-
-                // $numhotelacc1=(float)$hotelacc1;
-                // $numhotelacc2=(float)$hotelacc2;
-                // $numhotelacc3=(float)$hotelacc3;
-                // $numservicecharges=(float)$servicecharges;
-                // $numticketfees=(float)$ticketfees;
-                // $budget=$numhotelacc1+$numhotelacc2+$numhotelacc3+$numservicecharges+$numticketfees;
-                // $totalacc=$numhotelacc1+$numhotelacc2+$numhotelacc3;
-
                 $mileage=$_POST['mileage'];
-                $budget=14500;
-                // $hotelacc1=$_POST['hotelacc1'];
-                // $hotelacc2=$_POST['hotelacc2'];
-                // $hotelacc3=$_POST['hotelacc3'];
-                // $servicecharges=$_POST['servicecharges'];
-                // $ticketfees=$_POST['ticketfees'];
-
-                // $numhotelacc1=(float)$hotelacc1;
-                // $numhotelacc2=(float)$hotelacc2;
-                // $numhotelacc3=(float)$hotelacc3;
-                // $numservicecharges=(float)$servicecharges;
-                // $numticketfees=(float)$ticketfees;
-                // $budget=$numhotelacc1+$numhotelacc2+$numhotelacc3+$numservicecharges+$numticketfees;
-                // $totalacc=$numhotelacc1+$numhotelacc2+$numhotelacc3;
+                $budget=($ticket1 + $ticket2 +$ticket3)*$traveler_count;
+                $_SESSION['tickets']=$budget;
 
                 if($this->model->planTripPending($trip_id,$_SESSION['travelerID'],$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude)){
-                    // if($this->model->addBudget($trip_id,$budget,$hotelacc1,$hotelacc2,$hotelacc3,$totalacc,$servicecharges,$ticketfees)){
                     if($difference==0){
                         header('location: '.URLROOT.'/Traveler/budget'); 
                     }
@@ -452,10 +459,6 @@ class Traveler extends Controller{
                         }
                         header('location: '.URLROOT.'/Traveler/planTripHotels?count=0&des='.$destination1.'&date='.$start_date); 
                     }
-                        // }  
-                    // else{
-                    //     die("Something went wrong");
-                    // }
                 } 
                 else {
                     die('Something went wrong.');
@@ -556,7 +559,7 @@ class Traveler extends Controller{
 
                 if($count==0){
                     $day='first';
-                    // $_SESSION['hote1_price']=$price;
+                    $_SESSION['hote1_price']=$price;
                 }
                 if($count==1){
                     $day='second';
@@ -586,8 +589,13 @@ class Traveler extends Controller{
                 if($add==1){
                     if($this->model->addBooking($hotel_id,$_SESSION['trip_id'],$_SESSION['travelerID'],$date,$day,$singleNumber,$doubleNumber,$familyNumber,$massiveNumber,$price)){
                         if($_SESSION['difference']==1 && $count==0){
-
-                            header('location: '.URLROOT.'/Traveler/budget'); 
+                            $hotel2=0;
+                            if($this->model->addBudget($_SESSION['trip_id'],$_SESSION['hote1_price'],$hotel2,$_SESSION['tickets'])){
+                                header('location: '.URLROOT.'/Traveler/budget'); 
+                            }
+                            else{
+                                die('Something went erong');
+                            }
                         }
                         if($_SESSION['difference']==2 && $count==0){
 
@@ -595,11 +603,18 @@ class Traveler extends Controller{
                         }
                         if($_SESSION['difference']==2 && $count==1){
 
+                            if($this->model->addBudget($_SESSION['trip_id'],$_SESSION['hote1_price'],$_SESSION['hotel2_price'],$_SESSION['tickets'])){
+                                header('location: '.URLROOT.'/Traveler/budget'); 
+                            }
+                            else{
+                                die('Something went erong');
+                            }
+
                             header('location: '.URLROOT.'/Traveler/budget');                        
                         }
                     }
                     else{
-                        echo "na ane";
+                        die("Something went wrong.");
                     }
                 }
             }
