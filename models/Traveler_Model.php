@@ -69,6 +69,10 @@ class Traveler_Model extends Model{
         return $this->db->runQuery("SELECT * FROM sights WHERE destination_id = '$destinationId' ");
     }
 
+    function getTickets($SightId){
+        return $this->db->runQuery("SELECT * FROM sights WHERE sight_id = '$SightId' ");
+    }
+
     //submit to trip table
     function planTripPending($trip_id,$traveler_id,$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude){
         return $this->db->runQuery("INSERT INTO trips (trip_id, traveler_id, start_date, end_date, no_of_days, category, destination_id, destination_id2, destination_id3, sight_id, sight_id2, sight_id3, no_of_people, mileage, total_budget, location_lat, location_long, status) VALUES ('$trip_id', '$traveler_id', '$start_date', '$end_date', '$difference', '$trip_cat', '$destination1', '$destination2', '$destination3', '$chka', '$chkb', '$chkc', '$traveler_count', '$mileage', '$budget', '$latitude', '$longitude', 'Pending')");
@@ -77,6 +81,14 @@ class Traveler_Model extends Model{
     //----------------------------------------Traveler-PlanTRipHotels------------------------------------------
     function getHotels($destination){
         return $this->db->runQuery("SELECT * FROM hotels WHERE city='$destination'");
+    }
+
+    function addBudget($trip_id,$hotel1,$hotel2,$tickets){
+        $accm=$hotel1+$hotel2;
+        $totalService=$accm+$tickets;
+        $charges=$totalService/10;
+        $totalexpense=$totalService+$charges;
+        return $this->db->runQuery("INSERT INTO budget (trip_id, hotel1_accomodation, hotel2_accomodation, total_expenses, accomodation, service_charges, ticket_fees) VALUES ('$trip_id', '$hotel1', '$hotel2', '$totalexpense', '$accm', '$charges', '$tickets')");
     }
 
     //------------------------------------Traveler-hotelBooking-----------------------------------------------

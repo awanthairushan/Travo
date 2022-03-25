@@ -277,7 +277,9 @@
                                 </tr>
                             </table> -->
 
-                            <?php while ($budget = mysqli_fetch_array($this->budget)){ ?>
+                            <?php while ($budget = mysqli_fetch_array($this->budget)){ 
+                                    if($budget['hotel2_accomodation']!=0){
+                            ?>
                             <div class="row1">Hotel 1</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel1_accomodation'] ?></div>
@@ -285,10 +287,7 @@
                             <div class="row1">Hotel 2</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
-
-                            <div class="row1">Hotel 3</div>
-                            <div class="equal">=</div>
-                            <div class="row">RS <?php echo $budget['hotel3_accomodation'] ?></div>
+                            <?php } ?>
 
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>

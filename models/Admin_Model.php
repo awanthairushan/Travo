@@ -30,9 +30,12 @@ function getVehicleDetails(){
 function getVehicleOwnerDetails(){
     return $this->db->runQuery("SELECT * from vehicle_owners");
 }
-function getAllVehicleDetails($vehicle_id){
-    return $this->db->runQuery("SELECT vehicles.*, vehicle_owners.* FROM vehicles INNER JOIN vehicle_owners ON vehicles.owner_id = vehicle_owners.owner_id WHERE vehicles.vehicle_id = '$vehicle_id' ");
+function getAllVehicleDetails(){
+    return $this->db->runQuery("SELECT vehicles.*, vehicle_owners.*,ROW_NUMBER() OVER(ORDER BY vehicles.vehicle_no) AS row_no FROM vehicles INNER JOIN vehicle_owners ON vehicles.owner_id = vehicle_owners.owner_id");
     //return $this->db->runQuery("SELECT *,ROW_NUMBER() OVER(ORDER BY vehicle_no) AS row_no FROM vehicles");
+}
+function deleteVehicle($ownerId){
+    return $this->db->runQuery("DELETE FROM vehicle_owners WHERE owner_id = '$ownerId' ");
 }
 
 

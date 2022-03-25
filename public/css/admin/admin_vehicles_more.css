@@ -38,10 +38,11 @@ body {
 }
 
 .vimg {
+    border-radius: 1rem;
+    width: 22rem;
     height: auto;
-    width: 17rem;
-    margin: auto;
-    float: right;
+    max-height: 19rem;
+    margin-left: 100px;
 }
 
 .driver_details {

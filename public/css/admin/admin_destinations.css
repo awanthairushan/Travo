@@ -188,10 +188,11 @@ tbody a {
 .site_details_div input,select{
     margin-right: 1px;
     margin-top: 25px;
+    margin-left: 3rem;
     border-radius: 10px;
     border-width: 0ch;
     height: 2rem;
-    width: 13rem;
+    width: 21rem;
     background-color: #aaaaaa;
     border-color: #aaaaaa;
     color: black;
@@ -217,6 +218,10 @@ tbody a {
 }
 .visiting-places-input-feilds {
     margin: auto auto auto 2rem;
+}
+
+.destination_empty_header{
+    width: 30rem !important;
 }
 
 /*-----------------location input map-------------------------------*/

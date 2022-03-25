@@ -1,12 +1,8 @@
 <?php
-/*session_start();
-if(isset($_SESSION['username'])) {
-  include '../../db/db_connection.php';
-  $temp = $_SESSION['username'];
-  $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
-  $resultForSession = mysqli_query($con, $sqlForSession);
-  if (mysqli_num_rows($resultForSession) === 1) {*/
- ?>
+if (isset($_SESSION['username'])) {
+  if (mysqli_num_rows($this->isAdmin) === 1) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -179,3 +175,13 @@ if(isset($_SESSION['username'])) {
  <!-- <script src="<?php echo URLROOT ?>/public/script/admin/admin_hotels.js"></script> -->
 </body>
 </html>
+<?php
+  } else {
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+} else {
+  header("location: http://localhost/TRAVO");
+  exit();
+}
+?>

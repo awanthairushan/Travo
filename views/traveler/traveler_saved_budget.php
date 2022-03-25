@@ -286,10 +286,6 @@
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
 
-                            <div class="row1">Hotel 3</div>
-                            <div class="equal">=</div>
-                            <div class="row">RS <?php echo $budget['hotel3_accomodation'] ?></div>
-
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['accomodation'] ?></div>
