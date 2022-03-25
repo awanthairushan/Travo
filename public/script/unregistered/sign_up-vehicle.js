@@ -1,11 +1,11 @@
-var driverType = document.getElementById("driver_type");
-var driverCharge = document.getElementById("driver_charge");
-var driverName = document.getElementById("driver_name");
-var driverContact1 = document.getElementById("driver_contact1");
-var driverContact2 = document.getElementById("driver_contact2");
+let driverType = document.getElementById("driver_type");
+let driverCharge = document.getElementById("driver_charge");
+let driverName = document.getElementById("driver_name");
+let driverContact1 = document.getElementById("driver_contact1");
+let driverContact2 = document.getElementById("driver_contact2");
 
 driverType.onchange = function(e) {
-    var isWithoutDriver = (driverType.value == "without driver");
+    let isWithoutDriver = (driverType.value == "without driver");
     if(isWithoutDriver){
         driverCharge.disabled = true;
         driverName.disabled = true;
@@ -112,8 +112,8 @@ form.addEventListener("submit", (event) => {
     return validity;
 });
 
-var username_modal = document.querySelector(".username_exist_modal");
-var username_ok_Btn = document.querySelector("#username_exist_okay_btn");
+let username_modal = document.querySelector(".username_exist_modal");
+let username_ok_Btn = document.querySelector("#username_exist_okay_btn");
 
 window.onclick = function(e) {
     if (event.target == username_modal) {

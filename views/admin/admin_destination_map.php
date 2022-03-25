@@ -91,14 +91,13 @@
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap"
                     type="text/javascript"></script>
             <!--------------------------------end of location input map------------------------------------------------------>
-            <input type="submit" form="" id="locationSubmit" class="location-submit" name="locationSubmit" value="SUBMIT" onclick="history.back()">
+            <input type="submit" form="qwrewfwfefw" id="locationSubmit" class="location-submit" name="locationSubmit"
+                   value="SUBMIT" onclick="history.back()">
         </form>
     </div>
     </div>
     <script type="text/javascript" src="http://localhost/TRAVO/public/script/admin/admin_destinations.js"></script>
     <!--JS to get new row when click on "Add new place" -->
-
-
 </section>
 </body>
 </html>

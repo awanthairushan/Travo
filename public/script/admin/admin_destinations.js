@@ -5,3 +5,4 @@ function addPlace() {
   let cln = siteDiv[lengthSiteDiv-1].cloneNode(true);
   mainForm.appendChild(cln);
 }
+let sightField = document.getElementsByClassName()
