@@ -30,7 +30,7 @@ if (isset($_SESSION['username'])) {
             <div class="more_traveler_details_modal">
                 <div class="more_traveler_details_modal_box">
                     <ul>
-                        <li>Devmini Perera</li>
+                        <li>"' . hotelname['name'] . '</li>
                         <li>devminiperera@gmail.com</li>
                         <li>0705758984 0112487075</li>
                         <li>No 34, Third Lane</li>
@@ -43,17 +43,18 @@ if (isset($_SESSION['username'])) {
             </div>
             <!-- .....................end of modal box for cutomer details..................... -->
             <center>
-                <form>
                     <div class="rectangle2">
                         <table>
                             <tr>
                                 <td><label class="label" for="dateselect">DATE :</label></td>
                                 <div class="calender"></div>
-                                <td><input type="date" id="dateselect" name="dateselect" placeholder="yy/mm/dd"></td>
+                                <td>
+                                <form action="bookingToDate"  method="post">    
+                                    <input type="date" id="dateselect" name="dateselect" onchange="this.form.submit()" value="<?php  echo $this->day;  ?>"></td>
+                                </form>
                             </tr>
                         </table>
                     </div>
-                </form>
                 </br>
 
                 <div class="rectangle">
@@ -67,65 +68,28 @@ if (isset($_SESSION['username'])) {
                             <th class="b">MASSIVE ROOMS</th>
                             <th class="b">PRICE</th>
                             </br>
-                            <th class="b">CUSTOMER DETAILS</th>
-                            </br>
+                            <!-- <th class="b">CUSTOMER DETAILS</th>
+                            </br> -->
                         </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 2</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 0</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 7000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 2</td>
-                            <td class="b"> 0</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 9000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 3</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 1</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 12000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 12000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
+                        <?php
+                        
+            while ($hotelName = mysqli_fetch_array($this->booking)) {
+
+                $date2 = date('Y-m-d', strtotime($hotelName['date'] .' +1 day'));
+
+              echo '<tr>
+                <td class="b">' . $hotelName['date'] . '</td>
+              <td class="b">' . $date2 . '</td>
+              <td class="b">' . $hotelName['single_count'] . '</td>
+              <td class="b">' . $hotelName['double_count'] . '</td>
+              <td class="b">' . $hotelName['family_count'] . '</td>
+              <td class="b">' . $hotelName['massive_count'] . '</td>
+              <td class="b"><div class="price" placeholder="Rs. XXXX">RS. '.$hotelName['price'].'</div></td>
+        
+
+            </tr>';
+            }
+            ?>
                         </br>
                     </table>
                 </div>
