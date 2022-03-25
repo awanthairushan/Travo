@@ -57,3 +57,4 @@ function decreaseMValue() {
   value--;
   document.getElementById("Mnumber").value = value;
 }
+
