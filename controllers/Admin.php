@@ -50,7 +50,7 @@ class Admin extends Controller{
         $numberOfSights = count($sights);
 
  
-        for($i = 0; $i<$numberOfSights; $i++){
+       for($i = 0; $i<$numberOfSights; $i++){
             $sightId = uniqid('site_'); 
             $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
 
@@ -59,7 +59,7 @@ class Admin extends Controller{
             }
         }
     }
-    function destinationsMore() {
+    function destinationsMap() {
         $this->view->render('admin/admin_destination_map');
     }
     function getDestination(){

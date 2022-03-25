@@ -26,72 +26,77 @@
     <!--End Navigation bar-->
 
     <div class="main">
-                    <label class="label-for-map">drag the marker for sight location</label>
-                    <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"
-                         class="my-3"></div>
+        <form method="post" action="http://localhost/TRAVO/views/admin/admin_destinations.php" id="">
+            <input type="text" class="form-control text-form-sign_up-traveler" placeholder="latitude"
+                   name="latitude" id="lat">
+            <input type="text" class="form-control" placeholder="lng" name="longitude"
+                   id="lng">
+            <label class="label-for-map">drag the marker for sight location</label>
+            <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"
+                 class="my-3"></div>
 
-                    <script>
-                        var x = document.getElementById("demo");
+            <script>
+                var x = document.getElementById("demo");
 
-                        function getLocation(event) {
-                            event.preventDefault();
-                            if (navigator.geolocation) {
-                                navigator.geolocation.getCurrentPosition(showPosition);
-                            } else {
-                                x.innerHTML = "Geolocation is not supported by this browser.";
-                            }
-                        }
+                function getLocation(event) {
+                    event.preventDefault();
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                        x.innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
 
-                        function showPosition(position) {
-                            initMap(position.coords.latitude, position.coords.longitude);
-                        }
+                function showPosition(position) {
+                    initMap(position.coords.latitude, position.coords.longitude);
+                }
 
-                        let map;
+                let map;
 
-                        function initMap(lat, lng) {
-                            let initialLat = 6.902206909028085;
-                            let initialLng = 79.86114263534546;
-                            if (lat === undefined) {
-                                lat = initialLat;
-                                lng = initialLng;
-                            }
+                function initMap(lat, lng) {
+                    let initialLat = 6.902206909028085;
+                    let initialLng = 79.86114263534546;
+                    if (lat === undefined) {
+                        lat = initialLat;
+                        lng = initialLng;
+                    }
+                    $('#lat').val(lat)
+                    $('#lng').val(lng)
+                    map = new google.maps.Map(document.getElementById("map"), {
+                        center: {lat: lat, lng: lng},
+                        zoom: 8,
+                        scrollwheel: true,
+                    });
+                    const position = {lat: lat, lng: lng};
+                    let marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        draggable: true
+                    });
+                    google.maps.event.addListener(marker, 'position_changed',
+                        function () {
+                            let lat = marker.position.lat()
+                            let lng = marker.position.lng()
                             $('#lat').val(lat)
                             $('#lng').val(lng)
-                            map = new google.maps.Map(document.getElementById("map"), {
-                                center: {lat: lat, lng: lng},
-                                zoom: 8,
-                                scrollwheel: true,
-                            });
-                            const position = {lat: lat, lng: lng};
-                            let marker = new google.maps.Marker({
-                                position: position,
-                                map: map,
-                                draggable: true
-                            });
-                            google.maps.event.addListener(marker, 'position_changed',
-                                function () {
-                                    let lat = marker.position.lat()
-                                    let lng = marker.position.lng()
-                                    $('#lat').val(lat)
-                                    $('#lng').val(lng)
-                                })
-                            google.maps.event.addListener(map, 'click',
-                                function (event) {
-                                    pos = event.latLng
-                                    marker.setPosition(pos)
-                                })
-                        }
-                    </script>
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap"
-                            type="text/javascript"></script>
-                    <!--------------------------------end of location input map------------------------------------------------------>
-                </div>
-            </form>
-            <input type="submit" form="" id="locationSubmit" class="location-submit" name="locationSubmit" value="SUBMIT">
-        </div>
-        <script type="text/javascript" src="http://localhost/TRAVO/public/script/admin/admin_destinations.js"></script>
-        <!--JS to get new row when click on "Add new place" -->
+                        })
+                    google.maps.event.addListener(map, 'click',
+                        function (event) {
+                            pos = event.latLng
+                            marker.setPosition(pos)
+                        })
+                }
+            </script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap"
+                    type="text/javascript"></script>
+            <!--------------------------------end of location input map------------------------------------------------------>
+            <input type="submit" form="" id="locationSubmit" class="location-submit" name="locationSubmit" value="SUBMIT" onclick="history.back()">
+        </form>
+    </div>
+    </div>
+    <script type="text/javascript" src="http://localhost/TRAVO/public/script/admin/admin_destinations.js"></script>
+    <!--JS to get new row when click on "Add new place" -->
 
 
 </section>

@@ -150,11 +150,22 @@
                             <option value="Leisure">Leisure</option>
                         </select>
                         <!-- -------------------------location input map ------------------------------------------>
-                        <input type="text" class="form-control text-form-sign_up-traveler" placeholder="lat"
-                               name="lat" id="lat">
-                        <input type="text" class="form-control" placeholder="lng" name="lng"
-                               id="lng">
-                        <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location" onclick="document.location.href = 'destinationsMore'">
+                        <?php
+                        $latitude = 0;
+                        $longitude =0;
+                            if(isset($_POST['lat'])){
+                                $latitude = $_POST['latitude'];
+                                $longitude = $_POST['longitude'];
+                            }
+                            echo $latitude;
+                        echo '
+                        <input type="text" class="form-control text-form-sign_up-traveler" placeholder="latitude"
+                               name="lat" id="lat" value="'.$latitude.'">
+                        <input type="text" class="form-control" placeholder="lng" name="longitude"
+                               id="lng" value="'.$longitude.'">
+                       ';
+                       ?>
+                        <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location" onclick="document.location.href = 'destinationsMap'">
                     </div>
             </form>
 
