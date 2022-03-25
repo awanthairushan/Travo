@@ -59,24 +59,86 @@ class Traveler_Model extends Model{
         return $this->db->runQuery("INSERT INTO trip_home (trip_id, no_of_people, traveler_id, start_date, end_date, category) VALUES ('$trip_id', '$traveler_count', '$travelerID', '$start_date', '$end_date', '$trip_cat')");
     }
 
-    //---------------------------------------Traveler-Plan Trip-----------------------------------------------------------------
+    //---------------------------------------Traveler-PlanTripSights----------------------------------------------
 
-    function selectHalfTrip($trip_id){
-        return $this->db->runQuery("SELECT * FROM trip_home WHERE trip_id='$trip_id'");
+    function getDestinationId($destination){
+        return $this->db->runQuery("SELECT destination_id FROM destinations WHERE destination='$destination'");
     }
 
-    function planTripPending($trip_id,$travelerID,$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$hotel1,$hotel2,$hotel3,$traveler_count,$mileage,$budget){
-        return $this->db->runQuery("INSERT INTO trips (trip_id, traveler_id, start_date, end_date, no_of_days, category, destination_id, destination_id2, destination_id3, sight_id, sight_id2, sight_id3, hotel_id1, hotel_id2, hotel_id3, no_of_people, mileage, total_budget, status) VALUES ('$trip_id', '$travelerID', '$start_date', '$end_date', '$difference', '$trip_cat', '$destination1', '$destination2', '$destination3', '$chka', '$chkb', '$chkc', '$hotel1', '$hotel2', '$hotel3', '$traveler_count', '$mileage', '$budget', 'Pending')");
+    function getSights($destinationId){
+        return $this->db->runQuery("SELECT * FROM sights WHERE destination_id = '$destinationId' ");
     }
 
-    function addBudget($trip_id,$budget,$hotelacc1,$hotelacc2,$hotelacc3,$totalacc,$servicecharges,$ticketfees){
-        return $this->db->runQuery("INSERT INTO `budget` (`trip_id`, `hotel1_accomodation`, `hotel2_accomodation`, `hotel3_accomodation`, `total_expenses`, `accomodation`, `service_charges`, `ticket_fees`) VALUES ('$trip_id', '$hotelacc1', '$hotelacc2', '$hotelacc3', '$budget', '$totalacc', '$servicecharges', '$ticketfees')");
+    //submit to trip table
+    function planTripPending($trip_id,$traveler_id,$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude){
+        return $this->db->runQuery("INSERT INTO trips (trip_id, traveler_id, start_date, end_date, no_of_days, category, destination_id, destination_id2, destination_id3, sight_id, sight_id2, sight_id3, no_of_people, mileage, total_budget, location_lat, location_long, status) VALUES ('$trip_id', '$traveler_id', '$start_date', '$end_date', '$difference', '$trip_cat', '$destination1', '$destination2', '$destination3', '$chka', '$chkb', '$chkc', '$traveler_count', '$mileage', '$budget', '$latitude', '$longitude', 'Pending')");
+    }
+
+    //----------------------------------------Traveler-PlanTRipHotels------------------------------------------
+    function getHotels($destination){
+        return $this->db->runQuery("SELECT * FROM hotels WHERE city='$destination'");
+    }
+
+    //------------------------------------Traveler-hotelBooking-----------------------------------------------
+
+    function getHotelName($userID){
+        return $this->db->runQuery("SELECT * FROM HOTELS WHERE hotelID='$userID'");
+    }
+
+    function selectSinglePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='single'");
+    }
+
+    function selectDoublePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='double'");
+    }
+
+    function selectFamilyPrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='family'");
+    }
+
+    function selectMassivePrice($userID){
+        return $this->db->runQuery("SELECT * FROM hotel_rooms WHERE hotelID='$userID' AND room_type='massive'");
+    }
+
+    function selectBookingToDate($userID,$date){
+        return $this->db->runQuery("SELECT count(*) as total FROM hotel_availability WHERE hotelID='$userID' AND date='$date'");
+    }
+
+    function selectBooking($userID,$date){
+        return $this->db->runQuery("SELECT * FROM hotel_availability WHERE hotelID='$userID' AND date='$date'");
+    }
+
+    function updateHotelAvailability($userID,$date,$sr,$dr,$fr,$mr){
+        return $this->db->runQuery("UPDATE hotel_availability SET single_rooms = '$sr', double_rooms = '$dr', family_rooms = '$fr', massive_rooms = '$mr' WHERE hotelID = '$userID' AND date = '$date'");
+    }
+
+    //update hotel availability table
+    function addHotelAvailability($userID,$date,$sr,$dr,$fr,$mr){
+        return $this->db->runQuery("INSERT INTO hotel_availability (hotelID, date, single_rooms, double_rooms, family_rooms, massive_rooms) VALUES ('$userID','$date','$sr','$dr','$fr','$mr')");
+    }
+
+    //add to hotelbooking table
+    function addBooking($hotel_id,$trip_id,$traveler_id,$date,$day,$singleNumber,$doubleNumber,$familyNumber,$massiveNumber,$price){
+        return $this->db->runQuery("INSERT INTO trip_hotels (hotelId, trip_id, traveler_id, date, day, single_count, double_count, family_count, massive_count, price) VALUES ('$hotel_id', '$trip_id', '$traveler_id', '$date', '$day', '$singleNumber', '$doubleNumber', '$familyNumber', '$massiveNumber', '$price')");
     }
 
     //-------------------------------------Traveler-budget--------------------------------------------------------------------
 
     function selectTrip($trip_id,$travelerID){
         return $this->db->runQuery("SELECT * FROM trips WHERE trip_id='$trip_id' AND traveler_id='$travelerID'");
+    }
+
+    function selectHotelID($trip_id,$day){
+        return $this->db->runQuery("SELECT * FROM trip_hotels WHERE trip_id='$trip_id' AND day='$day'");
+    }
+
+    function selectHotelName($hotelId){
+        return $this->db->runQuery("SELECT * FROM hotels WHERE hotelID='$hotelId'");
+    }
+
+    function selectSightName($sightsId){
+        return $this->db->runQuery("SELECT * FROM sights WHERE sight_id='$sightsId'");
     }
 
     function selectBudget($trip_id){
