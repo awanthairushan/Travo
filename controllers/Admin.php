@@ -211,6 +211,16 @@ class Admin extends Controller{
         header('location: travelers');
     }
 
+    function deleteVehicles(){
+        $ownerId = $_POST['owner_id'];
+        $isDeleteSuccess = $this->model->deleteVehicle($ownerId);
+        if($isDeleteSuccess){
+            header('location:vehicles');
+        }else{
+            echo "Kela unaaa";
+        }
+    }
+
     function declineHotelRequest(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);

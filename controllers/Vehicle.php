@@ -163,7 +163,9 @@ class Vehicle extends Controller
         }          
         
         if($this->model->updateVehicleDetails($vehicle_id, $new_vehicle_no, $new_type, $new_no_of_passengers, $new_city, $new_price_for_1km, $new_price_for_day, $new_driver_type, $new_driver_charge, $new_ac)){
-            header('location: loadupdateVehicleDetails?vehicleID='.$vehicle_id);
+            //header('location: loadupdateVehicleDetails?vehicleID='.$vehicle_id);
+            header('location: myVehicle');
+
         }
         else{
             die('Something went wrong.');

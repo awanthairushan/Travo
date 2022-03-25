@@ -84,7 +84,7 @@ if (isset($_SESSION['username'])) {
             echo "<tr>
                 <td>".$rows['row_no']."</td>
                 <td>".$rows['name']."</td>
-                <td>".$rows['address_line1'].$rows['address_line2']."</td>
+                <td>".$rows['address_line1'].", ".$rows['address_line2']."</td>
                 <td>".$rows['city']."</td>
                 <td>".$rows['email']."</td>
                 <td>".$rows['contact1']."<br>".$rows['contact2']."</td>

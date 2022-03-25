@@ -87,9 +87,9 @@ if (isset($_SESSION['username'])) {
                     </form>
                     </td>
                     <td>
-                    <form method='post' action=' ' >
-                        <input type='hidden' value='$rows[0]' name=vehicle_id>
-                        <input type='button' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
+                    <form method='post' action='deleteVehicles' >
+                        <input type='hidden' value='$rows[5]' name=owner_id>
+                        <input type='submit' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
                     </form>
                     </td>
 
