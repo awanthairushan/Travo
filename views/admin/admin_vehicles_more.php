@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
                     </tr>
                     <tr class="detail">
                         <td><?php echo $type; ?></td>
-                        <td rowspan = "6"><img class="vimg" src="<?php $image ?>"></td>
+                        <td rowspan = "6"><img src="<?php echo URLROOT ?>/public/images/assets/vehicle/<?php echo $image; ?>" class="vimg"></td>
                     </tr>
                     <tr>
                     <td>Available In : <?php echo $city; ?></td>
@@ -97,7 +97,7 @@ if (isset($_SESSION['username'])) {
                         <td>LKR <?php echo $driver_charge; ?> per day</td>
                     </tr>
                 </table>
-                <h3>Other vehicles of this driver</h3>
+                <!-- <h3>Other vehicles of this driver</h3> -->
             </div>
         </section>
 
