@@ -219,6 +219,10 @@ tbody a {
     margin: auto auto auto 2rem;
 }
 
+.destination_empty_header{
+    width: 30rem !important;
+}
+
 /*-----------------location input map-------------------------------*/
 
 .label-for-map {
