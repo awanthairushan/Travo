@@ -93,17 +93,26 @@
                                 if($details['no_of_days']==0){
                                     $tcolhide=50;
                                     $firstchild=50;
+                                    $hotel1="-";
+                                    $hotel2="-";
+                                    $hotel3="-";
                                 }
                                 if($details['no_of_days']==1){
                                     $tcolhide=34;
                                     $firstchild=32;
                                     $day2=1;
+                                    $hotel1=$this->hotel1;
+                                    $hotel2="-";
+                                    $hotel3="-";
                                 }
                                 if($details['no_of_days']==2){
                                     $tcolhide=29;
                                     $firstchild=13;
                                     $day2=1;
                                     $day3=1;
+                                    $hotel1=$this->hotel1;
+                                    $hotel2=$this->hotel2;
+                                    $hotel3="-";
                                 }
                             ?>
                             <style>
@@ -154,13 +163,26 @@
                                     <div class="trowhead">&nbsp</div>
                                     <div class="trow"><span>Destination</span></div>
                                     <div class="trow"><span>Hotel</span></div>
-                                    <div class="trow"><span>Sights<span><br/><br/><br/></div>
+                                    <div class="trow"><span>Sights<span><br/><br/><br/><br/><br/></div>
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 1</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$details['hotel_id1'].' ' ?></div>
-                                    <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div>
+                                    <div class="trow"><?php echo ' '.$hotel1.' ' ?></div>
+                                    <div class="trow">
+                                        <?php 
+                                        $count1=$this->sightCount1;
+                                        for($a=0;$a<$count1;$a++){
+                                            while($sights1=mysqli_fetch_array($this->sightsName1[$a])){
+                                                echo $sights1['sight'].'<br/>';
+                                            }
+                                        }
+                                        for($a1=5;$a1<5-$count1;$a1++){
+                                            echo '-<br/>';
+                                        }
+                                        ?>
+                                    </div>
+                                    <!-- <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div> -->
                                 </div>
                                 <?php if($day2==1){ ?>
                                 <div class="thide">
@@ -173,8 +195,16 @@
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 2</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id2'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$details['hotel_id2'].' ' ?></div>
-                                    <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div>
+                                    <div class="trow"><?php echo ' '.$hotel2.' ' ?></div>
+                                    <div class="trow">
+                                        <?php for($b=0;$b<$this->sightCount2;$b++){
+                                            while($sights2=mysqli_fetch_array($this->sightsName2[$b])){
+                                                echo $sights2['sight'].'<br/>';
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <!-- <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div> -->
                                 </div>
                                 <?php } 
                                     if($day3==1){
@@ -189,8 +219,16 @@
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 3</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id3'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$details['hotel_id3'].' ' ?></div>
-                                    <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div>
+                                    <div class="trow"><?php echo ' '.$hotel3.' ' ?></div>
+                                    <div class="trow">
+                                        <?php for($c=0;$c<$this->sightCount3;$c++){
+                                            while($sights3=mysqli_fetch_array($this->sightsName3[$c])){
+                                                echo $sights3['sight'].'<br/>';
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <!-- <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div> -->
                                 </div>
                                 <?php } ?>
                             </div>
