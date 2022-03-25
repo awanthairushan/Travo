@@ -1,12 +1,7 @@
 <?php
- /* session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {*/
- ?>
+if (isset($_SESSION['username'])) {
+  if (mysqli_num_rows($this->isAdmin) === 1) {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -92,9 +87,9 @@
                     </form>
                     </td>
                     <td>
-                    <form method='post' action=' ' >
-                        <input type='hidden' value='$rows[0]' name=vehicle_id>
-                        <input type='button' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
+                    <form method='post' action='deleteVehicles' >
+                        <input type='hidden' value='$rows[5]' name=owner_id>
+                        <input type='submit' class='remove_hotel_btn' id='removebtn' value='REMOVE' >
                     </form>
                     </td>
 
@@ -115,12 +110,12 @@
 </body>
 </html>
 <?php
-  /*} else{
+  } else {
     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
     exit();
   }
-}else{
-  header("location: ../../index.html");
+} else {
+  header("location: http://localhost/TRAVO");
   exit();
-}*/
- ?>
+}
+?>

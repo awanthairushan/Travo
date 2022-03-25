@@ -1,12 +1,8 @@
 <?php
- /* session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {*/
- ?>
+if (isset($_SESSION['username'])) {
+  if (mysqli_num_rows($this->isAdmin) === 1) {
+?>
+
  <?php
   // $fquestion=$this->content[0]['fquestion'];
   // $fanswer=$this->content[0]['fanswer'];
@@ -103,14 +99,14 @@
 </body>
 </html>
 <?php
-  /*} else{
+  } else {
     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
     exit();
   }
-}else{
-  header("location: ../../index.html");
+} else {
+  header("location: http://localhost/TRAVO");
   exit();
-}*/
- ?>
+}
+?>
 
 

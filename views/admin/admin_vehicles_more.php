@@ -1,12 +1,7 @@
 <?php
-  /*session_start();
-  if(isset($_SESSION['username'])) {
-    include '../../db/db_connection.php';
-    $temp = $_SESSION['username'];
-    $sqlForSession = "SELECT username FROM admin WHERE username = '$temp'";
-    $resultForSession = mysqli_query($con, $sqlForSession);
-    if (mysqli_num_rows($resultForSession) === 1) {*/
- ?>
+if (isset($_SESSION['username'])) {
+  if (mysqli_num_rows($this->isAdmin) === 1) {
+?>
 
 <html>
     <head>
@@ -55,7 +50,7 @@
                     </tr>
                     <tr class="detail">
                         <td><?php echo $type; ?></td>
-                        <td rowspan = "6"><img class="vimg" src="<?php $image ?>"></td>
+                        <td rowspan = "6"><img src="<?php echo URLROOT ?>/public/images/assets/vehicle/<?php echo $image; ?>" class="vimg"></td>
                     </tr>
                     <tr>
                     <td>Available In : <?php echo $city; ?></td>
@@ -102,19 +97,19 @@
                         <td>LKR <?php echo $driver_charge; ?> per day</td>
                     </tr>
                 </table>
-                <h3>Other vehicles of this driver</h3>
+                <!-- <h3>Other vehicles of this driver</h3> -->
             </div>
         </section>
 
     </body>
 </html>
 <?php
- /* } else{
+  } else {
     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
     exit();
   }
-}else{
-  header("location: ../../index.html");
+} else {
+  header("location: http://localhost/TRAVO");
   exit();
-}*/
- ?>
+}
+?>
