@@ -189,7 +189,7 @@ body {
 .hoteldetails {
     width: 80%;
     margin: auto;
-    height: 28vh;
+    height: auto;
 }
 
 .hoteldetails tr th {
@@ -206,6 +206,7 @@ body {
     width: 50%;
     background: rgba(255, 255, 255, 0.3);
     font-size: 1rem;
+    padding: 1rem 0;
 }
 
 .hoteldetails td p {

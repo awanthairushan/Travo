@@ -74,7 +74,7 @@ if (isset($_SESSION['value'])) {
                                                                  name="licenceNo" id="licenceNo" value=""><br>
             <br>
 
-            <div class="form-control">
+            <div class="form-control ">
                 <label for="adress">Address</label>
                 <input class="text-form-sign_up-traveler" type="text" name="address-line1" id="address-line1"
                        placeholder=" Address Line 1"></br>
@@ -114,19 +114,7 @@ if (isset($_SESSION['value'])) {
                 <br>
                 <span class="error-msg"></span>
             </div>
-
-<!--            <div class="form-control">-->
-<!--                <label for="location">Location</label>-->
-<!--                <div class="tooltip">-->
-<!--                    <span class="tooltiptext">*Please get the google map URL of your location and paste it here</span>-->
-<!--                    <input class="text-form-sign_up-traveler" type="url" name="location" id="location"></br>-->
-<!--                </div>-->
-<!--                <br>-->
-<!--                <span class="error-msg"></span>-->
-<!--            </div>-->
-
-
-<!--                                                -------------------------location input map ------------------------------------------>
+<!-- -------------------------location input map ------------------------------------------>
             <div class="form-control">
             <label for="location">Location</label>
                 <div class="mapform">
@@ -206,7 +194,7 @@ if (isset($_SESSION['value'])) {
                 <br>
                 <span class="error-msg"></span>
             </div>
-<!--                                                ------------------------------end of location input map------------------------------------------------------>
+<!--------------------------------end of location input map------------------------------------------------------>
 
 
 
