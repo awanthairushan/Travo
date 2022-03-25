@@ -63,6 +63,9 @@ class Admin extends Controller{
             }
         }
     }
+    function destinationsMore() {
+        $this->view->render('admin/admin_destination_map');
+    }
     function getDestination(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
