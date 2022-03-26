@@ -19,7 +19,7 @@
       </div>
       <br/>
       <div class="copyrights_contact_us">
-        <p class="">© Copyrights 2021 IS23. All rights reserved</p>
+        <p class="">© Copyrights 2021 TRAVO. All rights reserved</p>
       </div>
     </section>
 ' ?>
