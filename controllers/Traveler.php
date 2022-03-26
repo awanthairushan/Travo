@@ -57,6 +57,7 @@ class Traveler extends Controller{
     function budget(){
         session_start();
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);
+        $this->view->TravelerDetails =$this->model->selectTraveler($_SESSION['username']); 
         $this->view->selectTrip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
         $trip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
 
@@ -451,7 +452,11 @@ class Traveler extends Controller{
 
                 if($this->model->planTripPending($trip_id,$_SESSION['travelerID'],$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude)){
                     if($difference==0){
-                        header('location: '.URLROOT.'/Traveler/budget'); 
+                        $hotel1=0;
+                        $hotel2=0;
+                        if($this->model->addBudget($_SESSION['trip_id'],$hotel1,$hotel2,$_SESSION['tickets'])){
+                            header('location: '.URLROOT.'/Traveler/budget'); 
+                        }
                     }
                     else{
                         if($difference==2){
@@ -626,6 +631,7 @@ class Traveler extends Controller{
     function savedBudget(){
         session_start();
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);
+        $this->view->TravelerDetails =$this->model->selectTraveler($_SESSION['username']); 
         $url_trip_id=$_GET['id'];
 
 

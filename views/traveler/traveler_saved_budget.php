@@ -38,7 +38,9 @@
                         <button class="tripmenu" id="route_btn">ROUTE</button>
                     </div>
 
-                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ ?>
+                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ 
+                            $trip_status = $details['status'];
+                        ?>
                     <div class="container modal1">
                         <div class="details">
                             <table class="main_details">
@@ -277,7 +279,9 @@
                                 </tr>
                             </table> -->
 
-                            <?php while ($budget = mysqli_fetch_array($this->budget)){ ?>
+                            <?php while ($budget = mysqli_fetch_array($this->budget)){ 
+                                    if($budget['hotel2_accomodation']!=0){
+                            ?>
                             <div class="row1">Hotel 1</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel1_accomodation'] ?></div>
@@ -285,10 +289,14 @@
                             <div class="row1">Hotel 2</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
-
+                            <?php }
+                                if($budget['accomodation']!=0){
+                            ?>
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['accomodation'] ?></div>
+                            <?php }
+                            ?>
 
                             <div class="row1">Service Charges</div>
                             <div class="equal">=</div>
@@ -301,7 +309,9 @@
                             <div class="row1 final">Total Budget</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['total_expenses'] ?></div>
-                            <?php } ?>
+                            <?php 
+                            $total_price = $budget['total_expenses'];                        
+                        } ?>
                         </div>
                     </div>
 
@@ -312,27 +322,35 @@
                             </div>
                         </div>
 
-                        <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
-                        <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
-                        <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
-                        <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/savedbudget?id=<?php echo $_GET['id']; ?>">
-                        <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
-                        <input type="text" name="order_id" value="<?php echo $_GET['id']; ?>">
-                        <input type="text" name="items" value="Trip"><br>
-                        <input type="text" name="currency" value="LKR">
-                        <input type="text" name="amount" value="1000">
-                        <input type="text" name="first_name" value="Saman">
-                        <input type="text" name="last_name" value="Perera"><br>
-                        <input type="text" name="email" value="samanp@gmail.com">
-                        <input type="text" name="phone" value="0771234567"><br>
-                        <input type="text" name="address" value="No.1, Galle Road">
-                        <input type="text" name="city" value="Colombo">
-                        <input type="text" name="country" value="Sri Lanka"><br><br>
-                    </form>
+                        <?php if($trip_status=="Saved"){ 
+                               while($travelerPay=mysqli_fetch_array($this->TravelerDetails)){
+                                $payName=explode(' ',$travelerPay['name']);
+                        ?>
+                            <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
+                                <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
+                                <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
+                                <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
+                                <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
+                                <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
+                                <input type="text" name="items" value="Trip"><br>
+                                <input type="text" name="currency" value="LKR">
+                                <input type="text" name="amount" value="<?php echo $total_price; ?>">
+                                <input type="text" name="first_name" value="<?php echo $payName[0]; ?>">
+                                <input type="text" name="last_name" value="<?php echo $payName[1]; ?>"><br>
+                                <input type="text" name="email" value="<?php echo $travelerPay['email']; ?>">
+                                <input type="text" name="phone" value="<?php echo $travelerPay['contact1']; ?>"><br>
+                                <input type="text" name="address" value="<?php echo $travelerPay['address_line1'].','.$travelerPay['address_line2']; ?>">
+                                <input type="text" name="city" value="<?php echo $travelerPay['city']; ?>">
+                                <input type="text" name="country" value="Sri Lanka"><br><br>
+                            </form>
+                        <?php }} ?>
 
                     <div class="buttons">
+                        
                         <button class="cancelbutton" id="cancelbtn" onclick="window.location.href='tripToGo'">CANCEL</button>
+                        <?php if($trip_status=="Saved"){  ?>
                         <button class="button" form="payForm" id="paybtn">PAY NOW</button>
+                        <?php } ?>
                     </div>
                 </div>
             </section>
