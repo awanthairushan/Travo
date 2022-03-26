@@ -105,7 +105,10 @@ function hotelBooking(){
     $this->view->day=$date;
 
     $this->view->isHotel = $this->model->selectHotel($_SESSION['username']);
-    $this->view->booking=$this->model->getBooking($_SESSION['hotelID'],$date);
+    $tempory = $this->model->getBooking($_SESSION['hotelID'],$date);
+    $this->view->booking= $tempory;
+//    $travelersID[] = $tempory['traveler_id'];
+//    echo $travelersID;
     $this->view->render('hotel/hotel_booking');
 }
 

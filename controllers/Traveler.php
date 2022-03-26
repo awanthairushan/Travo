@@ -539,6 +539,7 @@ class Traveler extends Controller
         $this->view->massivePricecheck = $this->model->selectMassivePrice($url_hotel_id);
         $this->view->checkToDate = $this->model->selectBookingToDate($url_hotel_id, $date);
         $this->view->checkBooking = $this->model->selectBooking($url_hotel_id, $date);
+        $this->view->hotel_images = $this->model->getHotelImages($url_hotel_id);
         $this->view->day = $date;
 
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);

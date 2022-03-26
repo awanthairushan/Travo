@@ -134,6 +134,10 @@ class Traveler_Model extends Model{
     function addBooking($hotel_id,$trip_id,$traveler_id,$date,$day,$singleNumber,$doubleNumber,$familyNumber,$massiveNumber,$price){
         return $this->db->runQuery("INSERT INTO trip_hotels (hotelId, trip_id, traveler_id, date, day, single_count, double_count, family_count, massive_count, price) VALUES ('$hotel_id', '$trip_id', '$traveler_id', '$date', '$day', '$singleNumber', '$doubleNumber', '$familyNumber', '$massiveNumber', '$price')");
     }
+    function getHotelImages($hotel_id)
+    {
+        return $this->db->runQuery("SELECT * from hotel_images WHERE hotelID = '$hotel_id'");
+    }
 
     //-------------------------------------Traveler-budget--------------------------------------------------------------------
 

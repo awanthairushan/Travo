@@ -53,16 +53,10 @@ if (isset($_SESSION['username'])) {
                 <div class="image_gallery_hotel">
                     <table>
                         <tr>
-                            <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/1.jpg"
-                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                            <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/2.jpg"
-                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                            <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/3.jpg"
-                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                            <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/4.jpg"
-                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
-                            <td><img src="http://localhost/TRAVO/public/images/sample_images/for_hotels/5.jpg"
-                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>
+                            <?php while ($images = mysqli_fetch_array($this->hotel_images)) {
+                                echo '<td><img src="' . URLROOT . '/public/images/assets/hotel/' . $images['image'] . '"
+                                     class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>';
+                            } ?>
                         </tr>
                     </table>
                 </div>

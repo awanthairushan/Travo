@@ -73,4 +73,8 @@ function getFaq(){
     function getBooking($userID,$date){
         return $this->db->runQuery("SELECT * FROM trip_hotels WHERE hotelId='$userID' AND date='$date'");
     }
+    function getCustomerDetails($travelerId)
+    {
+        return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID = '$travelerId'");
+    }
 }
