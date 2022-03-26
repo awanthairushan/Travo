@@ -63,8 +63,9 @@ class Traveler extends Controller
     {
         session_start();
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);
-        $this->view->selectTrip = $this->model->selectTrip($_SESSION['trip_id'], $_SESSION['travelerID']);
-        $trip = $this->model->selectTrip($_SESSION['trip_id'], $_SESSION['travelerID']);
+        $this->view->TravelerDetails =$this->model->selectTraveler($_SESSION['username']); 
+        $this->view->selectTrip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
+        $trip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
 
         while ($sights = mysqli_fetch_array($trip)) {
             $sights1 = $sights['sight_id'];
@@ -460,11 +461,16 @@ class Traveler extends Controller
                 $budget = ($ticket1 + $ticket2 + $ticket3) * $traveler_count;
                 $_SESSION['tickets'] = $budget;
 
-                if ($this->model->planTripPending($trip_id, $_SESSION['travelerID'], $start_date, $end_date, $difference, $trip_cat, $destination1, $destination2, $destination3, $chka, $chkb, $chkc, $traveler_count, $mileage, $budget, $latitude, $longitude)) {
-                    if ($difference == 0) {
-                        header('location: ' . URLROOT . '/Traveler/budget');
-                    } else {
-                        if ($difference == 2) {
+                if($this->model->planTripPending($trip_id,$_SESSION['travelerID'],$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude)){
+                    if($difference==0){
+                        $hotel1=0;
+                        $hotel2=0;
+                        if($this->model->addBudget($_SESSION['trip_id'],$hotel1,$hotel2,$_SESSION['tickets'])){
+                            header('location: '.URLROOT.'/Traveler/budget'); 
+                        }
+                    }
+                    else{
+                        if($difference==2){
                             $_SESSION['des2'] = $destination2;
                         }
                         header('location: ' . URLROOT . '/Traveler/planTripHotels?count=0&des=' . $destination1 . '&date=' . $start_date);
@@ -638,7 +644,8 @@ class Traveler extends Controller
     {
         session_start();
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);
-        $url_trip_id = $_GET['id'];
+        $this->view->TravelerDetails =$this->model->selectTraveler($_SESSION['username']); 
+        $url_trip_id=$_GET['id'];
 
 
         $trip = $this->model->selectTrip($url_trip_id, $_SESSION['travelerID']);
