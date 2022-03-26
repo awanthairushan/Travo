@@ -287,11 +287,14 @@
                             <div class="row1">Hotel 2</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
-                            <?php } ?>
-
+                            <?php }
+                                if($budget['accomodation']!=0){
+                            ?>
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['accomodation'] ?></div>
+                            <?php }
+                            ?>
 
                             <div class="row1">Service Charges</div>
                             <div class="equal">=</div>
@@ -304,34 +307,43 @@
                             <div class="row1 final">Total Budget</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['total_expenses'] ?></div>
-                            <?php } ?>
+                            <?php 
+                                $total_price = $budget['total_expenses'];
+                            } 
+                            ?>
                         </div>
                     </div>
 
                     <div class="container modal3">
                             <div class="details">
                             <br>
-                                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7936.595061707961!2d80.5334359!3d5.953681200000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1629276519410!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1013798.124574981!2d79.76544702723868!3d6.99173436455917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m3!3m2!1d6.901793!2d79.86276!4m5!1s0x3ae380434e1554c7%3A0x291608404c937d9c!2sNuwara%20Eliya!3m2!1d6.9497165999999995!2d80.7891068!5e0!3m2!1sen!2slk!4v1648213360457!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                                <!-- <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7936.595061707961!2d80.5334359!3d5.953681200000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1629276519410!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
                             </div>
                         </div>
 
-                    <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
-                        <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
-                        <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
-                        <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
-                        <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
-                        <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
-                        <input type="text" name="items" value="Trip"><br>
-                        <input type="text" name="currency" value="LKR">
-                        <input type="text" name="amount" value="1000">
-                        <input type="text" name="first_name" value="Saman">
-                        <input type="text" name="last_name" value="Perera"><br>
-                        <input type="text" name="email" value="samanp@gmail.com">
-                        <input type="text" name="phone" value="0771234567"><br>
-                        <input type="text" name="address" value="No.1, Galle Road">
-                        <input type="text" name="city" value="Colombo">
-                        <input type="text" name="country" value="Sri Lanka"><br><br>
-                    </form>
+                        <?php
+                               while($travelerPay=mysqli_fetch_array($this->TravelerDetails)){
+                                $payName=explode(' ',$travelerPay['name']);
+                        ?>
+                            <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
+                                <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
+                                <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
+                                <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
+                                <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
+                                <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
+                                <input type="text" name="items" value="Trip"><br>
+                                <input type="text" name="currency" value="LKR">
+                                <input type="text" name="amount" value="<?php echo $total_price; ?>">
+                                <input type="text" name="first_name" value="<?php echo $payName[0]; ?>">
+                                <input type="text" name="last_name" value="<?php echo $payName[1]; ?>"><br>
+                                <input type="text" name="email" value="<?php echo $travelerPay['email']; ?>">
+                                <input type="text" name="phone" value="<?php echo $travelerPay['contact1']; ?>"><br>
+                                <input type="text" name="address" value="<?php echo $travelerPay['address_line1'].','.$travelerPay['address_line2']; ?>">
+                                <input type="text" name="city" value="<?php echo $travelerPay['city']; ?>">
+                                <input type="text" name="country" value="Sri Lanka"><br><br>
+                            </form>
+                        <?php }?>
 
                     <form id="saveTripForm" action="<?php echo URLROOT; ?>/traveler/saveTrip" method="post">
                     <input type="hidden" name="trip_id" value="<?php echo $_SESSION['trip_id']; ?>">
