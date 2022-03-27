@@ -147,6 +147,7 @@ if (isset($_SESSION['username'])) {
                                     <option value="Trincomalee">Trincomalee</option>
                                     <option value="Vavuniya">Vavuniya</option>
                                 </select>
+                                <div class="error" id="error"></div>
                             </div>
                         </form>
                     </div>
