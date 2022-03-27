@@ -126,7 +126,17 @@ tbody a {
 #completedbtn {
     background-color: rgb(41, 180, 161);
     border-radius: 8px;
-    width: 8rem;
+    width: 100px;
+    height: 25px;
+    cursor: pointer;
+    border-width: 0.01ch;
+    border-color: rgb(41, 180, 161);
+}
+
+#completedbtn {
+    background-color: rgb(41, 180, 161);
+    border-radius: 8px;
+    width: 6rem;
     height: 25px;
     cursor: pointer;
     border-width: 0.01ch;

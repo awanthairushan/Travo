@@ -261,6 +261,9 @@ class Unregistered extends Controller
                     exit();
                 }
             }
+            else{
+                header('location: fogotPasswordGetUsername?error=Invalid username');
+            }
         }
 
     }
