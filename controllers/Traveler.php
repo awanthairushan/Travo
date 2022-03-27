@@ -976,15 +976,7 @@ class Traveler extends Controller
             $order_id=$_GET['order_id'];
             
             if($this->model->updateTripPaid($order_id,$_SESSION['travelerID'])){
-                $mail_subject = "Successfully Planned trip";
-                $mail_upper_body = "Hello {$_SESSION['name']} ,";
-                $mail_middle_boddy = "Your booking is confirmed.";
-
-                $send_mail_result = mail($_SESSION['username'], $mail_subject, $mail_middle_boddy, $mail_upper_body);
-
-                if ($send_mail_result) {
-                    $status=true;
-                }
+                $status=true;                
             }
             else{
                 $status=false;
