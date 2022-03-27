@@ -81,7 +81,7 @@
                                         
                                         <?php 
                                             while($Sights = mysqli_fetch_array($this->sights[$i-1])){
-                                                echo '<input type="checkbox" id="sight" name="sights'.$i.'[]" value="'.$Sights['sight_id'].'"><label for="sights">'.$Sights['sight'].'</label><br/>';
+                                                echo '<input type="checkbox" id="sight" class="sights'.$i.'" name="sights'.$i.'[]" value="'.$Sights['sight_id'].'"><label for="sights">'.$Sights['sight'].'</label><br/>';
                                             }
                                         ?>
                                         <!-- <input type="checkbox" id="sight1" name="anu[]" value="anu_1"><label for="sight1">Ruwanweliseya</label><br/>

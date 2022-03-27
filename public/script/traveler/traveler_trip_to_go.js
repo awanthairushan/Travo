@@ -1,9 +1,12 @@
 //---------------------------trip delete box---------------------
 
 var deleteTrip_modal = document.querySelector(".delete_trip_modal");
+var deletePaidTrip_modal = document.querySelector(".delete_paidTrip_modal");
 var dleteTripId = document.getElementById("deleteTrip");
 var deleteTrip_btn = document.querySelectorAll(".delete_img");
+var deletePaidTrip_btn = document.querySelectorAll(".delete_paidimg");
 var trip_cancelBtn = document.querySelector("#deleteTrip_cancel_btn");
+var paidtrip_cancelBtn = document.querySelector("#deletePaidTrip_cancel_btn");
 
 
 // for (var i = 0; i < deleteTrip_btn.length; i++) {
@@ -19,14 +22,22 @@ window.onclick = function(e) {
 }
 
 function deleteTripid(id){
-  deleteTrip_modal.style.display = "block";
-  dleteTripId.value=id;
+    deleteTrip_modal.style.display = "block";
+    dleteTripId.value=id;
 
 }
+
+function deletePaidTripid(id){
+    deletePaidTrip_modal.style.display = "block";
+  }
 
 trip_cancelBtn.addEventListener("click", function(){
    deleteTrip_modal.style.display = "none";
  });
+
+ paidtrip_cancelBtn.addEventListener("click", function(){
+    deletePaidTrip_modal.style.display = "none";
+  });
 
 
 //----------------------------change between trip to go, saved and completed-----------------------

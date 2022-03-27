@@ -10,7 +10,6 @@ if (isset($_SESSION['username'])) {
             <style> <?php include APPROOT.'/public/css/traveler/traveler_hotel_booking.css'; ?> </style>
             <style> <?php include APPROOT.'/public/css/traveler/traveler_repeating_css.css'; ?> </style>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src="http://localhost/TRAVO/public/script/traveler/traveler_hotel_booking.js"></script>
             <?php include APPROOT . '/views/repeatable_contents/font.php'; ?>
         </head>
         <body>
@@ -62,7 +61,8 @@ if (isset($_SESSION['username'])) {
                 </div>
 
                 <div>
-                    <form id="roomPlan" action="bookTripRooms" method="post">
+                    <form id="roomPlan" class="roomPlan" action="bookTripRooms" method="post">
+                        <?php echo '<input type="hidden" id="error" name="error" value="'.$this->error.'">' ?>
                         <?php echo '<input type="hidden" name="hotel_id" value="' . $this->hotel_id . '">'; ?>
                         <?php echo '<input type="hidden" name="count" value="' . $this->count . '">'; ?>
                         <input type="hidden" name="new_old" value="<?php echo $check['total']; ?>">
@@ -100,7 +100,7 @@ if (isset($_SESSION['username'])) {
                                     </div>
                                     <input type="hidden" name="oldSnumber" id="oldSnumber"
                                            value="<?php echo $noBook1; ?>"/>
-                                    <input type="number" name="Snumber" id="Snumber" value="0"/>
+                                    <input type="number" name="Snumber" class="rnumber" id="Snumber" value="0"/>
                                     <div class="value-button" id="increase" onclick="increaseSValue()"
                                          value="Increase Value">+
                                     </div>
@@ -139,7 +139,7 @@ if (isset($_SESSION['username'])) {
                                     </div>
                                     <input type="hidden" name="oldDnumber" id="oldDnumber"
                                            value="<?php echo $noBook2; ?>"/>
-                                    <input type="number" name="Dnumber" id="Dnumber" value="0"/>
+                                    <input type="number" name="Dnumber" class="rnumber" id="Dnumber" value="0"/>
                                     <div class="value-button" id="increase" onclick="increaseDValue()"
                                          value="Increase Value">+
                                     </div>
@@ -178,7 +178,7 @@ if (isset($_SESSION['username'])) {
                                     </div>
                                     <input type="hidden" name="oldFnumber" id="oldFnumber"
                                            value="<?php echo $noBook3; ?>"/>
-                                    <input type="number" name="Fnumber" id="Fnumber" value="0"/>
+                                    <input type="number" name="Fnumber" class="rnumber" id="Fnumber" value="0"/>
                                     <div class="value-button" id="increase" onclick="increaseFValue()"
                                          value="Increase Value">+
                                     </div>
@@ -217,7 +217,7 @@ if (isset($_SESSION['username'])) {
                                     </div>
                                     <input type="hidden" name="oldMnumber" id="oldMnumber"
                                            value="<?php echo $noBook4; ?>"/>
-                                    <input type="number" name="Mnumber" id="Mnumber" value="0"/>
+                                    <input type="number" name="Mnumber" class="rnumber" id="Mnumber" value="0"/>
                                     <div class="value-button" id="increase" onclick="increaseMValue()"
                                          value="Increase Value">+
                                     </div>
@@ -227,11 +227,12 @@ if (isset($_SESSION['username'])) {
 
                     </form>
                     <div class="confirm">
-                        <button id="cancelbtn" class="cancelbtn" onclick="history.back()">CANCEL</button>
+                        <button id="cancelbtn" class="cancelbtn">CANCEL</button>
                         <button type="submit" name="confirmbtn" id="confirmbtn" class="confirmbtn" form="roomPlan">
                             CONFIRM
                         </button>
                     </div>
+
 
 
                     <div class="hoteldetails">
@@ -271,6 +272,8 @@ if (isset($_SESSION['username'])) {
                         type="text/javascript"></script>
                 <!-- ..................end of hotel description and location........................ -->
         </section>
+        <script src="http://localhost/TRAVO/public/script/traveler/traveler_hotel_booking.js"></script>
+
 
         <section id="contact_us-section">
             <?php include APPROOT . '/views/repeatable_contents/footer.php'; ?>
