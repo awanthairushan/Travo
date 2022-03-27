@@ -37,6 +37,17 @@
               </div>
             </div>
 
+            <div class="delete_paidTrip_modal">
+              <div class="deletePaidTrip_confirm_box">
+                    <h3>Cancel Trip</h3>
+                    <hr>
+                      <p>This is a paid trip! Contact administrator to cancel this trip</p>
+                      <hr>
+                      <button type="button" name="deletePaidTrip_cancel_btn" class="deletePaidTrip_cancel_btn" id="deletePaidTrip_cancel_btn">CANCEL</button>
+                    </form>
+              </div>
+            </div>
+
             <div class="content">
                 <div class="trips">
                 <div class="slide trip1" id="trip1">
@@ -62,7 +73,7 @@
                             $rows1['destination_id3']="-";
                           }
 
-                          echo '<div class="tripdetail t'.$count1.'"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_img"  id="'.$rows1['trip_id'].'" onClick="deleteTripid(this.id)"><dl class=""> <dt>'.$rows1['destination_id'].'</dt> <dt>'.$rows1['destination_id2'].'</dt> <dt>'.$rows1['destination_id3'].'</dt> <dt>'.$rows1['start_date'].'</dt></dl><button onclick="window.location.href='."'savedBudget?id=".$rows1['trip_id']."'".'" id="selecttrip">READ MORE</button></div>';
+                          echo '<div class="tripdetail t'.$count1.'"><img src="http://localhost/TRAVO/public/images/icons/delete.png" class="delete_paidimg"  id="'.$rows1['trip_id'].'" onClick="deletePaidTripid(this.id)"><dl class=""> <dt>'.$rows1['destination_id'].'</dt> <dt>'.$rows1['destination_id2'].'</dt> <dt>'.$rows1['destination_id3'].'</dt> <dt>'.$rows1['start_date'].'</dt></dl><button onclick="window.location.href='."'savedBudget?id=".$rows1['trip_id']."'".'" id="selecttrip">READ MORE</button></div>';
                           $count1=$count1+1;
                         }
                         ?>

@@ -39,35 +39,33 @@ if (isset($_SESSION['username'])) {
                     <div class="app">
                         <div class="selecttype">
                             <label for="switch">
-                                <div class="toggle_select"></div>
+                                <div class="toggle_select">
+                                </div>
                                 <div class="names">
-                                    <p class="planning"
-<!--                                       onclick="handleOnPlanningBtn()"-->
-                                    >PLAN</p>
-                                    <p class="upcoming"
-<!--                                       onclick="handleOnupcomingBtn()" -->
-                                    >UPCOMING</p>
+                                    <div class="planning"
+                                        onclick="handleOnPlanningBtn()">                          
+                                        PLAN</div>
+                                    <div class="upcoming"
+                                        onclick="handleOnupcomingBtn()">
+                                        UPCOMING</div>
                                 </div>
                             </label>
                         </div>
                     </div>
                     <!-- end of the toggle -->
-<!--                    <script>-->
-<!--                       function handleOnPlanningBtn(){-->
-<!--                           const tripPlanBeginForm = document.getElementsByClassName("tripPlanBegin");-->
-<!--                           const upcomingTableForm = document.getElementsByClassName("upcoming-table");-->
-<!--                            tripPlanBeginForm.style.display = "block";-->
-<!--                            upcomingTableForm.style.display = "none";-->
-<!--                        }-->
-<!--                        function handleOnupcomingBtn(){-->
-<!--                            const tripPlanBeginForm = document.getElementsByClassName("tripPlanBegin");-->
-<!--                            const upcomingTableForm = document.getElementsByClassName("upcoming-table");-->
-<!--                            upcomingTableForm.style.display = "block";-->
-<!--                            tripPlanBeginForm.style.display = "none";-->
-<!--                        }-->
-<!---->
-<!---->
-<!--                    </script>-->
+                   <script>
+                    function handleOnPlanningBtn(){
+                        const tripPlanBeginForm = document.getElementById("tripPlanBegin");
+                        const upcomingTableForm = document.getElementById("upcoming-table");
+                        tripPlanBeginForm.style.display = "block";
+                        upcomingTableForm.style.display = "none";
+                    }
+                    function handleOnupcomingBtn(){
+                        const tripPlanBeginForm = document.getElementById("tripPlanBegin");
+                        const upcomingTableForm = document.getElementById("upcoming-table");
+                        upcomingTableForm.style.display = "block";
+                        tripPlanBeginForm.style.display = "none";                        }
+                    </script>
 
                     <form id="tripPlanBegin" class="tripPlanBegin" action="<?php echo URLROOT ?>/traveler/tripPlanBegin"
                           method="post">
@@ -101,8 +99,8 @@ if (isset($_SESSION['username'])) {
                         <input type="submit" id="nextbtn" class="nextbtn" value="NEXT" name="submitbtn">
                         <!-- <button id="nextbtn" class="nextbtn" onclick="window.location.href='traveler/planTrip'">NEXT</button> -->
                     </form>
-
-                    <table class="upcoming-table">
+                    <?php while($upcomingTrip = mysqli_fetch_array($this->upcomingTrip)){ ?>
+                    <table class="upcoming-table" id="upcoming-table">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -113,17 +111,18 @@ if (isset($_SESSION['username'])) {
                         <tbody>
                             <tr>
                                 <td>
-                                    25/05/2020
+                                    <?php echo $upcomingTrip['start_date']; ?>
                                 </td>
                                 <td>
-                                    Galle
+                                <?php echo $upcomingTrip['destination_id']; ?>
                                 </td>
                                 <td>
-                                    Thisuri hotel
+                                <?php echo $upcomingTrip['start_date']; ?>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <?php break; } ?>
                 </div>
             </div>
         </section>
