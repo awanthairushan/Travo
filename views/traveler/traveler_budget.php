@@ -38,7 +38,11 @@
                         <button class="tripmenu" id="route_btn">ROUTE</button>
                     </div>
 
-                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ ?>
+                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ 
+                        $lat= $details['location_lat'];
+                        $lng= $details['location_long'];
+                        $noOfDays = $details['no_of_days'];
+                        ?>
                     <div class="container modal1">
                         <div class="details">
                             <table class="main_details">
@@ -317,10 +321,81 @@
                     <div class="container modal3">
                             <div class="details">
                             <br>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1013798.124574981!2d79.76544702723868!3d6.99173436455917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m3!3m2!1d6.901793!2d79.86276!4m5!1s0x3ae380434e1554c7%3A0x291608404c937d9c!2sNuwara%20Eliya!3m2!1d6.9497165999999995!2d80.7891068!5e0!3m2!1sen!2slk!4v1648213360457!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                                                <!-- <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7936.595061707961!2d80.5334359!3d5.953681200000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1629276519410!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                            <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"></div>
+                            <div id="sidebar">
+                                <!-- <div>
+                                <input type="submit" id="submitmap" />
+                                </div> -->
+                                <div id="directions-panel" class="directions-panel"></div>
+                            </div>
                             </div>
                         </div>
+
+                        <script>
+                            function initMap() {
+                                const directionsService = new google.maps.DirectionsService();
+                                const directionsRenderer = new google.maps.DirectionsRenderer();
+                                const map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 8,
+                                    center: { lat: 6.944454582660104, lng: 79.9236796193022 },
+                                });
+
+                                directionsRenderer.setMap(map);
+                                document.getElementById("route_btn").addEventListener("click", () => {
+                                    calculateAndDisplayRoute(directionsService, directionsRenderer);
+                                });
+                                }
+
+
+                                function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+                                    const waypts = [];
+                                <?php 
+                                $number=$noOfDays;
+                                for($i=0;$i<$number;$i++){ ?>
+
+                                    waypts.push({
+                                        location: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>, <?php echo $this->maplng[$i]; ?>),
+                                        stopover: true,
+                                    });
+
+                                <?php } 
+                                ?>
+                                directionsService
+                                    .route({
+                                    origin: new google.maps.LatLng(<?php echo $lat ?>, <?php echo $lng ?>),
+                                    destination: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>,<?php echo $this->maplng[$i]; ?>),
+                                    waypoints: waypts,
+                                    optimizeWaypoints: true,
+                                    travelMode: google.maps.TravelMode.DRIVING,
+                                    })
+                                    .then((response) => {
+                                    directionsRenderer.setDirections(response);
+
+                                    const route = response.routes[0];
+                                    const summaryPanel = document.getElementById("directions-panel");
+
+                                    summaryPanel.innerHTML = "";
+
+                                    // For each route, display summary information.
+                                    for (let i = 0; i < route.legs.length; i++) {
+                                        const routeSegment = i + 1;
+
+                                        summaryPanel.innerHTML +=
+                                        "<b>Route Segment: " + routeSegment + "</b><br>";
+                                        summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+                                        summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+                                        summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+                                    }
+                                    })
+                                    .catch((e) => window.alert("Directions request failed due to " + status));
+                                }
+                        </script>
+                        
+                        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                        <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap&v=weekly"
+                        async
+                        ></script>
 
                         <?php
                                while($travelerPay=mysqli_fetch_array($this->TravelerDetails)){

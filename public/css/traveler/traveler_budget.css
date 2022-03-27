@@ -241,6 +241,27 @@ body{
     display: none;
 }
 
+/* direction map styles */
+
+#sidebar {
+    flex-basis: 15rem;
+    flex-grow: 1;
+    padding: 1rem;
+    max-width: 30rem;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  
+  #map {
+    flex-basis: 0;
+    flex-grow: 4;
+  }
+  
+  #directions-panel {
+    margin-top: 10px;
+  }
+
 @media screen and (max-width:1090px){
     .main .row1{
         width: 40%;
@@ -398,4 +419,8 @@ body{
     .tripmenu{
         font-size: 1rem;
     }
+}
+
+.directions-panel {
+    display: none;
 }

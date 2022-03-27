@@ -40,6 +40,10 @@
 
                     <?php while ($details = mysqli_fetch_array($this->selectTrip)){ 
                             $trip_status = $details['status'];
+                            $lat= $details['location_lat'];
+                            $lng= $details['location_long'];
+                            $noOfDays = $details['no_of_days'];
+
                         ?>
                     <div class="container modal1">
                         <div class="details">
@@ -241,43 +245,7 @@
                     <div class="container modal2">
                         <div class="details main">
                         <br>
-                            <!-- <table class="main">
-                                <tr>
-                                    <td>Hotel 1</td>
-                                    <td>=</td>
-                                    <td>RS 3500.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Hotel 2</td>
-                                    <td>=</td>
-                                    <td>RS 4500.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Hotel 2</td>
-                                    <td>=</td>
-                                    <td>RS 5000.00</td>
-                                </tr>
-                                <tr>
-                                    <th class="row">Accomodaions</th>
-                                    <th class="row">=</th>
-                                    <th class="row">RS 13000.00</th>
-                                </tr>
-                                <tr>
-                                    <td>Service Charges</td>
-                                    <td>=</td>
-                                    <td>RS 1000.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Ticket fees</td>
-                                    <td>=</td>
-                                    <td>(RS 500.00)</td>
-                                </tr>
-                                <tr>
-                                    <th class="row">Total Budget</th>
-                                    <th class="row">=</th>
-                                    <th class="row">RS 14000.00</th>
-                                </tr>
-                            </table> -->
+                            
 
                             <?php while ($budget = mysqli_fetch_array($this->budget)){ 
                                     if($budget['hotel2_accomodation']!=0){
@@ -318,9 +286,81 @@
                     <div class="container modal3">
                             <div class="details">
                             <br>
-                                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7936.595061707961!2d80.5334359!3d5.953681200000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1629276519410!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"></div>
+                            <div id="sidebar">
+                                <!-- <div>
+                                <input type="submit" id="submitmap" />
+                                </div> -->
+                                <div id="directions-panel" class="directions-panel"></div>
+                            </div>
                             </div>
                         </div>
+
+                        <script>
+                            function initMap() {
+                                const directionsService = new google.maps.DirectionsService();
+                                const directionsRenderer = new google.maps.DirectionsRenderer();
+                                const map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 8,
+                                    center: { lat: 6.944454582660104, lng: 79.9236796193022 },
+                                });
+
+                                directionsRenderer.setMap(map);
+                                document.getElementById("route_btn").addEventListener("click", () => {
+                                    calculateAndDisplayRoute(directionsService, directionsRenderer);
+                                });
+                                }
+
+
+                                function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+                                    const waypts = [];
+                                <?php 
+                                $number=$noOfDays;
+                                for($i=0;$i<$number;$i++){ ?>
+
+                                    waypts.push({
+                                        location: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>, <?php echo $this->maplng[$i]; ?>),
+                                        stopover: true,
+                                    });
+
+                                <?php } 
+                                ?>
+                                directionsService
+                                    .route({
+                                    origin: new google.maps.LatLng(<?php echo $lat ?>, <?php echo $lng ?>),
+                                    destination: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>,<?php echo $this->maplng[$i]; ?>),
+                                    waypoints: waypts,
+                                    optimizeWaypoints: true,
+                                    travelMode: google.maps.TravelMode.DRIVING,
+                                    })
+                                    .then((response) => {
+                                    directionsRenderer.setDirections(response);
+
+                                    const route = response.routes[0];
+                                    const summaryPanel = document.getElementById("directions-panel");
+
+                                    summaryPanel.innerHTML = "";
+
+                                    // For each route, display summary information.
+                                    for (let i = 0; i < route.legs.length; i++) {
+                                        const routeSegment = i + 1;
+
+                                        summaryPanel.innerHTML +=
+                                        "<b>Route Segment: " + routeSegment + "</b><br>";
+                                        summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+                                        summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+                                        summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+                                    }
+                                    })
+                                    .catch((e) => window.alert("Directions request failed due to " + status));
+                                }
+                        </script>
+                        
+                        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                        <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap&v=weekly"
+                        async
+                        ></script>
 
                         <?php if($trip_status=="Saved"){ 
                                while($travelerPay=mysqli_fetch_array($this->TravelerDetails)){
@@ -346,7 +386,6 @@
                         <?php }} ?>
 
                     <div class="buttons">
-                        
                         <button class="cancelbutton" id="cancelbtn" onclick="window.location.href='tripToGo'">CANCEL</button>
                         <?php if($trip_status=="Saved"){  ?>
                         <button class="button" form="payForm" id="paybtn">PAY NOW</button>
