@@ -67,4 +67,14 @@ function getFaq(){
     function addHotelAvailability($userID,$date,$sr,$dr,$fr,$mr){
         return $this->db->runQuery("INSERT INTO hotel_availability (hotelID, date, single_rooms, double_rooms, family_rooms, massive_rooms) VALUES ('$userID','$date','$sr','$dr','$fr','$mr')");
     }
+    function hotelBookings($hotel_id,$trip_id,$traveler_id,$date,$day,$singleNumber,$doubleNumber,$familyNumber,$massiveNumber,$price){
+        return $this->db->runQuery("INSERT INTO trip_hotels (hotelId, trip_id, traveler_id, date, day, single_count, double_count, family_count, massive_count, price) VALUES ('$hotel_id', '$trip_id', '$traveler_id', '$date', '$day', '$singleNumber', '$doubleNumber', '$familyNumber', '$massiveNumber', '$price')");
+    }
+    function getBooking($userID,$date){
+        return $this->db->runQuery("SELECT * FROM trip_hotels WHERE hotelId='$userID' AND date='$date'");
+    }
+    function getCustomerDetails($travelerId)
+    {
+        return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID = '$travelerId'");
+    }
 }

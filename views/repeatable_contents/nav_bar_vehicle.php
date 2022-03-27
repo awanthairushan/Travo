@@ -34,7 +34,7 @@
         <li class="navigations_name drop_content_mini">', $_SESSION['owner_name'], '</li>
         <li class="navigations_name drop_content_mini"><button class="deleteAccount_btn" id="deleteAccount_btn" >DELETE ACCOUNT</button></li>
         <li class="navigations_name drop_content_mini"><a class="drop-nav" href=loadUpdateProfile>UPDATE</a></li>
-        <li class="navigations_name drop_content_mini"><a class="drop-nav" href="logout">LOG OUT</a></li> 
+        <li class="navigations_name drop_content_mini"><a class="drop-nav" href="' . URLROOT . '/vehicle/logout">LOG OUT</a></li> 
        
           </ul>
       </nav>

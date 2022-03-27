@@ -1,13 +1,13 @@
 <?php
-  if(isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
     // $count=0;
     // while($travelers = mysqli_fetch_array($this->isTraveler)){
     //   if($travelers['email']===$_SESSION['username']){
     //     $count=$count+1;
     //   }
     // }
-    if (mysqli_num_rows($this->isTraveler)===1) {
-?>
+    if (mysqli_num_rows($this->isTraveler) === 1) {
+        ?>
         <html>
 
         <head>
@@ -20,43 +20,48 @@
                 <?php include APPROOT.'/public/css/traveler/traveler_repeating_css.css'; ?>
             </style>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <?php include APPROOT.'/views/repeatable_contents/font.php'; ?>
+            <?php include APPROOT . '/views/repeatable_contents/font.php'; ?>
         </head>
 
         <body>
-            <section class="uppersection">
-                <?php include APPROOT.'/views/repeatable_contents/nav_bar_traveler.php'; ?>
-                <style>
-                    <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>
-                </style>
-                <script type="text/javascript" src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
-                <br>
-                <div class="content">
-                    <div class="trip ">
-                        <button class="tripmenu" id="trip_details_btn">TRIP</button>
-                        <button class="tripmenu" id="budget_btn">BUDGET</button>
-                        <button class="tripmenu" id="route_btn">ROUTE</button>
-                    </div>
+        <section class="uppersection">
+            <?php include APPROOT . '/views/repeatable_contents/nav_bar_traveler.php'; ?>
+            <style>
+                <?php include APPROOT.'/public/css/repeatable_contents/nav_bar_traveler.css'; ?>
+            </style>
+            <script type="text/javascript"
+                    src="http://localhost/TRAVO/public/script/repeatable_contents/nav_bar_traveler.js"></script>
+            <br>
+            <div class="content">
+                <div class="trip ">
+                    <button class="tripmenu" id="trip_details_btn">TRIP</button>
+                    <button class="tripmenu" id="budget_btn">BUDGET</button>
+                    <button class="tripmenu" id="route_btn">ROUTE</button>
+                </div>
 
-                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ ?>
+                    <?php while ($details = mysqli_fetch_array($this->selectTrip)){ 
+                        $lat= $details['location_lat'];
+                        $lng= $details['location_long'];
+                        $noOfDays = $details['no_of_days'];
+                        ?>
                     <div class="container modal1">
                         <div class="details">
                             <table class="main_details">
                                 <tr>
-                                    <td>Date : </td>
-                                    <td><?php echo $details['start_date'].' To '.$details['end_date']; ?></td>
+                                    <td>Date :</td>
+                                    <td><?php echo $details['start_date'] . ' To ' . $details['end_date']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Number of Travelers : </td>
+                                    <td>Number of Travelers :</td>
                                     <td><?php echo $details['no_of_people']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Category : </td>
+                                    <td>Category :</td>
                                     <td><?php echo $details['category']; ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Mileage : </td>
-                                    <td><?php echo $details['mileage'].'km'; ?></td>
+                                    <td>Mileage :</td>
+                                    <td><?php echo $details['mileage'] . 'km'; ?></td>
                                 </tr>
                             </table>
 
@@ -88,71 +93,73 @@
                             </table> -->
 
                             <?php
-                                $day2=0;
-                                $day3=0;
-                                if($details['no_of_days']==0){
-                                    $tcolhide=50;
-                                    $firstchild=50;
-                                    $hotel1="-";
-                                    $hotel2="-";
-                                    $hotel3="-";
-                                }
-                                if($details['no_of_days']==1){
-                                    $tcolhide=34;
-                                    $firstchild=32;
-                                    $day2=1;
-                                    $hotel1=$this->hotel1;
-                                    $hotel2="-";
-                                    $hotel3="-";
-                                }
-                                if($details['no_of_days']==2){
-                                    $tcolhide=29;
-                                    $firstchild=13;
-                                    $day2=1;
-                                    $day3=1;
-                                    $hotel1=$this->hotel1;
-                                    $hotel2=$this->hotel2;
-                                    $hotel3="-";
-                                }
+                            $day2 = 0;
+                            $day3 = 0;
+                            if ($details['no_of_days'] == 0) {
+                                $tcolhide = 50;
+                                $firstchild = 50;
+                                $hotel1 = "-";
+                                $hotel2 = "-";
+                                $hotel3 = "-";
+                            }
+                            if ($details['no_of_days'] == 1) {
+                                $tcolhide = 34;
+                                $firstchild = 32;
+                                $day2 = 1;
+                                $hotel1 = $this->hotel1;
+                                $hotel2 = "-";
+                                $hotel3 = "-";
+                            }
+                            if ($details['no_of_days'] == 2) {
+                                $tcolhide = 29;
+                                $firstchild = 13;
+                                $day2 = 1;
+                                $day3 = 1;
+                                $hotel1 = $this->hotel1;
+                                $hotel2 = $this->hotel2;
+                                $hotel3 = "-";
+                            }
                             ?>
                             <style>
-                                .tcolumn,.thide{
+                                .tcolumn, .thide {
                                     width: <?php echo $tcolhide; ?>%;
                                     float: left;
                                 }
 
-                                .thide{
+                                .thide {
                                     display: none;
                                 }
 
-                                .thide:first-child{
+                                .thide:first-child {
                                     width: <?php echo $firstchild; ?>%;
                                     display: block;
                                 }
 
-                                @media screen and (max-width:850px){
-                                    .tcolumn,.thide{
+                                @media screen and (max-width: 850px) {
+                                    .tcolumn, .thide {
                                         width: 50%;
                                         margin-bottom: 1rem;
                                     }
 
-                                    .thide:first-child{
+                                    .thide:first-child {
                                         width: 50%;
                                     }
 
-                                    .thide{display: block;}
+                                    .thide {
+                                        display: block;
+                                    }
                                 }
 
-                                @media screen and (max-width:450px){
-                                    .thide{
+                                @media screen and (max-width: 450px) {
+                                    .thide {
                                         width: 30%;
                                     }
 
-                                    .thide:first-child{
+                                    .thide:first-child {
                                         width: 30%;
                                     }
 
-                                    .tcolumn{
+                                    .tcolumn {
                                         width: 70%;
                                     }
                                 }
@@ -167,131 +174,134 @@
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 1</div>
-                                    <div class="trow"><?php echo ' '.$details['destination_id'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$hotel1.' ' ?></div>
+                                    <div class="trow"><?php echo ' ' . $details['destination_id'] . ' ' ?></div>
+                                    <div class="trow"><?php echo ' ' . $hotel1 . ' ' ?></div>
                                     <div class="trow">
-                                        <?php 
-                                        $count1=$this->sightCount1;
-                                        for($a=0;$a<$count1;$a++){
-                                            while($sights1=mysqli_fetch_array($this->sightsName1[$a])){
-                                                echo $sights1['sight'].'<br/>';
+                                        <?php
+                                        $count1 = $this->sightCount1;
+                                        for ($a = 0; $a < $count1; $a++) {
+                                            while ($sights1 = mysqli_fetch_array($this->sightsName1[$a])) {
+                                                echo $sights1['sight'] . '<br/>';
                                             }
                                         }
-                                        for($a1=5;$a1<5-$count1;$a1++){
+                                        for ($a1 = 5; $a1 < 5 - $count1; $a1++) {
                                             echo '-<br/>';
                                         }
                                         ?>
                                     </div>
                                     <!-- <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div> -->
                                 </div>
-                                <?php if($day2==1){ ?>
-                                <div class="thide">
-                                    <!-- trowhead is an empty div -->
-                                    <div class="trowhead">&nbsp</div>
-                                    <div class="trow"><span>Destination</span></div>
-                                    <div class="trow"><span>Hotel</span></div>
-                                    <div class="trow"><span>Sights</span><br><br><br></div>
-                                </div>
-                                <div class="tcolumn">
-                                    <div class="trowhead">Day 2</div>
-                                    <div class="trow"><?php echo ' '.$details['destination_id2'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$hotel2.' ' ?></div>
-                                    <div class="trow">
-                                        <?php for($b=0;$b<$this->sightCount2;$b++){
-                                            while($sights2=mysqli_fetch_array($this->sightsName2[$b])){
-                                                echo $sights2['sight'].'<br/>';
-                                            }
-                                        }
-                                        ?>
+                                <?php if ($day2 == 1) { ?>
+                                    <div class="thide">
+                                        <!-- trowhead is an empty div -->
+                                        <div class="trowhead">&nbsp</div>
+                                        <div class="trow"><span>Destination</span></div>
+                                        <div class="trow"><span>Hotel</span></div>
+                                        <div class="trow"><span>Sights</span><br><br><br></div>
                                     </div>
-                                    <!-- <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div> -->
-                                </div>
-                                <?php } 
-                                    if($day3==1){
-                                ?>
-                                <div class="thide">
-                                    <!-- trowhead is an empty div -->
-                                    <div class="trowhead">&nbsp</div>
-                                    <div class="trow"><span>Destination</span></div>
-                                    <div class="trow"><span>Hotel</span></div>
-                                    <div class="trow"><span>Sights</span><br><br><br></div>
-                                </div>
-                                <div class="tcolumn">
-                                    <div class="trowhead">Day 3</div>
-                                    <div class="trow"><?php echo ' '.$details['destination_id3'].' ' ?></div>
-                                    <div class="trow"><?php echo ' '.$hotel3.' ' ?></div>
-                                    <div class="trow">
-                                        <?php for($c=0;$c<$this->sightCount3;$c++){
-                                            while($sights3=mysqli_fetch_array($this->sightsName3[$c])){
-                                                echo $sights3['sight'].'<br/>';
+                                    <div class="tcolumn">
+                                        <div class="trowhead">Day 2</div>
+                                        <div class="trow"><?php echo ' ' . $details['destination_id2'] . ' ' ?></div>
+                                        <div class="trow"><?php echo ' ' . $hotel2 . ' ' ?></div>
+                                        <div class="trow">
+                                            <?php for ($b = 0; $b < $this->sightCount2; $b++) {
+                                                while ($sights2 = mysqli_fetch_array($this->sightsName2[$b])) {
+                                                    echo $sights2['sight'] . '<br/>';
+                                                }
                                             }
-                                        }
-                                        ?>
+                                            ?>
+                                        </div>
+                                        <!-- <div class="trow">Dutch Reformed Church<br />The National Museum<br />Japanese Peace Pagoda</div> -->
                                     </div>
-                                    <!-- <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div> -->
-                                </div>
+                                <?php }
+                                if ($day3 == 1) {
+                                    ?>
+                                    <div class="thide">
+                                        <!-- trowhead is an empty div -->
+                                        <div class="trowhead">&nbsp</div>
+                                        <div class="trow"><span>Destination</span></div>
+                                        <div class="trow"><span>Hotel</span></div>
+                                        <div class="trow"><span>Sights</span><br><br><br></div>
+                                    </div>
+                                    <div class="tcolumn">
+                                        <div class="trowhead">Day 3</div>
+                                        <div class="trow"><?php echo ' ' . $details['destination_id3'] . ' ' ?></div>
+                                        <div class="trow"><?php echo ' ' . $hotel3 . ' ' ?></div>
+                                        <div class="trow">
+                                            <?php for ($c = 0; $c < $this->sightCount3; $c++) {
+                                                while ($sights3 = mysqli_fetch_array($this->sightsName3[$c])) {
+                                                    echo $sights3['sight'] . '<br/>';
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                        <!-- <div class="trow">National Museum<br />Viharamahadevi Park<br />Sri Lanka Planetarium</div> -->
+                                    </div>
                                 <?php } ?>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                <?php } ?>
 
-                    <div class="container modal2">
-                        <div class="details main">
+                <div class="container modal2">
+                    <div class="details main">
                         <br>
-                            <!-- <table class="main">
-                                <tr>
-                                    <td>Hotel 1</td>
-                                    <td>=</td>
-                                    <td>RS 3500.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Hotel 2</td>
-                                    <td>=</td>
-                                    <td>RS 4500.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Hotel 2</td>
-                                    <td>=</td>
-                                    <td>RS 5000.00</td>
-                                </tr>
-                                <tr>
-                                    <th class="row">Accomodaions</th>
-                                    <th class="row">=</th>
-                                    <th class="row">RS 13000.00</th>
-                                </tr>
-                                <tr>
-                                    <td>Service Charges</td>
-                                    <td>=</td>
-                                    <td>RS 1000.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Ticket fees</td>
-                                    <td>=</td>
-                                    <td>(RS 500.00)</td>
-                                </tr>
-                                <tr>
-                                    <th class="row">Total Budget</th>
-                                    <th class="row">=</th>
-                                    <th class="row">RS 14000.00</th>
-                                </tr>
-                            </table> -->
+                        <!-- <table class="main">
+                            <tr>
+                                <td>Hotel 1</td>
+                                <td>=</td>
+                                <td>RS 3500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Hotel 2</td>
+                                <td>=</td>
+                                <td>RS 4500.00</td>
+                            </tr>
+                            <tr>
+                                <td>Hotel 2</td>
+                                <td>=</td>
+                                <td>RS 5000.00</td>
+                            </tr>
+                            <tr>
+                                <th class="row">Accomodaions</th>
+                                <th class="row">=</th>
+                                <th class="row">RS 13000.00</th>
+                            </tr>
+                            <tr>
+                                <td>Service Charges</td>
+                                <td>=</td>
+                                <td>RS 1000.00</td>
+                            </tr>
+                            <tr>
+                                <td>Ticket fees</td>
+                                <td>=</td>
+                                <td>(RS 500.00)</td>
+                            </tr>
+                            <tr>
+                                <th class="row">Total Budget</th>
+                                <th class="row">=</th>
+                                <th class="row">RS 14000.00</th>
+                            </tr>
+                        </table> -->
 
-                            <?php while ($budget = mysqli_fetch_array($this->budget)){ 
-                                    if($budget['hotel2_accomodation']!=0){
-                            ?>
-                            <div class="row1">Hotel 1</div>
-                            <div class="equal">=</div>
-                            <div class="row">RS <?php echo $budget['hotel1_accomodation'] ?></div>
+                        <?php while ($budget = mysqli_fetch_array($this->budget)) {
+                            if ($budget['hotel2_accomodation'] != 0) {
+                                ?>
+                                <div class="row1">Hotel 1</div>
+                                <div class="equal">=</div>
+                                <div class="row">RS <?php echo $budget['hotel1_accomodation'] ?></div>
 
                             <div class="row1">Hotel 2</div>
                             <div class="equal">=</div>
                             <div class="row">RS <?php echo $budget['hotel2_accomodation'] ?></div>
-                            <?php } ?>
-
+                            <?php }
+                                if($budget['accomodation']!=0){
+                            ?>
                             <div class="row1 final">Accomodations</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['accomodation'] ?></div>
+                            <?php }
+                            ?>
 
                             <div class="row1">Service Charges</div>
                             <div class="equal">=</div>
@@ -304,59 +314,141 @@
                             <div class="row1 final">Total Budget</div>
                             <div class="equal final">=</div>
                             <div class="row final">RS <?php echo $budget['total_expenses'] ?></div>
-                            <?php } ?>
+                            <?php 
+                                $total_price = $budget['total_expenses'];
+                            } 
+                            ?>
                         </div>
                     </div>
+                </div>
 
                     <div class="container modal3">
                             <div class="details">
                             <br>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m32!1m12!1m3!1d506681.5391602797!2d80.04574467886515!3d7.1894380635813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m17!3e0!4m3!3m2!1d6.901818899999999!2d79.8628002!4m5!1s0x3ae366266498acd3%3A0x411a3818a1e03c35!2sKandy!3m2!1d7.2905714999999995!2d80.6337262!4m5!1s0x3ae380434e1554c7%3A0x291608404c937d9c!2sNuwara%20Eliya!3m2!1d6.9497165999999995!2d80.7891068!5e0!3m2!1sen!2slk!4v1648197897400!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                <!-- <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7936.595061707961!2d80.5334359!3d5.953681200000001!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2slk!4v1629276519410!5m2!1sen!2slk" width="1000" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                            <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"></div>
+                            <div id="sidebar">
+                                <!-- <div>
+                                <input type="submit" id="submitmap" />
+                                </div> -->
+                                <div id="directions-panel" class="directions-panel"></div>
+                            </div>
                             </div>
                         </div>
 
-                    <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
-                        <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
-                        <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
-                        <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
-                        <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
-                        <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
-                        <input type="text" name="items" value="Trip"><br>
-                        <input type="text" name="currency" value="LKR">
-                        <input type="text" name="amount" value="1000">
-                        <input type="text" name="first_name" value="Saman">
-                        <input type="text" name="last_name" value="Perera"><br>
-                        <input type="text" name="email" value="samanp@gmail.com">
-                        <input type="text" name="phone" value="0771234567"><br>
-                        <input type="text" name="address" value="No.1, Galle Road">
-                        <input type="text" name="city" value="Colombo">
-                        <input type="text" name="country" value="Sri Lanka"><br><br>
-                    </form>
+                        <script>
+                            function initMap() {
+                                const directionsService = new google.maps.DirectionsService();
+                                const directionsRenderer = new google.maps.DirectionsRenderer();
+                                const map = new google.maps.Map(document.getElementById("map"), {
+                                    zoom: 8,
+                                    center: { lat: 6.944454582660104, lng: 79.9236796193022 },
+                                });
 
-                    <form id="saveTripForm" action="<?php echo URLROOT; ?>/traveler/saveTrip" method="post">
+                                directionsRenderer.setMap(map);
+                                document.getElementById("route_btn").addEventListener("click", () => {
+                                    calculateAndDisplayRoute(directionsService, directionsRenderer);
+                                });
+                                }
+
+
+                                function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+                                    const waypts = [];
+                                <?php 
+                                $number=$noOfDays;
+                                for($i=0;$i<$number;$i++){ ?>
+
+                                    waypts.push({
+                                        location: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>, <?php echo $this->maplng[$i]; ?>),
+                                        stopover: true,
+                                    });
+
+                                <?php } 
+                                ?>
+                                directionsService
+                                    .route({
+                                    origin: new google.maps.LatLng(<?php echo $lat ?>, <?php echo $lng ?>),
+                                    destination: new google.maps.LatLng(<?php echo $this->maplat[$i]; ?>,<?php echo $this->maplng[$i]; ?>),
+                                    waypoints: waypts,
+                                    optimizeWaypoints: true,
+                                    travelMode: google.maps.TravelMode.DRIVING,
+                                    })
+                                    .then((response) => {
+                                    directionsRenderer.setDirections(response);
+
+                                    const route = response.routes[0];
+                                    const summaryPanel = document.getElementById("directions-panel");
+
+                                    summaryPanel.innerHTML = "";
+
+                                    // For each route, display summary information.
+                                    for (let i = 0; i < route.legs.length; i++) {
+                                        const routeSegment = i + 1;
+
+                                        summaryPanel.innerHTML +=
+                                        "<b>Route Segment: " + routeSegment + "</b><br>";
+                                        summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+                                        summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+                                        summaryPanel.innerHTML += route.legs[i].distance.text + "<br><br>";
+                                    }
+                                    })
+                                    .catch((e) => window.alert("Directions request failed due to " + status));
+                                }
+                        </script>
+                        
+                        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                        <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD3nYBp26uWK_F_-K4mKLfQpVKAGRHgz0&callback=initMap&v=weekly"
+                        async
+                        ></script>
+
+                        <?php
+                               while($travelerPay=mysqli_fetch_array($this->TravelerDetails)){
+                                $payName=explode(' ',$travelerPay['name']);
+                        ?>
+                            <form method="post" id="payForm" name="payForm" class="payForm" action="https://sandbox.payhere.lk/pay/checkout">
+                                <input type="text" name="merchant_id" value="1218929"> <!-- Replace your Merchant ID -->
+                                <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
+                                <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
+                                <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
+                                <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
+                                <input type="text" name="items" value="Trip"><br>
+                                <input type="text" name="currency" value="LKR">
+                                <input type="text" name="amount" value="<?php echo $total_price; ?>">
+                                <input type="text" name="first_name" value="<?php echo $payName[0]; ?>">
+                                <input type="text" name="last_name" value="<?php echo $payName[1]; ?>"><br>
+                                <input type="text" name="email" value="<?php echo $travelerPay['email']; ?>">
+                                <input type="text" name="phone" value="<?php echo $travelerPay['contact1']; ?>"><br>
+                                <input type="text" name="address" value="<?php echo $travelerPay['address_line1'].','.$travelerPay['address_line2']; ?>">
+                                <input type="text" name="city" value="<?php echo $travelerPay['city']; ?>">
+                                <input type="text" name="country" value="Sri Lanka"><br><br>
+                            </form>
+                        <?php }?>
+
+                <form id="saveTripForm" action="<?php echo URLROOT; ?>/traveler/saveTrip" method="post">
                     <input type="hidden" name="trip_id" value="<?php echo $_SESSION['trip_id']; ?>">
                     <input type="hidden" name="traveler_id" value="<?php echo $_SESSION['travelerID']; ?>">
-                    </form>
+                </form>
 
-                    <div class="buttons">
-                        <input type="submit" class="button" id="savebtn" value="SAVE" name="savetripbtn" form="saveTripForm">
-                        <button class="button" form="payForm" id="paybtn">PAY NOW</button>
-                    </div>
+                <div class="buttons">
+                    <input type="submit" class="button" id="savebtn" value="SAVE" name="savetripbtn"
+                           form="saveTripForm">
+                    <button class="button" form="payForm" id="paybtn">PAY NOW</button>
                 </div>
-            </section>
-            <script type="text/javascript" src="http://localhost/TRAVO/public/script/traveler/traveler_trip_details.js"></script>
+            </div>
+        </section>
+        <script type="text/javascript"
+                src="http://localhost/TRAVO/public/script/traveler/traveler_trip_details.js"></script>
 
-            <section id="contact_us-section">
-                <?php include APPROOT.'/views/repeatable_contents/footer.php'; ?>
-                <style>
-                    <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>
-                </style>
-            </section>
+        <section id="contact_us-section">
+            <?php include APPROOT . '/views/repeatable_contents/footer.php'; ?>
+            <style>
+                <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>
+            </style>
+        </section>
         </body>
 
         </html>
-<?php
+        <?php
     } else {
         echo '<script type="text/javascript">javascript:history.go(-1)</script>';
         exit();

@@ -96,8 +96,28 @@ function faq(){
 //-------------------------------Hotel-bookings------------------------------------
 function hotelBooking(){
     session_start();
+
+    if(isset($_GET['date'])){
+        $date=$_GET['date'];
+    }else{
+        $date=date("Y-m-d");
+    }
+    $this->view->day=$date;
+
     $this->view->isHotel = $this->model->selectHotel($_SESSION['username']);
+    $tempory = $this->model->getBooking($_SESSION['hotelID'],$date);
+    $this->view->booking= $tempory;
+//    $travelersID[] = $tempory['traveler_id'];
+//    echo $travelersID;
     $this->view->render('hotel/hotel_booking');
+}
+
+function bookingToDate(){
+    session_start();
+
+    $date=$_POST['dateselect'];
+
+    header('location: '.URLROOT.'/hotel/hotelBooking?date='.$date);
 }
 //-------------------------------Hotel-Update-----------------------------------
 function hotelUpdate(){

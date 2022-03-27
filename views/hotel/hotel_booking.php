@@ -26,34 +26,41 @@ if (isset($_SESSION['username'])) {
             <script type="text/javascript"
                     src="<?php echo URLROOT ?>/public/script/repeatable_contents/nav_bar_hotel.js"></script>
             <br>
-            <!-- .....................modal box for cutomer details ...................... -->
-            <div class="more_traveler_details_modal">
-                <div class="more_traveler_details_modal_box">
-                    <ul>
-                        <li>Devmini Perera</li>
-                        <li>devminiperera@gmail.com</li>
-                        <li>0705758984 0112487075</li>
-                        <li>No 34, Third Lane</li>
-                        <li>Gampaha</li>
-                    </ul>
-                    <button type="button" name="more_traveler_cancel_btn" class="more_traveler_cancel_btn"
-                            id="more_traveler_cancel_btn">DONE
-                    </button>
-                </div>
-            </div>
-            <!-- .....................end of modal box for cutomer details..................... -->
+<!--             .....................modal box for cutomer details ......................-->
+<!--                        <div class="more_traveler_details_modal">-->
+<!--                            <div class="more_traveler_details_modal_box">-->
+<!--                                --><?php //while($customer=mysqli_fetch_array($this->$this->customerDetails)){ ?>
+<!--                                <ul>-->
+<!--                                    <li>"' . hotelname['name'] . '</li>-->
+<!--                                    <li>--><?php //echo $customer['email'] ?><!--</li>-->
+<!--                                    <li>--><?php //echo $customer['contact1'] ?>
+<!--            --><?php //echo $customer['contact2'] ?><!--</li>-->
+<!--                                    <li>--><?php //echo $customer['address_line1'] ?><!--,-->
+<!--            --><?php //echo $customer['address_line2'] ?><!--</li>-->
+<!--                                    <li>--><?php //echo $customer['city'] ?><!--</li>-->
+<!--                                </ul>-->
+<!--                                --><?php //} ?>
+<!--                                <button type="button" name="more_traveler_cancel_btn" class="more_traveler_cancel_btn"-->
+<!--                                        id="more_traveler_cancel_btn">DONE-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--             .....................end of modal box for cutomer details.....................-->
             <center>
-                <form>
-                    <div class="rectangle2">
-                        <table>
-                            <tr>
-                                <td><label class="label" for="dateselect">DATE :</label></td>
-                                <div class="calender"></div>
-                                <td><input type="date" id="dateselect" name="dateselect" placeholder="yy/mm/dd"></td>
-                            </tr>
-                        </table>
-                    </div>
-                </form>
+                <div class="rectangle2">
+                    <table>
+                        <tr>
+                            <td><label class="label" for="dateselect">DATE :</label></td>
+                            <div class="calender"></div>
+                            <td>
+                                <form action="bookingToDate" method="post">
+                                    <input type="date" id="dateselect" name="dateselect" onchange="this.form.submit()"
+                                           value="<?php echo $this->day; ?>">
+                            </td>
+                            </form>
+                        </tr>
+                    </table>
+                </div>
                 </br>
 
                 <div class="rectangle">
@@ -66,66 +73,26 @@ if (isset($_SESSION['username'])) {
                             <th class="b">FAMILY ROOMS</th>
                             <th class="b">MASSIVE ROOMS</th>
                             <th class="b">PRICE</th>
-                            </br>
                             <th class="b">CUSTOMER DETAILS</th>
-                            </br>
                         </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 2</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 0</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 7000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 2</td>
-                            <td class="b"> 0</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 9000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 3</td>
-                            <td class="b"> 0</td>
-                            <td class="b"> 1</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 12000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="b"> 2021-09-12</td>
-                            <td class="b"> 2021-09-15</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b"> 1</td>
-                            <td class="b">
-                                <div class="price" placeholder="Rs. XXXX">RS. 12000</div>
-                            </td>
-                            <td class="b">
-                                <button class="morebtn">More</button>
-                            </td>
-                        </tr>
+                        <?php
+
+                        while ($hotelName = mysqli_fetch_array($this->booking)) {
+
+                            $date2 = date('Y-m-d', strtotime($hotelName['date'] . ' +1 day'));
+
+                            echo '<tr>
+                                      <td class="b">' . $hotelName['date'] . '</td>
+                                      <td class="b">' . $date2 . '</td>
+                                      <td class="b">' . $hotelName['single_count'] . '</td>
+                                      <td class="b">' . $hotelName['double_count'] . '</td>
+                                      <td class="b">' . $hotelName['family_count'] . '</td>
+                                      <td class="b">' . $hotelName['massive_count'] . '</td>
+                                      <td class="b"><div class="" placeholder="Rs. XXXX">Rs.' . $hotelName['price'] . '</div></td>
+                                      <td class="b"><input type="button" id="morebtn" value="MORE" class="morebtn"></td>
+                                    </tr>';
+                        }
+                        ?>
                         </br>
                     </table>
                 </div>
@@ -137,7 +104,7 @@ if (isset($_SESSION['username'])) {
             <style> <?php include_once APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
         </section>
         <!--JS file for cutomer details-->
-        <script src="<?php echo APPROOT ?>/public/script/hotel/hotel_booking.js"></script>
+        <script src="<?php echo URLROOT ?>/public/script/hotel/hotel_booking.js"></script>
         </body>
         </html>
         <?php
