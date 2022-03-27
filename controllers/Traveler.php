@@ -67,10 +67,13 @@ class Traveler extends Controller
         $this->view->selectTrip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
         $trip = $this->model->selectTrip($_SESSION['trip_id'],$_SESSION['travelerID']);
 
-        while ($sights = mysqli_fetch_array($trip)) {
-            $sights1 = $sights['sight_id'];
-            $sights2 = $sights['sight_id2'];
-            $sights3 = $sights['sight_id3'];
+        while($sights = mysqli_fetch_array($trip)){
+            $destination1=$sights['destination_id'];
+            $destination2=$sights['destination_id2'];
+            $destination3=$sights['destination_id3'];
+            $sights1=$sights['sight_id'];
+            $sights2=$sights['sight_id2'];
+            $sights3=$sights['sight_id3'];
         }
 
 
@@ -83,6 +86,13 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
+
+            //get destination latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
+            }
         }
 
         if ($dif == 1) {
@@ -93,13 +103,12 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
-            $com2 = substr_count($sights2, ",");
-            $this->view->sightCount2 = $com2;
-            $sightsId2 = explode(",", $sights2);
-            for ($j = 0; $j < $com2; $j++) {
-                $this->view->sightsName2[$j] = $this->model->selectSightName($sightsId2[$j]);
+            //get destination latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
             }
-
             //take hotel1 data
             $hotel1 = $this->model->selectHotelID($_SESSION['trip_id'], 'first');
             while ($hoteldes1 = mysqli_fetch_array($hotel1)) {
@@ -109,7 +118,22 @@ class Traveler extends Controller
             while ($hoteldes1 = mysqli_fetch_array($hotelname1)) {
                 $this->view->hotel1 = $hoteldes1['name'];
             }
-        }
+
+            $com2=substr_count($sights2, ",");
+            $this->view->sightCount2=$com2;
+            $sightsId2=explode(",", $sights2);
+            for($j=0;$j<$com2;$j++){
+                $this->view->sightsName2[$j]=$this->model->selectSightName($sightsId2[$j]);
+            }
+            //get destination2 latitude and longitude
+            $map2=$this->model->getMap($destination2);
+            while($mapDetails2 = mysqli_fetch_array($map2)){
+                $this->view->maplat[1]=$mapDetails2['latitude'];
+                $this->view->maplng[1]=$mapDetails2['longitude'];
+            }
+
+            
+        } 
 
         if ($dif == 2) {
 
@@ -119,19 +143,12 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
-            $com2 = substr_count($sights2, ",");
-            $this->view->sightCount2 = $com2;
-            $sightsId2 = explode(",", $sights2);
-            for ($j = 0; $j < $com2; $j++) {
-                $this->view->sightsName2[$j] = $this->model->selectSightName($sightsId2[$j]);
+            //get destination latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
             }
-            $com3 = substr_count($sights3, ",");
-            $this->view->sightCount3 = $com3;
-            $sightsId3 = explode(",", $sights3);
-            for ($k = 0; $k < $com3; $k++) {
-                $this->view->sightsName3[$k] = $this->model->selectSightName($sightsId3[$k]);
-            }
-
             //take hotel1 data
             $hotel1 = $this->model->selectHotelID($_SESSION['trip_id'], 'first');
             while ($hoteldes1 = mysqli_fetch_array($hotel1)) {
@@ -142,6 +159,19 @@ class Traveler extends Controller
                 $this->view->hotel1 = $hoteldes1['name'];
             }
 
+
+            $com2=substr_count($sights2, ",");
+            $this->view->sightCount2=$com2;
+            $sightsId2=explode(",", $sights2);
+            for($j=0;$j<$com2;$j++){
+                $this->view->sightsName2[$j]=$this->model->selectSightName($sightsId2[$j]);
+            }
+            //get destination2 latitude and longitude
+            $map2=$this->model->getMap($destination2);
+            while($mapDetails2 = mysqli_fetch_array($map2)){
+                $this->view->maplat[1]=$mapDetails2['latitude'];
+                $this->view->maplng[1]=$mapDetails2['longitude'];
+            }
             //take hotel2 data
             $hotel2 = $this->model->selectHotelID($_SESSION['trip_id'], 'second');
             while ($hoteldes2 = mysqli_fetch_array($hotel2)) {
@@ -151,7 +181,24 @@ class Traveler extends Controller
             while ($hoteldes2 = mysqli_fetch_array($hotelname2)) {
                 $this->view->hotel2 = $hoteldes2['name'];
             }
-        }
+
+
+            $com3=substr_count($sights3, ",");
+            $this->view->sightCount3=$com3;
+            $sightsId3=explode(",", $sights3);
+            for($k=0;$k<$com3;$k++){
+                $this->view->sightsName3[$k]=$this->model->selectSightName($sightsId3[$k]);
+            }
+            //get destination3 latitude and longitude
+            $map3=$this->model->getMap($destination3);
+            while($mapDetails3 = mysqli_fetch_array($map3)){
+                $this->view->maplat[2]=$mapDetails3['latitude'];
+                $this->view->maplng[2]=$mapDetails3['longitude'];
+            }
+            
+            
+            
+        } 
 
         $this->view->budget = $this->model->selectBudget($_SESSION['trip_id']);
         $this->view->render('traveler/traveler_budget');
@@ -651,12 +698,15 @@ class Traveler extends Controller
 
         $trip = $this->model->selectTrip($url_trip_id, $_SESSION['travelerID']);
 
-        while ($sights = mysqli_fetch_array($trip)) {
-            $sights1 = $sights['sight_id'];
-            $sights2 = $sights['sight_id2'];
-            $sights3 = $sights['sight_id3'];
-            $status = $sights['status'];
-            $difference = $sights['no_of_days'];
+        while($sights = mysqli_fetch_array($trip)){
+            $destination1=$sights['destination_id'];
+            $destination2=$sights['destination_id2'];
+            $destination3=$sights['destination_id3'];
+            $sights1=$sights['sight_id'];
+            $sights2=$sights['sight_id2'];
+            $sights3=$sights['sight_id3'];
+            $status=$sights['status'];
+            $difference=$sights['no_of_days'];
         }
 
 
@@ -670,6 +720,13 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
+
+            //get destination latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
+            }
         }
 
         if ($dif == 1) {
@@ -681,15 +738,12 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
-
-            //get sights names
-            $com2 = substr_count($sights2, ",");
-            $this->view->sightCount2 = $com2;
-            $sightsId2 = explode(",", $sights2);
-            for ($j = 0; $j < $com2; $j++) {
-                $this->view->sightsName2[$j] = $this->model->selectSightName($sightsId2[$j]);
+            //get destination1 latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
             }
-
             //take hotel1 data
             $hotel1 = $this->model->selectHotelID($url_trip_id, 'first');
             while ($hoteldes1 = mysqli_fetch_array($hotel1)) {
@@ -699,7 +753,21 @@ class Traveler extends Controller
             while ($hoteldes1 = mysqli_fetch_array($hotelname1)) {
                 $this->view->hotel1 = $hoteldes1['name'];
             }
-        }
+
+            //get sights names
+            $com2=substr_count($sights2, ",");
+            $this->view->sightCount2=$com2;
+            $sightsId2=explode(",", $sights2);
+            for($j=0;$j<$com2;$j++){
+                $this->view->sightsName2[$j]=$this->model->selectSightName($sightsId2[$j]);
+            }
+            //get destination2 latitude and longitude
+            $map2=$this->model->getMap($destination2);
+            while($mapDetails2 = mysqli_fetch_array($map2)){
+                $this->view->maplat[1]=$mapDetails2['latitude'];
+                $this->view->maplng[1]=$mapDetails2['longitude'];
+            }
+        } 
 
         if ($dif == 2) {
 
@@ -710,23 +778,12 @@ class Traveler extends Controller
             for ($i = 0; $i < $com1; $i++) {
                 $this->view->sightsName1[$i] = $this->model->selectSightName($sightsId1[$i]);
             }
-
-            //get sights names
-            $com2 = substr_count($sights2, ",");
-            $this->view->sightCount2 = $com2;
-            $sightsId2 = explode(",", $sights2);
-            for ($j = 0; $j < $com2; $j++) {
-                $this->view->sightsName2[$j] = $this->model->selectSightName($sightsId2[$j]);
+            //get destination1 latitude and longitude
+            $map1=$this->model->getMap($destination1);
+            while($mapDetails1 = mysqli_fetch_array($map1)){
+                $this->view->maplat[0]=$mapDetails1['latitude'];
+                $this->view->maplng[0]=$mapDetails1['longitude'];
             }
-
-            //get sights names
-            $com3 = substr_count($sights3, ",");
-            $this->view->sightCount3 = $com3;
-            $sightsId3 = explode(",", $sights3);
-            for ($k = 0; $k < $com3; $k++) {
-                $this->view->sightsName3[$k] = $this->model->selectSightName($sightsId3[$k]);
-            }
-
             //take hotel1 data
             $hotel1 = $this->model->selectHotelID($url_trip_id, 'first');
             while ($hoteldes1 = mysqli_fetch_array($hotel1)) {
@@ -737,6 +794,19 @@ class Traveler extends Controller
                 $this->view->hotel1 = $hoteldes1['name'];
             }
 
+            //get sights names
+            $com2=substr_count($sights2, ",");
+            $this->view->sightCount2=$com2;
+            $sightsId2=explode(",", $sights2);
+            for($j=0;$j<$com2;$j++){
+                $this->view->sightsName2[$j]=$this->model->selectSightName($sightsId2[$j]);
+            }
+            //get destination2 latitude and longitude
+            $map2=$this->model->getMap($destination2);
+            while($mapDetails2 = mysqli_fetch_array($map2)){
+                $this->view->maplat[1]=$mapDetails2['latitude'];
+                $this->view->maplng[1]=$mapDetails2['longitude'];
+            }
             //take hotel2 data
             $hotel2 = $this->model->selectHotelID($url_trip_id, 'second');
             while ($hoteldes2 = mysqli_fetch_array($hotel2)) {
@@ -746,7 +816,24 @@ class Traveler extends Controller
             while ($hoteldes2 = mysqli_fetch_array($hotelname2)) {
                 $this->view->hotel2 = $hoteldes2['name'];
             }
-        }
+
+            //get sights names
+            $com3=substr_count($sights3, ",");
+            $this->view->sightCount3=$com3;
+            $sightsId3=explode(",", $sights3);
+            for($k=0;$k<$com3;$k++){
+                $this->view->sightsName3[$k]=$this->model->selectSightName($sightsId3[$k]);
+            }
+            //get destination3 latitude and longitude
+            $map2=$this->model->getMap($destination3);
+            while($mapDetails3 = mysqli_fetch_array($map2)){
+                $this->view->maplat[2]=$mapDetails3['latitude'];
+                $this->view->maplng[2]=$mapDetails3['longitude'];
+            }
+            
+            
+            
+        } 
 
         $this->view->selectTrip = $this->model->selectTrip($url_trip_id, $_SESSION['travelerID']);
         $this->view->budget = $this->model->selectBudget($url_trip_id);

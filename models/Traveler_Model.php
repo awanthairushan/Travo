@@ -165,6 +165,10 @@ class Traveler_Model extends Model{
         return $this->db->runQuery("UPDATE trips SET status='Saved' WHERE trip_id='$trip_id' AND traveler_id='$traveler_id'");
     }
 
+    function getMap($destination){
+        return $this->db->runQuery("SELECT * FROM destinations WHERE destination='$destination'");
+    }
+
     //------------------------------------Traveler-trip to go-------------------------------------------------------------------
 
     function selectPaidTrips($traveler_id){
