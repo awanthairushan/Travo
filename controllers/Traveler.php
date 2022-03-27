@@ -287,8 +287,13 @@ class Traveler extends Controller
 
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            if (isset($_POST['saveSubmit'])) {
-                $trip_id = $_POST['trip_id'];
+            if(isset($_POST['saveSubmit'])){
+                $trip_id= $_POST['trip_id'];
+                
+                $this->view->lat=$_POST['lat'];
+                $latitude=$_POST['lat'];
+                $this->view->long=$_POST['lng'];
+                $longitude=$_POST['lng'];
 
                 // $this->view->availabilityExist=$this->model->
                 // $this->view->availability=$this->model>
@@ -312,8 +317,36 @@ class Traveler extends Controller
                 }
 
 
-                if ($_SESSION['difference'] == 1) {
-                    $this->view->destination[0] = $_POST['destination1'];
+                if($_SESSION['difference']==1){
+
+                    $destination1=$_POST['destination1'];
+                    $destination2=$_POST['destination2'];
+
+                    //get destination1 coordinates
+                    $map1=$this->model->getMap($destination1);
+                    while($mapDetails1 = mysqli_fetch_array($map1)){
+                        $maplat[0]=$mapDetails1['latitude'];
+                        $maplng[0]=$mapDetails1['longitude'];
+                    }
+                    //get distance from pickup location to destination1
+                    $distance1=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[0],$maplng[0]);
+
+                    //get destination2 coordinates
+                    $map2=$this->model->getMap($destination2);
+                    while($mapDetails2 = mysqli_fetch_array($map2)){
+                        $maplat[1]=$mapDetails2['latitude'];
+                        $maplng[1]=$mapDetails2['longitude'];
+                    }
+                    //get distance from pickup location to destination2
+                    $distance2=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[1],$maplng[1]);
+
+                    if($distance2<$distance1){
+                        $temp=$destination2;
+                        $destination2=$destination1;
+                        $destination1=$temp;
+                    }
+
+                    $this->view->destination[0] = $destination1;
                     //get destination id
                     $destId1 = $this->model->getDestinationId($_POST['destination1']);
                     //get hotel data
@@ -325,7 +358,7 @@ class Traveler extends Controller
                         $this->view->sights[0] = $this->model->getSights($dest1['destination_id']);
                     }
 
-                    $this->view->destination[1] = $_POST['destination2'];
+                    $this->view->destination[1] = $destination2;
                     //get destination id
                     $destId2 = $this->model->getDestinationId($_POST['destination2']);
                     //get hotel data
@@ -339,8 +372,49 @@ class Traveler extends Controller
                     $this->view->destination[2] = "-";
                     $this->view->sights[2] = "-";
                 }
-                if ($_SESSION['difference'] == 2) {
-                    $this->view->destination[0] = $_POST['destination1'];
+                if($_SESSION['difference']==2){
+                    $destination[0]=$_POST['destination1'];
+                    $destination[1]=$_POST['destination2'];
+                    $destination[2]=$_POST['destination3'];
+
+                    //get destination1 coordinates
+                    $map1=$this->model->getMap($destination[0]);
+                    while($mapDetails1 = mysqli_fetch_array($map1)){
+                        $maplat[0]=$mapDetails1['latitude'];
+                        $maplng[0]=$mapDetails1['longitude'];
+                    }
+                    //get distance from pickup location to destination1
+                    $distance[0]=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[0],$maplng[0]);
+
+                    //get destination2 coordinates
+                    $map2=$this->model->getMap($destination[1]);
+                    while($mapDetails2 = mysqli_fetch_array($map2)){
+                        $maplat[1]=$mapDetails2['latitude'];
+                        $maplng[1]=$mapDetails2['longitude'];
+                    }
+                    //get distance from pickup location to destination2
+                    $distance[1]=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[1],$maplng[1]);
+
+                    //get destination3 coordinates
+                    $map3=$this->model->getMap($destination[2]);
+                    while($mapDetails3 = mysqli_fetch_array($map3)){
+                        $maplat[2]=$mapDetails3['latitude'];
+                        $maplng[2]=$mapDetails3['longitude'];
+                    }
+                    //get distance from pickup location to destination3
+                    $distance[2]=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[2],$maplng[2]);
+
+                    $sorter = array($destination[0]=>$distance[0], $destination[1]=>$distance[1], $destination[2]=>$distance[2]);
+                    asort($sorter);
+
+                    $a=0;
+                    foreach($sorter as $x=>$x_value) {
+                        $sortedDestination[$a]=$x ;
+                        $a++;
+                    }
+                    
+
+                    $this->view->destination[0] = $sortedDestination[0];
                     //get destination id
                     $destId1 = $this->model->getDestinationId($_POST['destination1']);
                     //get hotel data
@@ -351,7 +425,7 @@ class Traveler extends Controller
                     }
 
 
-                    $this->view->destination[1] = $_POST['destination2'];
+                    $this->view->destination[1] = $sortedDestination[1];
                     //get destination id
                     $destId2 = $this->model->getDestinationId($_POST['destination2']);
                     //get hotel data
@@ -362,7 +436,7 @@ class Traveler extends Controller
                     }
 
 
-                    $this->view->destination[2] = $_POST['destination3'];
+                    $this->view->destination[2] = $sortedDestination[2];
                     //get destination id
                     $destId3 = $this->model->getDestinationId($_POST['destination3']);
                     //get hotel data
@@ -373,8 +447,6 @@ class Traveler extends Controller
                     }
                 }
 
-                $this->view->lat = $_POST['lat'];
-                $this->view->long = $_POST['lng'];
             }
         }
 
@@ -399,25 +471,35 @@ class Traveler extends Controller
 
             if (isset($_POST['saveSubmit'])) {
                 echo 'awoo';
-                $trip_id = $_POST['trip_id'];
-                $traveler_count = $_POST['peoplecount'];
-                $start_date = $_POST['startdate'];
-                $end_date = $_POST['enddate'];
-                $trip_cat = $_POST['category'];
-                $longitude = $_POST['longitude'];
-                $latitude = $_POST['latitude'];
+                $trip_id=$_POST['trip_id'];
+                $traveler_count=$_POST['peoplecount'];
+                $start_date=$_POST['startdate'];
+                $end_date=$_POST['enddate'];
+                $trip_cat=$_POST['category'];
+                $longitude=$_POST['longitude'];
+                $latitude=$_POST['latitude'];
 
-                $difference = $_SESSION['difference'];
+                $difference= $_SESSION['difference'];
 
-                if ($difference == 0) {
-                    $destination1 = $_POST['destination1'];
-                    $checkbox1 = $_POST['sights1'];
-                    $chka = "";
-                    $ticket1 = 0;
-                    foreach ($checkbox1 as $chk1) {
-                        $chka .= $chk1 . ",";
-                        $ticketquery1 = $this->model->getTickets($chk1);
-                        while ($ticketPrice1 = mysqli_fetch_array($ticketquery1)) {
+                if($difference==0){
+                    $destination1=$_POST['destination1'];
+                    //get destination1 coordinates
+                    $map1=$this->model->getMap($destination1);
+                    while($mapDetails1 = mysqli_fetch_array($map1)){
+                        $maplat[0]=$mapDetails1['latitude'];
+                        $maplng[0]=$mapDetails1['longitude'];
+                    }
+                    //get distance from pickup location to destination1
+                    $mileage=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[0],$maplng[0]);
+
+                    $checkbox1=$_POST['sights1'];  
+                    $chka="";
+                    $ticket1=0; 
+                    foreach($checkbox1 as $chk1)  
+                    {  
+                        $chka .= $chk1.","; 
+                        $ticketquery1=$this->model->getTickets($chk1);
+                        while($ticketPrice1=mysqli_fetch_array($ticketquery1)){
                             $ticket1 = $ticket1 + intval($ticketPrice1['ticket_price']);
                         }
                     }
@@ -444,22 +526,41 @@ class Traveler extends Controller
                         }
                     }
 
-                    $destination2 = $_POST['destination2'];
-                    $checkbox2 = $_POST['sights2'];
-                    $chkb = "";
-                    $ticket2 = 0;
-                    $chkbArray = array();
-                    foreach ($checkbox2 as $chk2) {
-                        $chkb .= $chk2 . ",";
-                        $ticketquery2 = $this->model->getTickets($chk2);
-                        while ($ticketPrice2 = mysqli_fetch_array($ticketquery2)) {
+                    //get destination1 coordinates
+                    $map1=$this->model->getMap($destination1);
+                    while($mapDetails1 = mysqli_fetch_array($map1)){
+                        $maplat[0]=$mapDetails1['latitude'];
+                        $maplng[0]=$mapDetails1['longitude'];
+                    }
+                    //get distance from pickup location to destination1
+                    $mileage=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[0],$maplng[0]);
+
+                    $destination2=$_POST['destination2'];
+                    $checkbox2=$_POST['sights2'];  
+                    $chkb="";
+                    $ticket2=0;
+                    $chkbArray=array();   
+                    foreach($checkbox2 as $chk2)  
+                    {  
+                        $chkb .= $chk2.",";  
+                        $ticketquery2=$this->model->getTickets($chk2);
+                        while($ticketPrice2=mysqli_fetch_array($ticketquery2)){
                             $ticket2 = $ticket2 + intval($ticketPrice2['ticket_price']);
                         }
                     }
 
-                    $destination3 = "-";
-                    $chkc = "-";
-                    $ticket3 = 0;
+                    //get destination2 coordinates
+                    $map2=$this->model->getMap($destination2);
+                    while($mapDetails2 = mysqli_fetch_array($map2)){
+                        $maplat[1]=$mapDetails2['latitude'];
+                        $maplng[1]=$mapDetails2['longitude'];
+                    }
+                    //get distance from pickup location to destination2
+                    $mileage=$mileage+$this->getDistanceBetweenPoints($maplat[0],$maplng[0],$maplat[1],$maplng[1]);
+
+                    $destination3="-";
+                    $chkc="-";
+                    $ticket3=0;
                 }
 
                 if ($difference == 2) {
@@ -475,7 +576,15 @@ class Traveler extends Controller
                         }
                     }
 
-                    echo $ticket1;
+                    //get destination1 coordinates
+                    $map1=$this->model->getMap($destination1);
+                    while($mapDetails1 = mysqli_fetch_array($map1)){
+                        $maplat[0]=$mapDetails1['latitude'];
+                        $maplng[0]=$mapDetails1['longitude'];
+                    }
+                    //get distance from pickup location to destination1
+                    $mileage=$this->getDistanceBetweenPoints($latitude,$longitude,$maplat[0],$maplng[0]);
+
 
                     $destination2 = $_POST['destination2'];
                     $checkbox2 = $_POST['sights2'];
@@ -490,23 +599,41 @@ class Traveler extends Controller
                         }
                     }
 
-                    $destination3 = $_POST['destination3'];
-                    $checkbox3 = $_POST['sights3'];
-                    $chkc = "";
-                    $ticket3 = 0;
-                    $chkcArray = array();
-                    foreach ($checkbox3 as $chk3) {
-                        $chkc .= $chk3 . ",";
-                        $ticketquery3 = $this->model->getTickets($chk3);
-                        while ($ticketPrice3 = mysqli_fetch_array($ticketquery3)) {
+                    //get destination2 coordinates
+                    $map2=$this->model->getMap($destination2);
+                    while($mapDetails2 = mysqli_fetch_array($map2)){
+                        $maplat[1]=$mapDetails2['latitude'];
+                        $maplng[1]=$mapDetails2['longitude'];
+                    }
+                    //get distance from pickup location to destination2
+                    $mileage=$mileage+$this->getDistanceBetweenPoints($maplat[0],$maplng[0],$maplat[1],$maplng[1]);
+
+                    $destination3=$_POST['destination3'];
+                    $checkbox3=$_POST['sights3'];  
+                    $chkc="";
+                    $ticket3=0;
+                    $chkcArray=array();   
+                    foreach($checkbox3 as $chk3)  
+                    {  
+                        $chkc .= $chk3.",";  
+                        $ticketquery3=$this->model->getTickets($chk3);
+                        while($ticketPrice3=mysqli_fetch_array($ticketquery3)){
                             $ticket3 = $ticket3 + intval($ticketPrice3['ticket_price']);
                         }
                     }
+
+                    //get destination3 coordinates
+                    $map3=$this->model->getMap($destination3);
+                    while($mapDetails3 = mysqli_fetch_array($map3)){
+                        $maplat[2]=$mapDetails3['latitude'];
+                        $maplng[2]=$mapDetails3['longitude'];
+                    }
+                    //get distance from pickup location to destination2
+                    $mileage=$mileage+$this->getDistanceBetweenPoints($maplat[1],$maplng[1],$maplat[2],$maplng[2]);
                 }
 
-                $mileage = $_POST['mileage'];
-                $budget = ($ticket1 + $ticket2 + $ticket3) * $traveler_count;
-                $_SESSION['tickets'] = $budget;
+                $budget=($ticket1 + $ticket2 +$ticket3)*$traveler_count;
+                $_SESSION['tickets']=$budget;
 
                 if($this->model->planTripPending($trip_id,$_SESSION['travelerID'],$start_date,$end_date,$difference,$trip_cat,$destination1,$destination2,$destination3,$chka,$chkb,$chkc,$traveler_count,$mileage,$budget,$latitude,$longitude)){
                     if($difference==0){
@@ -845,13 +972,22 @@ class Traveler extends Controller
     {
         session_start();
 
-        if (isset($_GET['order_id'])) {
-            $order_id = $_GET['order_id'];
+        if(isset($_GET['order_id'])){
+            $order_id=$_GET['order_id'];
+            
+            if($this->model->updateTripPaid($order_id,$_SESSION['travelerID'])){
+                $mail_subject = "Successfully Planned trip";
+                $mail_upper_body = "Hello {$_SESSION['name']} ,";
+                $mail_middle_boddy = "Your booking is confirmed.";
 
-            if ($this->model->updateTripPaid($order_id, $_SESSION['travelerID'])) {
-                $status = true;
-            } else {
-                $status = false;
+                $send_mail_result = mail($_SESSION['username'], $mail_subject, $mail_middle_boddy, $mail_upper_body);
+
+                if ($send_mail_result) {
+                    $status=true;
+                }
+            }
+            else{
+                $status=false;
                 die('Something went wrong.');
             }
         } else {
@@ -1019,4 +1155,29 @@ class Traveler extends Controller
         session_destroy();
         header('location: http://localhost/TRAVO');
     }
+    // function navigation(){
+    //     $this->view->render('repeatable_contents/nav_bar_traveler');
+    // }
+    // function fonts(){
+    //     $this->view->render('repeatable_contents/font');
+    // }
+    
+
+
+
+
+
+
+    //used to get distance - pending trip controller
+    function getDistanceBetweenPoints($latitude1, $longitude1, $latitude2, $longitude2) {
+        $theta = $longitude1 - $longitude2; 
+        $distance = (sin(deg2rad($latitude1)) * sin(deg2rad($latitude2))) + (cos(deg2rad($latitude1)) * cos(deg2rad($latitude2)) * cos(deg2rad($theta))); 
+        $distance = acos($distance); 
+        $distance = rad2deg($distance); 
+        $distance = $distance * 60 * 1.1515; 
+        $distance = $distance * 1.609344; 
+        
+        return (round($distance,2)); 
+      }
+    
 }
