@@ -130,7 +130,7 @@ label {
   user-select: none;
 }
 
-.names p{
+.names div{
   /* justify-content: center;
   align-items: center; */
   margin:auto;
