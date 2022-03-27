@@ -132,9 +132,7 @@
                                 </tr>
                             </table>
                         </div> -->
-                        <br><br>
-                        <input type="hidden" name="mileage" value="350">
-                        
+                        <br><br>                        
                     
                         
                     </form>
