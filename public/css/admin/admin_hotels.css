@@ -154,7 +154,7 @@ tbody a {
     border-color: rgb(41, 180, 161);
 }
 
-.remove_hotel_btn {
+.remove_hotel_btn,.remove_existing_hotel_btn {
     background-color: rgb(204, 78, 109);
     border-radius: 8px;
     width: 5rem;

@@ -32,12 +32,15 @@ if (isset($_SESSION['username'])) {
 <!-- .....................modal box for traveler remove...................... -->
     <div class="remove_modal">
       <div class="remove_modal_box">
+          <form method='post' action='declineHotelRequest'>
             <h3>Remove hotel</h3>
             <hr>
             <p>There is no recovery option. Are you sure you want to remove this hotel ?</p>
             <hr>
-            <button type="button" name="remove_confirm_btn" class="remove_confirm_btn" id="remove_confirm_btn">REMOVE</button>
+            <input type="hidden" id="hotel_id" name="hotelID" value="0">
+            <button type="submit" name="removebtn" class="remove_confirm_btn" id="remove_confirm_btn">REMOVE</button>
             <button type="button" name="remove_cancel_btn" class="remove_cancel_btn" id="remove_cancel_btn">CANCEL</button>
+        </form>
       </div>
       </div>
 <!-- .....................end of modal box for traveler remove...................... -->
@@ -88,7 +91,7 @@ if (isset($_SESSION['username'])) {
 
                     <form method='post' action='declineHotelRequest'>
                         <input type='hidden' value='$rows[0]' name=hotelID>
-                        <input type='submit' id='removebtn' name ='removebtn' class='remove_hotel_btn' value='DECLINE'>
+                        <input type='submit' id='removebtn' name ='removebtn' class='remove_hotel_btn' value='DECLINE'>                    
                     </form>
 
                     </td>
@@ -140,9 +143,8 @@ if (isset($_SESSION['username'])) {
                     </form>
                     </td>
                     <td>
-                    <form method='post' action='declineHotelRequest'>
-                        <input type='hidden' value='$rows[0]' name=hotelID>
-                        <input type='submit' id='removebtn' name ='removebtn' class='remove_hotel_btn' value='REMOVE'>
+                        <input type='hidden' value='$rows[0]' id='hotelRemoveID'>
+                        <input type='button' id='$rows[0]' name ='removebtn' class='remove_existing_hotel_btn' onclick='loadModal(this.id)' value='REMOVE'>
                     </form>
                     </td>
 
@@ -172,7 +174,7 @@ if (isset($_SESSION['username'])) {
  <!--JS file for search & filter-->
     <script src="<?php echo URLROOT ?>/public/script/admin/admin_filter_hotels.js"></script>
  <!--JS file for remove hotel-->
- <!-- <script src="<?php echo URLROOT ?>/public/script/admin/admin_hotels.js"></script> -->
+ <script src="<?php echo URLROOT ?>/public/script/admin/admin_hotels.js"></script>
 </body>
 </html>
 <?php
