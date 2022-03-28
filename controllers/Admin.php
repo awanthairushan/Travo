@@ -7,6 +7,7 @@ class Admin extends Controller{
         parent::__construct();
     }
     function index(){
+        session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->savedTripDetails = $this->model->getSavedTripDetails();
         $this->view->paidTripDetails = $this->model->getPaidTripDetails();
@@ -52,6 +53,8 @@ class Admin extends Controller{
         $sights = $_POST['visitingPlace'];
         $ticketPrices = $_POST['ticketPrice'];
         $categories = $_POST['tripCategory'];
+        $longitude = $_POST['latitude'];
+        $latitude = $_POST['longitude'];
         // $locations = $_POST['location'];
 
         $numberOfSights = count($sights);
@@ -59,7 +62,9 @@ class Admin extends Controller{
  
        for($i = 0; $i<$numberOfSights; $i++){
             $sightId = uniqid('site_'); 
-            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i]);         
+
+            // $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
+            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$longitude,$latitude);   
 
             if($isSuccess){
                 header('location: destinations');
@@ -91,9 +96,9 @@ class Admin extends Controller{
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $sightId = $_POST['sightID'];
-        $sightName = $_POST[''];
-        $ticketPrice = $_POST[''];
-        $category = $_POST[''];
+        
+        $this->view->sightDetails = $this->model->selectSights($sightId);
+
 
 
         $isEditSuccess = $this->model->editSight($sightId);
