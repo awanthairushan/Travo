@@ -34,10 +34,14 @@ if (isset($_SESSION['username'])) {
       <div class="deleteAccount_confirm_box">
             <h3>Delete Account</h3>
             <hr>
+            <form method='post' action='deleteTravelers'>
             <p>There is no recovery option. Are you sure you want to delete this account ?</p>
+            <input type='hidden' value='0' id="traveler_id" name=travelerID>
+            <input type='hidden' value='0' name=email>
             <hr>
-            <button type="button" name="delete_confirm_btn" class="delete_confirm_btn" id="delete_confirm_btn">DELETE ACCOUNT</button>
+            <button type="submit" name="delete_confirm_btn" class="delete_confirm_btn" id="delete_confirm_btn">DELETE ACCOUNT</button>
             <button type="button" name="delete_cancel_btn" class="delete_cancel_btn" id="delete_cancel_btn">CANCEL</button>
+          </form>
       </div>
       </div>
 <!-- .....................ebd of modal box for traveler remove...................... -->
@@ -89,11 +93,7 @@ if (isset($_SESSION['username'])) {
                 <td>".$rows['email']."</td>
                 <td>".$rows['contact1']."<br>".$rows['contact2']."</td>
                <td>
-                <form method='post' action='deleteTravelers'>
-                    <input type='hidden' value='$rows[0]' name=travelerID>
-                    <input type='hidden' value='$rows[6]' name=email>
-                    <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='REMOVE'>
-                </form>
+                    <input type='button' id='".$rows[0]."' name ='removebtn' class='removebtn' value='REMOVE'>
                 </td>
             </tr>";
         }
@@ -105,11 +105,11 @@ if (isset($_SESSION['username'])) {
 
 </section>
 
+<!-- JS file for delete_modal -->
+<script type="text/javascript" src="<?php echo URLROOT ?>/public/script/admin/admin_traveler_remove.js"></script>
+
 <!--JS file for search & filter-->
     <script src="<?php echo URLROOT ?>/public/script/admin/admin_filter_travelers.js"></script>
-<!-- JS file for delete_modal -->
-
-<script type="text/javascript" src="<?php echo URLROOT ?>/public/script/admin/admin_traveler_remove.js"></script>
 </body>
 </html>
 <?php

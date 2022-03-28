@@ -29,6 +29,11 @@ class Admin_Model extends Model
         return $this->db->runQuery("INSERT INTO deleted_accounts (acc_id, email) VALUES ('$acc_id', '$email')");
     }
 
+    function getTravelerDetailsId($traveler_id)
+    {
+        return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID='$traveler_id'");
+    }
+
 
 //----------------------------------------Admin-Vehicle---------------------------------------------------
     function getVehicleDetails()

@@ -1,5 +1,5 @@
 let search = document.getElementById('search');
-search = document.addEventListener('keyup', filterValue);
+search.addEventListener('keyup', filterValue);
 let table = document.getElementById('traveler_table');
 let filter = document.getElementById('filter');
 console.log(filter.options);

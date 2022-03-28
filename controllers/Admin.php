@@ -217,10 +217,14 @@ class Admin extends Controller{
     function deleteTravelers(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
-        $action = $_POST['removebtn'];
+        $action = $_POST['delete_confirm_btn'];
         $traveler_id=$_POST['travelerID'];
-        $email=$_POST['email'];
 
+
+        $travelers=$this->model->getTravelerDetailsId($traveler_id);
+        while($trEmail=mysqli_fetch_array($travelers)){
+            $email=$trEmail['email'];
+        }
         $this->model->deleteTraveler($traveler_id);
         $this->model->updateDeletedAccounts($traveler_id, $email);
         header('location: travelers');
