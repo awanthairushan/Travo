@@ -967,6 +967,7 @@ class Traveler extends Controller
         } 
 
         $this->view->selectTrip = $this->model->selectTrip($url_trip_id, $_SESSION['travelerID']);
+        $this->view->tripId = $url_trip_id;
         $this->view->budget = $this->model->selectBudget($url_trip_id);
         $this->view->render('traveler/traveler_saved_budget');
     }

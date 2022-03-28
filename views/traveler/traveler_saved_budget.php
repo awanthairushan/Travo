@@ -371,7 +371,7 @@
                                 <input type="text" name="return_url" value="http://localhost/TRAVO/Traveler/tripToGo">
                                 <input type="text" name="cancel_url" value="http://localhost/TRAVO/Traveler/budget">
                                 <input type="text" name="notify_url" value="https://localhost/TRAVO/Traveler/savedBudget">
-                                <input type="text" name="order_id" value="<?php echo $_SESSION['trip_id']; ?>">
+                                <input type="text" name="order_id" value="<?php echo $this->tripId; ?>">
                                 <input type="text" name="items" value="Trip"><br>
                                 <input type="text" name="currency" value="LKR">
                                 <input type="text" name="amount" value="<?php echo $total_price; ?>">
