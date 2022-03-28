@@ -980,7 +980,7 @@ class Traveler extends Controller
             $order_id=$_GET['order_id'];
             
             if($this->model->updateTripPaid($order_id,$_SESSION['travelerID'])){
-                    $status=true;
+                $status=true;                
             }
             else{
                 $status=false;

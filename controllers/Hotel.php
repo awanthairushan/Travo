@@ -253,6 +253,13 @@ function updateHotel(){
         }
     }
  }
+
+ function loadHotelCustomer(){
+     $tripId = $_POST['tripId'];
+    $hotelId = $_POST['hotelID'];
+    $this->view->customerDetails = $this->model->getHotelCustomers($hotelId, $tripId);
+    $this->view->render('hotel/hotel_customer');
+ }
  //---------------------------Hotel-log out--------------------------------
  function logout() {
     session_start();

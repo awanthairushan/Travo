@@ -7,10 +7,13 @@ class Admin extends Controller{
         parent::__construct();
     }
     function index(){
-        session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
+        $this->view->savedTripDetails = $this->model->getSavedTripDetails();
+        $this->view->paidTripDetails = $this->model->getPaidTripDetails();
+        $this->view->completedTripDetails = $this->model->getCompletedTripDetails();
         $this->view->render('admin/admin_trips');
     }    
+
     function destinations(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
@@ -49,14 +52,15 @@ class Admin extends Controller{
         $sights = $_POST['visitingPlace'];
         $ticketPrices = $_POST['ticketPrice'];
         $categories = $_POST['tripCategory'];
-        $locations = $_POST['location'];
+        // $locations = $_POST['location'];
 
         $numberOfSights = count($sights);
 
  
        for($i = 0; $i<$numberOfSights; $i++){
             $sightId = uniqid('site_'); 
-            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
+            // $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
+            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i]);         
 
             if($isSuccess){
                 header('location: destinations');
@@ -151,6 +155,9 @@ class Admin extends Controller{
     function trips(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
+        $this->view->savedTripDetails = $this->model->getSavedTripDetails();
+        $this->view->paidTripDetails = $this->model->getPaidTripDetails();
+        $this->view->completedTripDetails = $this->model->getCompletedTripDetails();
         $this->view->render('admin/admin_trips');
     }
 

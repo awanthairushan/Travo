@@ -89,7 +89,12 @@ if (isset($_SESSION['username'])) {
                                       <td class="b">' . $hotelName['family_count'] . '</td>
                                       <td class="b">' . $hotelName['massive_count'] . '</td>
                                       <td class="b"><div class="" placeholder="Rs. XXXX">Rs.' . $hotelName['price'] . '</div></td>
-                                      <td class="b"><input type="button" id="morebtn" value="MORE" class="morebtn"></td>
+                                      <td class="b">
+                                      <form method="post" action="loadHotelCustomer">
+                                        <input type="text" value="'.$hotelName['traveler_id'].'" name="tripId">
+                                        <input type="text" value="'.$_SESSION['hotelID'].'" name="hotelID">
+                                        <input type="submit" id="morebtn" value="MORE" class="morebtn"></td>
+                                      </form>
                                     </tr>';
                         }
                         ?>
