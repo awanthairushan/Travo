@@ -7,6 +7,7 @@ class Admin extends Controller{
         parent::__construct();
     }
     function index(){
+        session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
         $this->view->savedTripDetails = $this->model->getSavedTripDetails();
         $this->view->paidTripDetails = $this->model->getPaidTripDetails();
