@@ -569,7 +569,7 @@ class Unregistered extends Controller
                 $image_id = uniqid('hotelimg_');
                 $this->model->addHotelImages($hotel_id, $image_id, $imageNewName[$rows]);
             }
-            //header('location: login');
+            header('location: login');
         }
     }
 
