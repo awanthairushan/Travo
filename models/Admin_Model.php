@@ -176,5 +176,25 @@ function getPaidTripDetails(){
 function getCompletedTripDetails(){
     return $this->db->runQuery("SELECT * FROM trips WHERE status='Completed' ");
 }
+function selectBudget($trip_id){
+    return $this->db->runQuery("SELECT * FROM budget WHERE trip_id='$trip_id'");
+}
+function selectTrip($trip_id){
+    return $this->db->runQuery("SELECT * FROM trips WHERE trip_id='$trip_id'");
+}
+function selectTraveler($travelerID){
+    return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID= '$travelerID'");
+}
+function selectFirstHotel($trip_id){
+    return $this->db->runQuery("SELECT trip_hotels.hotelId, hotels.name FROM trip_hotels INNER JOIN hotels ON trip_hotels.hotelId = hotels.hotelID WHERE trip_hotels.trip_id = '$trip_id' AND trip_hotels.day = 'first' ");
+}
+function selectSecondHotel($trip_id){
+    return $this->db->runQuery("SELECT trip_hotels.hotelId, hotels.name FROM trip_hotels INNER JOIN hotels ON trip_hotels.hotelId = hotels.hotelID WHERE trip_hotels.trip_id = '$trip_id' AND trip_hotels.day = 'second' ");
+}
+
+
+//----------------------------------------Admin-Trips More---------------------------------------------------------
+
+
 
 }

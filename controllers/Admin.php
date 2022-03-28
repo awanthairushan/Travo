@@ -92,20 +92,7 @@ class Admin extends Controller{
             header('location: destinations');
         }
     }
-    function editSight(){
-        session_start();
-        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
-        $sightId = $_POST['sightID'];
-        
-        $this->view->sightDetails = $this->model->selectSights($sightId);
 
-
-
-        $isEditSuccess = $this->model->editSight($sightId);
-        if($isEditSuccess){
-            header('location: destinations');
-        }
-    }
 
     function faq(){
         session_start();
@@ -163,6 +150,16 @@ class Admin extends Controller{
         $this->view->paidTripDetails = $this->model->getPaidTripDetails();
         $this->view->completedTripDetails = $this->model->getCompletedTripDetails();
         $this->view->render('admin/admin_trips');
+    }
+    function tripsMore(){
+        //$tripId = $_POST['tripId'];
+        $travelerId = $_POST['travelerId'];
+        $this->view->budget = $this->model->selectBudget('trip_6240335e1cf5d');
+        $this->view->traveler = $this->model->selectTraveler($travelerId);
+        $this->view->tripDetails = $this->model->selectTrip('trip_6240335e1cf5d');
+        $this->view->firstHotel = $this->model->selectFirstHotel('trip_6240335e1cf5d');
+        $this->view->secondHotel = $this->model->selectSecondHotel('trip_6240335e1cf5d');
+        $this->view->render('admin/admin_trip_details');
     }
 
     function vehiclesMore(){
