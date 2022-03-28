@@ -152,7 +152,7 @@ tbody a {
     cursor: pointer;
 }
 
-#removebtn {
+.removebtn {
     background-color: rgb(204, 78, 109);
     border-radius: 8px;
     width: 70px;
