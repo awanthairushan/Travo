@@ -62,8 +62,9 @@ class Admin extends Controller{
  
        for($i = 0; $i<$numberOfSights; $i++){
             $sightId = uniqid('site_'); 
+
             // $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$locations[$i]);         
-            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$longitude,$latitude);         
+            $isSuccess = $this->model->addSights($destinationId, $sightId, $sights[$i],$ticketPrices[$i],$categories[$i],$longitude,$latitude);   
 
             if($isSuccess){
                 header('location: destinations');
