@@ -90,6 +90,7 @@
                                         <input type="checkbox" id="sight3" name="anu[]" value="anu_4"><label for="sight3">Isurumuniya </label><br/>
                                         <input type="checkbox" id="sight3" name="anu[]" value="anu_5"><label for="sight3">Jaya Sri Maha Bodhi</label><br/>     -->
                                     </div>
+                                        <label>maximum 5 sights</label>
                                     </td>
                                 </tr>
                             </table>

@@ -51,6 +51,11 @@
             <div class="content">
                 <div class="trips">
                 <div class="slide trip1" id="trip1">
+<!--                    <div class="trip ">-->
+<!--                        <button class="tripmenu" id="trip_details_btn" >Trip To GO</button>-->
+<!--                        <button class="tripmenu" id="budget_btn">Saved</button>-->
+<!--                        <button class="tripmenu" id="route_btn">Completed</button>-->
+<!--                    </div>-->
                     <div class="row1">
                         <div class="prev" onclick="plusSlides(-1)"></div>
                         <div class="topic">TRIP TO GO</div>

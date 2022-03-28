@@ -377,3 +377,37 @@ p {
     box-shadow: 1px 2px #888888;
     float: right;
 }
+
+
+.trip{
+    /* used to center .tripmenu */
+    width: 50vw;
+    height: 3rem;;
+    /* align .tripmenu div tags to the center */
+    margin: auto;
+    vertical-align: middle;
+}
+
+.tripmenu{
+    /* helps to center .tripmenu */
+    width: 31%;
+    height: 3rem;
+    float: left;
+    padding-top: 0.3rem;
+    margin:0 2px 0 2px ;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    background: #369093;
+    border: transparent;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.trip :first-child{
+    border-radius: 1rem 0 0 1rem;
+}
+
+.trip :last-child{
+    border-radius: 0 1rem 1rem 0;
+}

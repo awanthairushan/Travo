@@ -174,7 +174,9 @@ body{
     padding: 0.25rem 0;
     font-size: 0.9rem;
 }
-
+.trow-sights-row {
+    height: 8rem;
+}
 .thide,.tcolumn{
     background: rgba(255, 255, 255, 0.5);
 }

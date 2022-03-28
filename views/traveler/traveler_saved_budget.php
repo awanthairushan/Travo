@@ -169,13 +169,13 @@
                                     <div class="trowhead">&nbsp</div>
                                     <div class="trow"><span>Destination</span></div>
                                     <div class="trow"><span>Hotel</span></div>
-                                    <div class="trow"><span>Sights<span><br/><br/><br/><br/><br/></div>
+                                    <div class="trow trow-sights-row"><span>Sights<span></div>
                                 </div>
                                 <div class="tcolumn">
                                     <div class="trowhead">Day 1</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id'].' ' ?></div>
                                     <div class="trow"><?php echo ' '.$hotel1.' ' ?></div>
-                                    <div class="trow">
+                                    <div class="trow trow-sights-row">
                                         <?php 
                                         $count1=$this->sightCount1;
                                         for($a=0;$a<$count1;$a++){
@@ -183,9 +183,9 @@
                                                 echo $sights1['sight'].'<br/>';
                                             }
                                         }
-                                        for($a1=5;$a1<5-$count1;$a1++){
-                                            echo '-<br/>';
-                                        }
+//                                        for($a1=5;$a1<5-$count1;$a1++){
+//                                            echo '-<br/>';
+//                                        }
                                         ?>
                                     </div>
                                     <!-- <div class="trow"> Ruwanweliseya<br />Rathna Prasada<br />Isurumuniya</div> -->
@@ -202,7 +202,7 @@
                                     <div class="trowhead">Day 2</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id2'].' ' ?></div>
                                     <div class="trow"><?php echo ' '.$hotel2.' ' ?></div>
-                                    <div class="trow">
+                                    <div class="trow trow-sights-row">
                                         <?php for($b=0;$b<$this->sightCount2;$b++){
                                             while($sights2=mysqli_fetch_array($this->sightsName2[$b])){
                                                 echo $sights2['sight'].'<br/>';
@@ -226,7 +226,7 @@
                                     <div class="trowhead">Day 3</div>
                                     <div class="trow"><?php echo ' '.$details['destination_id3'].' ' ?></div>
                                     <div class="trow"><?php echo ' '.$hotel3.' ' ?></div>
-                                    <div class="trow">
+                                    <div class="trow trow-sights-row">
                                         <?php for($c=0;$c<$this->sightCount3;$c++){
                                             while($sights3=mysqli_fetch_array($this->sightsName3[$c])){
                                                 echo $sights3['sight'].'<br/>';
