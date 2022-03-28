@@ -90,7 +90,10 @@ tbody a {
     color: black;
 }
 
-
+.destination-submit-div {
+    width: 100%;
+    text-align: center;
+}
 /*Buttons*/
 
 #addbtn {
@@ -116,8 +119,8 @@ tbody a {
 }
 
 #submitvpbtn {
+    margin: auto;
     margin-top: 1rem;
-    margin-left: 20px;
     background-color: rgb(41, 180, 161);
     border-radius: 8px;
     width: 160px;
@@ -188,11 +191,10 @@ tbody a {
 .site_details_div input,select{
     margin-right: 1px;
     margin-top: 25px;
-    margin-left: 3rem;
     border-radius: 10px;
     border-width: 0ch;
     height: 2rem;
-    width: 21rem;
+    width: 14rem;
     background-color: #aaaaaa;
     border-color: #aaaaaa;
     color: black;

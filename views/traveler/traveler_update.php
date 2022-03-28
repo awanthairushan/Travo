@@ -107,6 +107,7 @@
       <?php include APPROOT.'/views/repeatable_contents/footer.php';?>
       <style> <?php include APPROOT.'/public/css/repeatable_contents/footer.css'; ?>  </style>
     </section>
+    <script src="<?php echo URLROOT ?>/public/script/traveler/traveler_update.js"></script>
     <!--<script src="../../script/unregistered/sign_up-traveler.js"></script>-->
   </body>
 </html>

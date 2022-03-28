@@ -88,24 +88,13 @@ if (isset($_SESSION['username'])) {
                             }
                             echo "</td>
 
-                        <td>";
-                            for ($j = 0; $j < $count; $j++) {
-                                while ($rows = mysqli_fetch_array($this->sightIdAll[$i])) {
-                                    $sightId = $rows['sight_id'];
-                                }
-                                echo "
-                            <form method='post' action='editSight'>
-                                <input type='hidden' value='" . $sightId . "' name=sightID>
-                                <input type='submit' id='addbtn' name ='acceptbtn' class='addbtn edit-sight-btn' value='EDIT SIGHT' >
-                            </form>";
-                            }
-                            echo "</td> 
+
                     </tr>";
                             $i++;
                             ?>
 
 
-                            <script>
+                            <!-- <script>
                                 document.getElementById('addbtn').addEventListener('click', (e) => {
                                     e.preventDefault();
                                     let addDestination = document.getElementById('add-new-destinations');
@@ -113,7 +102,7 @@ if (isset($_SESSION['username'])) {
                                     addDestination.style.display = "none";
                                     editDestination.style.display = "block";
                                 })
-                            </script>
+                            </script> -->
 
                             <?php
                         }
@@ -169,12 +158,8 @@ if (isset($_SESSION['username'])) {
                                     <option value="Pilgrimage">Pilgrimage</option>
                                     <option value="Leisure">Leisure</option>
                                 </select>
-                                <input type="text"
-                                       class="form-control text-form-sign_up-traveler"
-                                       placeholder="latitude"
-                                       name="latitude" id="lat">
-                                <input type="text" class="form-control" placeholder="lng" name="longitude"
-                                       id="lng">
+                                <input type="text" class="form-control text-form-sign_up-traveler" placeholder="latitude" name="latitude" id="lat">
+                                <input type="text" class="form-control" placeholder="lng" name="longitude" id="lng">
                                 <img src="http://localhost/TRAVO/public/images/icons/placeholder.png" id="location"
                                      onclick="document.location.href = 'destinationsMap'">
                                 <label class="label-for-map">drag the marker for sight location</label>
@@ -247,25 +232,6 @@ if (isset($_SESSION['username'])) {
                 </div>
                 <!--JS to get new row when click on "Add new place" -->
 
-
-                <!--Start form of edit destination-->
-                <div class="form-container edit-destinations" id="edit-destinations">
-                    <form class="form_add_destination" id="form_add_destination" action="addDestinationsAndSights"
-                          method="POST">
-                        <?php while ($sightDetails = mysqli_fetch_array($this->sightDetails)) {
-                            echo '
-                            !--Enter visiting places-- >
-                        <div class="site_details_div" >
-                            <div class="visiting-places-input-feilds" >
-
-                            </div >
-                        </div >
-                       ';
-                        } ?>
-                    </form>
-                    <input type="button" id="addvpbtn" name="addvpbtn" value="ADD NEW PLACE" onclick="addPlace()">
-                    <input type="submit" form="form_add_destination" id="submitvpbtn" name="submitvpbtn" value="SUBMIT">
-                </div>
                 <script type="text/javascript"
                         src="http://localhost/TRAVO/public/script/admin/admin_destinations.js"></script>
                 <!--JS to get new row when click on "Add new place" -->

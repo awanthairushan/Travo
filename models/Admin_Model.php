@@ -141,8 +141,8 @@ function addDestination($destination, $destinationId){
 // function addSights($destinationId, $sightId, $sights,$ticketPrices,$categories,$location){
 //     return $this->db->runQuery("INSERT INTO sights (destination_id, sight_id, sight, category, ticket_price, location) VALUES ('$destinationId', '$sightId', '$sights', '$categories', '$ticketPrices', '$location')");
 // }
-function addSights($destinationId, $sightId, $sights,$ticketPrices,$categories){
-    return $this->db->runQuery("INSERT INTO sights (destination_id, sight_id, sight, category, ticket_price) VALUES ('$destinationId', '$sightId', '$sights', '$categories', '$ticketPrices')");
+function addSights($destinationId, $sightId, $sights,$ticketPrices,$categories,$longitude,$latitude){
+    return $this->db->runQuery("INSERT INTO sights (destination_id, sight_id, sight, category, ticket_price, longitude, latitude) VALUES ('$destinationId', '$sightId', '$sights', '$categories', '$ticketPrices', '$longitude', '$latitude')");
 }
 function getDestination(){
     return $this->db->runQuery("SELECT * FROM destinations");
@@ -155,6 +155,9 @@ function getDestinationId($destination){
 }
 function removeSight($sightId){
     return $this->db->runQuery("DELETE FROM `sights` WHERE `sights`.`sight_id` = '$sightId' ");
+}
+function selectSights($sightId){
+    return $this->db->runQuery("SELECT * FROM sight WHERE sight_id = '$sightId' ");
 }
 
 //----------------------------------------Admin-Trips---------------------------------------------------------
