@@ -107,7 +107,7 @@
 }
 
 function closeDiv(x){
-    var c = document.getElementById("choice");
+    var c = document.getElementById("choices");
     var opt=c.getElementsByTagName("option");
     var parentDiv=x.parentNode.parentNode;
     var optid=parseInt(x.parentNode.id);
@@ -127,8 +127,7 @@ let errorDiv = document.getElementById("error");
 
 document.getElementById("nextbtn").addEventListener("click", (event) => {
     if(count<limit){
-        window.alert(count);
-        errorDiv.innerText="Select "+limit+" of destinations";
+        errorDiv.innerText="Select "+limit+" destinations";
         document.getElementById("choices").style.backgroundColor="rgba(238, 156, 156, 0.788)";
         event.preventDefault();
     }

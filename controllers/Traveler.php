@@ -12,6 +12,7 @@ class Traveler extends Controller
     function index()
     {
         session_start();
+        $this->view->upcomingTrip = $this->model->getUpcomingTrip($_SESSION['travelerID']);
         $this->view->isTraveler = $this->model->selectTraveler($_SESSION['username']);
         $this->view->render('traveler/traveler_home');
     }
@@ -57,7 +58,6 @@ class Traveler extends Controller
         }
 
     }
-
     //------------------------Traveler-Budget------------------------------------
     function budget()
     {
@@ -300,8 +300,9 @@ class Traveler extends Controller
 
                 if ($_SESSION['difference'] == 0) {
                     $this->view->destination[0] = $_POST['destination1'];
+                    $destination1 = $_POST['destination1'];
                     //get destination id
-                    $destId1 = $this->model->getDestinationId($_POST['destination1']);
+                    $destId1 = $this->model->getDestinationId($destination1);
                     //get sights
                     while ($dest1 = mysqli_fetch_array($destId1)) {
                         $this->view->sights[0] = $this->model->getSights($dest1['destination_id']);
@@ -348,11 +349,7 @@ class Traveler extends Controller
 
                     $this->view->destination[0] = $destination1;
                     //get destination id
-                    $destId1 = $this->model->getDestinationId($_POST['destination1']);
-                    //get hotel data
-                    $this->view->hotel1 = $this->model->getHotels($_POST['destination1']);
-                    //get hote rooms data
-                    $this->view->hotel1 = $this->model->getHotels($_POST['destination1']);
+                    $destId1 = $this->model->getDestinationId($destination1);
                     //get sights
                     while ($dest1 = mysqli_fetch_array($destId1)) {
                         $this->view->sights[0] = $this->model->getSights($dest1['destination_id']);
@@ -360,9 +357,7 @@ class Traveler extends Controller
 
                     $this->view->destination[1] = $destination2;
                     //get destination id
-                    $destId2 = $this->model->getDestinationId($_POST['destination2']);
-                    //get hotel data
-                    $this->view->hotel2 = $this->model->getHotels($_POST['destination2']);
+                    $destId2 = $this->model->getDestinationId($destination2);
                     //get sights
                     while ($dest2 = mysqli_fetch_array($destId2)) {
                         $this->view->sights[1] = $this->model->getSights($dest2['destination_id']);
@@ -416,9 +411,7 @@ class Traveler extends Controller
 
                     $this->view->destination[0] = $sortedDestination[0];
                     //get destination id
-                    $destId1 = $this->model->getDestinationId($_POST['destination1']);
-                    //get hotel data
-                    $this->view->hotel1 = $this->model->getHotels($_POST['destination1']);
+                    $destId1 = $this->model->getDestinationId($sortedDestination[0]);
                     //get sights
                     while ($dest1 = mysqli_fetch_array($destId1)) {
                         $this->view->sights[0] = $this->model->getSights($dest1['destination_id']);
@@ -427,9 +420,7 @@ class Traveler extends Controller
 
                     $this->view->destination[1] = $sortedDestination[1];
                     //get destination id
-                    $destId2 = $this->model->getDestinationId($_POST['destination2']);
-                    //get hotel data
-                    $this->view->hotel2 = $this->model->getHotels($_POST['destination2']);
+                    $destId2 = $this->model->getDestinationId($sortedDestination[1]);
                     //get sights
                     while ($dest2 = mysqli_fetch_array($destId2)) {
                         $this->view->sights[1] = $this->model->getSights($dest2['destination_id']);
@@ -438,9 +429,7 @@ class Traveler extends Controller
 
                     $this->view->destination[2] = $sortedDestination[2];
                     //get destination id
-                    $destId3 = $this->model->getDestinationId($_POST['destination3']);
-                    //get hotel data
-                    $this->view->hotel3 = $this->model->getHotels($_POST['destination3']);
+                    $destId3 = $this->model->getDestinationId($sortedDestination[2]);
                     //get sights
                     while ($dest3 = mysqli_fetch_array($destId3)) {
                         $this->view->sights[2] = $this->model->getSights($dest3['destination_id']);
@@ -628,7 +617,7 @@ class Traveler extends Controller
                         $maplat[2]=$mapDetails3['latitude'];
                         $maplng[2]=$mapDetails3['longitude'];
                     }
-                    //get distance from pickup location to destination2
+                    //get distance from pickup location to destination3
                     $mileage=$mileage+$this->getDistanceBetweenPoints($maplat[1],$maplng[1],$maplat[2],$maplng[2]);
                 }
 
@@ -667,7 +656,7 @@ class Traveler extends Controller
         $this->view->date = $_GET['date'];
 
         if ($_GET['count'] == 0) {
-            $this->view->count = "FISRT";
+            $this->view->count = "FIRST";
             $this->view->counter = 0;
         }
         if ($_GET['count'] == 1) {
@@ -695,6 +684,14 @@ class Traveler extends Controller
         $this->view->count = $_GET['count'];
         $date = $_GET['date'];
         $this->view->date = $date;
+
+        if(isset($_GET['error'])){
+                $this->view->error="error";
+        }
+        else{
+            $this->view->error="no error";
+        }
+        
 
         $hoteldetails = $this->model->getHotelName($url_hotel_id);
         while ($hotelname = mysqli_fetch_array($hoteldetails)) {
@@ -731,84 +728,91 @@ class Traveler extends Controller
             if (isset($_POST['confirmbtn'])) {
                 $hotel_id = $_POST['hotel_id'];
                 $count = $_POST['count'];
+                $date = $_POST['date'];
                 $singleNumber = $_POST['Snumber'];
                 $doubleNumber = $_POST['Dnumber'];
                 $familyNumber = $_POST['Fnumber'];
                 $massiveNumber = $_POST['Mnumber'];
-                $singleOldNumber = $_POST['oldSnumber'];
-                $doubleOldNumber = $_POST['oldDnumber'];
-                $familyOldNumber = $_POST['oldFnumber'];
-                $massivOldeNumber = $_POST['oldMnumber'];
-                $singlePrice = $_POST['singlePrice'];
-                $doublePrice = $_POST['doublePrice'];
-                $familyPrice = $_POST['familyPrice'];
-                $massivPrice = $_POST['massivePrice'];
-                $singleNewNumber = $singleOldNumber - $singleNumber;
-                $doubleNewNumber = $doubleOldNumber - $doubleNumber;
-                $familyNewNumber = $familyOldNumber - $familyNumber;
-                $massiveNewNumber = $massivOldeNumber - $massiveNumber;
-                $date = $_POST['date'];
-                $date2 = date('Y-m-d', strtotime($date . ' +1 day'));
-                $new_old = $_POST['new_old'];
-                $price = ($singleNumber * $singlePrice) + ($doubleNumber * $doublePrice) + ($familyNumber * $familyPrice) + ($massiveNumber * $massivPrice);
 
-                if ($count == 0) {
-                    $day = 'first';
-                    $_SESSION['hote1_price'] = $price;
+                if($singleNumber==0 && $doubleNumber==0 && $familyNumber==0 && $massiveNumber==0){
+                    header('location: ' . URLROOT . '/Traveler/hotelBooking?count='.$count.'&htlId='.$hotel_id.'&date='.$date.'&error=true');
                 }
-                if ($count == 1) {
-                    $day = 'second';
-                    $_SESSION['hotel2_price'] = $price;
-                }
+                else{
+                    $singleOldNumber = $_POST['oldSnumber'];
+                    $doubleOldNumber = $_POST['oldDnumber'];
+                    $familyOldNumber = $_POST['oldFnumber'];
+                    $massivOldeNumber = $_POST['oldMnumber'];
+                    $singlePrice = $_POST['singlePrice'];
+                    $doublePrice = $_POST['doublePrice'];
+                    $familyPrice = $_POST['familyPrice'];
+                    $massivPrice = $_POST['massivePrice'];
+                    $singleNewNumber = $singleOldNumber - $singleNumber;
+                    $doubleNewNumber = $doubleOldNumber - $doubleNumber;
+                    $familyNewNumber = $familyOldNumber - $familyNumber;
+                    $massiveNewNumber = $massivOldeNumber - $massiveNumber;
+                    $date2 = date('Y-m-d', strtotime($date . ' +1 day'));
+                    $new_old = $_POST['new_old'];
+                    $price = ($singleNumber * $singlePrice) + ($doubleNumber * $doublePrice) + ($familyNumber * $familyPrice) + ($massiveNumber * $massivPrice);
 
-                // echo $count;
-
-                $add = 0;
-
-                if ($new_old == 0) {
-                    if ($this->model->addHotelAvailability($hotel_id, $date, $singleNewNumber, $doubleNewNumber, $familyNewNumber, $massiveNewNumber)) {
-                        //added to availability table
-                        $add = 1;
-                    } else {
-                        die('Something went wrong.');
+                    if ($count == 0) {
+                        $day = 'first';
+                        $_SESSION['hote1_price'] = $price;
                     }
-                } else {
-                    if ($this->model->updateHotelAvailability($hotel_id, $date, $singleNewNumber, $doubleNewNumber, $familyNewNumber, $massiveNewNumber)) {
-                        //edited to availability table
-                        $add = 1;
-                    } else {
-                        die('Something went wrong.');
+                    if ($count == 1) {
+                        $day = 'second';
+                        $_SESSION['hotel2_price'] = $price;
                     }
-                }
 
-                if ($add == 1) {
-                    if ($this->model->addBooking($hotel_id, $_SESSION['trip_id'], $_SESSION['travelerID'], $date, $day, $singleNumber, $doubleNumber, $familyNumber, $massiveNumber, $price)) {
-                        if ($_SESSION['difference'] == 1 && $count == 0) {
-                            $hotel2 = 0;
-                            if ($this->model->addBudget($_SESSION['trip_id'], $_SESSION['hote1_price'], $hotel2, $_SESSION['tickets'])) {
-                                header('location: ' . URLROOT . '/Traveler/budget');
-                            } else {
-                                die('Something went erong');
+                    // echo $count;
+
+                    $add = 0;
+
+                    if ($new_old == 0) {
+                        if ($this->model->addHotelAvailability($hotel_id, $date, $singleNewNumber, $doubleNewNumber, $familyNewNumber, $massiveNewNumber)) {
+                            //added to availability table
+                            $add = 1;
+                        } else {
+                            die('Something went wrong.');
+                        }
+                    } else {
+                        if ($this->model->updateHotelAvailability($hotel_id, $date, $singleNewNumber, $doubleNewNumber, $familyNewNumber, $massiveNewNumber)) {
+                            //edited to availability table
+                            $add = 1;
+                        } else {
+                            die('Something went wrong.');
+                        }
+                    }
+
+                    if ($add == 1) {
+                        if ($this->model->addBooking($hotel_id, $_SESSION['trip_id'], $_SESSION['travelerID'], $date, $day, $singleNumber, $doubleNumber, $familyNumber, $massiveNumber, $price)) {
+                            if ($_SESSION['difference'] == 1 && $count == 0) {
+                                $hotel2 = 0;
+                                if ($this->model->addBudget($_SESSION['trip_id'], $_SESSION['hote1_price'], $hotel2, $_SESSION['tickets'])) {
+                                    header('location: ' . URLROOT . '/Traveler/budget');
+                                } else {
+                                    die('Something went erong');
+                                }
                             }
-                        }
-                        if ($_SESSION['difference'] == 2 && $count == 0) {
+                            if ($_SESSION['difference'] == 2 && $count == 0) {
 
-                            header('location: ' . URLROOT . '/Traveler/planTripHotels?count=1&des=' . $_SESSION['des2'] . '&date=' . $date2);
-                        }
-                        if ($_SESSION['difference'] == 2 && $count == 1) {
-
-                            if ($this->model->addBudget($_SESSION['trip_id'], $_SESSION['hote1_price'], $_SESSION['hotel2_price'], $_SESSION['tickets'])) {
-                                header('location: ' . URLROOT . '/Traveler/budget');
-                            } else {
-                                die('Something went erong');
+                                header('location: ' . URLROOT . '/Traveler/planTripHotels?count=1&des=' . $_SESSION['des2'] . '&date=' . $date2);
                             }
+                            if ($_SESSION['difference'] == 2 && $count == 1) {
 
-                            header('location: ' . URLROOT . '/Traveler/budget');
+                                if ($this->model->addBudget($_SESSION['trip_id'], $_SESSION['hote1_price'], $_SESSION['hotel2_price'], $_SESSION['tickets'])) {
+                                    header('location: ' . URLROOT . '/Traveler/budget');
+                                } else {
+                                    die('Something went erong');
+                                }
+
+                                header('location: ' . URLROOT . '/Traveler/budget');
+                            }
+                        } else {
+                            die("Something went wrong.");
                         }
-                    } else {
-                        die("Something went wrong.");
                     }
                 }
+                
             }
         }
     }
