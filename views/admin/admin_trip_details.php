@@ -102,7 +102,7 @@ if (isset($_SESSION['username'])) {
                                 <th class="trow">Day 3</th>
                             </tr>
                             <tr>
-                                <th class="row">Destination</th>
+                                <th class="row row-destinations">Destination</th>
                                 <td class="trow"><?php echo $des1;?></td>
                                 <td class="trow"><?php echo $des2;?></td>
                                 <td class="trow"><?php echo $des3;?></td>

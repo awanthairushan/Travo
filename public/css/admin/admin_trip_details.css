@@ -1,11 +1,12 @@
-body{
+body {
     font-family: sans-serif;
-    margin:0px;
+    margin: 0px;
     height: 100vh;
     background-color: black;
+    color: #ffffff;
 }
 
-.trip{
+.trip {
     /* used to center .tripmenu */
     width: 50%;
     height: 3rem;;
@@ -14,7 +15,7 @@ body{
     vertical-align: middle;
 }
 
-.tripmenu{
+.tripmenu {
     /* helps to center .tripmenu */
     width: 33%;
     height: 3rem;
@@ -23,87 +24,99 @@ body{
     text-align: center;
     vertical-align: middle;
     font-size: 1.5rem;
-    background: rgba(103, 176, 186, 0.7);
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffffff !important;
 }
 
-.link{
+.link {
     text-decoration: none;
     color: #ffffff;
 }
 
 
-.container_details{
+.container_details {
     display: block;
     width: 80%;
     height: 60vh;
     /* align .tripmenu div tags to the center */
     margin: 0.5rem auto;
-    background: rgba(196, 196, 196, 0.5);
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffffff !important;
     align-content: center;
 }
-.container_budget{
+
+.container_budget {
     display: block;
     width: 80%;
     height: 60vh;
     /* align .tripmenu div tags to the center */
     margin: 0.5rem auto;
-    background: rgba(196, 196, 196, 0.5);
+    background: rgba(255, 255, 255, 0.3);
     align-content: center;
 }
-.container_route{
+
+.container_route {
     display: block;
     width: 80%;
     height: 60vh;
     /* align .tripmenu div tags to the center */
     margin: 0.5rem auto;
-    background: rgba(196, 196, 196, 0.5);
+    background: rgba(255, 255, 255, 0.3);
     align-content: center;
 }
 
-.main{
-  margin: 1rem auto;
-  width: 80%;
+.main {
+    margin: 1rem auto;
+    width: 80%;
 
 }
 
-.main td{
+.main td {
     padding: 5px;
 }
 
 
-
-.trow{
+.trow {
     padding: 1rem;
+    color: #000000 !important;
 }
 
-.days tr{
+.days tr {
     background: rgba(255, 255, 255, 0.5);
-    border: 2px solid ;
+    border: 2px solid;
 }
 
-.days{
-  margin: 1rem auto;
-  width: 80%;
+.days {
+    margin: 1rem auto;
+    width: 80%;
 }
 
-.row{
+.row {
     text-align: left;
 }
-.buttons {
-  text-align: center;
+
+.row-destinations {
+    color: #000000 !important;
 }
 
-.map{
+.buttons {
+    text-align: center;
+}
+
+.map {
     display: block;
 }
 
 .details iframe {
-  margin:auto;
-  border-radius: 3rem;
+    margin: auto;
+    border-radius: 3rem;
 }
+
 .heading-one {
     font-size: 20px;
     font-weight: bold;
+    width: 80%;
+    margin: auto;
 }
 
 /* @media screen and (max-width:760px){
