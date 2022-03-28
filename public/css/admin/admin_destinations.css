@@ -43,7 +43,7 @@
 }
 
 .content_table th{
-    width: 20%;
+    padding-left: 1rem ;
 }
 .content_table td {    
     height: 3rem;
@@ -51,32 +51,29 @@
     padding: 0.5rem 1rem 0.5rem 1rem;
     line-height: 200%;
 }
-.content_table td:nth-child(1){
-    width: 20vw;
+.content_table td:nth-child(1),.content_table th:nth-child(1){
+    width: 20vw !important;
 }
-.content_table td:nth-child(2){
+
+.content_table td:nth-child(2),.content_table th:nth-child(2){
     width: 25vw;
 }
-.content_table td:nth-child(3){
-    width: 20vw;
+.content_table td:nth-child(3),.content_table th:nth-child(3){
+    width: 18vw;
     padding: 0;
     text-align: center;
 }
-.content_table td:nth-child(4){
-    width: 20vw;
+.content_table td:nth-child(4),.content_table th:nth-child(4){
+    width: 18vw;
     padding: 0;
     text-align: center;
 }
-.content_table td:nth-child(5){
-    width: 10vw;
+.content_table td:nth-child(5),.content_table th:nth-child(5){
+    width: 15vw;
     padding: 0;
     text-align: center;
 }
-.content_table td:nth-child(5){
-    width: 10vw;
-    padding: 0;
-    text-align: center;
-}
+
 .content_table tbody tr {
     background-color: #323534;
     border-bottom: 2px solid #000000;

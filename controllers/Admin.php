@@ -119,6 +119,7 @@ class Admin extends Controller{
         $this->view->single_room_details = $this->model->getSingleRoomDetails($hotel_id);
         $this->view->massive_room_details = $this->model->getMassiveRoomDetails($hotel_id);
         $this->view->hotel_images = $this->model->getHotelImages($hotel_id);
+        $this->view->hotelPaymentDetails = $this->model->gethotelPaymentDetails($hotel_id);
         $this->view->render('admin/admin_hotels_more');
     }
 

@@ -39,7 +39,6 @@ if (isset($_SESSION['username'])) {
                             <th>TICKET PRICE</th>
                             <th>Category</th>
                             <th></th>
-                            <th></th>
                         </tr>
                         </thead>
                         <tbody>

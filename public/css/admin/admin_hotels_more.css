@@ -80,12 +80,13 @@ body {
 }
 
 .hotel_account_payment {
-    width: 6rem;
-    height: 6rem;
+    width: 10rem;
+    height: 10rem;
     background-color: crimson;
     border-radius: 50%;
     margin: auto;
     padding: 1rem;
+    padding-top: 1rem;
     text-align: center;
     vertical-align: middle;
     font-size: 2rem;

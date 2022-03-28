@@ -110,6 +110,11 @@ class Admin_Model extends Model
         return $this->db->runQuery("SELECT * from hotel_images WHERE hotelID = '$hotel_id'");
     }
 
+    function gethotelPaymentDetails($hotel_id)
+    {
+        return $this->db->runQuery("SELECT SUM(price) AS price from trip_hotels WHERE hotelID = '$hotel_id'");
+    }
+
 //----------------------------------------Admin-Faq---------------------------------------------------------
     function getFaq()
     {

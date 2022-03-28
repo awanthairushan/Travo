@@ -28,7 +28,7 @@ if (isset($_SESSION['username'])) {
                         <?php while ($images = mysqli_fetch_array($this->hotel_images)) {
                             echo '<td><img src="' . URLROOT . '/public/images/assets/hotel/' . $images['image'] . '"
                                      class="images_image_gallery_hotel" alt="HOTEL SAMPLE IMAGES"></td>';
-                         } ?>
+                        } ?>
                     </tr>
                 </table>
             </div>
@@ -127,8 +127,12 @@ if (isset($_SESSION['username'])) {
                     <tr>
                         <td>Contact</td>
                         <td><?php echo $contact1 . ",  " . $contact2; ?></td>
-                        <td rowspan="5">
-                            <div class="hotel_account_payment">LKR 55000</div>
+                        <td rowspan="7">
+                            <?php
+                                while($hotelPayment = mysqli_fetch_array($this->hotelPaymentDetails)){
+                                    echo '<div class="hotel_account_payment"><p>LKR '.$hotelPayment['price'].'</p></div>' ;
+                                }
+                            ?>
                         </td>
                     </tr>
                     <tr>
@@ -175,10 +179,10 @@ if (isset($_SESSION['username'])) {
                       <input type="text" name="city" value="Colombo">
                       <input type="text" name="country" value="Sri Lanka"><br><br>
                   </form>  -->
-                        <td rowspan="3">
-                            <div class="paybtn">
-                                <button id="paybtn" form="payForm">PAY NOW</button>
-                            </div>
+                        <td rowspan="1">
+                            <!--                            <div class="paybtn">-->
+                            <!--                                <button id="paybtn" form="payForm">PAY NOW</button>-->
+                            <!--                            </div>-->
                         </td>
                     </tr>
                     <tr>
