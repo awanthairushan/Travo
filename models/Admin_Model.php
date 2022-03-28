@@ -179,8 +179,8 @@ function getCompletedTripDetails(){
 function selectBudget($trip_id){
     return $this->db->runQuery("SELECT * FROM budget WHERE trip_id='$trip_id'");
 }
-function selectTrip($trip_id){
-    return $this->db->runQuery("SELECT * FROM trips WHERE trip_id='$trip_id'");
+function selectTrip($trip_id, $traveler_id){
+    return $this->db->runQuery("SELECT * FROM trips WHERE trip_id='$trip_id' AND traveler_id = '$traveler_id' ");
 }
 function selectTraveler($travelerID){
     return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID= '$travelerID'");
@@ -190,6 +190,9 @@ function selectFirstHotel($trip_id){
 }
 function selectSecondHotel($trip_id){
     return $this->db->runQuery("SELECT trip_hotels.hotelId, hotels.name FROM trip_hotels INNER JOIN hotels ON trip_hotels.hotelId = hotels.hotelID WHERE trip_hotels.trip_id = '$trip_id' AND trip_hotels.day = 'second' ");
+}
+function updateTrips($tripId){
+    return $this->db->runQuery("UPDATE `trips` SET `status` = 'Completed' WHERE `trips`.`trip_id` = '$tripId';");
 }
 
 
