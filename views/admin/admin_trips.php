@@ -69,41 +69,27 @@ if (isset($_SESSION['username'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>P_12</td>
-                    <td>2021-10-25</td>
-                    <td>2021-10-26</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>L_67</td>
-                    <td>2021-11-15</td>
-                    <td>2021-11-17</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href=''"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>L_90</td>
-                    <td>2021-12-25</td>
-                    <td>2021-12-28</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>P_34</td>
-                    <td>2021-08-15</td>
-                    <td>2021-08-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>C_23</td>
-                    <td>2021-08-14</td>
-                    <td>2021-08-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
+            <?php
+           while ($rows = mysqli_fetch_array($this->savedTripDetails)){
+                echo "<tr>
+                    <td>".$rows['trip_id']."</td>
+                    <td>".$rows['start_date']."</td>
+                    <td>".$rows['end_date']."</td>
+                    <td>
+                    <form method='post' >
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
+                    </form>
+                    </td>
+                    <td class='tdbtn'>
+                    <form method='post' action='deleteFaq'>
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
+                    </form>
+                    </td>
+                </tr>";
+            }
+          ?>
             </tbody>
         </table>
     </div>
@@ -135,46 +121,33 @@ if (isset($_SESSION['username'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>L_86</td>
-                    <td>2021-08-15</td>
-                    <td>2021-08-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                    <td><input type="button" id="completedbtn" value="COMPLETED"></td>
-                </tr>
-                <tr>
-                    <td>C_33</td>
-                    <td>2021-11-15</td>
-                    <td>2021-11-17</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                    <td><input type="button" id="completedbtn" value="COMPLETED"></td>
-                </tr>
-                <tr>
-                    <td>P_128</td>
-                    <td>2021-08-15</td>
-                    <td>2021-08-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                    <td><input type="button" id="completedbtn" value="COMPLETED"></td>
-                </tr>
-                <tr>
-                    <td>L_78</td>
-                    <td>2021-10-25</td>
-                    <td>2021-10-26</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                    <td><input type="button" id="completedbtn" value="COMPLETED"></td>
-                </tr>
-                <tr>
-                    <td>C_34</td>
-                    <td>2021-10-25</td>
-                    <td>2021-10-26</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                    <td><input type="button" id="completedbtn" value="COMPLETED"></td>
-                </tr>
+            <?php
+           while ($rows = mysqli_fetch_array($this->paidTripDetails)){
+                echo "<tr>
+                    <td>".$rows['trip_id']."</td>
+                    <td>".$rows['start_date']."</td>
+                    <td>".$rows['end_date']."</td>
+                    <td>
+                    <form method='post' >
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
+                    </form>
+                    </td>
+                    <td class='tdbtn'>
+                    <form method='post' action='deleteFaq'>
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
+                    </form>
+                    </td>
+                    <td class='tdbtn'>
+                    <form method='post' action='deleteFaq'>
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='completedbtn' name ='removebtn' class='removebtn' value='COMPLETED'>
+                    </form>
+                    </td>
+                </tr>";
+            }
+          ?>
             </tbody>
         </table>
     </div>
@@ -205,41 +178,27 @@ if (isset($_SESSION['username'])) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>P_45</td>
-                    <td>2021-09-15</td>
-                    <td>2021-09-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>L_66</td>
-                    <td>2021-07-25</td>
-                    <td>2021-07-27</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>L_67</td>
-                    <td>2021-06-15</td>
-                    <td>2021-06-26</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE"class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>C_90</td>
-                    <td>2021-08-15</td>
-                    <td>2021-08-20</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
-                <tr>
-                    <td>C_23</td>
-                    <td>2021-04-13</td>
-                    <td>2021-04-14</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
-                    <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
-                </tr>
+            <?php
+           while ($rows = mysqli_fetch_array($this->completedTripDetails)){
+                echo "<tr>
+                    <td>".$rows['trip_id']."</td>
+                    <td>".$rows['start_date']."</td>
+                    <td>".$rows['end_date']."</td>
+                    <td>
+                    <form method='post' >
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='EDIT'>
+                    </form>
+                    </td>
+                    <td class='tdbtn'>
+                    <form method='post' action='deleteFaq'>
+                        <input type='hidden' value='$rows[0]' name=faq_id>
+                        <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='REMOVE'>
+                    </form>
+                    </td>
+                </tr>";
+            }
+          ?>
             </tbody>
         </table>
     </div>

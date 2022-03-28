@@ -95,7 +95,7 @@ if (isset($_SESSION['username'])) {
                                 }
                                 echo "
                             <form method='post' action='editSight'>
-                                <input type='hidden' value='".$sightId."' name=sightID>
+                                <input type='hidden' value='" . $sightId . "' name=sightID>
                                 <input type='submit' id='addbtn' name ='acceptbtn' class='addbtn edit-sight-btn' value='EDIT SIGHT' >
                             </form>";
                             }
@@ -240,8 +240,10 @@ if (isset($_SESSION['username'])) {
                             </div>
                         </div>
                     </form>
-                    <input type="button" id="addvpbtn" name="addvpbtn" value="ADD NEW PLACE" onclick="addPlace()">
-                    <input type="submit" form="form_add_destination" id="submitvpbtn" name="submitvpbtn" value="SUBMIT">
+<!--                    <input type="button" id="addvpbtn" name="addvpbtn" value="ADD NEW PLACE" onclick="addPlace()">-->
+                    <div class="destination-submit-div">
+                        <input type="submit" form="form_add_destination" id="submitvpbtn" name="submitvpbtn" value="SUBMIT">
+                    </div>
                 </div>
                 <!--JS to get new row when click on "Add new place" -->
 
@@ -258,7 +260,8 @@ if (isset($_SESSION['username'])) {
 
                             </div >
                         </div >
-                       '; }?>
+                       ';
+                        } ?>
                     </form>
                     <input type="button" id="addvpbtn" name="addvpbtn" value="ADD NEW PLACE" onclick="addPlace()">
                     <input type="submit" form="form_add_destination" id="submitvpbtn" name="submitvpbtn" value="SUBMIT">

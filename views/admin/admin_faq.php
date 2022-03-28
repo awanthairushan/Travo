@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
             <tr>
                 <th>QUESTION</th>
                 <th>ANSWER</th>
-                <th colspan = "2">CHANGES</th>
+                <th>CHANGES</th>
             </tr>
         </thead>
         <tbody>
