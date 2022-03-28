@@ -27,7 +27,7 @@
                             <?php while($showHotels=mysqli_fetch_array($this->hotel)){?>
                                 <div>
                                     <button onclick="window.location.href='hotelBooking?count=<?php echo $this->counter; ?>&htlId=<?php echo $showHotels['hotelID']; ?>&date=<?php echo $this->date ?>';" id="selecthotelbtn">
-                                            <?php echo $showHotels['name']; ?><br><br><?php echo $showHotels['hotel_type']; ?><br><br><?php echo 'Rs.'.$showHotels['single_price'].' - Rs.'.$showHotels['massive_price']; ?>
+                                            <?php echo $showHotels['name']; ?><br><br><?php echo $showHotels['hotel_type']; ?><br><br><?php //echo 'Rs.'.$showHotels['single_price'].' - Rs.'.$showHotels['massive_price']; ?>
                                     </button>
                                 </div>
                                 <?php } ?>

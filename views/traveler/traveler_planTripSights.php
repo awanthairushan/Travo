@@ -74,7 +74,7 @@
                         </style>
                         <div id="destinations">
                             <table class="tableday">
-                                <tr><td class="tdata"><label for="destination1"><?php echo $this->destination[$i-1]; ?></label></td></tr>
+                                <tr><td class="tdata tdata-heading"><label for="destination1"><?php echo $this->destination[$i-1]; ?></label></td></tr>
                                 <tr>
                                     <td class="tdata">
                                         <div id="sights" class="sights">
