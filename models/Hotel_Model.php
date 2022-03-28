@@ -79,7 +79,7 @@ function getFaq(){
     }
 
 
-    function getHotelCustomers($hotelId, $tripId){
-        return $this->db->runQuery("SELECT travelers.*, trip_hotels.* FROM travelers INNER JOIN trip_hotels ON trip_hotels.traveler_id = travelers.traveler_id WHERE trip_hotels.hotelId = '$hotelId' AND trip_hotels.trip_id = '$tripId' ");
+    function getHotelCustomers($traveler_id){
+        return $this->db->runQuery("SELECT * FROM travelers WHERE travelerID='$traveler_id' ");
     }
 }
