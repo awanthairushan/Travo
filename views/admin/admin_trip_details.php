@@ -1,6 +1,6 @@
 <?php
-// if (isset($_SESSION['username'])) {
-//   if (mysqli_num_rows($this->isAdmin) === 1) {
+if (isset($_SESSION['username'])) {
+  if (mysqli_num_rows($this->isAdmin) === 1) {
 ?>
 
 <html>
@@ -107,12 +107,12 @@
                                 <td class="trow"><?php echo $des2;?></td>
                                 <td class="trow"><?php echo $des3;?></td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <th class="row">Hotel</th>
                                 <td class="trow"><?php echo $hotel1;?></td>
                                 <td class="trow"><?php echo $hotel2;?></td>
                                 <td class="trow">No</td>
-                            </tr>
+                            </tr> -->
                             <!-- <tr>
                                 <th class="row">Sights</th>
                                 <td class="trow">Thuparamaya<br/>Isurumuniya<br/>Ruwanweliseya</td>
@@ -140,6 +140,7 @@
                         $accomodations = $rows['accomodation'];
                         $serviceCharge = $rows['service_charges'];
                         $tickets = $rows['ticket_fees'];
+                        $total = $rows['total_expenses'];
                     }
                  ?>
                     <tr>
@@ -175,7 +176,7 @@
                     <tr>
                         <th class="row" style="font-weight:bold;">Total Budget</th>
                         <th class="row">=</th>
-                        <th class="row">RS 14000.00</th>
+                        <th class="row">RS <?php echo $total; ?></th>
                     </tr>
                 </table>
             </div>
@@ -192,12 +193,12 @@
     </body>
 </html>
 <?php
-//   } else {
-//     echo '<script type="text/javascript">javascript:history.go(-1)</script>';
-//     exit();
-//   }
-// } else {
-//   header("location: http://localhost/TRAVO");
-//   exit();
-// }
+  } else {
+    echo '<script type="text/javascript">javascript:history.go(-1)</script>';
+    exit();
+  }
+} else {
+  header("location: http://localhost/TRAVO");
+  exit();
+}
 ?>
