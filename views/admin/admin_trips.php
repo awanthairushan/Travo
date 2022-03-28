@@ -121,14 +121,15 @@ if (isset($_SESSION['username'])) {
                     <td>".$rows['start_date']."</td>
                     <td>".$rows['end_date']."</td>
                     <td>
-                    <form method='post' >
-                        <input type='hidden' value='$rows[0]' name=faq_id>
+                    <form method='post' action='tripsMore'>
+                        <input type='hidden' value='$rows[0]' name=tripId>
+                        <input type='hidden' value='$rows[1]' name=travelerId>
                         <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
                     </form>
                     </td>
                     <td class='tdbtn'>
-                    <form method='post' action='deleteFaq'>
-                        <input type='hidden' value='$rows[0]' name=faq_id>
+                    <form method='post' action='markTripCompleted'>
+                        <input type='hidden' value='$rows[0]' name=tripId>
                         <input type='submit' id='completedbtn' name ='removebtn' class='removebtn' value='COMPLETED'>
                     </form>
                     </td>
@@ -171,8 +172,9 @@ if (isset($_SESSION['username'])) {
                     <td>".$rows['start_date']."</td>
                     <td>".$rows['end_date']."</td>
                     <td>
-                    <form method='post' >
-                        <input type='hidden' value='$rows[0]' name=faq_id>
+                    <form method='post' action='tripsMore'>
+                        <input type='hidden' value='$rows[0]' name=tripId>
+                        <input type='hidden' value='$rows[1]' name=travelerId>
                         <input type='submit' id='morebtn' name ='removebtn' class='removebtn' value='MORE'>
                     </form>
                     </td>

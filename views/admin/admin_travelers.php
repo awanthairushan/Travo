@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])) {
             <h3>Delete Account</h3>
             <hr>
             <form method='post' action='deleteTravelers'>
-            <p>There is no recovery option. Are you sure you want to delete this account ?</p>
+            <p>This traveler may have paid trips. There is no recovery option. Are you sure you want to delete this account ?</p>
             <input type='hidden' value='0' id="traveler_id" name=travelerID>
             <input type='hidden' value='0' name=email>
             <hr>
@@ -76,11 +76,11 @@ if (isset($_SESSION['username'])) {
                 <th>CITY</th>
                 <th>EMAIL</th>
                 <th>CONTACT</th>
-                <!--<th>PLANNED TRIPS</th>-->
                 <th>REMOVE</th>
             </tr>
         </thead>
         <tbody class="scroll">
+
 
         <?php
           while ($rows = mysqli_fetch_array($this->travelers)){

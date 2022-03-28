@@ -56,12 +56,6 @@ if (isset($_SESSION['username'])) {
                 echo "<tr>
                     <td>".$rows['question']."</td>
                     <td>".$rows['answer']."</td>
-                    <td>
-                    <form method='post' >
-                        <input type='hidden' value='$rows[0]' name=faq_id>
-                        <input type='submit' id='removebtn' name ='removebtn' class='removebtn' value='EDIT'>
-                    </form>
-                    </td>
                     <td class='tdbtn'>
                     <form method='post' action='deleteFaq'>
                         <input type='hidden' value='$rows[0]' name=faq_id>

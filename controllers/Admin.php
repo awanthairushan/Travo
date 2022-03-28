@@ -153,14 +153,23 @@ class Admin extends Controller{
         $this->view->render('admin/admin_trips');
     }
     function tripsMore(){
-        //$tripId = $_POST['tripId'];
+        session_start();
+        $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
+        $tripId = $_POST['tripId'];
         $travelerId = $_POST['travelerId'];
-        $this->view->budget = $this->model->selectBudget('trip_6240335e1cf5d');
+        $this->view->budget = $this->model->selectBudget( $tripId);
         $this->view->traveler = $this->model->selectTraveler($travelerId);
-        $this->view->tripDetails = $this->model->selectTrip('trip_6240335e1cf5d');
-        $this->view->firstHotel = $this->model->selectFirstHotel('trip_6240335e1cf5d');
-        $this->view->secondHotel = $this->model->selectSecondHotel('trip_6240335e1cf5d');
+        $this->view->tripDetails = $this->model->selectTrip($tripId, $travelerId);
+        $this->view->firstHotel = $this->model->selectFirstHotel($tripId, $travelerId);
+        $this->view->secondHotel = $this->model->selectSecondHotel($tripId, $travelerId);
         $this->view->render('admin/admin_trip_details');
+    }
+    function markTripCompleted(){
+        $tripId = $_POST['tripId'];
+        $isUpdated = $this->model->updateTrips($tripId);
+        if($isUpdated){
+            header('location:trips');
+        }
     }
 
     function vehiclesMore(){
