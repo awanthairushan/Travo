@@ -560,7 +560,7 @@ class Unregistered extends Controller
             header('location: signupHotel?error=Someone already taken that email. Try with another..!');
         } else {
             echo $imageName;
-            $this->model->addHotel($hotel_id, $name, $regNo, $licenceNo, $line1, $line2, $city, $latitude, $longitude, $contact1, $contact2, $description, $website, $email, $password, $hotel_type, $rep_name, $rep_email, $rep_contact1, $rep_contact2,$status, $otp);
+            $this->model->addHotel($hotel_id, $name, $regNo, $licenceNo, $line1, $line2, $city, $latitude, $longitude, $contact1, $contact2, $description, $website, $email, $password, $hotel_type, $rep_name, $rep_email, $rep_contact1, $rep_contact2,$single_price,$massive_price,$status, $otp);
             $this->model->addHotelRoom($hotel_id, 'single', $single_count, 1, $single_food, $single_mini_bar, $single_ac, $single_price);
             $this->model->addHotelRoom($hotel_id, 'double', $double_count, 2, $double_food, $double_mini_bar, $double_ac, $double_price);
             $this->model->addHotelRoom($hotel_id, 'family', $family_count, 4, $family_food, $family_mini_bar, $family_ac, $family_price);
@@ -569,7 +569,7 @@ class Unregistered extends Controller
                 $image_id = uniqid('hotelimg_');
                 $this->model->addHotelImages($hotel_id, $image_id, $imageNewName[$rows]);
             }
-            header('location: login');
+            //header('location: login');
         }
     }
 
