@@ -87,12 +87,8 @@ class Admin extends Controller{
     function editSight(){
         session_start();
         $this->view->isAdmin = $this->model->selectAdmins($_SESSION['username']);
-        $sightId = $_POST['sightID'];
-        $sightName = $_POST[''];
-        $ticketPrice = $_POST[''];
-        $category = $_POST[''];
-
-
+        $sightId = $_POST['sightId'];
+        $this->view->sightDetails = $this->model->getSightDetails($sightId);
         $isEditSuccess = $this->model->editSight($sightId);
         if($isEditSuccess){
             header('location: destinations');

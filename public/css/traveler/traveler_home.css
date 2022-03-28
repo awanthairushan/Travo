@@ -40,7 +40,7 @@
 }
 
 .heading{
-  color: #ffffff;
+  color: #oooooo;
 }
 
 .trow{
@@ -140,14 +140,27 @@ label {
   letter-spacing: 1px;
 }
 
-.upcoming {
-  opacity: 1;
-}
 .tripPlanBegin {
   display: block;
 }
 .upcoming-table {
   display: none;
+  opacity: 1;
+  width: 70VW;
+  margin: auto;
+  margin-top: 1rem;
+}
+.upcoming-table tr {
+  width: 100%;
+}
+.upcoming-table thead tr {
+  width: 100%;
+  font-weight: bold;
+}
+.upcoming-table td {
+  width: 20VW;
+  text-align: center;
+  font-size: 1.2rem;
 }
 .error{
   margin: 0 auto;

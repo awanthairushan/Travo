@@ -164,5 +164,8 @@ class Admin_Model extends Model
     {
         return $this->db->runQuery("DELETE FROM `sights` WHERE `sights`.`sight_id` = '$sightId' ");
     }
-
+    function getSightDetails($sightId)
+    {
+        return $this->db->runQuery("SELECT FROM sights WHERE sight_id = '$sightId'");
+    }
 }

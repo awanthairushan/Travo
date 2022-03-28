@@ -59,7 +59,8 @@ class Traveler_Model extends Model{
         return $this->db->runQuery("INSERT INTO trip_home (trip_id, no_of_people, traveler_id, start_date, end_date, category) VALUES ('$trip_id', '$traveler_count', '$travelerID', '$start_date', '$end_date', '$trip_cat')");
     }
     function getUpcomingTrip($travelerId){
-        return $this->db->runQuery("SELECT * FROM trips WHERE traveler_id = '$travelerId'");
+        $status =  "Pending";
+        return $this->db->runQuery("SELECT * FROM trips WHERE traveler_id = '$travelerId' AND status = '$status' ");
     }
     //---------------------------------------Traveler-PlanTripSights----------------------------------------------
 

@@ -253,6 +253,9 @@ tbody a {
     float: right;
 }
 
-/*.add-new-destinations {*/
-/*    display: none;*/
-/*}*/
+.add-new-destinations {
+    display: block;
+}
+.edit-destinations {
+    display: none;
+}

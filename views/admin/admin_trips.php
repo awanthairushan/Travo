@@ -80,7 +80,7 @@ if (isset($_SESSION['username'])) {
                     <td>L_67</td>
                     <td>2021-11-15</td>
                     <td>2021-11-17</td>
-                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href='../../pages/admin/admin_trip_details.php'"></td>
+                    <td><input type="button" id="morebtn" value="MORE" onclick="window.location.href=''"></td>
                     <td><input type="button" id="morebtn" value="MORE" class="morebtn_traveler_details"></td>
                 </tr>
                 <tr>

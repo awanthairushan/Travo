@@ -83,6 +83,7 @@ tbody::-webkit-scrollbar-thumb {
   height: 3.5rem;
   float: right;
   margin: 0.3rem 2.5rem;
+  cursor: pointer;
 }
 
 .answer-faq {

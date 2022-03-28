@@ -102,11 +102,12 @@ input[type=date], select{
 /*label part*/
 .label{
   font-weight: bold;
-	color:rgb(0, 0, 0);
+  color:rgb(0, 0, 0);
   text-align: right;
   background: rgba(255, 255, 255, 0.0);
-  height:50px;
-  width:700px
+  height:40px;
+  width:700px;
+  margin-top: 0;
 }
 /* ....................modal box for cutomer details............................... */
 .more_traveler_details_modal {

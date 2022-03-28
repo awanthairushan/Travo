@@ -103,9 +103,9 @@ if (isset($_SESSION['username'])) {
                     <table class="upcoming-table" id="upcoming-table">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Location</th>
-                                <th>Hotel</th>
+                                <td>Start Date</td>
+                                <td>End Date</td>
+                                <td>Location</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -114,10 +114,10 @@ if (isset($_SESSION['username'])) {
                                     <?php echo $upcomingTrip['start_date']; ?>
                                 </td>
                                 <td>
-                                <?php echo $upcomingTrip['destination_id']; ?>
+                                    <?php echo $upcomingTrip['end_date']; ?>
                                 </td>
                                 <td>
-                                <?php echo $upcomingTrip['start_date']; ?>
+                                <?php echo $upcomingTrip['destination_id'] . " , " . $upcomingTrip['destination_id2'] . " , " .$upcomingTrip['destination_id3']; ?>
                                 </td>
                             </tr>
                         </tbody>

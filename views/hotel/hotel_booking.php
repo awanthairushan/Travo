@@ -50,8 +50,8 @@ if (isset($_SESSION['username'])) {
                 <div class="rectangle2">
                     <table>
                         <tr>
-                            <td><label class="label" for="dateselect">DATE :</label></td>
-                            <div class="calender"></div>
+                            <td ><label class="label" for="dateselect">DATE :</label></td>
+                            <td><div class="calender"></div></td>
                             <td>
                                 <form action="bookingToDate" method="post">
                                     <input type="date" id="dateselect" name="dateselect" onchange="this.form.submit()"

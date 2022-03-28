@@ -129,9 +129,9 @@ if (isset($_SESSION['value'])) {
                         </div>
                     </div>
 
-                    <button class="get-location-btn" onclick="getLocation(event)">Get Current Location
+                    <button class="get-location-btn" onclick="getLocation(event)">Set Current Location
                     </button>
-                    <label class="label-for-map">drag the marker for your location</label>
+                    <label class="label-for-map">or drag the marker for your location</label>
                     <div id="map" style="height:400px; width: 90%; margin: 0 auto; border-radius: 1rem;"
                          class="my-3"></div>
 
