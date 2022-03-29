@@ -481,7 +481,7 @@ class Unregistered extends Controller
         $rep_contact2 = trim($_POST['rep_contact2']);
         $hotel_type = $_POST['hotel_type-type'];
         $image = $_FILES['hotel_image'];
-        $status = "new";
+        $status = "NEW";
         $otp = rand(1000, 9999);
         $password = password_hash($password1, PASSWORD_DEFAULT);
 

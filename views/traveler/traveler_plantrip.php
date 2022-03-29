@@ -115,8 +115,7 @@ if (isset($_SESSION['username'])) {
 
                                 <!--                                ------------------------------end of location input map------------------------------------------------------>
 
-                                <div id="displaydiv" class="displaydiv"> Select up
-                                    to <?php echo $_SESSION['difference'] + 1; ?> destinations
+                                <div id="displaydiv" class="displaydiv"> Select <?php echo $_SESSION['difference'] + 1; ?> destinations
                                 </div>
                                 <label for="destination">SELECT DESTINATIONS: </label>
                                 <select id="choices" name="destinations" onchange="getSelectedValue()"
